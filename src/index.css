@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  
+  --color-obsidian: #0A0C10;
+  --color-midnight: #11141D;
+  --color-slate-900: #0F172A;
+  --color-slate-800: #1E293B;
+  --color-slate-700: #334155;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748B;
+  --color-slate-400: #94A3B8;
+  --color-slate-300: #CBD5E1;
+  --color-slate-200: #E2E8F0;
+  --color-slate-100: #F1F5F9;
+  --color-slate-50: #F8FAFC;
+  
+  --color-accent-premium: #2563EB;
+  --color-accent-muted: #1D4ED8;
+  --color-brand-gold: #EAB308;
+  --color-soft-white: #F8FAFC;
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  
+  /* Backward compatibility for existing classes */
+  --color-gold-premium: #EAB308;
+  --color-gold-muted: #CA8A04;
+  --color-azul-noite: #0A0C10;
+  --color-azul-profundo: #11141D;
+  --color-azul-estrategico: #1E293B;
+  --color-azul-medio: #334155;
+  --color-azul-claro: #F1F5F9;
+  --color-branco: #FFFFFF;
+  --color-amarelo-mgi: #EAB308;
+  --color-cinza-analitico: #64748B;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-obsidian bg-soft-white antialiased selection:bg-accent-premium selection:text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-obsidian tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-glass-border;
+  }
+  
+  .text-gradient-accent {
+    @apply bg-gradient-to-br from-accent-premium via-accent-muted to-accent-premium bg-clip-text text-transparent;
+  }
+  
+  .bento-card {
+    @apply rounded-[2rem] border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-500;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
