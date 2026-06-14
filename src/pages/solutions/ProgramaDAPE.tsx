@@ -467,10 +467,10 @@ export function PerformanceProgram() {
                 Por que investir agora no Performance Program?
               </h2>
               <div className="space-y-6 text-branco/70 text-lg leading-relaxed">
-                <p>Crescer sem estrutura consome seu caixa, reduz suas margens e coloca em risco a longevidade do negócio.</p>
-                <p>Postergar a profissionalização da gestão gera custos invisíveis que já impactam sua operação diária.</p>
-                <p>Sem objetivos definidos e uma governança sólida, o excesso de esforço não se traduz em resultados reais.</p>
-                <p>O futuro da sua empresa depende de decisões fundamentadas em dados, não em suposições.</p>
+                <p>Crescer sem <strong>eficiência</strong> consome seu <strong>caixa</strong> e corrói suas <strong>margens</strong>, transformando alto faturamento em prejuízos invisíveis.</p>
+                <p>A falta de foco nas <strong>prioridades</strong> certas trava a <strong>execução</strong> e sobrecarrega você com incêndios diários e apagões na operação.</p>
+                <p>Gargalos operacionais não resolvidos sugam silenciosamente o <strong>lucro</strong> que deveria sobrar na conta da sua empresa todos os meses.</p>
+                <p>O futuro imediato do seu negócio não pode esperar: decisões lentas custam dinheiro vivo e estagnam os resultados da sua equipe hoje.</p>
               </div>
               <Link to="/diagnostico" className="mt-10 inline-flex items-center justify-center px-8 py-4 text-sm font-bold tracking-[0.2em] uppercase text-obsidian bg-accent-premium hover:bg-white transition-all duration-300 rounded-full">
                 Fale conosco
