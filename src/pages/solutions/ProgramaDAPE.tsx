@@ -33,19 +33,35 @@ export function PerformanceProgram() {
   const faqs = [
     {
       question: "O que é o Performance Program?",
-      answer: "O Performance Program é um programa voltado para Pequenas e Médias empresas que desejam melhorar a eficiência financeira e transformar crescimento em lucro. Ele ajuda a definir a estratégia de crescimento, controlar os indicadores e acelerar os resultados."
+      answer: "É um programa de implementação de gestão empresarial que ajuda sua empresa a ganhar controle dos números, implantar rotinas de gestão e melhorar lucro, caixa e execução em até 6 meses."
     },
     {
       question: "Para quem o Performance Program é indicado?",
-      answer: "Para empresários e CEOs de PMEs que já faturam alto, mas sentem que a operação está fora de controle, as margens estão apertadas ou que o crescimento não está se refletindo no caixa."
+      answer: "Para empresários que possuem uma empresa em operação, equipe estruturada e desejam mais controle, previsibilidade e resultados."
     },
     {
       question: "Como funciona o Performance Program?",
-      answer: "Trabalhamos com uma metodologia prática de implementação, com acompanhamento online, e uso de tecnologia e IA, focando em gerar resultados consistentes e previsíveis."
+      answer: "Durante 6 meses, trabalhamos na implantação de indicadores, dashboards, metas, reuniões de gestão e projetos prioritários, acompanhando a execução e os resultados."
     },
     {
       question: "Em quanto tempo começo a ver resultados?",
-      answer: "Os primeiros resultados em termos de clareza e controle financeiro costumam aparecer nos primeiros 30 a 60 dias de implementação do método."
+      answer: "Muitas empresas percebem melhorias nos primeiros 30 a 90 dias. Resultados mais consistentes costumam ser consolidados ao longo do programa."
+    },
+    {
+      question: "Preciso ter indicadores e controles para participar?",
+      answer: "Não. A maioria dos clientes inicia justamente para criar essa estrutura e passar a tomar decisões com base em dados."
+    },
+    {
+      question: "Qual a diferença entre o Performance Program e o Advisory Program?",
+      answer: "O Performance Program foca em controle, execução e resultados de curto prazo. O Advisory Program é voltado para estratégia, liderança e crescimento de médio e longo prazo."
+    },
+    {
+      question: "O que acontece após os 6 meses?",
+      answer: "A empresa pode renovar o programa, migrar para o Advisory Program ou seguir de forma independente utilizando os sistemas implantados."
+    },
+    {
+      question: "O Performance Program é consultoria ou mentoria?",
+      answer: "É uma combinação de consultoria, mentoria e acompanhamento de execução, com foco em transformar planos em resultados concretos."
     }
   ];
 
