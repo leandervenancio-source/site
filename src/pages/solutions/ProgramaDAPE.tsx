@@ -71,10 +71,10 @@ export function PerformanceProgram() {
               <span className="font-serif italic text-accent-premium">Program</span>
             </h1>
             <h2 className="text-xl md:text-2xl font-display font-light text-branco/90 mb-8 leading-relaxed">
-              Mentoria de gestão ativa focada em <span className="text-accent-premium font-normal">resultados rápidos e execução</span> de alto nível.
+              Controle seus números, aumente seu lucro e crie uma rotina de execução que gera resultados de verdade.
             </h2>
             <p className="text-lg text-branco/70 font-light leading-relaxed mb-12 max-w-2xl mx-auto">
-              O Performance Program é desenhado para empresas que precisam de tração imediata. Implementamos o método DAPE para garantir que cada ação gere impacto direto no lucro.
+              O Performance Program ajuda empresários a implantar indicadores, organizar a gestão e executar prioridades que aumentam lucro e caixa nos próximos 6 meses.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link to="/diagnostico" className="group relative inline-flex items-center justify-center px-10 py-5 text-sm font-bold tracking-[0.2em] uppercase text-obsidian bg-accent-premium rounded-full overflow-hidden transition-all duration-500">
