@@ -63,12 +63,12 @@ export function AdvisoryProgram() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-5xl mx-auto"
           >
-            <span className="text-accent-premium font-bold tracking-[0.4em] uppercase text-xs mb-6 block">Advisory Program</span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-light leading-[1.1] mb-8 text-branco tracking-tight">
-              Construa a empresa que sustentará os <br />
+            <span className="text-accent-premium font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Advisory Program</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-[1.1] mb-6 text-branco tracking-tight">
+              Construa a empresa que sustentará os <br className="hidden md:block" />
               <span className="font-serif italic text-accent-premium">próximos 5 anos de crescimento.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-branco/80 font-light leading-relaxed mb-12 max-w-4xl mx-auto">
+            <p className="text-lg md:text-xl text-branco/80 font-light leading-relaxed mb-8 max-w-4xl mx-auto">
               O Advisory Program ajuda empresários a desenvolver liderança, estruturar a organização e transformar crescimento em uma operação escalável e menos dependente do dono.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
