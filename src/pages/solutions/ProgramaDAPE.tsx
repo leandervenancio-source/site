@@ -394,12 +394,12 @@ export function PerformanceProgram() {
             <div className="w-full h-32 bg-obsidian rounded-2xl flex items-center justify-center p-6 text-center shadow-lg border border-obsidian/10 relative group hover:shadow-xl hover:-translate-y-1 hover:border-accent-premium/30 transition-all duration-300">
               <span className="font-display font-medium text-branco text-sm">Diagnóstico +<br/>Quick Wins</span>
               {/* Arrow Desktop */}
-              <div className="hidden lg:block absolute top-1/2 left-full w-8 h-[2px] bg-obsidian/20 -translate-y-1/2 z-0">
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 border-obsidian/20 rotate-45"></div>
+              <div className="hidden lg:block absolute top-1/2 left-full w-8 h-[3px] bg-obsidian/40 -translate-y-1/2 z-0">
+                <div className="absolute -right-[2px] top-1/2 -translate-y-1/2 w-3 h-3 border-t-[3px] border-r-[3px] border-obsidian/40 rotate-45 rounded-sm"></div>
               </div>
               {/* Arrow Mobile */}
-              <div className="lg:hidden absolute top-full left-1/2 w-[2px] h-8 bg-obsidian/20 -translate-x-1/2 z-0">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 border-b-2 border-r-2 border-obsidian/20 rotate-45"></div>
+              <div className="lg:hidden absolute top-full left-1/2 w-[3px] h-8 bg-obsidian/40 -translate-x-1/2 z-0">
+                <div className="absolute -bottom-[2px] left-1/2 -translate-x-1/2 w-3 h-3 border-b-[3px] border-r-[3px] border-obsidian/40 rotate-45 rounded-sm"></div>
               </div>
             </div>
 
@@ -407,12 +407,12 @@ export function PerformanceProgram() {
             <div className="w-full h-32 bg-obsidian rounded-2xl flex items-center justify-center p-6 text-center shadow-lg border border-obsidian/10 relative group hover:shadow-xl hover:-translate-y-1 hover:border-accent-premium/30 transition-all duration-300">
               <span className="font-display font-medium text-branco text-sm">Implantação de<br/>Indicadores</span>
               {/* Arrow Desktop */}
-              <div className="hidden lg:block absolute top-1/2 left-full w-8 h-[2px] bg-obsidian/20 -translate-y-1/2 z-0">
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 border-obsidian/20 rotate-45"></div>
+              <div className="hidden lg:block absolute top-1/2 left-full w-8 h-[3px] bg-obsidian/40 -translate-y-1/2 z-0">
+                <div className="absolute -right-[2px] top-1/2 -translate-y-1/2 w-3 h-3 border-t-[3px] border-r-[3px] border-obsidian/40 rotate-45 rounded-sm"></div>
               </div>
               {/* Arrow Mobile */}
-              <div className="lg:hidden absolute top-full left-1/2 w-[2px] h-8 bg-obsidian/20 -translate-x-1/2 z-0">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 border-b-2 border-r-2 border-obsidian/20 rotate-45"></div>
+              <div className="lg:hidden absolute top-full left-1/2 w-[3px] h-8 bg-obsidian/40 -translate-x-1/2 z-0">
+                <div className="absolute -bottom-[2px] left-1/2 -translate-x-1/2 w-3 h-3 border-b-[3px] border-r-[3px] border-obsidian/40 rotate-45 rounded-sm"></div>
               </div>
             </div>
 
@@ -420,12 +420,12 @@ export function PerformanceProgram() {
             <div className="w-full h-32 bg-obsidian rounded-2xl flex items-center justify-center p-6 text-center shadow-lg border border-obsidian/10 relative group hover:shadow-xl hover:-translate-y-1 hover:border-accent-premium/30 transition-all duration-300">
               <span className="font-display font-medium text-branco text-sm">Análise +<br/>Planejamento</span>
               {/* Arrow Desktop */}
-              <div className="hidden lg:block absolute top-1/2 left-full w-8 h-[2px] bg-obsidian/20 -translate-y-1/2 z-0">
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 border-obsidian/20 rotate-45"></div>
+              <div className="hidden lg:block absolute top-1/2 left-full w-8 h-[3px] bg-obsidian/40 -translate-y-1/2 z-0">
+                <div className="absolute -right-[2px] top-1/2 -translate-y-1/2 w-3 h-3 border-t-[3px] border-r-[3px] border-obsidian/40 rotate-45 rounded-sm"></div>
               </div>
               {/* Arrow Mobile */}
-              <div className="lg:hidden absolute top-full left-1/2 w-[2px] h-8 bg-obsidian/20 -translate-x-1/2 z-0">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 border-b-2 border-r-2 border-obsidian/20 rotate-45"></div>
+              <div className="lg:hidden absolute top-full left-1/2 w-[3px] h-8 bg-obsidian/40 -translate-x-1/2 z-0">
+                <div className="absolute -bottom-[2px] left-1/2 -translate-x-1/2 w-3 h-3 border-b-[3px] border-r-[3px] border-obsidian/40 rotate-45 rounded-sm"></div>
               </div>
             </div>
 
@@ -434,12 +434,13 @@ export function PerformanceProgram() {
               <span className="font-display font-medium text-branco text-sm">Rotina de<br/>Execução</span>
               
               {/* Loop Arrow (Desktop) */}
-              <div className="hidden lg:block absolute top-[calc(100%+8px)] right-1/2 w-[calc(100%+2rem)] h-12 border-l-[1.5px] border-b-[1.5px] border-r-[1.5px] border-accent-premium/60 rounded-b-xl pointer-events-none z-0">
+              <div className="hidden lg:block absolute top-[calc(100%+8px)] right-1/2 w-[calc(100%+2rem)] h-16 border-l-[2px] border-b-[2px] border-r-[2px] border-dashed border-accent-premium/80 rounded-b-3xl pointer-events-none z-0">
                 {/* Arrow Head Pointing Up to Box 3 */}
-                <div className="absolute -top-[2px] left-[0px] -translate-x-[45%] w-2.5 h-2.5 border-t-[1.5px] border-l-[1.5px] border-accent-premium/60 rotate-45"></div>
-                {/* Text */}
-                <div className="absolute -bottom-[10px] left-1/2 -translate-x-1/2 bg-zinc-50 px-3">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-premium whitespace-nowrap">Otimização</span>
+                <div className="absolute -top-[3px] left-[0px] -translate-x-[45%] w-3 h-3 border-t-[3px] border-l-[3px] border-accent-premium/80 rotate-45 rounded-sm"></div>
+                {/* Text Badge */}
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-accent-premium text-obsidian px-5 py-2 rounded-full shadow-xl flex items-center gap-2 border-[4px] border-zinc-50 z-10 pointer-events-auto hover:scale-105 transition-transform cursor-default">
+                  <RefreshCw className="w-3.5 h-3.5 animate-[spin_4s_linear_infinite]" />
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Otimização Contínua</span>
                 </div>
               </div>
             </div>
