@@ -283,23 +283,24 @@ export function PerformanceProgram() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { id: "01", title: "Diagnóstico de Performance", icon: Search },
-              { id: "02", title: "Definição de OKRs e Metas", icon: Target },
-              { id: "03", title: "Rituais de Gestão Semanal", icon: Settings },
-              { id: "04", title: "Dashboards de Operação", icon: BarChart3 },
-              { id: "05", title: "Mentoria de Execução", icon: Zap },
-              { id: "06", title: "Treinamento de Liderança", icon: Users },
-              { id: "07", title: "Suporte via Whatsapp", icon: MessageCircle },
-              { id: "08", title: "Acesso à MGI Academy", icon: GraduationCap }
+              { id: "01", title: "Diagnóstico de Performance", desc: "Análise profunda da sua operação atual para identificar gargalos e oportunidades de lucro imediato.", icon: Search },
+              { id: "02", title: "Indicadores e Metas", desc: "Definição clara de objetivos e estruturação de KPIs (indicadores) para medir o progresso do negócio.", icon: Target },
+              { id: "03", title: "Rotinas de Gestão", desc: "Implementação de rituais semanais para acompanhar o desempenho da equipe e corrigir rotas rapidamente.", icon: Settings },
+              { id: "04", title: "Plataforma de Performance", desc: "Acesso a ferramentas e painéis de controle que centralizam a visão da sua operação em tempo real.", icon: BarChart3 },
+              { id: "05", title: "Projetos Prioritários", desc: "Desenho e execução de projetos chave que vão destravar o crescimento do seu negócio de forma focada.", icon: Zap },
+              { id: "06", title: "Acompanhamento da Execução", desc: "Mentoria contínua para garantir que os planos saiam do papel e os líderes estejam sempre engajados.", icon: Users },
+              { id: "07", title: "Suporte via Whatsapp", desc: "Canal de comunicação ágil e direto para tirar dúvidas estratégicas do dia a dia de forma rápida.", icon: MessageCircle },
+              { id: "08", title: "Acesso à MGI Academy", desc: "Acesso à plataforma de capacitação com métodos, ferramentas e treinamentos para você e sua equipe.", icon: GraduationCap }
             ].map((item, i) => (
               <motion.div 
                 key={i}
                 whileHover={{ y: -10 }}
-                className="p-10 bento-card bg-white flex flex-col items-start group"
+                className="p-8 lg:p-10 bento-card bg-white flex flex-col items-start group"
               >
                 <div className="text-xs font-bold text-accent-muted mb-6 tracking-widest uppercase">{item.id}</div>
-                <item.icon className="w-10 h-10 text-obsidian mb-8 group-hover:text-accent-premium transition-colors duration-500" />
-                <h3 className="text-lg font-display font-medium text-obsidian leading-tight">{item.title}</h3>
+                <item.icon className="w-10 h-10 text-obsidian mb-6 group-hover:text-accent-premium transition-colors duration-500" />
+                <h3 className="text-lg font-display font-medium text-obsidian leading-tight mb-3">{item.title}</h3>
+                <p className="text-sm text-obsidian/60 font-light leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
