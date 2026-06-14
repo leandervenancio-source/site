@@ -117,154 +117,160 @@ export function PerformanceProgram() {
       </section>
 
       {/* Como ajuda Section (O Método) */}
-      <section className="py-8 lg:py-10 bg-obsidian text-branco relative overflow-hidden">
+      <section className="py-12 lg:py-20 bg-obsidian text-branco relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-premium/20 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-6">
-            <span className="text-accent-premium font-bold tracking-[0.3em] uppercase text-[10px] mb-2 block">O Método</span>
-            <h2 className="text-3xl md:text-4xl font-display font-light leading-tight text-branco mb-3">
+          <div className="text-center mb-12">
+            <span className="text-accent-premium font-bold tracking-[0.3em] uppercase text-xs mb-4 block">O Método</span>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-light leading-tight text-branco mb-6">
               Aceleração através <br />
               <span className="font-serif italic text-accent-premium">da execução.</span>
             </h2>
-            <p className="text-sm text-branco/50 font-light leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base lg:text-lg text-branco/50 font-light leading-relaxed max-w-2xl mx-auto">
               O Performance Program foca no <span className="text-branco font-normal">curto e médio prazo</span>. Implementamos rituais de controle que garantem que a estratégia seja executada com precisão através do método DAPE.
             </p>
           </div>
 
-          {/* Desktop View (Circular Layout) */}
-          <div className="hidden md:flex relative w-full max-w-[340px] lg:max-w-[400px] mx-auto aspect-square items-center justify-center mb-8">
-            {/* Rotating Dashed Circle Connector */}
-            <motion.div 
-              animate={{ rotate: 360 }}
-              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[65%] h-[65%] border border-dashed border-white/20 rounded-full z-0"
-            ></motion.div>
-            
-            <div className="absolute inset-0 z-10">
-              {/* Execução (E) - Top Left */}
-              <div className="absolute top-[27%] left-[27%] -translate-x-1/2 -translate-y-1/2">
-                <div className="relative flex items-center justify-center">
-                  <div className="relative group">
-                    <div className="absolute -inset-4 bg-accent-premium/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-accent-premium text-branco flex items-center justify-center text-2xl lg:text-3xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">E</div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            {/* Left side: Framework */}
+            <div className="lg:col-span-8 relative">
+              {/* Desktop View (Circular Layout) */}
+              <div className="hidden md:flex relative w-full max-w-[400px] lg:max-w-[500px] mx-auto aspect-square items-center justify-center">
+                {/* Rotating Dashed Circle Connector */}
+                <motion.div 
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                  className="absolute w-[65%] h-[65%] border border-dashed border-white/20 rounded-full z-0"
+                ></motion.div>
+                
+                <div className="absolute inset-0 z-10">
+                  {/* Execução (E) - Top Left */}
+                  <div className="absolute top-[27%] left-[27%] -translate-x-1/2 -translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="relative group">
+                        <div className="absolute -inset-6 bg-accent-premium/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-2xl lg:text-4xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">E</div>
+                      </div>
+                      <div className="absolute right-full mr-4 text-right w-[150px] lg:w-[200px]">
+                        <div className="text-branco font-display font-bold text-lg lg:text-xl leading-none mb-1">Execução</div>
+                        <div className="text-[8px] lg:text-[9px] tracking-[0.3em] uppercase text-accent-premium font-black mb-1.5">Resultados</div>
+                        <p className="text-[10px] lg:text-[11px] text-branco/50 leading-relaxed font-light">Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis.</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="absolute right-full mr-3 text-right w-[130px] lg:w-[160px]">
-                    <div className="text-branco font-display font-bold text-base lg:text-lg leading-none mb-1">Execução</div>
-                    <div className="text-[8px] tracking-[0.2em] uppercase text-accent-premium font-black mb-1">Resultados</div>
-                    <p className="text-[9px] lg:text-[10px] text-branco/50 leading-relaxed font-light">Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis.</p>
+
+                  {/* Dados (D) - Top Right */}
+                  <div className="absolute top-[27%] right-[27%] translate-x-1/2 -translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="relative group">
+                        <div className="absolute -inset-6 bg-accent-premium/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-2xl lg:text-4xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">D</div>
+                      </div>
+                      <div className="absolute left-full ml-4 text-left w-[150px] lg:w-[200px]">
+                        <div className="text-branco font-display font-bold text-lg lg:text-xl leading-none mb-1">Dados</div>
+                        <div className="text-[8px] lg:text-[9px] tracking-[0.3em] uppercase text-accent-premium font-black mb-1.5">Informação</div>
+                        <p className="text-[10px] lg:text-[11px] text-branco/50 leading-relaxed font-light">Sistema, processos de registro, indicadores, conciliações e controles padronizados.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Planejamento (P) - Bottom Left */}
+                  <div className="absolute bottom-[27%] left-[27%] -translate-x-1/2 translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="relative group">
+                        <div className="absolute -inset-6 bg-accent-premium/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-2xl lg:text-4xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">P</div>
+                      </div>
+                      <div className="absolute right-full mr-4 text-right w-[150px] lg:w-[200px]">
+                        <div className="text-branco font-display font-bold text-lg lg:text-xl leading-none mb-1">Planejamento</div>
+                        <div className="text-[8px] lg:text-[9px] tracking-[0.3em] uppercase text-accent-premium font-black mb-1.5">Prioridades</div>
+                        <p className="text-[10px] lg:text-[11px] text-branco/50 leading-relaxed font-light">Definição de objetivos, estratégias, projetos e planos de ação.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Análise (A) - Bottom Right */}
+                  <div className="absolute bottom-[27%] right-[27%] translate-x-1/2 translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="relative group">
+                        <div className="absolute -inset-6 bg-accent-premium/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-2xl lg:text-4xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">A</div>
+                      </div>
+                      <div className="absolute left-full ml-4 text-left w-[150px] lg:w-[200px]">
+                        <div className="text-branco font-display font-bold text-lg lg:text-xl leading-none mb-1">Análise</div>
+                        <div className="text-[8px] lg:text-[9px] tracking-[0.3em] uppercase text-accent-premium font-black mb-1.5">Inteligência</div>
+                        <p className="text-[10px] lg:text-[11px] text-branco/50 leading-relaxed font-light">Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Dados (D) - Top Right */}
-              <div className="absolute top-[27%] right-[27%] translate-x-1/2 -translate-y-1/2">
-                <div className="relative flex items-center justify-center">
-                  <div className="relative group">
-                    <div className="absolute -inset-4 bg-accent-premium/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-accent-premium text-branco flex items-center justify-center text-2xl lg:text-3xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">D</div>
-                  </div>
-                  <div className="absolute left-full ml-3 text-left w-[130px] lg:w-[160px]">
-                    <div className="text-branco font-display font-bold text-base lg:text-lg leading-none mb-1">Dados</div>
-                    <div className="text-[8px] tracking-[0.2em] uppercase text-accent-premium font-black mb-1">Informação</div>
-                    <p className="text-[9px] lg:text-[10px] text-branco/50 leading-relaxed font-light">Sistema, processos de registro, indicadores, conciliações e controles padronizados.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Planejamento (P) - Bottom Left */}
-              <div className="absolute bottom-[27%] left-[27%] -translate-x-1/2 translate-y-1/2">
-                <div className="relative flex items-center justify-center">
-                  <div className="relative group">
-                    <div className="absolute -inset-4 bg-accent-premium/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-accent-premium text-branco flex items-center justify-center text-2xl lg:text-3xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">P</div>
-                  </div>
-                  <div className="absolute right-full mr-3 text-right w-[130px] lg:w-[160px]">
-                    <div className="text-branco font-display font-bold text-base lg:text-lg leading-none mb-1">Planejamento</div>
-                    <div className="text-[8px] tracking-[0.2em] uppercase text-accent-premium font-black mb-1">Prioridades</div>
-                    <p className="text-[9px] lg:text-[10px] text-branco/50 leading-relaxed font-light">Definição de objetivos, estratégias, projetos e planos de ação.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Análise (A) - Bottom Right */}
-              <div className="absolute bottom-[27%] right-[27%] translate-x-1/2 translate-y-1/2">
-                <div className="relative flex items-center justify-center">
-                  <div className="relative group">
-                    <div className="absolute -inset-4 bg-accent-premium/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-accent-premium text-branco flex items-center justify-center text-2xl lg:text-3xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">A</div>
-                  </div>
-                  <div className="absolute left-full ml-3 text-left w-[130px] lg:w-[160px]">
-                    <div className="text-branco font-display font-bold text-base lg:text-lg leading-none mb-1">Análise</div>
-                    <div className="text-[8px] tracking-[0.2em] uppercase text-accent-premium font-black mb-1">Inteligência</div>
-                    <p className="text-[9px] lg:text-[10px] text-branco/50 leading-relaxed font-light">Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios.</p>
-                  </div>
-                </div>
+              {/* Mobile View (Vertical List) */}
+              <div className="md:hidden space-y-8 py-6">
+                {[
+                  { 
+                    letter: "D", 
+                    title: "Dados", 
+                    subtitle: "Informação", 
+                    desc: "Sistema, processos de registro, indicadores, conciliações e controles padronizados." 
+                  },
+                  { 
+                    letter: "A", 
+                    title: "Análise", 
+                    subtitle: "Inteligência", 
+                    desc: "Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios." 
+                  },
+                  { 
+                    letter: "P", 
+                    title: "Planejamento", 
+                    subtitle: "Prioridades", 
+                    desc: "Definição de objetivos, estratégias, projetos e planos de ação." 
+                  },
+                  { 
+                    letter: "E", 
+                    title: "Execução", 
+                    subtitle: "Resultados", 
+                    desc: "Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis." 
+                  }
+                ].map((item, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex flex-col items-center text-center"
+                  >
+                    <div 
+                      className="w-16 h-16 rounded-full bg-accent-premium text-branco flex items-center justify-center text-3xl font-black border-4 border-obsidian mb-3 shadow-lg shadow-accent-premium/40"
+                    >
+                      {item.letter}
+                    </div>
+                    <div className="font-display font-bold text-xl mb-1 text-branco">{item.title}</div>
+                    <div className="text-[10px] tracking-[0.4em] uppercase text-accent-premium font-black mb-2">{item.subtitle}</div>
+                    <p className="text-xs text-branco/50 leading-relaxed font-light max-w-xs">{item.desc}</p>
+                    {i < 3 && (
+                      <div className="w-px h-6 bg-gradient-to-b from-white/20 to-transparent mt-6"></div>
+                    )}
+                  </motion.div>
+                ))}
               </div>
             </div>
-          </div>
 
-          {/* Mobile View (Vertical List) */}
-          <div className="md:hidden space-y-6 py-6">
-            {[
-              { 
-                letter: "D", 
-                title: "Dados", 
-                subtitle: "Informação", 
-                desc: "Sistema, processos de registro, indicadores, conciliações e controles padronizados." 
-              },
-              { 
-                letter: "A", 
-                title: "Análise", 
-                subtitle: "Inteligência", 
-                desc: "Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios." 
-              },
-              { 
-                letter: "P", 
-                title: "Planejamento", 
-                subtitle: "Prioridades", 
-                desc: "Definição de objetivos, estratégias, projetos e planos de ação." 
-              },
-              { 
-                letter: "E", 
-                title: "Execução", 
-                subtitle: "Resultados", 
-                desc: "Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis." 
-              }
-            ].map((item, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="flex flex-col items-center text-center"
-              >
-                <div 
-                  className="w-14 h-14 rounded-full bg-accent-premium text-branco flex items-center justify-center text-2xl font-black border-4 border-obsidian mb-2 shadow-lg shadow-accent-premium/40"
-                >
-                  {item.letter}
+            {/* Right side: 3 Cards */}
+            <div className="lg:col-span-4 flex flex-col gap-6">
+              {[
+                { title: "Cultura Data-Driven", desc: "Decisões e equipes guiadas por dados e indicadores claros." },
+                { title: "Gestão Ágil", desc: "Processos dinâmicos que eliminam gargalos e aceleram a execução." },
+                { title: "Cultura de Melhoria Contínua", desc: "Ações e processos são constantemente aprimorados em busca da excelência." }
+              ].map((item, i) => (
+                <div key={i} className="glass p-8 rounded-3xl border-white/5 hover:border-accent-premium/20 transition-all duration-500 text-left">
+                  <div className="text-accent-premium font-display font-bold text-xl mb-3">{item.title}</div>
+                  <p className="text-branco/70 font-light leading-relaxed">{item.desc}</p>
                 </div>
-                <div className="font-display font-bold text-lg mb-1 text-branco">{item.title}</div>
-                <div className="text-[10px] tracking-[0.4em] uppercase text-accent-premium font-black mb-1">{item.subtitle}</div>
-                <p className="text-xs text-branco/50 leading-relaxed font-light max-w-xs">{item.desc}</p>
-                {i < 3 && (
-                  <div className="w-px h-6 bg-gradient-to-b from-white/20 to-transparent mt-4"></div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
-            {[
-              { title: "Cultura Data-Driven", desc: "Decisões e equipes guiadas por dados e indicadores claros." },
-              { title: "Gestão Ágil", desc: "Processos dinâmicos que eliminam gargalos e aceleram a execução." },
-              { title: "Cultura de Melhoria Contínua", desc: "Ações e processos são constantemente aprimorados em busca da excelência." }
-            ].map((item, i) => (
-              <div key={i} className="glass p-5 rounded-2xl border-white/5 hover:border-accent-premium/20 transition-all duration-500 text-center">
-                <div className="text-accent-premium font-display font-bold text-base mb-1">{item.title}</div>
-                <p className="text-branco/60 font-light text-xs">{item.desc}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
