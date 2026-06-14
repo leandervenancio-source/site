@@ -19,7 +19,8 @@ import {
   MessageCircle,
   GraduationCap,
   Search,
-  Settings
+  Settings,
+  RefreshCw
 } from "lucide-react";
 import { useState } from "react";
 import { Testimonials } from "../../components/Testimonials";
@@ -373,34 +374,48 @@ export function PerformanceProgram() {
         </div>
       </section>
 
-      {/* Como funciona Section */}
-      <section className="py-16 bg-zinc-50">
+      {/* Jornada do Programa Section */}
+      <section className="py-24 bg-soft-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-accent-premium font-sans text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">Como fazemos</span>
-            <h2 className="text-3xl md:text-4xl font-display text-obsidian mb-6">
-              Como funciona o Performance Program
+          <div className="text-center mb-20">
+            <span className="text-accent-muted font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Jornada</span>
+            <h2 className="text-4xl md:text-5xl font-display text-obsidian mb-6 tracking-tight">
+              A Jornada do Performance Program
             </h2>
-            <p className="text-lg text-obsidian/70 max-w-3xl mx-auto">
-              O Performance Program é um programa completo de consultoria de gestão para PMEs, com duração de 6 meses e dedicação real ao dia a dia do seu negócio.
+            <p className="text-lg text-obsidian/70 max-w-3xl mx-auto font-light leading-relaxed">
+              Um processo estruturado para transformar a gestão da sua empresa em uma máquina previsível e escalável nos próximos 6 meses.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: "Encontros semanais", desc: "Online com consultores especializados.", icon: Users },
-              { title: "Treinamentos práticos", desc: "Plataforma online para donos e time aprender.", icon: GraduationCap },
-              { title: "Ferramentas práticas", desc: "Dashboards para apoio à tomada de decisão.", icon: BarChart3 },
-              { title: "Entregas personalizadas", desc: "Ajustadas à realidade da sua empresa.", icon: CheckCircle2 },
-            ].map((item, i) => (
-              <div key={i} className="text-center p-8 bg-branco rounded-2xl border border-obsidian/5 flex flex-col items-center shadow-sm">
-                <div className="w-16 h-16 bg-obsidian text-accent-premium rounded-full flex items-center justify-center mb-6">
-                  <item.icon className="w-8 h-8" />
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0 lg:h-32">
+            
+            {/* Step 1 */}
+            <div className="w-full lg:w-1/4 h-24 lg:h-full bg-obsidian text-branco flex items-center justify-center lg:[clip-path:polygon(0%_0%,85%_0%,100%_50%,85%_100%,0%_100%)] rounded-xl lg:rounded-none relative z-10 hover:opacity-90 transition-opacity">
+              <span className="font-display font-medium text-lg lg:pr-8">Diagnóstico + Quick Wins</span>
+            </div>
+
+            {/* Step 2 */}
+            <div className="w-full lg:w-1/4 h-24 lg:h-full bg-blue-900 text-branco flex items-center justify-center lg:[clip-path:polygon(0%_0%,85%_0%,100%_50%,85%_100%,0%_100%,15%_50%)] rounded-xl lg:rounded-none lg:-ml-6 relative z-20 hover:opacity-90 transition-opacity">
+              <span className="font-display font-medium text-lg lg:pl-6 lg:pr-8 text-center">Implantação de Indicadores</span>
+            </div>
+
+            {/* Step 3 */}
+            <div className="w-full lg:w-1/4 h-24 lg:h-full bg-blue-700 text-branco flex items-center justify-center lg:[clip-path:polygon(0%_0%,85%_0%,100%_50%,85%_100%,0%_100%,15%_50%)] rounded-xl lg:rounded-none lg:-ml-6 relative z-30 hover:opacity-90 transition-opacity">
+              <span className="font-display font-medium text-lg lg:pl-6 lg:pr-8 text-center">Análise + Planejamento</span>
+            </div>
+
+            {/* Step 4 (Loop) */}
+            <div className="w-full lg:w-1/4 flex items-center justify-center lg:-ml-4 relative z-40 mt-8 lg:mt-0">
+              <div className="relative flex flex-col items-center justify-center w-40 h-40 group">
+                <RefreshCw className="w-16 h-16 text-accent-premium/80 absolute group-hover:rotate-180 transition-transform duration-700" strokeWidth={1.5} />
+                <div className="absolute w-full h-full border-4 border-dashed border-accent-premium/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                <div className="text-center z-10 mt-24">
+                  <span className="font-display font-bold text-obsidian text-lg leading-none block mb-1">Rotina de Execução</span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-muted">Otimização Contínua</span>
                 </div>
-                <h3 className="text-lg font-display text-obsidian mb-2">{item.title}</h3>
-                <p className="text-sm text-obsidian/60">{item.desc}</p>
               </div>
-            ))}
+            </div>
+
           </div>
         </div>
       </section>
