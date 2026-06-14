@@ -30,19 +30,35 @@ export function AdvisoryProgram() {
   const faqs = [
     {
       question: "O que é o Advisory Program?",
-      answer: "O Advisory Program é uma mentoria de gestão ativa voltada para PMEs que buscam profissionalizar sua estrutura, bater metas com consistência e aumentar a lucratividade através de métodos comprovados."
+      answer: "O Advisory Program é um programa de aconselhamento estratégico para empresários que desejam estruturar melhor a empresa, desenvolver lideranças e preparar o negócio para crescer de forma sustentável nos próximos anos."
     },
     {
       question: "Para quem o Advisory Program é indicado?",
-      answer: "É indicado para donos de PMEs em fase de crescimento que sentem a necessidade de uma gestão mais profissional, baseada em dados, rituais de controle e de uma equipe mais qualificada."
+      answer: "Para empresários que já possuem uma operação relativamente organizada e desejam fortalecer estratégia, liderança, governança e execução para alcançar um novo patamar de crescimento."
     },
     {
       question: "Qual a diferença entre o Advisory e uma consultoria tradicional?",
-      answer: "Trabalhamos com uma metodologia prática de implementação, com acompanhamento online, e uso de tecnologia e IA, focando em gerar resultados consistentes e previsíveis."
+      answer: "Enquanto a consultoria normalmente atua em problemas específicos, o Advisory oferece uma visão ampla do negócio, apoiando o empresário nas decisões estratégicas e no desenvolvimento da empresa como um todo."
     },
     {
       question: "Quanto tempo dura o acompanhamento?",
-      answer: "O programa trabalha com ciclos renováveis de 12 meses, sendo estruturado para gerar mudanças culturais e operacionais profundas que garantem a sustentabilidade dos resultados."
+      answer: "O Advisory Program é um acompanhamento contínuo, pois estratégia, liderança e crescimento são processos de longo prazo. A permanência mínima recomendada é de 12 meses."
+    },
+    {
+      question: "Preciso ter indicadores e rotinas de gestão para participar?",
+      answer: "Sim. O Advisory é mais indicado para empresas que já possuem um nível mínimo de controle gerencial e desejam avançar para temas estratégicos e organizacionais."
+    },
+    {
+      question: "O que é trabalhado durante o Advisory Program?",
+      answer: "Os encontros abordam temas como planejamento estratégico, estrutura organizacional, liderança, governança, indicadores, crescimento e acompanhamento de iniciativas estratégicas."
+    },
+    {
+      question: "O Advisory Program substitui um conselho consultivo?",
+      answer: "Para muitas PMEs, sim. O programa funciona como uma estrutura de aconselhamento estratégico, trazendo visão externa, experiência de mercado e apoio na tomada de decisões importantes."
+    },
+    {
+      question: "Quais resultados posso esperar?",
+      answer: "Maior clareza estratégica, lideranças mais preparadas, decisões mais consistentes, redução da dependência do fundador e uma empresa mais preparada para crescer de forma sustentável."
     }
   ];
 
