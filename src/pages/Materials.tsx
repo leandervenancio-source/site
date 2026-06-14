@@ -56,7 +56,7 @@ export function Materials() {
       />
       {/* Header - MGI Style */}
       <section className="bg-obsidian text-branco pt-40 pb-32 lg:pt-56 lg:pb-48 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,_#dec96a_0%,_transparent_60%)]"></div>
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,_#d4af37_0%,_transparent_60%)]"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -124,7 +124,7 @@ export function Materials() {
 
       {/* Newsletter / CTA - MGI Style */}
       <section className="py-32 bg-obsidian text-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,_#dec96a_0%,_transparent_60%)]"></div>
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,_#d4af37_0%,_transparent_60%)]"></div>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}

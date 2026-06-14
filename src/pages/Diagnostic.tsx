@@ -12,7 +12,7 @@ export function Diagnostic() {
 
   return (
     <div className="bg-branco min-h-screen pt-40 pb-32 lg:pt-56 lg:pb-48 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_0%,_#dec96a_0%,_transparent_60%)]"></div>
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_0%,_#d4af37_0%,_transparent_60%)]"></div>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <motion.div

@@ -15,26 +15,26 @@
   --color-slate-500: #7b90af;
   --color-slate-400: #a4b3c9;
   --color-slate-300: #cfd6e1;
-  --color-slate-200: #e8e4dc;
-  --color-slate-100: #f5f5f7;
+  --color-slate-200: #f0f0ed;
+  --color-slate-100: #fafaf8;
   --color-slate-50: #ffffff;
   
-  --color-accent-premium: #dec96a;
-  --color-accent-muted: #c2ae51;
-  --color-brand-gold: #dec96a;
-  --color-soft-white: #f5f5f7;
+  --color-accent-premium: #d4af37;
+  --color-accent-muted: #b5952f;
+  --color-brand-gold: #d4af37;
+  --color-soft-white: #fafaf8;
   --color-glass-border: rgba(255, 255, 255, 0.1);
   
   /* Backward compatibility for existing classes */
-  --color-gold-premium: #dec96a;
-  --color-gold-muted: #c2ae51;
+  --color-gold-premium: #d4af37;
+  --color-gold-muted: #b5952f;
   --color-azul-noite: #1a1f2e;
   --color-azul-profundo: #2c3e5c;
   --color-azul-estrategico: #405574;
   --color-azul-medio: #556c8e;
-  --color-azul-claro: #f5f5f7;
+  --color-azul-claro: #fafaf8;
   --color-branco: #FFFFFF;
-  --color-amarelo-mgi: #dec96a;
+  --color-amarelo-mgi: #d4af37;
   --color-cinza-analitico: #7b90af;
 }
 
