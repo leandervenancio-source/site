@@ -133,9 +133,9 @@ export function PerformanceProgram() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left side: Framework */}
-            <div className="lg:col-span-8 relative">
+            <div className="lg:col-span-9 relative">
               {/* Desktop View (Circular Layout) */}
-              <div className="hidden md:flex relative w-full max-w-[400px] lg:max-w-[500px] mx-auto aspect-square items-center justify-center">
+              <div className="hidden md:flex relative w-full max-w-[400px] lg:max-w-[540px] mx-auto aspect-square items-center justify-center">
                 {/* Rotating Dashed Circle Connector */}
                 <motion.div 
                   animate={{ rotate: 360 }}
@@ -259,15 +259,15 @@ export function PerformanceProgram() {
             </div>
 
             {/* Right side: 3 Cards */}
-            <div className="lg:col-span-4 flex flex-col gap-6">
+            <div className="lg:col-span-3 flex flex-col gap-4 lg:gap-5">
               {[
                 { title: "Cultura Data-Driven", desc: "Decisões e equipes guiadas por dados e indicadores claros." },
                 { title: "Gestão Ágil", desc: "Processos dinâmicos que eliminam gargalos e aceleram a execução." },
                 { title: "Cultura de Melhoria Contínua", desc: "Ações e processos são constantemente aprimorados em busca da excelência." }
               ].map((item, i) => (
-                <div key={i} className="glass p-8 rounded-3xl border-white/5 hover:border-accent-premium/20 transition-all duration-500 text-left">
-                  <div className="text-accent-premium font-display font-bold text-xl mb-3">{item.title}</div>
-                  <p className="text-branco/70 font-light leading-relaxed">{item.desc}</p>
+                <div key={i} className="glass p-5 lg:p-6 rounded-2xl border-white/5 hover:border-accent-premium/20 transition-all duration-500 text-left">
+                  <div className="text-accent-premium font-display font-bold text-lg mb-2">{item.title}</div>
+                  <p className="text-branco/50 text-sm font-light leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
