@@ -145,13 +145,13 @@ export function PerformanceProgram() {
               <div className="absolute top-[27%] left-[27%] -translate-x-1/2 -translate-y-1/2">
                 <div className="relative flex items-center justify-center">
                   <div className="relative group">
-                    <div className="absolute -inset-6 bg-[#00FFD1]/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#00FFD1] text-white flex items-center justify-center text-3xl lg:text-4xl font-black shadow-[0_0_30px_rgba(0,255,209,0.5)] border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">E</div>
+                    <div className="absolute -inset-6 bg-accent-premium/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-3xl lg:text-4xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">E</div>
                   </div>
                   <div className="absolute right-full mr-5 text-right w-[160px] lg:w-[200px]">
-                    <div className="text-[#00FFD1] font-display font-bold text-xl lg:text-2xl leading-none mb-1 drop-shadow-[0_0_10px_rgba(0,255,209,0.4)]">Execução</div>
-                    <div className="text-[9px] tracking-[0.4em] uppercase text-white font-black mb-2">Resultados</div>
-                    <p className="text-[11px] text-white/70 leading-relaxed font-light">Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis.</p>
+                    <div className="text-branco font-display font-bold text-xl lg:text-2xl leading-none mb-1">Execução</div>
+                    <div className="text-[9px] tracking-[0.4em] uppercase text-accent-premium font-black mb-2">Resultados</div>
+                    <p className="text-[11px] text-branco/50 leading-relaxed font-light">Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis.</p>
                   </div>
                 </div>
               </div>
@@ -160,13 +160,13 @@ export function PerformanceProgram() {
               <div className="absolute top-[27%] right-[27%] translate-x-1/2 -translate-y-1/2">
                 <div className="relative flex items-center justify-center">
                   <div className="relative group">
-                    <div className="absolute -inset-6 bg-[#3B82F6]/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#3B82F6] text-white flex items-center justify-center text-3xl lg:text-4xl font-black shadow-[0_0_30px_rgba(59,130,246,0.5)] border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">D</div>
+                    <div className="absolute -inset-6 bg-accent-premium/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-3xl lg:text-4xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">D</div>
                   </div>
                   <div className="absolute left-full ml-5 text-left w-[160px] lg:w-[200px]">
-                    <div className="text-[#3B82F6] font-display font-bold text-xl lg:text-2xl leading-none mb-1 drop-shadow-[0_0_10px_rgba(59,130,246,0.4)]">Dados</div>
-                    <div className="text-[9px] tracking-[0.4em] uppercase text-white font-black mb-2">Informação</div>
-                    <p className="text-[11px] text-white/70 leading-relaxed font-light">Sistema, processos de registro, indicadores, conciliações e controles padronizados.</p>
+                    <div className="text-branco font-display font-bold text-xl lg:text-2xl leading-none mb-1">Dados</div>
+                    <div className="text-[9px] tracking-[0.4em] uppercase text-accent-premium font-black mb-2">Informação</div>
+                    <p className="text-[11px] text-branco/50 leading-relaxed font-light">Sistema, processos de registro, indicadores, conciliações e controles padronizados.</p>
                   </div>
                 </div>
               </div>
@@ -175,13 +175,13 @@ export function PerformanceProgram() {
               <div className="absolute bottom-[27%] left-[27%] -translate-x-1/2 translate-y-1/2">
                 <div className="relative flex items-center justify-center">
                   <div className="relative group">
-                    <div className="absolute -inset-6 bg-[#8B5CF6]/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#8B5CF6] text-white flex items-center justify-center text-3xl lg:text-4xl font-black shadow-[0_0_30px_rgba(139,92,246,0.5)] border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">P</div>
+                    <div className="absolute -inset-6 bg-accent-premium/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-3xl lg:text-4xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">P</div>
                   </div>
                   <div className="absolute right-full mr-5 text-right w-[160px] lg:w-[200px]">
-                    <div className="text-[#8B5CF6] font-display font-bold text-xl lg:text-2xl leading-none mb-1 drop-shadow-[0_0_10px_rgba(139,92,246,0.4)]">Planejamento</div>
-                    <div className="text-[9px] tracking-[0.4em] uppercase text-white font-black mb-2">Prioridades</div>
-                    <p className="text-[11px] text-white/70 leading-relaxed font-light">Definição de objetivos, estratégias, projetos e planos de ação.</p>
+                    <div className="text-branco font-display font-bold text-xl lg:text-2xl leading-none mb-1">Planejamento</div>
+                    <div className="text-[9px] tracking-[0.4em] uppercase text-accent-premium font-black mb-2">Prioridades</div>
+                    <p className="text-[11px] text-branco/50 leading-relaxed font-light">Definição de objetivos, estratégias, projetos e planos de ação.</p>
                   </div>
                 </div>
               </div>
@@ -190,13 +190,13 @@ export function PerformanceProgram() {
               <div className="absolute bottom-[27%] right-[27%] translate-x-1/2 translate-y-1/2">
                 <div className="relative flex items-center justify-center">
                   <div className="relative group">
-                    <div className="absolute -inset-6 bg-[#06B6D4]/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#06B6D4] text-white flex items-center justify-center text-3xl lg:text-4xl font-black shadow-[0_0_30px_rgba(6,182,212,0.5)] border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">A</div>
+                    <div className="absolute -inset-6 bg-accent-premium/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-3xl lg:text-4xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">A</div>
                   </div>
                   <div className="absolute left-full ml-5 text-left w-[160px] lg:w-[200px]">
-                    <div className="text-[#06B6D4] font-display font-bold text-xl lg:text-2xl leading-none mb-1 drop-shadow-[0_0_10px_rgba(6,182,212,0.4)]">Análise</div>
-                    <div className="text-[9px] tracking-[0.4em] uppercase text-white font-black mb-2">Inteligência</div>
-                    <p className="text-[11px] text-white/70 leading-relaxed font-light">Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios.</p>
+                    <div className="text-branco font-display font-bold text-xl lg:text-2xl leading-none mb-1">Análise</div>
+                    <div className="text-[9px] tracking-[0.4em] uppercase text-accent-premium font-black mb-2">Inteligência</div>
+                    <p className="text-[11px] text-branco/50 leading-relaxed font-light">Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios.</p>
                   </div>
                 </div>
               </div>
@@ -208,28 +208,24 @@ export function PerformanceProgram() {
             {[
               { 
                 letter: "D", 
-                color: "#3B82F6", 
                 title: "Dados", 
                 subtitle: "Informação", 
                 desc: "Sistema, processos de registro, indicadores, conciliações e controles padronizados." 
               },
               { 
                 letter: "A", 
-                color: "#06B6D4", 
                 title: "Análise", 
                 subtitle: "Inteligência", 
                 desc: "Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios." 
               },
               { 
                 letter: "P", 
-                color: "#8B5CF6", 
                 title: "Planejamento", 
                 subtitle: "Prioridades", 
                 desc: "Definição de objetivos, estratégias, projetos e planos de ação." 
               },
               { 
                 letter: "E", 
-                color: "#00FFD1", 
                 title: "Execução", 
                 subtitle: "Resultados", 
                 desc: "Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis." 
@@ -244,14 +240,13 @@ export function PerformanceProgram() {
                 className="flex flex-col items-center text-center"
               >
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center text-4xl font-black border-4 border-obsidian mb-4 shadow-lg"
-                  style={{ backgroundColor: item.color, boxShadow: `0 0 30px ${item.color}80` }}
+                  className="w-20 h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-4xl font-black border-4 border-obsidian mb-4 shadow-lg shadow-accent-premium/40"
                 >
                   {item.letter}
                 </div>
-                <div className="font-display font-bold text-2xl mb-1" style={{ color: item.color }}>{item.title}</div>
-                <div className="text-xs tracking-[0.4em] uppercase text-white font-black mb-3">{item.subtitle}</div>
-                <p className="text-sm text-white/70 leading-relaxed font-light max-w-xs">{item.desc}</p>
+                <div className="font-display font-bold text-2xl mb-1 text-branco">{item.title}</div>
+                <div className="text-xs tracking-[0.4em] uppercase text-accent-premium font-black mb-3">{item.subtitle}</div>
+                <p className="text-sm text-branco/50 leading-relaxed font-light max-w-xs">{item.desc}</p>
                 {i < 3 && (
                   <div className="w-px h-8 bg-gradient-to-b from-white/20 to-transparent mt-8"></div>
                 )}
