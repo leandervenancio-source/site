@@ -94,16 +94,16 @@ export function PerformanceProgram() {
             <span className="text-accent-muted font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Desafios</span>
             <h2 className="text-3xl md:text-5xl font-display text-obsidian mb-0 leading-tight tracking-tight">
               Sua empresa sofre com <br />
-              <span className="font-serif italic text-accent-muted">falta de tração?</span>
+              <span className="font-serif italic text-accent-muted">baixa performance?</span>
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: Zap, title: "Execução lenta e metas que nunca saem do papel" },
-              { icon: AlertCircle, title: "Equipe sobrecarregada mas com baixa produtividade" },
-              { icon: BarChart3, title: "Falta de clareza sobre quais alavancas geram lucro" },
-              { icon: Target, title: "Decisões baseadas em 'feeling' e não em dados reais" }
+              { icon: TrendingDown, title: "Trabalha muito mas vê pouco lucro sobrar no caixa" },
+              { icon: Users, title: "A operação inteira depende de você para funcionar" },
+              { icon: BarChart3, title: "Decisões baseadas no 'feeling' por falta de números confiáveis" },
+              { icon: Target, title: "Metas são definidas, mas a execução nunca sai do papel" }
             ].map((item, i) => (
               <div key={i} className="bento-card bg-white p-10 flex flex-col items-center text-center group">
                 <div className="w-16 h-16 bg-obsidian rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-accent-premium transition-all duration-500 shadow-xl">
