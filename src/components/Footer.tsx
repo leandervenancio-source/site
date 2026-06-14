@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Instagram, Youtube, ArrowRight } from "lucide-react";
+import { Linkedin, Instagram, ArrowRight } from "lucide-react";
 
 export function Footer() {
   return (
@@ -17,11 +17,10 @@ export function Footer() {
             </p>
             <div className="flex space-x-4 mt-8">
               {[
-                { icon: Linkedin, href: "#" },
-                { icon: Instagram, href: "#" },
-                { icon: Youtube, href: "#" },
+                { icon: Instagram, href: "https://www.instagram.com/leandervenancio/" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/leander-ven%C3%A2ncio-9996ab141/" },
               ].map((social, i) => (
-                <a key={i} href={social.href} className="w-10 h-10 rounded-full glass flex items-center justify-center text-branco/40 hover:text-accent-premium hover:border-accent-premium/50 transition-all duration-500">
+                <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center text-branco/40 hover:text-accent-premium hover:border-accent-premium/50 transition-all duration-500">
                   <social.icon className="w-4 h-4" />
                 </a>
               ))}
