@@ -467,10 +467,10 @@ export function PerformanceProgram() {
                 Por que investir agora no Performance Program?
               </h2>
               <div className="space-y-6 text-branco/70 text-lg leading-relaxed">
-                <p>Crescer sem <strong>eficiência</strong> consome seu <strong>caixa</strong> e corrói suas <strong>margens</strong>, transformando alto faturamento em prejuízos invisíveis.</p>
-                <p>A falta de foco nas <strong>prioridades</strong> certas trava a <strong>execução</strong> e sobrecarrega você com incêndios diários e apagões na operação.</p>
-                <p>Gargalos operacionais não resolvidos sugam silenciosamente o <strong>lucro</strong> que deveria sobrar na conta da sua empresa todos os meses.</p>
-                <p>O futuro imediato do seu negócio não pode esperar: decisões lentas custam dinheiro vivo e estagnam os resultados da sua equipe hoje.</p>
+                <p>A <strong>falta de clareza</strong> sobre os números e prioridades trava a <strong>execução</strong> e faz sua equipe perder tempo apagando incêndios todos os dias.</p>
+                <p>A <strong>falta de controle</strong> operacional cria gargalos invisíveis que sugam silenciosamente o seu <strong>caixa</strong> e as suas <strong>margens</strong>.</p>
+                <p>Bater recorde de <strong>faturamento não significa nada</strong> se esse dinheiro não se transforma em <strong>lucro</strong> real na conta da empresa no fim do mês.</p>
+                <p>O seu negócio não pode esperar: operar no escuro e sem <strong>eficiência</strong> custa dinheiro vivo e estagna os seus resultados hoje.</p>
               </div>
               <Link to="/diagnostico" className="mt-10 inline-flex items-center justify-center px-8 py-4 text-sm font-bold tracking-[0.2em] uppercase text-obsidian bg-accent-premium hover:bg-white transition-all duration-300 rounded-full">
                 Fale conosco
