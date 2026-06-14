@@ -37,7 +37,7 @@ export function PerformanceProgram() {
     },
     {
       question: "Para quem o Performance Program é indicado?",
-      answer: "Para empresários que possuem uma empresa em operação, equipe estruturada e desejam mais controle, previsibilidade e resultados."
+      answer: "Para empresários que possuem uma empresa em operação faturando acima de R$ 2 milhões por ano, com uma equipe de mais de 10 funcionários, e que desejam mais controle, previsibilidade e resultados."
     },
     {
       question: "Como funciona o Performance Program?",
