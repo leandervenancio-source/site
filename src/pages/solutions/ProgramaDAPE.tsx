@@ -256,9 +256,9 @@ export function PerformanceProgram() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: "Cultura de Performance", desc: "Equipes focadas em metas e indicadores claros." },
-              { title: "Agilidade Decisória", desc: "Processos que eliminam gargalos e aceleram a execução." },
-              { title: "Foco no Lucro", desc: "Cada ação é medida pelo seu impacto na última linha." }
+              { title: "Cultura Data-Driven", desc: "Decisões e equipes guiadas por dados e indicadores claros." },
+              { title: "Gestão Ágil", desc: "Processos dinâmicos que eliminam gargalos e aceleram a execução." },
+              { title: "Cultura de Melhoria Contínua", desc: "Ações e processos são constantemente aprimorados em busca da excelência." }
             ].map((item, i) => (
               <div key={i} className="glass p-8 rounded-3xl border-white/5 hover:border-accent-premium/20 transition-all duration-500 text-center">
                 <div className="text-accent-premium font-display font-bold text-xl mb-2">{item.title}</div>
