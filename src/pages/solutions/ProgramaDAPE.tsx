@@ -32,15 +32,15 @@ export function PerformanceProgram() {
 
   const faqs = [
     {
-      question: "O que é a consultoria Performance Program?",
-      answer: "O Performance Program é um programa de consultoria empresarial voltado para Pequenas e Médias empresas que desejam melhorar a eficiência financeira e transformar crescimento em lucro. Ele ajuda a definir a estratégia de crescimento, controlar os indicadores e acelerar os resultados."
+      question: "O que é o Performance Program?",
+      answer: "O Performance Program é um programa voltado para Pequenas e Médias empresas que desejam melhorar a eficiência financeira e transformar crescimento em lucro. Ele ajuda a definir a estratégia de crescimento, controlar os indicadores e acelerar os resultados."
     },
     {
-      question: "Para quem a consultoria Performance Program é indicada?",
+      question: "Para quem o Performance Program é indicado?",
       answer: "Para empresários e CEOs de PMEs que já faturam alto, mas sentem que a operação está fora de controle, as margens estão apertadas ou que o crescimento não está se refletindo no caixa."
     },
     {
-      question: "Como funciona a consultoria Performance Program?",
+      question: "Como funciona o Performance Program?",
       answer: "Trabalhamos com uma metodologia prática de implementação, com acompanhamento online, e uso de tecnologia e IA, focando em gerar resultados consistentes e previsíveis."
     },
     {
