@@ -117,22 +117,22 @@ export function PerformanceProgram() {
       </section>
 
       {/* Como ajuda Section (O Método) */}
-      <section className="py-12 bg-obsidian text-branco relative overflow-hidden">
+      <section className="py-10 lg:py-16 bg-obsidian text-branco relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-premium/20 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10">
-            <span className="text-accent-premium font-bold tracking-[0.3em] uppercase text-xs mb-4 block">O Método</span>
-            <h2 className="text-3xl md:text-6xl font-display font-light leading-tight text-branco mb-6">
+          <div className="text-center mb-6">
+            <span className="text-accent-premium font-bold tracking-[0.3em] uppercase text-xs mb-3 block">O Método</span>
+            <h2 className="text-3xl md:text-5xl font-display font-light leading-tight text-branco mb-4">
               Aceleração através <br />
               <span className="font-serif italic text-accent-premium">da execução.</span>
             </h2>
-            <p className="text-lg text-branco/50 font-light leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base text-branco/50 font-light leading-relaxed max-w-2xl mx-auto">
               O Performance Program foca no <span className="text-branco font-normal">curto e médio prazo</span>. Implementamos rituais de controle que garantem que a estratégia seja executada com precisão através do método DAPE.
             </p>
           </div>
 
           {/* Desktop View (Circular Layout) */}
-          <div className="hidden md:flex relative w-full max-w-2xl mx-auto aspect-square items-center justify-center">
+          <div className="hidden md:flex relative w-full max-w-xl mx-auto aspect-square items-center justify-center mb-8">
             {/* Rotating Dashed Circle Connector */}
             <motion.div 
               animate={{ rotate: 360 }}
@@ -148,10 +148,10 @@ export function PerformanceProgram() {
                     <div className="absolute -inset-6 bg-accent-premium/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-3xl lg:text-4xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">E</div>
                   </div>
-                  <div className="absolute right-full mr-5 text-right w-[160px] lg:w-[200px]">
-                    <div className="text-branco font-display font-bold text-xl lg:text-2xl leading-none mb-1">Execução</div>
-                    <div className="text-[9px] tracking-[0.4em] uppercase text-accent-premium font-black mb-2">Resultados</div>
-                    <p className="text-[11px] text-branco/50 leading-relaxed font-light">Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis.</p>
+                  <div className="absolute right-full mr-4 text-right w-[140px] lg:w-[180px]">
+                    <div className="text-branco font-display font-bold text-lg lg:text-xl leading-none mb-1">Execução</div>
+                    <div className="text-[8px] tracking-[0.3em] uppercase text-accent-premium font-black mb-1.5">Resultados</div>
+                    <p className="text-[10px] text-branco/50 leading-relaxed font-light">Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis.</p>
                   </div>
                 </div>
               </div>
@@ -163,10 +163,10 @@ export function PerformanceProgram() {
                     <div className="absolute -inset-6 bg-accent-premium/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-3xl lg:text-4xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">D</div>
                   </div>
-                  <div className="absolute left-full ml-5 text-left w-[160px] lg:w-[200px]">
-                    <div className="text-branco font-display font-bold text-xl lg:text-2xl leading-none mb-1">Dados</div>
-                    <div className="text-[9px] tracking-[0.4em] uppercase text-accent-premium font-black mb-2">Informação</div>
-                    <p className="text-[11px] text-branco/50 leading-relaxed font-light">Sistema, processos de registro, indicadores, conciliações e controles padronizados.</p>
+                  <div className="absolute left-full ml-4 text-left w-[140px] lg:w-[180px]">
+                    <div className="text-branco font-display font-bold text-lg lg:text-xl leading-none mb-1">Dados</div>
+                    <div className="text-[8px] tracking-[0.3em] uppercase text-accent-premium font-black mb-1.5">Informação</div>
+                    <p className="text-[10px] text-branco/50 leading-relaxed font-light">Sistema, processos de registro, indicadores, conciliações e controles padronizados.</p>
                   </div>
                 </div>
               </div>
@@ -178,10 +178,10 @@ export function PerformanceProgram() {
                     <div className="absolute -inset-6 bg-accent-premium/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-3xl lg:text-4xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">P</div>
                   </div>
-                  <div className="absolute right-full mr-5 text-right w-[160px] lg:w-[200px]">
-                    <div className="text-branco font-display font-bold text-xl lg:text-2xl leading-none mb-1">Planejamento</div>
-                    <div className="text-[9px] tracking-[0.4em] uppercase text-accent-premium font-black mb-2">Prioridades</div>
-                    <p className="text-[11px] text-branco/50 leading-relaxed font-light">Definição de objetivos, estratégias, projetos e planos de ação.</p>
+                  <div className="absolute right-full mr-4 text-right w-[140px] lg:w-[180px]">
+                    <div className="text-branco font-display font-bold text-lg lg:text-xl leading-none mb-1">Planejamento</div>
+                    <div className="text-[8px] tracking-[0.3em] uppercase text-accent-premium font-black mb-1.5">Prioridades</div>
+                    <p className="text-[10px] text-branco/50 leading-relaxed font-light">Definição de objetivos, estratégias, projetos e planos de ação.</p>
                   </div>
                 </div>
               </div>
@@ -193,10 +193,10 @@ export function PerformanceProgram() {
                     <div className="absolute -inset-6 bg-accent-premium/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-3xl lg:text-4xl font-black shadow-lg shadow-accent-premium/40 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">A</div>
                   </div>
-                  <div className="absolute left-full ml-5 text-left w-[160px] lg:w-[200px]">
-                    <div className="text-branco font-display font-bold text-xl lg:text-2xl leading-none mb-1">Análise</div>
-                    <div className="text-[9px] tracking-[0.4em] uppercase text-accent-premium font-black mb-2">Inteligência</div>
-                    <p className="text-[11px] text-branco/50 leading-relaxed font-light">Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios.</p>
+                  <div className="absolute left-full ml-4 text-left w-[140px] lg:w-[180px]">
+                    <div className="text-branco font-display font-bold text-lg lg:text-xl leading-none mb-1">Análise</div>
+                    <div className="text-[8px] tracking-[0.3em] uppercase text-accent-premium font-black mb-1.5">Inteligência</div>
+                    <p className="text-[10px] text-branco/50 leading-relaxed font-light">Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios.</p>
                   </div>
                 </div>
               </div>
@@ -204,7 +204,7 @@ export function PerformanceProgram() {
           </div>
 
           {/* Mobile View (Vertical List) */}
-          <div className="md:hidden space-y-12 py-10">
+          <div className="md:hidden space-y-8 py-6">
             {[
               { 
                 letter: "D", 
@@ -240,29 +240,29 @@ export function PerformanceProgram() {
                 className="flex flex-col items-center text-center"
               >
                 <div 
-                  className="w-20 h-20 rounded-full bg-accent-premium text-branco flex items-center justify-center text-4xl font-black border-4 border-obsidian mb-4 shadow-lg shadow-accent-premium/40"
+                  className="w-16 h-16 rounded-full bg-accent-premium text-branco flex items-center justify-center text-3xl font-black border-4 border-obsidian mb-3 shadow-lg shadow-accent-premium/40"
                 >
                   {item.letter}
                 </div>
-                <div className="font-display font-bold text-2xl mb-1 text-branco">{item.title}</div>
-                <div className="text-xs tracking-[0.4em] uppercase text-accent-premium font-black mb-3">{item.subtitle}</div>
-                <p className="text-sm text-branco/50 leading-relaxed font-light max-w-xs">{item.desc}</p>
+                <div className="font-display font-bold text-xl mb-1 text-branco">{item.title}</div>
+                <div className="text-[10px] tracking-[0.4em] uppercase text-accent-premium font-black mb-2">{item.subtitle}</div>
+                <p className="text-xs text-branco/50 leading-relaxed font-light max-w-xs">{item.desc}</p>
                 {i < 3 && (
-                  <div className="w-px h-8 bg-gradient-to-b from-white/20 to-transparent mt-8"></div>
+                  <div className="w-px h-6 bg-gradient-to-b from-white/20 to-transparent mt-6"></div>
                 )}
               </motion.div>
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { title: "Cultura Data-Driven", desc: "Decisões e equipes guiadas por dados e indicadores claros." },
               { title: "Gestão Ágil", desc: "Processos dinâmicos que eliminam gargalos e aceleram a execução." },
               { title: "Cultura de Melhoria Contínua", desc: "Ações e processos são constantemente aprimorados em busca da excelência." }
             ].map((item, i) => (
-              <div key={i} className="glass p-8 rounded-3xl border-white/5 hover:border-accent-premium/20 transition-all duration-500 text-center">
-                <div className="text-accent-premium font-display font-bold text-xl mb-2">{item.title}</div>
-                <p className="text-branco/60 font-light">{item.desc}</p>
+              <div key={i} className="glass p-6 rounded-2xl border-white/5 hover:border-accent-premium/20 transition-all duration-500 text-center">
+                <div className="text-accent-premium font-display font-bold text-lg mb-2">{item.title}</div>
+                <p className="text-branco/60 font-light text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
