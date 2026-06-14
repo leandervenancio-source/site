@@ -387,40 +387,73 @@ export function PerformanceProgram() {
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-5xl mx-auto">
+          {/* Flowchart Container */}
+          <div className="relative max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-0">
             
             {/* Step 1 */}
-            <div className="w-full lg:flex-1 h-16 md:h-20 bg-[#0F172A] text-white flex items-center justify-center lg:[clip-path:polygon(0%_0%,calc(100%-24px)_0%,100%_50%,calc(100%-24px)_100%,0%_100%)] relative z-30 rounded-lg lg:rounded-none shadow-sm lg:shadow-none mb-2 lg:mb-0">
-              <span className="font-display font-medium text-sm md:text-[15px] lg:pr-6 whitespace-nowrap">Diagnóstico + Quick Wins</span>
+            <div className="w-full lg:w-48 h-32 bg-obsidian rounded-2xl flex items-center justify-center p-6 text-center shadow-xl border border-obsidian/10 relative z-10 group hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+              <span className="font-display font-medium text-branco text-sm">Diagnóstico +<br/>Quick Wins</span>
+            </div>
+
+            {/* Arrow 1 -> 2 */}
+            <div className="hidden lg:flex flex-1 items-center justify-center relative z-0">
+              <div className="w-full h-[2px] bg-obsidian/20 relative">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 border-t-2 border-r-2 border-obsidian/20 rotate-45"></div>
+              </div>
+            </div>
+            {/* Mobile Arrow */}
+            <div className="lg:hidden w-px h-8 bg-obsidian/20 relative">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 border-b-2 border-r-2 border-obsidian/20 rotate-45"></div>
             </div>
 
             {/* Step 2 */}
-            <div className="w-full lg:flex-1 h-16 md:h-20 bg-[#1E3A8A] text-white flex items-center justify-center lg:[clip-path:polygon(0%_0%,calc(100%-24px)_0%,100%_50%,calc(100%-24px)_100%,0%_100%,24px_50%)] lg:-ml-[26px] relative z-20 rounded-lg lg:rounded-none shadow-sm lg:shadow-none mb-2 lg:mb-0">
-              <span className="font-display font-medium text-sm md:text-[15px] lg:pl-6 lg:pr-6 whitespace-nowrap">Implantação de Indicadores</span>
+            <div className="w-full lg:w-48 h-32 bg-obsidian rounded-2xl flex items-center justify-center p-6 text-center shadow-xl border border-obsidian/10 relative z-10 group hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+              <span className="font-display font-medium text-branco text-sm">Implantação de<br/>Indicadores</span>
+            </div>
+
+            {/* Arrow 2 -> 3 */}
+            <div className="hidden lg:flex flex-1 items-center justify-center relative z-0">
+              <div className="w-full h-[2px] bg-obsidian/20 relative">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 border-t-2 border-r-2 border-obsidian/20 rotate-45"></div>
+              </div>
+            </div>
+            {/* Mobile Arrow */}
+            <div className="lg:hidden w-px h-8 bg-obsidian/20 relative">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 border-b-2 border-r-2 border-obsidian/20 rotate-45"></div>
             </div>
 
             {/* Step 3 */}
-            <div className="w-full lg:flex-1 h-16 md:h-20 bg-[#2563EB] text-white flex items-center justify-center lg:[clip-path:polygon(0%_0%,calc(100%-24px)_0%,100%_50%,calc(100%-24px)_100%,0%_100%,24px_50%)] lg:-ml-[26px] relative z-10 rounded-lg lg:rounded-none shadow-sm lg:shadow-none mb-8 lg:mb-0">
-              <span className="font-display font-medium text-sm md:text-[15px] lg:pl-6 lg:pr-6 whitespace-nowrap">Análise + Planejamento</span>
+            <div className="w-full lg:w-48 h-32 bg-accent-premium rounded-2xl flex items-center justify-center p-6 text-center shadow-xl border border-accent-premium relative z-10 group hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+              <span className="font-display font-bold text-obsidian text-sm">Análise +<br/>Planejamento</span>
             </div>
 
-            {/* Step 4 (Loop) */}
-            <div className="w-full lg:w-48 flex flex-col items-center justify-center relative z-40 lg:pl-8">
-              <div className="relative w-28 h-28 flex items-center justify-center mb-4 group">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full text-accent-premium animate-[spin_10s_linear_infinite]">
-                  <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-                  <path d="M3 3v5h5" />
-                  <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
-                  <path d="M16 21v-5h5" />
-                </svg>
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/40 rounded-full scale-75 group-hover:bg-accent-premium/10 transition-colors duration-500">
-                  <span className="font-display font-bold text-obsidian text-xs md:text-sm leading-tight text-center px-2">Rotina de<br/>Execução</span>
-                </div>
+            {/* Arrow 3 -> 4 */}
+            <div className="hidden lg:flex flex-1 items-center justify-center relative z-0">
+              <div className="w-full h-[2px] bg-obsidian/20 relative">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 border-t-2 border-r-2 border-obsidian/20 rotate-45"></div>
               </div>
-              <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-accent-premium text-center leading-relaxed">Otimização<br/>Contínua</span>
+            </div>
+            {/* Mobile Arrow */}
+            <div className="lg:hidden w-px h-8 bg-obsidian/20 relative">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 border-b-2 border-r-2 border-obsidian/20 rotate-45"></div>
+            </div>
+
+            {/* Step 4 */}
+            <div className="w-full lg:w-48 h-32 bg-obsidian rounded-2xl flex items-center justify-center p-6 text-center shadow-xl border border-obsidian/10 relative z-10 group hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+              <span className="font-display font-medium text-branco text-sm">Rotina de<br/>Execução</span>
+            </div>
+
+            {/* Loop Arrow (Desktop) */}
+            <div className="hidden lg:block absolute -bottom-16 right-[10%] w-[40%] h-16 border-b-2 border-l-2 border-r-2 border-accent-premium/40 rounded-b-2xl z-0">
+              {/* Arrow Head Pointing Up to Box 3 */}
+              <div className="absolute top-0 left-0 -translate-x-[2px] w-3 h-3 border-t-2 border-l-2 border-accent-premium/40 rotate-45"></div>
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-zinc-50 px-4">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-premium">Otimização</span>
+              </div>
             </div>
 
           </div>
+
         </div>
       </section>
 
