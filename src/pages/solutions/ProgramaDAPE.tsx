@@ -452,7 +452,7 @@ export function PerformanceProgram() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative group max-w-[75%] mx-auto md:mx-0">
-              <div className="absolute -inset-1 bg-gradient-to-r from-accent-premium/50 to-blue-500/50 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-accent-premium/50 to-accent-muted/50 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
               <img 
                 src="/assets/Foto Leander (2).png" 
                 alt="Leander Venâncio" 
