@@ -524,9 +524,9 @@ export function PerformanceProgram() {
       {/* Form Section */}
       <section className="py-12 lg:py-16 bg-soft-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 lg:p-16 bg-obsidian rounded-[2rem] lg:rounded-[3rem] border border-white/10 relative overflow-hidden shadow-2xl">
+          <div className="p-8 lg:p-12 bg-obsidian rounded-[2rem] lg:rounded-[3rem] border border-white/10 relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-96 h-96 bg-accent-premium/5 blur-[120px] rounded-full"></div>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
               <div>
                 <h2 className="text-4xl md:text-6xl font-display text-branco mb-6 leading-[0.9] tracking-tight">
                   Fale <br />

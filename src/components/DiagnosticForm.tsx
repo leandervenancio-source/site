@@ -54,7 +54,7 @@ export function DiagnosticForm() {
     }
   };
 
-  const inputClass = "w-full px-5 lg:px-6 py-4 bg-obsidian/40 border border-white/10 text-branco placeholder:text-white/40 placeholder:text-sm focus:bg-obsidian/60 focus:border-accent-premium focus:ring-1 focus:ring-accent-premium/50 outline-none transition-all duration-300 rounded-2xl font-light text-base shadow-inner";
+  const inputClass = "w-full px-5 lg:px-6 py-3.5 bg-obsidian/40 border border-white/10 text-branco placeholder:text-white/40 placeholder:text-sm focus:bg-obsidian/60 focus:border-accent-premium focus:ring-1 focus:ring-accent-premium/50 outline-none transition-all duration-300 rounded-xl font-light text-base shadow-inner";
 
   return (
     <motion.form
@@ -63,9 +63,9 @@ export function DiagnosticForm() {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
       onSubmit={handleSubmit}
-      className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl p-6 sm:p-8 md:p-12 border border-white/20 border-b-white/5 border-r-white/5 shadow-[0_0_50px_rgba(0,0,0,0.5)] rounded-[2.5rem] sm:rounded-[3rem] relative"
+      className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl p-5 sm:p-8 md:p-10 border border-white/20 border-b-white/5 border-r-white/5 shadow-[0_0_50px_rgba(0,0,0,0.5)] rounded-[2rem] sm:rounded-[2.5rem] relative"
     >
-      <div className="space-y-4 mb-8 sm:mb-10 relative z-10">
+      <div className="space-y-3 mb-6 sm:mb-8 relative z-10">
         <input type="text" placeholder="Nome Completo" value={formData.name} className={inputClass} required onChange={(e) => setFormData({...formData, name: e.target.value})} disabled={isSubmitting} />
         <input type="text" placeholder="Nome da Empresa" value={formData.company} className={inputClass} required onChange={(e) => setFormData({...formData, company: e.target.value})} disabled={isSubmitting} />
         <input type="email" placeholder="E-mail Corporativo" value={formData.email} className={inputClass} required onChange={(e) => setFormData({...formData, email: e.target.value})} disabled={isSubmitting} />
@@ -80,12 +80,12 @@ export function DiagnosticForm() {
       </div>
       
       {success && (
-        <div className="mb-6 p-4 bg-green-500/10 border border-green-500/20 text-green-400 rounded-2xl text-center text-sm font-medium relative z-10">
+        <div className="mb-6 p-4 bg-green-500/10 border border-green-500/20 text-green-400 rounded-xl text-center text-sm font-medium relative z-10">
           Solicitação enviada com sucesso! Nossa equipe entrará em contato.
         </div>
       )}
 
-      <button type="submit" disabled={isSubmitting} className="relative z-10 group flex justify-center items-center w-full py-5 sm:py-6 text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-obsidian bg-accent-premium rounded-full overflow-hidden transition-all duration-500 shadow-[0_0_30px_rgba(43,108,255,0.3)] hover:shadow-[0_0_50px_rgba(43,108,255,0.6)] hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-[0_0_30px_rgba(43,108,255,0.3)]">
+      <button type="submit" disabled={isSubmitting} className="relative z-10 group flex justify-center items-center w-full py-4 sm:py-5 text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-obsidian bg-accent-premium rounded-full overflow-hidden transition-all duration-500 shadow-[0_0_30px_rgba(43,108,255,0.3)] hover:shadow-[0_0_50px_rgba(43,108,255,0.6)] hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-[0_0_30px_rgba(43,108,255,0.3)]">
         <span className="relative z-10 flex items-center gap-2">
           {isSubmitting && <Loader2 className="w-4 h-4 animate-spin" />}
           {isSubmitting ? "Enviando..." : "Solicitar Diagnóstico Estratégico"}
