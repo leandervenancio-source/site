@@ -88,11 +88,11 @@ export function PerformanceProgram() {
       </section>
 
       {/* Sinais Section */}
-      <section className="py-20 bg-soft-white">
+      <section className="py-12 lg:py-16 bg-soft-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-accent-muted font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Desafios</span>
-            <h2 className="text-4xl md:text-6xl font-display text-obsidian mb-8 leading-tight tracking-tight">
+          <div className="text-center mb-10 lg:mb-12">
+            <span className="text-accent-muted font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Desafios</span>
+            <h2 className="text-3xl md:text-5xl font-display text-obsidian mb-0 leading-tight tracking-tight">
               Sua empresa sofre com <br />
               <span className="font-serif italic text-accent-muted">falta de tração?</span>
             </h2>
@@ -117,12 +117,12 @@ export function PerformanceProgram() {
       </section>
 
       {/* Como ajuda Section (O Método) */}
-      <section className="py-12 lg:py-20 bg-obsidian text-branco relative overflow-hidden">
+      <section className="py-12 lg:py-16 bg-obsidian text-branco relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-premium/20 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10 lg:mb-12">
             <span className="text-accent-premium font-bold tracking-[0.3em] uppercase text-xs mb-4 block">O Método</span>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-light leading-tight text-branco mb-6">
+            <h2 className="text-3xl md:text-5xl font-display font-light leading-tight text-branco mb-4">
               Aceleração através <br />
               <span className="font-serif italic text-accent-premium">da execução.</span>
             </h2>
@@ -272,11 +272,11 @@ export function PerformanceProgram() {
       </section>
 
       {/* Entregas Section */}
-      <section className="py-20 bg-soft-white">
+      <section className="py-12 lg:py-16 bg-soft-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-accent-muted font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Entregas</span>
-            <h2 className="text-4xl md:text-6xl font-display text-obsidian mb-8 tracking-tight">
+          <div className="text-center mb-10 lg:mb-12">
+            <span className="text-accent-muted font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Entregas</span>
+            <h2 className="text-3xl md:text-5xl font-display text-obsidian mb-0 tracking-tight">
               O que você <span className="font-serif italic text-accent-muted">recebe</span>
             </h2>
           </div>
@@ -307,14 +307,14 @@ export function PerformanceProgram() {
       </section>
 
       {/* Transformação Section */}
-      <section className="py-20 bg-obsidian text-branco">
+      <section className="py-12 lg:py-16 bg-obsidian text-branco">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-accent-premium font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Transformação</span>
-            <h2 className="text-4xl md:text-5xl font-display font-light text-branco mb-4 leading-tight">
+          <div className="text-center mb-10 lg:mb-12">
+            <span className="text-accent-premium font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Transformação</span>
+            <h2 className="text-3xl md:text-5xl font-display font-light text-branco mb-4 leading-tight">
               O que muda na sua <span className="font-serif italic text-accent-premium">empresa</span>
             </h2>
-            <p className="text-lg text-branco/60 font-light max-w-2xl mx-auto">
+            <p className="text-base lg:text-lg text-branco/60 font-light max-w-2xl mx-auto">
               Veja o impacto real do Performance Program no dia a dia da sua operação.
             </p>
           </div>
@@ -372,14 +372,14 @@ export function PerformanceProgram() {
       </section>
 
       {/* Jornada do Programa Section */}
-      <section className="py-24 bg-zinc-50 overflow-hidden">
+      <section className="py-12 lg:py-16 bg-zinc-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 lg:mb-16">
             <span className="text-accent-premium font-sans text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">A Jornada</span>
-            <h2 className="text-3xl md:text-5xl font-display text-obsidian mb-6 tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-display text-obsidian mb-4 tracking-tight">
               Como funciona o Performance Program
             </h2>
-            <p className="text-lg text-obsidian/70 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-base lg:text-lg text-obsidian/70 max-w-3xl mx-auto font-light leading-relaxed">
               Um processo estruturado para transformar a gestão da sua empresa em uma máquina de resultados previsível e escalável nos próximos 6 meses.
             </p>
           </div>
@@ -448,7 +448,7 @@ export function PerformanceProgram() {
       </section>
 
       {/* Por que investir Section */}
-      <section className="py-24 bg-obsidian text-branco overflow-hidden">
+      <section className="py-12 lg:py-16 bg-obsidian text-branco overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative group max-w-[75%] mx-auto md:mx-0">
@@ -462,7 +462,7 @@ export function PerformanceProgram() {
               <div className="absolute -top-10 -left-10 w-64 h-64 bg-accent-premium/10 rounded-full blur-[100px]"></div>
             </div>
             <div>
-              <h2 className="text-3xl md:text-5xl font-display font-bold text-accent-premium mb-8 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-accent-premium mb-6 leading-tight">
                 Por que investir agora no Performance Program?
               </h2>
               <div className="space-y-6 text-branco/70 text-lg leading-relaxed">
@@ -482,12 +482,12 @@ export function PerformanceProgram() {
 
 
       {/* FAQ Section */}
-      <section className="py-20 bg-soft-white">
+      <section className="py-12 lg:py-16 bg-soft-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-accent-muted font-bold tracking-[0.3em] uppercase text-xs mb-6 block">FAQ</span>
-            <h2 className="text-4xl md:text-5xl font-display text-obsidian mb-4 tracking-tight">Dúvidas Frequentes</h2>
-            <p className="text-slate-500 font-light text-lg">Tudo o que você precisa saber sobre o Performance Program.</p>
+          <div className="text-center mb-10 lg:mb-12">
+            <span className="text-accent-muted font-bold tracking-[0.3em] uppercase text-xs mb-4 block">FAQ</span>
+            <h2 className="text-3xl md:text-5xl font-display text-obsidian mb-4 tracking-tight">Dúvidas Frequentes</h2>
+            <p className="text-slate-500 font-light text-base lg:text-lg">Tudo o que você precisa saber sobre o Performance Program.</p>
           </div>
 
           <div className="space-y-4">
@@ -522,13 +522,13 @@ export function PerformanceProgram() {
 
 
       {/* Form Section */}
-      <section className="py-20 bg-soft-white">
+      <section className="py-12 lg:py-16 bg-soft-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-12 lg:p-20 bg-obsidian rounded-[3rem] border border-white/10 relative overflow-hidden shadow-2xl">
+          <div className="p-8 lg:p-16 bg-obsidian rounded-[2rem] lg:rounded-[3rem] border border-white/10 relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-96 h-96 bg-accent-premium/5 blur-[120px] rounded-full"></div>
-            <div className="grid lg:grid-cols-2 gap-20 items-center relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
               <div>
-                <h2 className="text-5xl md:text-7xl font-display text-branco mb-8 leading-[0.9] tracking-tight">
+                <h2 className="text-4xl md:text-6xl font-display text-branco mb-6 leading-[0.9] tracking-tight">
                   Fale <br />
                   <span className="font-serif italic text-accent-premium">conosco</span>
                 </h2>
