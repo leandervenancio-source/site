@@ -383,7 +383,7 @@ export function PerformanceProgram() {
               Como funciona o Performance Program
             </h2>
             <p className="text-lg text-obsidian/70 max-w-3xl mx-auto font-light leading-relaxed">
-              Um processo estruturado para transformar a gestão da sua empresa em uma máquina previsível e escalável nos próximos 6 meses.
+              Um processo estruturado para transformar a gestão da sua empresa em uma máquina de resultados previsível e escalável nos próximos 6 meses.
             </p>
           </div>
 
@@ -436,7 +436,7 @@ export function PerformanceProgram() {
               {/* Loop Arrow (Desktop) */}
               <div className="hidden lg:block absolute top-[calc(100%+8px)] right-1/2 w-[calc(100%+2rem)] h-16 border-l-[2px] border-b-[2px] border-r-[2px] border-dashed border-accent-premium/80 rounded-b-3xl pointer-events-none z-0">
                 {/* Arrow Head Pointing Up to Box 3 */}
-                <div className="absolute -top-[3px] left-[0px] -translate-x-[45%] w-3 h-3 border-t-[3px] border-l-[3px] border-accent-premium/80 rotate-45 rounded-sm"></div>
+                <div className="absolute top-[2px] left-[1px] -translate-x-1/2 w-3 h-3 border-t-[2px] border-l-[2px] border-accent-premium/80 rotate-45 rounded-sm"></div>
                 {/* Text Badge */}
                 <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-accent-premium text-obsidian px-5 py-2 rounded-full shadow-xl flex items-center gap-2 border-[4px] border-zinc-50 z-10 pointer-events-auto hover:scale-105 transition-transform cursor-default">
                   <RefreshCw className="w-3.5 h-3.5 animate-[spin_4s_linear_infinite]" />
