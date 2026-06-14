@@ -49,7 +49,7 @@ export function AdvisoryProgram() {
   return (
     <div className="bg-soft-white font-sans overflow-x-hidden">
       {/* Hero Section */}
-      <section className="pdf-section bg-obsidian text-branco pt-32 pb-20 relative overflow-hidden min-h-[90vh] flex items-center">
+      <section className="pdf-section bg-obsidian text-branco pt-32 pb-20 relative overflow-hidden min-h-screen flex items-center">
         {/* Abstract Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent-premium/5 blur-[120px] rounded-full"></div>
@@ -63,12 +63,12 @@ export function AdvisoryProgram() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-5xl mx-auto"
           >
-            <span className="text-accent-premium font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Advisory Program</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-[1.1] mb-6 text-branco tracking-tight">
+            <span className="text-accent-premium font-bold tracking-[0.4em] uppercase text-xs mb-6 block">Advisory Program</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-light leading-[1.1] mb-8 text-branco tracking-tight">
               Construa a empresa que sustentará os <br className="hidden md:block" />
               <span className="font-serif italic text-accent-premium">próximos 5 anos de crescimento.</span>
             </h1>
-            <p className="text-lg md:text-xl text-branco/80 font-light leading-relaxed mb-8 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-branco/80 font-light leading-relaxed mb-10 max-w-4xl mx-auto">
               O Advisory Program ajuda empresários a desenvolver liderança, estruturar a organização e transformar crescimento em uma operação escalável e menos dependente do dono.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
