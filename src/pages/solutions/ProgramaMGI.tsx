@@ -120,7 +120,7 @@ export function AdvisoryProgram() {
           <div className="text-center mb-16">
             <span className="text-accent-premium font-bold tracking-[0.3em] uppercase text-xs mb-6 block">A Abordagem</span>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-light leading-tight text-branco mb-8">
-              Construímos a fundação da <br />
+              Construímos a estrutura da <br />
               <span className="font-serif italic text-accent-premium">próxima fase da empresa.</span>
             </h2>
             <p className="text-xl text-branco/70 font-light leading-relaxed max-w-3xl mx-auto">
