@@ -375,45 +375,49 @@ export function PerformanceProgram() {
       </section>
 
       {/* Jornada do Programa Section */}
-      <section className="py-24 bg-soft-white overflow-hidden">
+      <section className="py-24 bg-zinc-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <span className="text-accent-muted font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Jornada</span>
-            <h2 className="text-4xl md:text-5xl font-display text-obsidian mb-6 tracking-tight">
-              A Jornada do Performance Program
+            <span className="text-accent-premium font-sans text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">A Jornada</span>
+            <h2 className="text-3xl md:text-5xl font-display text-obsidian mb-6 tracking-tight">
+              Como funciona o Performance Program
             </h2>
             <p className="text-lg text-obsidian/70 max-w-3xl mx-auto font-light leading-relaxed">
               Um processo estruturado para transformar a gestão da sua empresa em uma máquina previsível e escalável nos próximos 6 meses.
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0 lg:h-32">
+          <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-5xl mx-auto">
             
             {/* Step 1 */}
-            <div className="w-full lg:w-1/4 h-24 lg:h-full bg-obsidian text-branco flex items-center justify-center lg:[clip-path:polygon(0%_0%,85%_0%,100%_50%,85%_100%,0%_100%)] rounded-xl lg:rounded-none relative z-10 hover:opacity-90 transition-opacity">
-              <span className="font-display font-medium text-lg lg:pr-8">Diagnóstico + Quick Wins</span>
+            <div className="w-full lg:flex-1 h-16 md:h-20 bg-[#0F172A] text-white flex items-center justify-center lg:[clip-path:polygon(0%_0%,calc(100%-24px)_0%,100%_50%,calc(100%-24px)_100%,0%_100%)] relative z-30 rounded-lg lg:rounded-none shadow-sm lg:shadow-none mb-2 lg:mb-0">
+              <span className="font-display font-medium text-sm md:text-[15px] lg:pr-6 whitespace-nowrap">Diagnóstico + Quick Wins</span>
             </div>
 
             {/* Step 2 */}
-            <div className="w-full lg:w-1/4 h-24 lg:h-full bg-blue-900 text-branco flex items-center justify-center lg:[clip-path:polygon(0%_0%,85%_0%,100%_50%,85%_100%,0%_100%,15%_50%)] rounded-xl lg:rounded-none lg:-ml-6 relative z-20 hover:opacity-90 transition-opacity">
-              <span className="font-display font-medium text-lg lg:pl-6 lg:pr-8 text-center">Implantação de Indicadores</span>
+            <div className="w-full lg:flex-1 h-16 md:h-20 bg-[#1E3A8A] text-white flex items-center justify-center lg:[clip-path:polygon(0%_0%,calc(100%-24px)_0%,100%_50%,calc(100%-24px)_100%,0%_100%,24px_50%)] lg:-ml-[26px] relative z-20 rounded-lg lg:rounded-none shadow-sm lg:shadow-none mb-2 lg:mb-0">
+              <span className="font-display font-medium text-sm md:text-[15px] lg:pl-6 lg:pr-6 whitespace-nowrap">Implantação de Indicadores</span>
             </div>
 
             {/* Step 3 */}
-            <div className="w-full lg:w-1/4 h-24 lg:h-full bg-blue-700 text-branco flex items-center justify-center lg:[clip-path:polygon(0%_0%,85%_0%,100%_50%,85%_100%,0%_100%,15%_50%)] rounded-xl lg:rounded-none lg:-ml-6 relative z-30 hover:opacity-90 transition-opacity">
-              <span className="font-display font-medium text-lg lg:pl-6 lg:pr-8 text-center">Análise + Planejamento</span>
+            <div className="w-full lg:flex-1 h-16 md:h-20 bg-[#2563EB] text-white flex items-center justify-center lg:[clip-path:polygon(0%_0%,calc(100%-24px)_0%,100%_50%,calc(100%-24px)_100%,0%_100%,24px_50%)] lg:-ml-[26px] relative z-10 rounded-lg lg:rounded-none shadow-sm lg:shadow-none mb-8 lg:mb-0">
+              <span className="font-display font-medium text-sm md:text-[15px] lg:pl-6 lg:pr-6 whitespace-nowrap">Análise + Planejamento</span>
             </div>
 
             {/* Step 4 (Loop) */}
-            <div className="w-full lg:w-1/4 flex items-center justify-center lg:-ml-4 relative z-40 mt-8 lg:mt-0">
-              <div className="relative flex flex-col items-center justify-center w-40 h-40 group">
-                <RefreshCw className="w-16 h-16 text-accent-premium/80 absolute group-hover:rotate-180 transition-transform duration-700" strokeWidth={1.5} />
-                <div className="absolute w-full h-full border-4 border-dashed border-accent-premium/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
-                <div className="text-center z-10 mt-24">
-                  <span className="font-display font-bold text-obsidian text-lg leading-none block mb-1">Rotina de Execução</span>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-muted">Otimização Contínua</span>
+            <div className="w-full lg:w-48 flex flex-col items-center justify-center relative z-40 lg:pl-8">
+              <div className="relative w-28 h-28 flex items-center justify-center mb-4 group">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full text-accent-premium animate-[spin_10s_linear_infinite]">
+                  <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                  <path d="M3 3v5h5" />
+                  <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+                  <path d="M16 21v-5h5" />
+                </svg>
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/40 rounded-full scale-75 group-hover:bg-accent-premium/10 transition-colors duration-500">
+                  <span className="font-display font-bold text-obsidian text-xs md:text-sm leading-tight text-center px-2">Rotina de<br/>Execução</span>
                 </div>
               </div>
+              <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-accent-premium text-center leading-relaxed">Otimização<br/>Contínua</span>
             </div>
 
           </div>
