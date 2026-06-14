@@ -213,39 +213,66 @@ export function AdvisoryProgram() {
         <Testimonials />
       </div>
 
-      {/* Resultados Section */}
-      <section className="pdf-section py-12 md:py-20 bg-obsidian text-branco">
+      {/* Transformação Section */}
+      <section className="pdf-section py-12 lg:py-20 bg-obsidian text-branco">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-24 items-center">
-            <div>
-              <span className="text-accent-premium font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Impacto</span>
-              <h2 className="text-4xl md:text-6xl font-display font-light text-branco mb-12 leading-tight">
-                Resultados <br />
-                <span className="font-serif italic text-accent-premium">Tangíveis</span>
-              </h2>
-              <p className="text-xl text-branco/70 font-light mb-12 leading-relaxed">
-                O Advisory Program não é apenas para organizar a casa. É a construção da infraestrutura que vai transformar a sua empresa em um negócio escalável, rentável e pronto para operar sem depender do dono.
-              </p>
-              <Link to="/diagnostico" className="group relative inline-flex items-center justify-center px-10 py-5 text-sm font-bold tracking-[0.2em] uppercase text-obsidian bg-accent-premium rounded-full overflow-hidden transition-all duration-500">
-                <span className="relative z-10">Fale Conosco</span>
-                <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-              </Link>
+          <div className="text-center mb-10 lg:mb-16">
+            <span className="text-accent-premium font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Transformação</span>
+            <h2 className="text-4xl md:text-6xl font-display font-light text-branco mb-4 leading-tight">
+              O que muda na sua <span className="font-serif italic text-accent-premium">empresa</span>
+            </h2>
+            <p className="text-xl text-branco/70 font-light max-w-3xl mx-auto leading-relaxed">
+              O Advisory Program não é apenas para organizar a casa. É a construção da infraestrutura que vai transformar a sua empresa em um negócio escalável, rentável e pronto para operar sem depender do dono.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-stretch">
+            {/* Antes */}
+            <div className="glass p-10 md:p-14 rounded-3xl border border-white/5 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-red-500/5 blur-[100px] rounded-full group-hover:bg-red-500/10 transition-colors duration-500"></div>
+              <h3 className="text-3xl font-display font-bold text-white mb-10 opacity-70">Antes</h3>
+              <ul className="space-y-8 relative z-10">
+                {[
+                  "Dono como o maior gargalo da operação",
+                  "Líderes que não assumem responsabilidade",
+                  "Crescimento que gera caos e ineficiência",
+                  "Falta de clareza sobre os próximos passos",
+                ].map((text, i) => (
+                  <li key={i} className="flex items-center gap-4">
+                    <div className="w-6 h-6 shrink-0 rounded-full bg-red-500/20 flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                    </div>
+                    <span className="text-branco/60 text-lg font-light leading-relaxed">{text}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="space-y-6">
-              {[
-                { id: "01", text: "Sua empresa rodando de forma menos dependente de você." },
-                { id: "02", text: "Líderes preparados para assumir responsabilidade e executar metas." },
-                { id: "03", text: "Estratégia clara, focada em escala e crescimento sustentável." },
-                { id: "04", text: "Decisões baseadas em dados, com infraestrutura pronta para crescer." },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-8 p-8 glass rounded-3xl border-white/5 group hover:border-accent-premium/20 transition-all duration-500">
-                  <div className="w-12 h-12 rounded-2xl bg-accent-premium text-obsidian flex items-center justify-center font-bold shrink-0 group-hover:scale-110 transition-transform duration-500 shadow-lg">
-                    {item.id}
-                  </div>
-                  <p className="text-branco/70 text-lg font-light leading-relaxed">{item.text}</p>
-                </div>
-              ))}
+
+            {/* Depois */}
+            <div className="glass p-10 md:p-14 rounded-3xl border border-accent-premium/20 relative overflow-hidden group hover:border-accent-premium/40 transition-colors duration-500">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-accent-premium/10 blur-[100px] rounded-full group-hover:bg-accent-premium/20 transition-colors duration-500"></div>
+              <h3 className="text-3xl font-display font-bold text-accent-premium mb-10">Depois</h3>
+              <ul className="space-y-8 relative z-10">
+                {[
+                  "Sua empresa rodando sem depender de você",
+                  "Liderança madura executando as metas",
+                  "Infraestrutura pronta para crescer com lucro",
+                  "Direção clara e governança estratégica",
+                ].map((text, i) => (
+                  <li key={i} className="flex items-center gap-4">
+                    <CheckCircle2 className="w-6 h-6 shrink-0 text-accent-premium" />
+                    <span className="text-branco/90 text-lg font-light leading-relaxed">{text}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
+          </div>
+          
+          <div className="mt-16 text-center">
+            <Link to="/diagnostico" className="group relative inline-flex items-center justify-center px-10 py-5 text-sm font-bold tracking-[0.2em] uppercase text-obsidian bg-accent-premium rounded-full overflow-hidden transition-all duration-500">
+              <span className="relative z-10">Avaliar a Próxima Fase da Minha Empresa</span>
+              <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+            </Link>
           </div>
         </div>
       </section>
