@@ -388,7 +388,7 @@ export function PerformanceProgram() {
           </div>
 
           {/* Flowchart Container */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-5xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-5xl mx-auto relative z-10 mb-12 lg:mb-28">
             
             {/* Step 1 */}
             <div className="w-full h-32 bg-obsidian rounded-2xl flex items-center justify-center p-6 text-center shadow-lg border border-obsidian/10 relative group hover:shadow-xl hover:-translate-y-1 hover:border-accent-premium/30 transition-all duration-300">
