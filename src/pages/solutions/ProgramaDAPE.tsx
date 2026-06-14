@@ -388,7 +388,7 @@ export function PerformanceProgram() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: "Encontros quinzenais", desc: "Online com consultores especializados.", icon: Users },
+              { title: "Encontros semanais", desc: "Online com consultores especializados.", icon: Users },
               { title: "Treinamentos práticos", desc: "Plataforma online para donos e time aprender.", icon: GraduationCap },
               { title: "Ferramentas práticas", desc: "Dashboards para apoio à tomada de decisão.", icon: BarChart3 },
               { title: "Entregas personalizadas", desc: "Ajustadas à realidade da sua empresa.", icon: CheckCircle2 },
