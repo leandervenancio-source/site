@@ -70,7 +70,7 @@ export function DiagnosticForm() {
         <input type="text" placeholder="Nome da Empresa" value={formData.company} className={inputClass} required onChange={(e) => setFormData({...formData, company: e.target.value})} disabled={isSubmitting} />
         <input type="email" placeholder="E-mail Corporativo" value={formData.email} className={inputClass} required onChange={(e) => setFormData({...formData, email: e.target.value})} disabled={isSubmitting} />
         <input type="tel" placeholder="WhatsApp" value={formData.whatsapp} className={inputClass} required onChange={(e) => setFormData({...formData, whatsapp: e.target.value})} disabled={isSubmitting} />
-        <select className={`${inputClass} pr-8 appearance-none`} value={formData.revenue} required onChange={(e) => setFormData({...formData, revenue: e.target.value})} disabled={isSubmitting}>
+        <select className={`${inputClass} pr-8 appearance-none ${!formData.revenue ? '!text-white/40 !text-sm' : ''}`} value={formData.revenue} required onChange={(e) => setFormData({...formData, revenue: e.target.value})} disabled={isSubmitting}>
           <option value="" className="bg-obsidian text-white/50" disabled hidden>Faturamento Anual</option>
           <option value="3-10" className="bg-obsidian text-branco">R$ 3M - R$ 10M</option>
           <option value="10-50" className="bg-obsidian text-branco">R$ 10M - R$ 50M</option>
