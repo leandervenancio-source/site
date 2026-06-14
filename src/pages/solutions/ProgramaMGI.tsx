@@ -188,7 +188,7 @@ export function AdvisoryProgram() {
               { id: "01", title: "Planejamento Estratégico", desc: "Direção clara para os próximos anos.", icon: Target },
               { id: "02", title: "Estrutura Organizacional", desc: "Papéis, responsabilidades e accountability.", icon: Settings },
               { id: "03", title: "Desenvolvimento da Liderança", desc: "Líderes preparados para executar a estratégia.", icon: Users },
-              { id: "04", title: "Governança Executiva", desc: "Mais qualidade nas decisões.", icon: ShieldCheck },
+              { id: "04", title: "Finanças Estratégicas", desc: "Orçamento, análises e alocação de capital.", icon: TrendingUp },
               { id: "05", title: "Sistema de Indicadores", desc: "Visibilidade do negócio.", icon: BarChart3 },
               { id: "06", title: "Conselho Estratégico", desc: "Acompanhamento das decisões críticas.", icon: MessageCircle },
               { id: "07", title: "Gestão de Projetos Estratégicos", desc: "Execução das iniciativas prioritárias.", icon: Zap },
@@ -237,6 +237,7 @@ export function AdvisoryProgram() {
                   "Líderes que não assumem responsabilidade",
                   "Crescimento que gera caos e ineficiência",
                   "Falta de clareza sobre os próximos passos",
+                  "Decisões financeiras e alocação de capital baseadas em intuição",
                 ].map((text, i) => (
                   <li key={i} className="flex items-center gap-4">
                     <div className="w-6 h-6 shrink-0 rounded-full bg-red-500/20 flex items-center justify-center">
@@ -258,6 +259,7 @@ export function AdvisoryProgram() {
                   "Liderança madura executando as metas",
                   "Infraestrutura pronta para crescer com lucro",
                   "Direção clara e governança estratégica",
+                  "Finanças estratégicas guiando investimentos e orçamento",
                 ].map((text, i) => (
                   <li key={i} className="flex items-center gap-4">
                     <CheckCircle2 className="w-6 h-6 shrink-0 text-accent-premium" />
