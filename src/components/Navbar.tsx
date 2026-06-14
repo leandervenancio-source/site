@@ -71,7 +71,7 @@ export function Navbar() {
               {/* Dropdown Menu */}
               <div 
                 className={cn(
-                  "absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 glass rounded-3xl p-2 shadow-2xl transition-all duration-500 origin-top",
+                  "absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-obsidian border border-white/10 rounded-3xl p-2 shadow-2xl transition-all duration-500 origin-top",
                   solutionsOpen ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
                 )}
                 onMouseLeave={() => setSolutionsOpen(false)}
