@@ -71,10 +71,11 @@ export function DiagnosticForm() {
         <input type="email" placeholder="E-mail Corporativo" value={formData.email} className={inputClass} required onChange={(e) => setFormData({...formData, email: e.target.value})} disabled={isSubmitting} />
         <input type="tel" placeholder="WhatsApp" value={formData.whatsapp} className={inputClass} required onChange={(e) => setFormData({...formData, whatsapp: e.target.value})} disabled={isSubmitting} />
         <select className={`${inputClass} pr-8 appearance-none ${!formData.revenue ? '!text-white/40 !text-sm' : ''}`} value={formData.revenue} required onChange={(e) => setFormData({...formData, revenue: e.target.value})} disabled={isSubmitting}>
-          <option value="" className="bg-obsidian text-white/50" disabled hidden>Faturamento Anual</option>
-          <option value="3-10" className="bg-obsidian text-branco">R$ 3M - R$ 10M</option>
-          <option value="10-50" className="bg-obsidian text-branco">R$ 10M - R$ 50M</option>
-          <option value="50+" className="bg-obsidian text-branco">Acima de R$ 50M</option>
+          <option value="" className="bg-obsidian text-white/50" disabled hidden>Faturamento Mensal</option>
+          <option value="Até 100 mil" className="bg-obsidian text-branco">Até R$ 100 mil</option>
+          <option value="100 a 300 mil" className="bg-obsidian text-branco">R$ 100 mil a R$ 300 mil</option>
+          <option value="300 mil a 1 milhão" className="bg-obsidian text-branco">R$ 300 mil a R$ 1 milhão</option>
+          <option value="Acima de 1 milhão" className="bg-obsidian text-branco">Acima de R$ 1 milhão</option>
         </select>
         <input type="number" placeholder="Nº de Funcionários" value={formData.employees} className={inputClass} required onChange={(e) => setFormData({...formData, employees: e.target.value})} disabled={isSubmitting} />
       </div>
