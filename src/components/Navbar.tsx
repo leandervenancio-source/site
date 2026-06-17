@@ -36,8 +36,8 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="font-display text-2xl lg:text-3xl font-bold tracking-tight text-branco hover:text-accent-premium transition-all duration-500">
-              Mont <span className="font-serif italic font-light text-accent-premium">Gestão</span>
+            <Link to="/" className="font-sans text-2xl lg:text-3xl font-black tracking-tighter lowercase text-branco hover:text-accent-premium transition-all duration-500">
+              montgestão
             </Link>
           </div>
           

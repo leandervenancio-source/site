@@ -9,8 +9,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16">
           <div className="md:col-span-6">
-            <Link to="/" className="font-display text-3xl font-bold tracking-tight text-branco mb-4 block hover:text-accent-premium transition-all duration-500">
-              Mont <span className="font-serif italic font-light text-accent-premium">Gestão</span>
+            <Link to="/" className="font-sans text-3xl font-black tracking-tighter lowercase text-branco mb-4 block hover:text-accent-premium transition-all duration-500">
+              montgestão
             </Link>
             <p className="text-branco/40 max-w-md mt-4 text-sm lg:text-base font-light leading-relaxed">
               Advisor estratégico focado em estruturar empresas de alto faturamento através do <span className="text-branco font-normal">Modelo de Gestão Integral (MGI)</span>.
