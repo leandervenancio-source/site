@@ -100,7 +100,7 @@ export function DiagnosticForm() {
           <option value="300 mil a 1 milhão" className="bg-obsidian text-branco">R$ 300 mil a R$ 1 milhão</option>
           <option value="Acima de 1 milhão" className="bg-obsidian text-branco">Acima de R$ 1 milhão</option>
         </select>
-        <input type="number" placeholder="Nº de Funcionários" value={formData.employees} className={inputClass} required onChange={(e) => setFormData({...formData, employees: e.target.value})} disabled={isSubmitting} />
+        <input type="number" min="1" placeholder="Nº de Funcionários" value={formData.employees} className={inputClass} required onChange={(e) => setFormData({...formData, employees: e.target.value})} disabled={isSubmitting} />
       </div>
       
       {success && (

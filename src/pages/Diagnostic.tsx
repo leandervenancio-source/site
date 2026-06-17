@@ -1,13 +1,72 @@
 import { motion } from "motion/react";
 import React, { useState } from "react";
+import { supabase } from "../lib/supabase";
+import { Loader2 } from "lucide-react";
 
 export function Diagnostic() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    whatsapp: "",
+    company: "",
+    revenue: "",
+    employees: "",
+    challenge: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the data to a backend or CRM
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            whatsapp: formData.whatsapp,
+            company: formData.company,
+            revenue: formData.revenue,
+            employees: formData.employees
+          }
+        ]);
+
+      if (error) throw error;
+
+      try {
+        await fetch("https://formsubmit.co/ajax/leandervenancio@gmail.com", {
+            method: "POST",
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                _subject: "🚀 Novo Lead (Aplicação): " + formData.name + " (" + formData.company + ")",
+                Nome: formData.name,
+                Empresa: formData.company,
+                WhatsApp: formData.whatsapp,
+                Email: formData.email,
+                Faturamento: formData.revenue,
+                Funcionarios: formData.employees,
+                Desafio: formData.challenge,
+                _template: "table"
+            })
+        });
+      } catch (e) {
+        console.error("Erro no envio do e-mail:", e);
+      }
+
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Erro ao enviar formulário:", error);
+      alert("Houve um erro ao enviar seus dados. Por favor, tente novamente.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -59,6 +118,9 @@ export function Diagnostic() {
                     type="text"
                     id="name"
                     required
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    disabled={isSubmitting}
                     className="w-full px-4 py-4 border border-branco/10 focus:border-accent-premium outline-none transition-all bg-branco/5 text-branco font-light placeholder-branco/20 rounded-xl text-base"
                     placeholder="Seu nome"
                   />
@@ -69,6 +131,9 @@ export function Diagnostic() {
                     type="text"
                     id="company"
                     required
+                    value={formData.company}
+                    onChange={(e) => setFormData({...formData, company: e.target.value})}
+                    disabled={isSubmitting}
                     className="w-full px-4 py-4 border border-branco/10 focus:border-accent-premium outline-none transition-all bg-branco/5 text-branco font-light placeholder-branco/20 rounded-xl text-base"
                     placeholder="Nome da sua empresa"
                   />
@@ -82,6 +147,9 @@ export function Diagnostic() {
                     type="email"
                     id="email"
                     required
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    disabled={isSubmitting}
                     className="w-full px-4 py-4 border border-branco/10 focus:border-accent-premium outline-none transition-all bg-branco/5 text-branco font-light placeholder-branco/20 rounded-xl text-base"
                     placeholder="E-mail"
                   />
@@ -92,6 +160,9 @@ export function Diagnostic() {
                     type="tel"
                     id="whatsapp"
                     required
+                    value={formData.whatsapp}
+                    onChange={(e) => setFormData({...formData, whatsapp: e.target.value})}
+                    disabled={isSubmitting}
                     className="w-full px-4 py-4 border border-branco/10 focus:border-accent-premium outline-none transition-all bg-branco/5 text-branco font-light placeholder-branco/20 rounded-xl text-base"
                     placeholder="(00) 00000-0000"
                   />
@@ -100,34 +171,35 @@ export function Diagnostic() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <label htmlFor="revenue" className="block text-xs font-bold text-branco/60 mb-3 uppercase tracking-[0.1em]">Faturamento Anual</label>
+                  <label htmlFor="revenue" className="block text-xs font-bold text-branco/60 mb-3 uppercase tracking-[0.1em]">Faturamento Mensal</label>
                   <select
                     id="revenue"
                     required
+                    value={formData.revenue}
+                    onChange={(e) => setFormData({...formData, revenue: e.target.value})}
+                    disabled={isSubmitting}
                     className="w-full px-4 py-4 border border-branco/10 focus:border-accent-premium outline-none transition-all bg-branco/5 text-branco font-light appearance-none rounded-xl text-base"
                   >
                     <option value="" className="bg-azul-noite">Selecione uma faixa</option>
-                    <option value="<3M" className="bg-azul-noite">Menos de R$ 3 Milhões</option>
-                    <option value="3M-10M" className="bg-azul-noite">R$ 3M a R$ 10 Milhões</option>
-                    <option value="10M-50M" className="bg-azul-noite">R$ 10M a R$ 50 Milhões</option>
-                    <option value="50M-100M" className="bg-azul-noite">R$ 50M a R$ 100 Milhões</option>
-                    <option value=">100M" className="bg-azul-noite">Mais de R$ 100 Milhões</option>
+                    <option value="Até 100 mil" className="bg-azul-noite">Até R$ 100 mil</option>
+                    <option value="100 a 300 mil" className="bg-azul-noite">R$ 100 mil a R$ 300 mil</option>
+                    <option value="300 mil a 1 milhão" className="bg-azul-noite">R$ 300 mil a R$ 1 milhão</option>
+                    <option value="Acima de 1 milhão" className="bg-azul-noite">Acima de R$ 1 milhão</option>
                   </select>
                 </div>
                 <div>
                   <label htmlFor="employees" className="block text-xs font-bold text-branco/60 mb-3 uppercase tracking-[0.1em]">Número de Funcionários</label>
-                  <select
+                  <input
+                    type="number"
                     id="employees"
                     required
+                    min="1"
+                    value={formData.employees}
+                    onChange={(e) => setFormData({...formData, employees: e.target.value})}
+                    disabled={isSubmitting}
                     className="w-full px-4 py-4 border border-branco/10 focus:border-accent-premium outline-none transition-all bg-branco/5 text-branco font-light appearance-none rounded-xl text-base"
-                  >
-                    <option value="" className="bg-azul-noite">Selecione uma faixa</option>
-                    <option value="1-10" className="bg-azul-noite">1 a 10</option>
-                    <option value="11-50" className="bg-azul-noite">11 a 50</option>
-                    <option value="51-200" className="bg-azul-noite">51 a 200</option>
-                    <option value="201-500" className="bg-azul-noite">201 a 500</option>
-                    <option value=">500" className="bg-azul-noite">Mais de 500</option>
-                  </select>
+                    placeholder="Nº de funcionários"
+                  />
                 </div>
               </div>
 
@@ -139,6 +211,9 @@ export function Diagnostic() {
                   id="challenge"
                   rows={4}
                   required
+                  value={formData.challenge}
+                  onChange={(e) => setFormData({...formData, challenge: e.target.value})}
+                  disabled={isSubmitting}
                   className="w-full px-4 py-4 border border-branco/10 focus:border-accent-premium outline-none transition-all bg-branco/5 resize-none text-branco font-light placeholder-branco/20 rounded-2xl text-base"
                   placeholder="Descreva brevemente o que está travando o crescimento ou a lucratividade da sua operação..."
                 ></textarea>
@@ -147,9 +222,14 @@ export function Diagnostic() {
               <div className="pt-8">
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-5 px-8 text-sm font-bold tracking-[0.2em] uppercase text-obsidian bg-accent-premium hover:bg-white transition-all duration-300 rounded-full"
+                  disabled={isSubmitting}
+                  className="relative group w-full flex justify-center items-center py-5 px-8 text-sm font-bold tracking-[0.2em] uppercase text-obsidian bg-accent-premium transition-all duration-500 rounded-full overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-[0_0_50px_rgba(43,108,255,0.6)] hover:-translate-y-1"
                 >
-                  Enviar aplicação
+                  <span className="relative z-10 flex items-center gap-2">
+                    {isSubmitting && <Loader2 className="w-4 h-4 animate-spin" />}
+                    {isSubmitting ? "Enviando..." : "Enviar aplicação"}
+                  </span>
+                  {!isSubmitting && <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>}
                 </button>
                 <p className="text-xs text-branco/40 font-light text-center mt-6">
                   Suas informações são estritamente confidenciais e serão utilizadas apenas para a avaliação de fit estrutural da sua empresa.
