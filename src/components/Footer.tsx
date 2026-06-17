@@ -38,7 +38,7 @@ export function Footer() {
           <div className="md:col-span-3">
             <h3 className="font-display text-[10px] font-bold tracking-[0.3em] uppercase mb-6 text-accent-premium">Contato</h3>
             <ul className="space-y-4">
-              <li><a href="mailto:contato@leandervenancio.com.br" className="text-branco/40 hover:text-accent-premium text-sm font-light transition-all duration-300 break-all">contato@leandervenancio.com.br</a></li>
+              <li><a href="mailto:contato@montgestao.com.br" className="text-branco/40 hover:text-accent-premium text-sm font-light transition-all duration-300 break-all">contato@montgestao.com.br</a></li>
               <li><a href="https://wa.me/message/NRXMFPWG6DUZB1" target="_blank" rel="noopener noreferrer" className="text-branco/40 hover:text-accent-premium text-sm font-light transition-all duration-300">(62) 999200405</a></li>
             </ul>
           </div>
