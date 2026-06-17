@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16">
           <div className="md:col-span-6">
             <Link to="/" className="font-display text-3xl font-bold tracking-tight text-branco mb-4 block hover:text-accent-premium transition-all duration-500">
-              Leander <span className="font-serif italic font-light text-accent-premium">Venâncio</span>
+              Mont <span className="font-serif italic font-light text-accent-premium">Gestão</span>
             </Link>
             <p className="text-branco/40 max-w-md mt-4 text-sm lg:text-base font-light leading-relaxed">
               Advisor estratégico focado em estruturar empresas de alto faturamento através do <span className="text-branco font-normal">Modelo de Gestão Integral (MGI)</span>.
@@ -46,7 +46,7 @@ export function Footer() {
         
         <div className="border-t border-white/5 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-branco/20 text-[10px] font-bold uppercase tracking-widest">
-            &copy; {new Date().getFullYear()} Leander Venâncio. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} Mont Gestão. Todos os direitos reservados.
           </p>
           <div className="flex space-x-8">
             <a href="#" className="text-branco/20 hover:text-branco/40 text-[10px] font-bold uppercase tracking-widest transition-colors">Privacidade</a>

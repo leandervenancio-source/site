@@ -37,7 +37,7 @@ export function Navbar() {
         <div className="flex justify-between items-center">
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="font-display text-2xl lg:text-3xl font-bold tracking-tight text-branco hover:text-accent-premium transition-all duration-500">
-              Leander <span className="font-serif italic font-light text-accent-premium">Venâncio</span>
+              Mont <span className="font-serif italic font-light text-accent-premium">Gestão</span>
             </Link>
           </div>
           
