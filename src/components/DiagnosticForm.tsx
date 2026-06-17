@@ -37,6 +37,17 @@ export function DiagnosticForm() {
 
       if (error) throw error;
       
+      try {
+        const phone = import.meta.env.VITE_CALLMEBOT_PHONE;
+        const apikey = import.meta.env.VITE_CALLMEBOT_APIKEY;
+        if (phone && apikey) {
+          const text = `*Novo Lead (Advisory)!*%0A%0A*Nome:* ${formData.name}%0A*Empresa:* ${formData.company}%0A*WhatsApp:* ${formData.whatsapp}%0A*Faturamento:* ${formData.revenue}%0A*Funcionários:* ${formData.employees}%0A*Email:* ${formData.email}`;
+          await fetch(`https://api.callmebot.com/whatsapp.php?phone=${phone}&text=${text}&apikey=${apikey}`, { mode: 'no-cors' });
+        }
+      } catch (e) {
+        console.error("Erro no alerta de whatsapp:", e);
+      }
+
       setSuccess(true);
       setFormData({
         name: "",
