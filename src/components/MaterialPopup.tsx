@@ -7,9 +7,10 @@ interface MaterialPopupProps {
   isOpen: boolean;
   onClose: () => void;
   materialTitle: string;
+  materialLink: string;
 }
 
-export function MaterialPopup({ isOpen, onClose, materialTitle }: MaterialPopupProps) {
+export function MaterialPopup({ isOpen, onClose, materialTitle, materialLink }: MaterialPopupProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -92,31 +93,39 @@ export function MaterialPopup({ isOpen, onClose, materialTitle }: MaterialPopupP
             
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 text-branco/40 hover:text-accent-premium transition-colors"
+              className="absolute top-4 right-4 text-branco/40 hover:text-accent-premium transition-colors z-10"
             >
               <X className="h-6 w-6" />
             </button>
 
             {isSubmitted ? (
-              <div className="text-center py-8">
+              <div className="text-center py-8 relative z-10">
                 <div className="h-16 w-16 bg-accent-premium/10 text-accent-premium rounded-full flex items-center justify-center mx-auto mb-6">
                   <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-display font-light text-branco mb-4">Material Solicitado</h3>
+                <h3 className="text-2xl font-display font-light text-branco mb-4">Acesso Liberado!</h3>
                 <p className="text-branco/60 font-light mb-8">
-                  Tudo certo! Em instantes nossa equipe enviará o <strong>{materialTitle}</strong> diretamente no seu WhatsApp ou E-mail.
+                  O material <strong>{materialTitle}</strong> já está disponível para você. Clique no botão abaixo para acessá-lo.
                 </p>
+                <a
+                  href={materialLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full block py-4 text-center bg-accent-premium text-obsidian font-bold text-xs tracking-[0.2em] uppercase hover:bg-white transition-colors rounded-full mb-4 shadow-lg shadow-accent-premium/10"
+                >
+                  Baixar Arquivo Agora
+                </a>
                 <button
                   onClick={onClose}
-                  className="w-full py-4 bg-accent-premium text-obsidian font-bold text-xs tracking-[0.2em] uppercase hover:bg-white transition-colors rounded-full"
+                  className="w-full py-4 bg-transparent border border-branco/20 text-branco font-bold text-xs tracking-[0.2em] uppercase hover:bg-branco/5 transition-colors rounded-full"
                 >
                   Fechar
                 </button>
               </div>
             ) : (
-              <>
+              <div className="relative z-10">
                 <span className="text-accent-premium font-sans text-[10px] font-bold tracking-[0.2em] uppercase mb-4 block">
                   Download Gratuito
                 </span>
@@ -125,7 +134,7 @@ export function MaterialPopup({ isOpen, onClose, materialTitle }: MaterialPopupP
                   <span className="italic text-accent-premium font-medium">{materialTitle}</span>
                 </h3>
                 <p className="text-branco/60 text-sm font-light mb-8">
-                  Preencha os campos abaixo para receber o acesso exclusivo ao nosso acervo estratégico.
+                  Preencha os campos abaixo para receber o acesso exclusivo ao nosso acervo estratégico e liberar o download na hora.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -146,7 +155,7 @@ export function MaterialPopup({ isOpen, onClose, materialTitle }: MaterialPopupP
                     <input
                       required
                       type="email"
-                      placeholder="E-mail"
+                      placeholder="E-mail corporativo"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       disabled={isSubmitting}
@@ -176,7 +185,7 @@ export function MaterialPopup({ isOpen, onClose, materialTitle }: MaterialPopupP
                     </button>
                   </div>
                 </form>
-              </>
+              </div>
             )}
           </motion.div>
         </div>
