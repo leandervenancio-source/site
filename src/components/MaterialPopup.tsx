@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
-import { X } from "lucide-react";
+import { X, Loader2 } from "lucide-react";
 import React, { useState } from "react";
+import { supabase } from "../lib/supabase";
 
 interface MaterialPopupProps {
   isOpen: boolean;
@@ -9,13 +10,61 @@ interface MaterialPopupProps {
 }
 
 export function MaterialPopup({ isOpen, onClose, materialTitle }: MaterialPopupProps) {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    whatsapp: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate lead capture
-    setIsSubmitted(true);
-    // In a real app, you'd trigger the actual download here or send a link via email
+    setIsSubmitting(true);
+
+    try {
+      // 1. Salvar no Supabase (na tabela leads, com a coluna material_solicitado)
+      const { error } = await supabase
+        .from('leads')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            whatsapp: formData.whatsapp,
+            material_solicitado: materialTitle
+          }
+        ]);
+
+      if (error) throw error;
+
+      // 2. Disparar e-mail de notificação para o Leandro
+      try {
+        await fetch("https://formsubmit.co/ajax/leandervenancio@gmail.com", {
+            method: "POST",
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                _subject: "📚 Novo Lead (Material Baixado): " + formData.name,
+                Nome: formData.name,
+                WhatsApp: formData.whatsapp,
+                Email: formData.email,
+                Material_Solicitado: materialTitle,
+                _template: "table"
+            })
+        });
+      } catch (e) {
+        console.error("Erro no envio do e-mail:", e);
+      }
+
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Erro ao solicitar material:", error);
+      alert("Houve um erro ao enviar seus dados. Por favor, tente novamente.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -55,9 +104,9 @@ export function MaterialPopup({ isOpen, onClose, materialTitle }: MaterialPopupP
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-display font-light text-branco mb-4">Acesso Liberado</h3>
+                <h3 className="text-2xl font-display font-light text-branco mb-4">Material Solicitado</h3>
                 <p className="text-branco/60 font-light mb-8">
-                  O link para o material <strong>{materialTitle}</strong> foi enviado para o seu e-mail e WhatsApp.
+                  Tudo certo! Em instantes nossa equipe enviará o <strong>{materialTitle}</strong> diretamente no seu WhatsApp ou E-mail.
                 </p>
                 <button
                   onClick={onClose}
@@ -86,6 +135,9 @@ export function MaterialPopup({ isOpen, onClose, materialTitle }: MaterialPopupP
                       required
                       type="text"
                       placeholder="Seu nome completo"
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      disabled={isSubmitting}
                       className="w-full px-4 py-3 bg-branco/5 border border-branco/10 text-branco placeholder-branco/20 focus:outline-none focus:border-accent-premium text-sm font-light transition-colors rounded-xl"
                     />
                   </div>
@@ -95,6 +147,9 @@ export function MaterialPopup({ isOpen, onClose, materialTitle }: MaterialPopupP
                       required
                       type="email"
                       placeholder="E-mail"
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      disabled={isSubmitting}
                       className="w-full px-4 py-3 bg-branco/5 border border-branco/10 text-branco placeholder-branco/20 focus:outline-none focus:border-accent-premium text-sm font-light transition-colors rounded-xl"
                     />
                   </div>
@@ -104,15 +159,20 @@ export function MaterialPopup({ isOpen, onClose, materialTitle }: MaterialPopupP
                       required
                       type="tel"
                       placeholder="(00) 00000-0000"
+                      value={formData.whatsapp}
+                      onChange={(e) => setFormData({...formData, whatsapp: e.target.value})}
+                      disabled={isSubmitting}
                       className="w-full px-4 py-3 bg-branco/5 border border-branco/10 text-branco placeholder-branco/20 focus:outline-none focus:border-accent-premium text-sm font-light transition-colors rounded-xl"
                     />
                   </div>
                   <div className="pt-4">
                     <button
                       type="submit"
-                      className="w-full py-4 bg-accent-premium text-obsidian font-bold text-xs tracking-[0.2em] uppercase hover:bg-white transition-colors shadow-lg shadow-accent-premium/10 rounded-full"
+                      disabled={isSubmitting}
+                      className="relative w-full flex items-center justify-center py-4 bg-accent-premium text-obsidian font-bold text-xs tracking-[0.2em] uppercase hover:bg-white transition-colors shadow-lg shadow-accent-premium/10 rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Receber material
+                      {isSubmitting && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
+                      {isSubmitting ? "Processando..." : "Receber material"}
                     </button>
                   </div>
                 </form>

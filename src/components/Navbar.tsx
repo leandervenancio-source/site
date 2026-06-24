@@ -89,7 +89,7 @@ export function Navbar() {
               </div>
             </div>
 
-            {/* <Link
+            <Link
               to={materialsLink.path}
               className={cn(
                 "text-[10px] font-bold uppercase tracking-[0.3em] transition-all duration-500 hover:text-accent-premium",
@@ -97,7 +97,7 @@ export function Navbar() {
               )}
             >
               {materialsLink.name}
-            </Link> */}
+            </Link>
 
             <Link
               to="/diagnostico"
