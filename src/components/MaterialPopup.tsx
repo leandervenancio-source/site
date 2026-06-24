@@ -24,24 +24,46 @@ export function MaterialPopup({ isOpen, onClose, materialTitle, materialLink }: 
     setIsSubmitting(true);
 
     try {
-      // 1. Salvar no Supabase (na tabela leads, com a coluna material_solicitado)
-      const { error } = await supabase
-        .from('leads')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            whatsapp: formData.whatsapp,
-            company: "N/A (Download de Material)",
-            revenue: "N/A",
-            employees: "N/A",
-            material_solicitado: materialTitle
+      // 1. Salvar no Supabase (na tabela leads) com tratamento de erros não bloqueante
+      try {
+        const { error } = await supabase
+          .from('leads')
+          .insert([
+            {
+              name: formData.name,
+              email: formData.email,
+              whatsapp: formData.whatsapp,
+              company: "N/A (Download de Material)",
+              revenue: "N/A",
+              employees: "0", // Usar "0" que é seguro para tipos de dados inteiros ou texto
+              material_solicitado: materialTitle
+            }
+          ]);
+
+        if (error) {
+          console.warn("Erro ao inserir com material_solicitado, tentando sem essa coluna...", error);
+          // Tenta novamente sem a coluna material_solicitado (caso o cliente não tenha criado a coluna no banco)
+          const { error: retryError } = await supabase
+            .from('leads')
+            .insert([
+              {
+                name: formData.name,
+                email: formData.email,
+                whatsapp: formData.whatsapp,
+                company: "N/A (Download de Material)",
+                revenue: "N/A",
+                employees: "0"
+              }
+            ]);
+          if (retryError) {
+            console.error("Erro na segunda tentativa de inserção no Supabase:", retryError);
           }
-        ]);
+        }
+      } catch (dbError) {
+        console.error("Falha na comunicação com o Supabase:", dbError);
+      }
 
-      if (error) throw error;
-
-      // 2. Disparar e-mail de notificação para o Leandro
+      // 2. Disparar e-mail de notificação para o Leandro (FormSubmit)
       try {
         await fetch("https://formsubmit.co/ajax/leandervenancio@gmail.com", {
             method: "POST",
@@ -58,14 +80,14 @@ export function MaterialPopup({ isOpen, onClose, materialTitle, materialLink }: 
                 _template: "table"
             })
         });
-      } catch (e) {
-        console.error("Erro no envio do e-mail:", e);
+      } catch (emailError) {
+        console.error("Erro no envio do e-mail de notificação:", emailError);
       }
 
       setIsSubmitted(true);
-    } catch (error) {
-      console.error("Erro ao solicitar material:", error);
-      alert("Houve um erro ao enviar seus dados. Por favor, tente novamente.");
+    } catch (err) {
+      console.error("Erro geral no submit:", err);
+      alert("Houve um erro ao processar sua solicitação. Por favor, tente novamente.");
     } finally {
       setIsSubmitting(false);
     }
