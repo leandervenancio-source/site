@@ -8,7 +8,7 @@ export function Footer() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16">
-          <div className="md:col-span-6">
+          <div className="md:col-span-4">
             <Link to="/" className="font-sans text-3xl font-black tracking-tighter lowercase text-branco mb-4 block hover:text-accent-premium transition-all duration-500">
               montgestão
             </Link>
@@ -28,18 +28,27 @@ export function Footer() {
           </div>
           
           <div className="md:col-span-3">
-            <h3 className="font-display text-[10px] font-bold tracking-[0.3em] uppercase mb-6 text-accent-premium">Navegação</h3>
+            <h3 className="font-display text-[10px] font-bold tracking-[0.3em] uppercase mb-6 text-accent-premium">Soluções</h3>
             <ul className="space-y-4">
-              <li><Link to="/" className="text-branco/40 hover:text-accent-premium text-sm font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Home</Link></li>
-              <li><Link to="/diagnostico" className="text-branco/40 hover:text-accent-premium text-sm font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Diagnóstico</Link></li>
+              <li><Link to="/advisory-program" className="text-branco/40 hover:text-accent-premium text-sm font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Advisory Program</Link></li>
+              <li><Link to="/performance-program" className="text-branco/40 hover:text-accent-premium text-sm font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Performance Program</Link></li>
             </ul>
           </div>
 
+          <div className="md:col-span-2">
+            <h3 className="font-display text-[10px] font-bold tracking-[0.3em] uppercase mb-6 text-accent-premium">Navegação</h3>
+            <ul className="space-y-4">
+              <li><Link to="/" className="text-branco/40 hover:text-accent-premium text-sm font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Home</Link></li>
+              <li><Link to="/materiais" className="text-branco/40 hover:text-accent-premium text-sm font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Conteúdos</Link></li>
+              <li><Link to="/diagnostico" className="text-branco/40 hover:text-accent-premium text-sm font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Diagnóstico</Link></li>
+            </ul>
+          </div>
+          
           <div className="md:col-span-3">
             <h3 className="font-display text-[10px] font-bold tracking-[0.3em] uppercase mb-6 text-accent-premium">Contato</h3>
             <ul className="space-y-4">
               <li><a href="mailto:contato@montgestao.com.br" className="text-branco/40 hover:text-accent-premium text-sm font-light transition-all duration-300 break-all">contato@montgestao.com.br</a></li>
-              <li><a href="https://wa.me/message/NRXMFPWG6DUZB1" target="_blank" rel="noopener noreferrer" className="text-branco/40 hover:text-accent-premium text-sm font-light transition-all duration-300">(62) 999200405</a></li>
+              <li><a href="https://wa.me/message/NRXMFPWG6DUZB1" target="_blank" rel="noopener noreferrer" className="text-branco/40 hover:text-accent-premium text-sm font-light transition-all duration-300">(62) 99920-0405</a></li>
             </ul>
           </div>
         </div>
