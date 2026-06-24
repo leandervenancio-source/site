@@ -10,7 +10,7 @@ const materials = [
     category: "Produtividade",
     type: "E-book",
     excerpt: "Descubra como dominar sua agenda, delegar com eficiência e eliminar os ladrões de tempo que travam o crescimento do seu negócio. O guia definitivo para o empresário que quer faturar mais trabalhando de forma inteligente e estratégica.",
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop",
+    image: "/assets/cover_gestao_tempo.png",
     link: "https://drive.google.com/file/d/16SFJZ6obM5FVKygWnrmeS7mgGDU4bnuv/view?usp=sharing"
   },
   {
@@ -19,7 +19,7 @@ const materials = [
     category: "Estratégia",
     type: "E-book",
     excerpt: "Transforme grandes visões em planos de ação claros e metas financeiras totalmente alcançáveis para o seu negócio. O mapa estratégico ideal para direcionar sua equipe, medir o sucesso e acelerar o crescimento da sua empresa.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+    image: "/assets/cover_metas_estrategias.png",
     link: "https://drive.google.com/file/d/16Vz0XDqfmO7rjJp7-hxgxlf-9QNUCGVZ/view?usp=sharing"
   },
   {
@@ -28,7 +28,7 @@ const materials = [
     category: "Liderança",
     type: "E-book",
     excerpt: "Aprenda a atrair, engajar e reter os talentos certos para construir uma equipe de alta performance e autogerenciável. O passo a passo definitivo para liderar com clareza, delegar tarefas e alinhar o time aos objetivos do seu negócio.",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+    image: "/assets/cover_gestao_pessoas.png",
     link: "https://drive.google.com/file/d/1rUAfoLMY0VjXG_iIWDDbVF4IB55MoPDF/view?usp=sharing"
   },
   {
@@ -36,8 +36,8 @@ const materials = [
     title: "Planilha de Precificação",
     category: "Finanças",
     type: "Planilha",
-    excerpt: "Automatize seus cálculos e descubra o preço de venda ideal dos seus produtos ou serviços em poucos cliques, considerando custos, impostos e margem de lucro. A ferramenta definitiva para garantir a rentabilidade do seu negócio sem margem para erros.",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2036&auto=format&fit=crop",
+    excerpt: "Automatize seus cálculos e descubra o preço de venda ideal dos seus produtos ou serviços em poucos clicks, considerando custos, impostos e margem de lucro. A ferramenta definitiva para garantir a rentabilidade do seu negócio sem margem para erros.",
+    image: "/assets/cover_planilha_precificacao.png",
     link: "https://docs.google.com/spreadsheets/d/1masAga6dTvuwkFfISVvCmKWtJnHfBlWQ/edit?usp=drive_link&ouid=115374873829391183526&rtpof=true&sd=true"
   },
   {
@@ -46,7 +46,7 @@ const materials = [
     category: "Finanças",
     type: "E-book",
     excerpt: "Desvende a lógica financeira por trás do preço ideal e aprenda a margem de lucro exata para produtos ou serviços sem espantar clientes. O guia prático para você valorizar seu trabalho, cobrar com confiança e garantir a saúde financeira do seu negócio.",
-    image: "https://images.unsplash.com/photo-1580519542036-ed47610ceb95?q=80&w=2073&auto=format&fit=crop",
+    image: "/assets/cover_ebook_precificacao.png",
     link: "https://drive.google.com/file/d/1fFgvZtFxAkCJah4Rr-s4KRPJQF8pwDOR/view?usp=drive_link"
   },
   {
@@ -55,7 +55,7 @@ const materials = [
     category: "Finanças",
     type: "Planilha",
     excerpt: "Tenha o controle absoluto das entradas e saídas do seu negócio com lançamentos simples e relatórios visuais gerados automaticamente. A ferramenta ideal para antecipar cenários, evitar surpresas no vermelho e tomar decisões financeiras seguras.",
-    image: "https://images.unsplash.com/photo-1543286386-2e659306cd6c?q=80&w=2070&auto=format&fit=crop",
+    image: "/assets/cover_planilha_fluxo_caixa.png",
     link: "https://docs.google.com/spreadsheets/d/1ZZhtTaLvN21ZoqPQNmS-DwP7n3QpPS_T/edit?usp=drive_link&ouid=115374873829391183526&rtpof=true&sd=true"
   },
   {
@@ -64,7 +64,7 @@ const materials = [
     category: "Finanças",
     type: "E-book",
     excerpt: "Domine o coração financeiro da sua empresa, aprendendo a projetar entradas e saídas para antecipar cenários e evitar o sufoco no vermelho. O guia prático para você tomar decisões estratégicas seguras e garantir a liquidez constante do seu negócio.",
-    image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=2070&auto=format&fit=crop",
+    image: "/assets/cover_ebook_fluxo_caixa.png",
     link: "https://drive.google.com/file/d/1qugl3OG79GyCFRRs361CvOy2V4T6wBRA/view?usp=drive_link"
   },
   {
@@ -73,7 +73,7 @@ const materials = [
     category: "Finanças",
     type: "Infográfico em PNG",
     excerpt: "Visualize de forma rápida e clara o ciclo ideal de suprimentos, desde a cotação inteligente até a negociação estratégica de prazos com fornecedores. O mapa visual definitivo para reduzir custos, evitar desperdícios e otimizar o capital de giro da sua empresa.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
+    image: "/assets/cover_infografico_compras.png",
     link: "https://drive.google.com/file/d/1Ae9vH846ZtxsKkPoZ47tPc8ITZqZKNTE/view?usp=drive_link"
   },
   {
@@ -82,7 +82,7 @@ const materials = [
     category: "Finanças",
     type: "E-book",
     excerpt: "Aprenda a negociar com fornecedores, planejar a demanda com precisão e alinhar prazos de pagamento para manter seu caixa sempre folgado. O guia estratégico para reduzir custos operacionais e aumentar a lucratividade da sua empresa logo na compra.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    image: "/assets/cover_ebook_compras.png",
     link: "https://drive.google.com/file/d/16V3bu1B9nF0rbVFTbB_w1irD6YN-AhoJ/view?usp=drive_link"
   },
   {
@@ -91,7 +91,7 @@ const materials = [
     category: "Finanças",
     type: "E-book",
     excerpt: "Aprenda a decifrar o verdadeiro resultado econômico da sua empresa e descubra se a sua operação gera lucro ou prejuízo real. O guia definitivo para analisar sua DRE de forma simples, identificar gargalos de custos e tomar decisões altamente lucrativas.",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop",
+    image: "/assets/cover_ebook_dre.png",
     link: "https://drive.google.com/file/d/1GbmqxZnwS8UH9KM-SKG3uBRPhpZdi3Ya/view?usp=drive_link"
   }
 ];

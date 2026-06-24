@@ -7,7 +7,7 @@ const navLinks = [
   { name: "Home", path: "/" },
 ];
 
-const materialsLink = { name: "Materiais Gratuitos", path: "/materiais" };
+const materialsLink = { name: "Conteúdos", path: "/materiais" };
 
 const solutionLinks = [
   { name: "Advisory Program", path: "/advisory-program" },
@@ -159,7 +159,7 @@ export function Navbar() {
                     </div>
                 )}
             </div>
-            {/* <Link
+            <Link
               to={materialsLink.path}
               onClick={() => setIsOpen(false)}
               className={cn(
@@ -168,7 +168,7 @@ export function Navbar() {
               )}
             >
               {materialsLink.name}
-            </Link> */}
+            </Link>
             <Link
               to="/diagnostico"
               onClick={() => setIsOpen(false)}
