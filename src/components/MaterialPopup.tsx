@@ -32,6 +32,9 @@ export function MaterialPopup({ isOpen, onClose, materialTitle, materialLink }: 
             name: formData.name,
             email: formData.email,
             whatsapp: formData.whatsapp,
+            company: "N/A (Download de Material)",
+            revenue: "N/A",
+            employees: "N/A",
             material_solicitado: materialTitle
           }
         ]);
