@@ -113,7 +113,7 @@ export function Materials() {
         materialTitle={selectedMaterial.title}
         materialLink={selectedMaterial.link}
       />
-      {/* Header - MGI Style */}
+      {/* Header */}
       <section className="bg-obsidian text-branco pt-40 pb-32 lg:pt-56 lg:pb-48 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,_#d4af37_0%,_transparent_60%)]"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -127,16 +127,16 @@ export function Materials() {
               Acervo Estratégico
             </span>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-light leading-[1.1] mb-8 text-branco">
-              Inteligência aplicada para <span className="italic text-accent-premium font-medium">estruturar a sua operação.</span>
+              Inteligência aplicada para <span className="italic text-accent-premium font-medium">alavancar sua performance.</span>
             </h1>
             <p className="text-lg md:text-xl text-branco/70 font-sans font-light leading-relaxed mb-12 max-w-2xl mx-auto">
-              Ferramentas, planilhas e frameworks práticos utilizados em nossos projetos de Advisory para acelerar a profissionalização da sua empresa.
+              Ferramentas, planilhas e frameworks práticos desenvolvidos pela Mont Gestão para maximizar o lucro, o capital de giro e o controle de caixa de indústrias e distribuidoras.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Materials Grid - MGI Style */}
+      {/* Materials Grid */}
       <section className="py-32 bg-zinc-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
@@ -181,7 +181,7 @@ export function Materials() {
         </div>
       </section>
 
-      {/* Newsletter / CTA - MGI Style */}
+      {/* Newsletter / CTA */}
       <section className="py-32 bg-obsidian text-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,_#d4af37_0%,_transparent_60%)]"></div>
         <motion.div
