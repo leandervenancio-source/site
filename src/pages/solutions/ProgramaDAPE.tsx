@@ -20,7 +20,10 @@ import {
   GraduationCap,
   Search,
   Settings,
-  RefreshCw
+  RefreshCw,
+  LineChart,
+  Layers,
+  TrendingUp
 } from "lucide-react";
 import { useState } from "react";
 import { Testimonials } from "../../components/Testimonials";
@@ -34,6 +37,10 @@ export function PerformanceProgram() {
     {
       question: "O que é o Performance Program?",
       answer: "É um programa de implementação de gestão empresarial que ajuda sua empresa a ganhar controle dos números, implantar rotinas de gestão e melhorar lucro, caixa e execução em até 6 meses."
+    },
+    {
+      question: "O programa inclui Controladoria Financeira e FP&A?",
+      answer: "Sim, esses são os dois pilares centrais do programa. Na Controladoria, garantimos a integridade e apuração dos números presentes (DRE gerencial em tempo real, conciliações, custos e margem real). No FP&A, estruturamos a visão do futuro (projeção dinâmica de fluxo de caixa a 90 dias, orçamento empresarial matricial e simulação de cenários de liquidez para decisões assertivas)."
     },
     {
       question: "Para quem o Performance Program é indicado?",
@@ -88,10 +95,10 @@ export function PerformanceProgram() {
               <span className="font-serif italic text-accent-premium">Program</span>
             </h1>
             <h2 className="text-xl md:text-2xl font-display font-light text-branco/90 mb-8 leading-relaxed">
-              Controle seus números, aumente seu lucro e crie uma rotina de execução que gera resultados de verdade.
+              Controle seus números, aumente seu lucro e estruture sua <span className="text-accent-premium font-normal">Controladoria Financeira & FP&A</span> com o método DAPE.
             </h2>
             <p className="text-lg text-branco/70 font-light leading-relaxed mb-12 max-w-2xl mx-auto">
-              O Performance Program ajuda empresários a implantar indicadores, organizar a gestão e executar prioridades que aumentam lucro e caixa nos próximos 6 meses.
+              O Performance Program integra controladoria estratégica de precisão e planejamento dinâmico de caixa para transformar a gestão financeira de indústrias e distribuidoras nos próximos 6 meses.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link to="/diagnostico" className="group relative inline-flex items-center justify-center px-10 py-5 text-sm font-bold tracking-[0.2em] uppercase text-obsidian bg-accent-premium rounded-full overflow-hidden transition-all duration-500">
@@ -287,6 +294,108 @@ export function PerformanceProgram() {
         </div>
       </section>
 
+      {/* Motores Técnicos: Controladoria & FP&A */}
+      <section className="py-16 lg:py-24 bg-white/[0.02] border-t border-white/10 text-branco relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12 lg:mb-16">
+            <span className="text-accent-premium font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Motores Técnicos</span>
+            <h2 className="text-3xl md:text-5xl font-display font-light text-branco mb-4">
+              Controladoria Financeira <br className="hidden sm:block" />
+              <span className="font-serif italic text-accent-premium">& FP&A na Prática</span>
+            </h2>
+            <p className="text-base lg:text-lg text-branco/60 font-light leading-relaxed max-w-3xl mx-auto">
+              A engrenagem técnica que transforma o método DAPE em dinheiro livre no caixa: da exatidão dos dados presentes à previsibilidade dinâmica do futuro.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+            
+            {/* Pilar 1: Controladoria Financeira */}
+            <div className="p-8 sm:p-10 bg-obsidian border border-white/10 rounded-3xl relative overflow-hidden flex flex-col justify-between hover:border-accent-premium/30 transition-all duration-300 group">
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-12 h-12 rounded-2xl bg-accent-premium/15 text-accent-premium flex items-center justify-center">
+                    <Layers className="w-6 h-6" />
+                  </div>
+                  <span className="text-[10px] uppercase font-mono tracking-widest px-3 py-1 rounded-full bg-accent-premium/10 text-accent-premium border border-accent-premium/20 font-bold">
+                    Precisão do Presente
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-display font-medium text-branco mb-3">
+                  Controladoria Financeira
+                </h3>
+                <p className="text-sm text-branco/60 font-light leading-relaxed mb-8">
+                  Saneamento absoluto das informações fiscais e gerenciais para que cada decisão dos sócios seja fundamentada em lucro e custos reais.
+                </p>
+
+                <div className="space-y-4 pt-6 border-t border-white/10">
+                  {[
+                    { title: "Saneamento & Plano de Contas", desc: "Estruturação e padronização do plano de contas para relatórios executivos 100% confiáveis." },
+                    { title: "Conciliações Diárias & Fechamento Ágil", desc: "Rotinas rigorosas de conciliação bancária e financeira sem distorções no fluxo." },
+                    { title: "DRE Gerencial em Tempo Real", desc: "Visão analítica de lucro operacional real, despesas fixas e EBITDA gerencial." },
+                    { title: "Apuração de Margens de Contribuição", desc: "Cálculo cirúrgico da margem por família de produtos, canais e clientes." },
+                    { title: "Ponto de Equilíbrio & Vazamentos", desc: "Identificação exata do faturamento de cobertura e eliminação de desperdícios de caixa." }
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full bg-accent-premium/15 text-accent-premium flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <span className="text-sm font-medium text-branco block">{item.title}</span>
+                        <span className="text-xs text-branco/50 font-light">{item.desc}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Pilar 2: FP&A (Planejamento & Análise) */}
+            <div className="p-8 sm:p-10 bg-obsidian border border-white/10 rounded-3xl relative overflow-hidden flex flex-col justify-between hover:border-accent-premium/30 transition-all duration-300 group">
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-12 h-12 rounded-2xl bg-accent-premium/15 text-accent-premium flex items-center justify-center">
+                    <LineChart className="w-6 h-6" />
+                  </div>
+                  <span className="text-[10px] uppercase font-mono tracking-widest px-3 py-1 rounded-full bg-accent-premium/10 text-accent-premium border border-accent-premium/20 font-bold">
+                    Previsibilidade do Futuro
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-display font-medium text-branco mb-3">
+                  FP&A (Planejamento & Análise)
+                </h3>
+                <p className="text-sm text-branco/60 font-light leading-relaxed mb-8">
+                  Modelagem preditiva e governança de metas para antecipar necessidades de caixa e planejar o crescimento de forma sustentável.
+                </p>
+
+                <div className="space-y-4 pt-6 border-t border-white/10">
+                  {[
+                    { title: "Projeção Dinâmica de Caixa (30, 60 e 90 dias)", desc: "Visibilidade contínua de liquidez para antecipar compras e evitar sufocos bancários." },
+                    { title: "Orçamento Empresarial Matricial (Budget)", desc: "Construção e acompanhamento sistemático de metas financeiras por área da empresa." },
+                    { title: "Acompanhamento Realizado vs. Orçado", desc: "Análise contínua de desvios com planos de ação corretivos de curto prazo." },
+                    { title: "Simulação de Cenários & Stress Test", desc: "Testes de impacto de variações de juros, custos de insumos e demanda na solvência." },
+                    { title: "Gestão da Necessidade de Capital de Giro (NCG)", desc: "Dimensionamento correto do caixa necessário para suportar prazos de compras e vendas." }
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full bg-accent-premium/15 text-accent-premium flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <span className="text-sm font-medium text-branco block">{item.title}</span>
+                        <span className="text-xs text-branco/50 font-light">{item.desc}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Entregas Section */}
       <section className="py-12 lg:py-16 bg-soft-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -302,8 +411,8 @@ export function PerformanceProgram() {
               { id: "01", title: "Diagnóstico de Performance", desc: "Análise profunda da sua operação atual para identificar gargalos e oportunidades de lucro imediato.", icon: Search },
               { id: "02", title: "Indicadores e Metas", desc: "Definição clara de objetivos e estruturação de KPIs (indicadores) para medir o progresso do negócio.", icon: Target },
               { id: "03", title: "Rotinas de Gestão", desc: "Implementação de rituais semanais para acompanhar o desempenho da equipe e corrigir rotas rapidamente.", icon: Settings },
-              { id: "04", title: "Plataforma de Performance", desc: "Acesso a ferramentas e painéis de controle que centralizam a visão da sua operação em tempo real.", icon: BarChart3 },
-              { id: "05", title: "Projetos Prioritários", desc: "Desenho e execução de projetos chave que vão destravar o crescimento do seu negócio de forma focada.", icon: Zap },
+              { id: "04", title: "Controladoria & DRE Gerencial", desc: "Estruturação de DRE gerencial em tempo real, conciliações e apuração exata de margens e ponto de equilíbrio.", icon: BarChart3 },
+              { id: "05", title: "Núcleo de FP&A & Projeção de Caixa", desc: "Modelagem preditiva de fluxo de caixa a 30, 60 e 90 dias, orçamento empresarial e simulação de cenários.", icon: LineChart },
               { id: "06", title: "Acompanhamento da Execução", desc: "Mentoria contínua para garantir que os planos saiam do papel e os líderes estejam sempre engajados.", icon: Users },
               { id: "07", title: "Suporte via Whatsapp", desc: "Canal de comunicação ágil e direto para tirar dúvidas estratégicas do dia a dia de forma rápida.", icon: MessageCircle },
               { id: "08", title: "Acesso à Mont Academy", desc: "Acesso à plataforma de capacitação com métodos, ferramentas e treinamentos para você e sua equipe.", icon: GraduationCap }
