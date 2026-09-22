@@ -144,7 +144,7 @@ export function Home() {
 
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-light leading-[1.08] tracking-tight text-white mb-8">
                 A inteligência financeira que transforma <br className="hidden sm:block" />
-                <span className="font-serif italic text-accent-premium font-normal">faturamento bruto em lucro real e caixa livre.</span>
+                faturamento em <span className="font-serif italic text-accent-premium font-normal">lucro e caixa.</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-white/85 font-light leading-relaxed mb-10 max-w-3xl mx-auto">
