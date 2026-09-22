@@ -130,7 +130,7 @@ export function Home() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -142,9 +142,10 @@ export function Home() {
                 Gestão Financeira Estratégica
               </span>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-light leading-[1.08] tracking-tight text-white mb-8">
-                A inteligência financeira que transforma <br className="hidden sm:block" />
-                faturamento em <span className="font-serif italic text-accent-premium font-normal">lucro e caixa.</span>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-light leading-[1.12] tracking-tight text-white mb-8">
+                <span className="md:whitespace-nowrap">A inteligência financeira que transforma</span>{" "}
+                <br className="hidden md:block" />
+                <span className="md:whitespace-nowrap">faturamento em <span className="font-serif italic text-accent-premium font-normal">lucro e caixa.</span></span>
               </h1>
 
               <p className="text-lg sm:text-xl text-white/85 font-light leading-relaxed mb-10 max-w-3xl mx-auto">
