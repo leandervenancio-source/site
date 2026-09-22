@@ -90,14 +90,14 @@ export function PerformanceProgram() {
             className="max-w-5xl mx-auto"
           >
             <span className="text-accent-premium font-bold tracking-[0.4em] uppercase text-xs mb-6 block">Performance & Execução</span>
-            <h1 className="text-6xl md:text-9xl font-display font-light leading-[0.9] mb-8 text-branco tracking-tight">
+            <h1 className="text-6xl md:text-9xl font-display font-light leading-[0.9] mb-8 text-white tracking-tight">
               Performance <br />
               <span className="font-serif italic text-accent-premium">Program</span>
             </h1>
-            <h2 className="text-xl md:text-2xl font-display font-light text-branco/90 mb-8 leading-relaxed">
+            <h2 className="text-xl md:text-2xl font-display font-light text-white/90 mb-8 leading-relaxed">
               Controle seus números, aumente seu lucro e estruture sua <span className="text-accent-premium font-normal">Controladoria Financeira & FP&A</span> com o método DAPE.
             </h2>
-            <p className="text-lg text-branco/70 font-light leading-relaxed mb-12 max-w-2xl mx-auto">
+            <p className="text-lg text-white/80 font-light leading-relaxed mb-12 max-w-2xl mx-auto">
               O Performance Program integra controladoria estratégica de precisão e planejamento dinâmico de caixa para transformar a gestão financeira de indústrias e distribuidoras nos próximos 6 meses.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
