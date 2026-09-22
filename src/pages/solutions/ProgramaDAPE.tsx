@@ -27,37 +27,6 @@ import { DiagnosticForm } from "../../components/DiagnosticForm";
 export function PerformanceProgram() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const dapeSteps = [
-    {
-      letter: "D",
-      title: "Dados",
-      subtitle: "Estruturação & Saneamento",
-      desc: "Organização completa do plano de contas, conciliação e garantia de precisão absoluta dos dados fiscais e gerenciais da operação.",
-      icon: Database
-    },
-    {
-      letter: "A",
-      title: "Análise",
-      subtitle: "Controladoria Terceirizada",
-      desc: "Diagnósticos contínuos de margem de contribuição, custos fixos, ciclo financeiro e identificação imediata de vazamentos de caixa.",
-      icon: BarChart3
-    },
-    {
-      letter: "P",
-      title: "Planejamento",
-      subtitle: "FP&A Terceirizado",
-      desc: "Projeções dinâmicas de fluxo de caixa, orçamento empresarial e simulação de cenários de expansão e compras de estoque.",
-      icon: LineChart
-    },
-    {
-      letter: "E",
-      title: "Execução",
-      subtitle: "Rituais Ágeis & Kaizen",
-      desc: "Comitês periódicos de tomada de decisão com os sócios, planos de ação kaizen e acompanhamento implacável de metas financeiras.",
-      icon: CalendarCheck
-    }
-  ];
-
   const pillars = [
     {
       title: "Controladoria Terceirizada",
@@ -182,42 +151,157 @@ export function PerformanceProgram() {
         </div>
       </section>
 
-      {/* Metodologia DAPE */}
-      <section id="dape" className="py-28 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-accent-premium text-[10px] font-bold uppercase tracking-[0.3em] mb-4 block">
-              Metodologia Proprietária
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-display font-light text-branco mb-6">
-              O Ciclo Contínuo <span className="font-serif italic text-accent-premium">DAPE</span>
+      {/* Como ajuda Section (O Método DAPE) */}
+      <section id="dape" className="py-16 lg:py-24 bg-obsidian text-branco relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-premium/20 to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12 lg:mb-16">
+            <span className="text-accent-premium font-bold tracking-[0.3em] uppercase text-xs mb-4 block">O Método</span>
+            <h2 className="text-3xl md:text-5xl font-display font-light leading-tight text-branco mb-4">
+              Aceleração através <br />
+              <span className="font-serif italic text-accent-premium">da execução.</span>
             </h2>
-            <p className="text-base sm:text-lg text-branco/70 font-light leading-relaxed">
-              Não é um projeto de gaveta com início e fim. É uma esteira viva de aperfeiçoamento contínuo (Kaizen) e métodos ágeis, repetida mês a mês para alavancar margem e caixa.
+            <p className="text-base lg:text-lg text-branco/50 font-light leading-relaxed max-w-2xl mx-auto">
+              O Performance Program foca no <span className="text-branco font-normal">curto e médio prazo</span>. Implementamos rituais de controle que garantem que a estratégia seja executada com precisão através do método DAPE.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {dapeSteps.map((step, idx) => (
-              <div 
-                key={step.letter} 
-                className="p-8 bg-white/[0.03] border border-white/10 hover:border-accent-premium/50 rounded-2xl transition-all duration-300 relative group flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-8">
-                    <span className="w-12 h-12 rounded-2xl bg-accent-premium text-obsidian font-display font-black text-2xl flex items-center justify-center shadow-lg shadow-accent-premium/20">
-                      {step.letter}
-                    </span>
-                    <span className="text-xs font-mono text-branco/30 font-bold">0{idx + 1}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            {/* Left side: Framework */}
+            <div className="lg:col-span-9 relative">
+              {/* Desktop View (Circular Layout) */}
+              <div className="hidden md:flex relative w-full max-w-[400px] lg:max-w-[540px] mx-auto aspect-square items-center justify-center">
+                {/* Rotating Dashed Circle Connector */}
+                <motion.div 
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                  className="absolute w-[65%] h-[65%] border border-dashed border-white/20 rounded-full z-0"
+                ></motion.div>
+                
+                <div className="absolute inset-0 z-10">
+                  {/* Execução (E) - Top Left */}
+                  <div className="absolute top-[27%] left-[27%] -translate-x-1/2 -translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="relative group">
+                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-obsidian flex items-center justify-center text-2xl lg:text-4xl font-black shadow-2xl shadow-black/50 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">E</div>
+                      </div>
+                      <div className="absolute right-full mr-4 text-right w-[160px] lg:w-[220px]">
+                        <div className="text-branco font-display font-bold text-xl lg:text-2xl leading-none mb-1">Execução</div>
+                        <div className="text-[9px] lg:text-[10px] tracking-[0.3em] uppercase text-accent-premium font-black mb-1.5">Resultados</div>
+                        <p className="text-[11px] lg:text-xs text-branco/50 leading-relaxed font-light">Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis.</p>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-display font-medium text-branco mb-1">{step.title}</h3>
-                  <span className="text-xs uppercase tracking-widest text-accent-premium font-semibold block mb-4">
-                    {step.subtitle}
-                  </span>
-                  <p className="text-sm text-branco/60 font-light leading-relaxed">{step.desc}</p>
+
+                  {/* Dados (D) - Top Right */}
+                  <div className="absolute top-[27%] right-[27%] translate-x-1/2 -translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="relative group">
+                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-obsidian flex items-center justify-center text-2xl lg:text-4xl font-black shadow-2xl shadow-black/50 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">D</div>
+                      </div>
+                      <div className="absolute left-full ml-4 text-left w-[160px] lg:w-[220px]">
+                        <div className="text-branco font-display font-bold text-xl lg:text-2xl leading-none mb-1">Dados</div>
+                        <div className="text-[9px] lg:text-[10px] tracking-[0.3em] uppercase text-accent-premium font-black mb-1.5">Informação</div>
+                        <p className="text-[11px] lg:text-xs text-branco/50 leading-relaxed font-light">Sistema, processos de registro, indicadores, conciliações e controles padronizados.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Planejamento (P) - Bottom Left */}
+                  <div className="absolute bottom-[27%] left-[27%] -translate-x-1/2 translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="relative group">
+                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-obsidian flex items-center justify-center text-2xl lg:text-4xl font-black shadow-2xl shadow-black/50 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">P</div>
+                      </div>
+                      <div className="absolute right-full mr-4 text-right w-[160px] lg:w-[220px]">
+                        <div className="text-branco font-display font-bold text-xl lg:text-2xl leading-none mb-1">Planejamento</div>
+                        <div className="text-[9px] lg:text-[10px] tracking-[0.3em] uppercase text-accent-premium font-black mb-1.5">Prioridades</div>
+                        <p className="text-[11px] lg:text-xs text-branco/50 leading-relaxed font-light">Definição de objetivos, estratégias, projetos e planos de ação.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Análise (A) - Bottom Right */}
+                  <div className="absolute bottom-[27%] right-[27%] translate-x-1/2 translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="relative group">
+                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-accent-premium text-obsidian flex items-center justify-center text-2xl lg:text-4xl font-black shadow-2xl shadow-black/50 border-4 border-obsidian relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">A</div>
+                      </div>
+                      <div className="absolute left-full ml-4 text-left w-[160px] lg:w-[220px]">
+                        <div className="text-branco font-display font-bold text-xl lg:text-2xl leading-none mb-1">Análise</div>
+                        <div className="text-[9px] lg:text-[10px] tracking-[0.3em] uppercase text-accent-premium font-black mb-1.5">Inteligência</div>
+                        <p className="text-[11px] lg:text-xs text-branco/50 leading-relaxed font-light">Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios.</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
+
+              {/* Mobile View (Vertical List) */}
+              <div className="md:hidden space-y-8 py-6">
+                {[
+                  { 
+                    letter: "D", 
+                    title: "Dados", 
+                    subtitle: "Informação", 
+                    desc: "Sistema, processos de registro, indicadores, conciliações e controles padronizados." 
+                  },
+                  { 
+                    letter: "A", 
+                    title: "Análise", 
+                    subtitle: "Inteligência", 
+                    desc: "Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios." 
+                  },
+                  { 
+                    letter: "P", 
+                    title: "Planejamento", 
+                    subtitle: "Prioridades", 
+                    desc: "Definição de objetivos, estratégias, projetos e planos de ação." 
+                  },
+                  { 
+                    letter: "E", 
+                    title: "Execução", 
+                    subtitle: "Resultados", 
+                    desc: "Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis." 
+                  }
+                ].map((item, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex flex-col items-center text-center"
+                  >
+                    <div 
+                      className="w-16 h-16 rounded-full bg-accent-premium text-obsidian flex items-center justify-center text-3xl font-black border-4 border-obsidian mb-3 shadow-2xl shadow-black/50"
+                    >
+                      {item.letter}
+                    </div>
+                    <div className="font-display font-bold text-2xl mb-1 text-branco">{item.title}</div>
+                    <div className="text-[11px] tracking-[0.4em] uppercase text-accent-premium font-black mb-2">{item.subtitle}</div>
+                    <p className="text-sm text-branco/50 leading-relaxed font-light max-w-xs">{item.desc}</p>
+                    {i < 3 && (
+                      <div className="w-px h-6 bg-gradient-to-b from-white/20 to-transparent mt-6"></div>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right side: 3 Cards */}
+            <div className="lg:col-span-3 flex flex-col gap-4 lg:gap-5">
+              {[
+                { title: "Cultura Data-Driven", desc: "Decisões e equipes guiadas por dados e indicadores claros." },
+                { title: "Gestão Ágil", desc: "Processos dinâmicos que eliminam gargalos e aceleram a execução." },
+                { title: "Cultura de Melhoria Contínua", desc: "Ações e processos são constantemente aprimorados em busca da excelência." }
+              ].map((item, i) => (
+                <div key={i} className="glass p-5 lg:p-6 rounded-2xl border-white/5 hover:border-accent-premium/20 transition-all duration-500 text-left">
+                  <div className="text-accent-premium font-display font-bold text-lg mb-2">{item.title}</div>
+                  <p className="text-branco/50 text-sm font-light leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
