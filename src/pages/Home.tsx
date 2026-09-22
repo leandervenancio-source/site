@@ -139,7 +139,7 @@ export function Home() {
             >
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-premium/15 border border-accent-premium/40 text-accent-premium text-xs font-bold tracking-[0.25em] uppercase mb-8 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-accent-premium animate-pulse"></span>
-                Controladoria · FP&A · Crédito Estruturado
+                Gestão Financeira Estratégica
               </span>
 
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-light leading-[1.08] tracking-tight text-white mb-8">
@@ -148,7 +148,7 @@ export function Home() {
               </h1>
 
               <p className="text-lg sm:text-xl text-white/85 font-light leading-relaxed mb-10 max-w-3xl mx-auto">
-                Controladoria de precisão, FP&A contínuo e acesso a capital estruturado com o método DAPE. Desenvolvido sob medida para <span className="text-white font-medium">indústrias e distribuidoras que faturam acima de R$ 3 milhões ao ano</span> e não aceitam operar no escuro.
+                Unimos metodologia e tecnologia para aumentar a performance financeira e o acesso a capital inteligente de <span className="text-white font-medium">indústrias e distribuidoras</span>.
               </p>
 
               {/* Main Primary CTA */}
