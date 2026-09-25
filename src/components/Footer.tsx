@@ -30,7 +30,6 @@ export function Footer() {
             <ul className="space-y-3.5">
               <li><Link to="/performance-program" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Performance Program</Link></li>
               <li><Link to="/assessoria-credito" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Assessoria de Crédito</Link></li>
-              <li><Link to="/formacao-ceo-cfo" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Formação CEO/CFO</Link></li>
             </ul>
           </div>
 

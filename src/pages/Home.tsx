@@ -34,7 +34,6 @@ import { useState, useEffect } from "react";
 import { DiagnosticForm } from "../components/DiagnosticForm";
 
 export function Home() {
-  const [activeHeroTab, setActiveHeroTab] = useState<"performance" | "formacao" | "credito">("performance");
   const [activeOsTab, setActiveOsTab] = useState<"controladoria" | "fpa" | "cfo">("controladoria");
   const [activeTestimonial, setActiveTestimonial] = useState(1);
 
@@ -176,7 +175,6 @@ export function Home() {
                 <div className="flex flex-wrap items-center justify-center gap-3">
                   {[
                     { id: "performance", label: "Performance Program · Carro-Chefe", to: "/performance-program" },
-                    { id: "formacao", label: "Formação CEO/CFO · Capacitação", to: "/formacao-ceo-cfo" },
                     { id: "credito", label: "Assessoria de Crédito · Captação", to: "/assessoria-credito" },
                   ].map((item) => (
                     <Link
@@ -684,94 +682,7 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          7. EDUCATION SECTION (Formação CEO/CFO)
-      ========================================================================= */}
-      <section className="py-24 lg:py-32 bg-white/[0.02] border-t border-white/10 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Left side: Description */}
-            <div className="lg:col-span-6">
-              <span className="text-accent-premium font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
-                Education · Capacitação Executiva
-              </span>
-              <h2 className="text-3xl sm:text-5xl font-display font-light text-white mb-6 leading-tight">
-                Formação <br />
-                <span className="font-serif italic text-accent-premium">CEO & CFO</span>
-              </h2>
-              <p className="text-base sm:text-lg text-white/85 font-light leading-relaxed mb-6">
-                O empresário que não sabe ler seu próprio balanço e sua DRE fica refém de achismos. A Formação CEO/CFO é um treinamento prático para donos, herdeiros e líderes que querem comandar reuniões financeiras com total autoridade.
-              </p>
-
-              <div className="space-y-3.5 mb-8 text-sm text-white/90 font-light">
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent-premium shrink-0" />
-                  <span>Interpretação descomplicada de DRE gerencial, margens e fluxo de caixa</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent-premium shrink-0" />
-                  <span>A matemática da precificação estratégica e eliminação de custos invisíveis</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent-premium shrink-0" />
-                  <span>Como conduzir rituais semanais e cobrar metas da equipe sem microgerenciamento</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-accent-premium shrink-0" />
-                  <span>Governança e preparação do balanço para captar crédito bancário com taxas reduzidas</span>
-                </div>
-              </div>
-
-              <Link
-                to="/formacao-ceo-cfo"
-                className="inline-flex items-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-obsidian bg-accent-premium hover:bg-white transition-all duration-300 rounded-full shadow-lg shadow-accent-premium/20"
-              >
-                Garantir Vaga na Formação <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-
-            {/* Right side: Masterclass Video Card Mockup */}
-            <div className="lg:col-span-6">
-              <div className="relative p-6 sm:p-8 bg-obsidian border border-white/10 rounded-3xl overflow-hidden shadow-2xl group">
-                <div className="relative aspect-video rounded-2xl overflow-hidden bg-black/60 border border-white/10 flex items-center justify-center">
-                  <img 
-                    src="/assets/Foto Leander (2).png" 
-                    alt="Masterclass Leander Venâncio" 
-                    className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
-                  
-                  {/* Play Button */}
-                  <div className="w-16 h-16 rounded-full bg-accent-premium text-obsidian flex items-center justify-center shadow-xl shadow-accent-premium/30 group-hover:scale-110 transition-transform relative z-10">
-                    <Play className="w-6 h-6 fill-obsidian ml-1" />
-                  </div>
-
-                  {/* Top Badges */}
-                  <div className="absolute top-4 left-4 flex gap-2">
-                    <span className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-[10px] font-mono uppercase tracking-widest text-accent-premium font-bold">
-                      Imersão Executiva
-                    </span>
-                  </div>
-                </div>
-
-                <div className="mt-6 flex items-center justify-between">
-                  <div>
-                    <h4 className="text-lg font-display font-medium text-white">4 Módulos Práticos & Ferramentas Reais</h4>
-                    <p className="text-xs text-white/60 font-light">Planilhas, dashboards executivos e método DAPE inclusos</p>
-                  </div>
-                  <span className="text-xs font-mono text-accent-premium font-semibold">Turmas Exclusivas</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* =========================================================================
-          8. CLIENT TESTIMONIALS ("Clientes Satisfeitos, Negócios Transformados")
+          7. CLIENT TESTIMONIALS ("Clientes Satisfeitos, Negócios Transformados")
       ========================================================================= */}
       <section className="py-24 lg:py-32 bg-obsidian text-white relative border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -12,7 +12,6 @@ const materialsLink = { name: "Conteúdos", path: "/materiais" };
 const solutionLinks = [
   { name: "Performance Program", path: "/performance-program", badge: "Carro-Chefe" },
   { name: "Assessoria de Crédito", path: "/assessoria-credito", badge: "Capital" },
-  { name: "Formação CEO/CFO", path: "/formacao-ceo-cfo", badge: "Capacitação" },
 ];
 
 export function Navbar() {
@@ -67,7 +66,7 @@ export function Navbar() {
               <button
                 className={cn(
                   "text-[11px] font-bold uppercase tracking-[0.25em] transition-all duration-300 hover:text-accent-premium flex items-center gap-1.5 py-2",
-                  location.pathname.includes("program") || location.pathname.includes("credito") || location.pathname.includes("formacao") 
+                  location.pathname.includes("program") || location.pathname.includes("credito")
                     ? "text-accent-premium" 
                     : "text-branco/60"
                 )}

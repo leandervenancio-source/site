@@ -8,7 +8,6 @@ import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
 import { PerformanceProgram } from "./pages/solutions/ProgramaDAPE";
 import { AssessoriaCredito } from "./pages/solutions/AssessoriaCredito";
-import { FormacaoCEOCFO } from "./pages/solutions/FormacaoCEOCFO";
 import { Materials } from "./pages/Materials";
 import { Diagnostic } from "./pages/Diagnostic";
 
@@ -20,8 +19,8 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="performance-program" element={<PerformanceProgram />} />
           <Route path="assessoria-credito" element={<AssessoriaCredito />} />
-          <Route path="formacao-ceo-cfo" element={<FormacaoCEOCFO />} />
           {/* Redirecionamento de rotas legadas */}
+          <Route path="formacao-ceo-cfo" element={<Navigate to="/performance-program" replace />} />
           <Route path="advisory-program" element={<Navigate to="/performance-program" replace />} />
           <Route path="materiais" element={<Materials />} />
           <Route path="diagnostico" element={<Diagnostic />} />
