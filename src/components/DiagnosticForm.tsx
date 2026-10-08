@@ -7,10 +7,7 @@ export function DiagnosticForm() {
     name: "",
     email: "",
     whatsapp: "",
-    company: "",
-    storeUrl: "",
     revenue: "",
-    painPoint: "",
     lgpdConsent: false
   });
 
@@ -37,9 +34,9 @@ export function DiagnosticForm() {
               name: formData.name,
               email: formData.email,
               whatsapp: formData.whatsapp,
-              company: `${formData.company} [Loja: ${formData.storeUrl || 'Não informado'}]`,
+              company: "E-commerce",
               revenue: formData.revenue,
-              employees: formData.painPoint || "E-commerce"
+              employees: "E-commerce"
             }
           ]);
         if (error) {
@@ -58,14 +55,11 @@ export function DiagnosticForm() {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                _subject: "🚀 Novo Diagnóstico Mont Finance: " + formData.name + " (" + formData.company + ")",
+                _subject: "🚀 Novo Diagnóstico Mont Finance: " + formData.name,
                 Nome: formData.name,
-                Email_Profissional: formData.email,
+                Email: formData.email,
                 WhatsApp: formData.whatsapp,
-                Empresa: formData.company,
-                Endereco_da_Loja_URL: formData.storeUrl,
                 Faturamento_Anual: formData.revenue,
-                Maior_Incomodo_Hoje: formData.painPoint,
                 _template: "table"
             })
         });
@@ -78,10 +72,7 @@ export function DiagnosticForm() {
         name: "",
         email: "",
         whatsapp: "",
-        company: "",
-        storeUrl: "",
         revenue: "",
-        painPoint: "",
         lgpdConsent: false
       });
     } catch (error) {
@@ -92,7 +83,7 @@ export function DiagnosticForm() {
     }
   };
 
-  const inputClass = "w-full px-4 py-3 bg-black/40 border border-white/[0.08] text-white placeholder:text-zinc-600 placeholder:text-xs focus:border-[#d4af37]/60 focus:outline-none transition-colors rounded-xl font-normal text-xs";
+  const inputClass = "w-full px-4 py-3.5 bg-black/40 border border-white/[0.08] text-white placeholder:text-zinc-600 placeholder:text-xs focus:border-[#d4af37]/60 focus:outline-none transition-colors rounded-xl font-normal text-xs";
 
   return (
     <form
@@ -100,7 +91,7 @@ export function DiagnosticForm() {
       className="bg-[#0E1118] border border-white/[0.08] p-6 sm:p-8 rounded-2xl shadow-xl"
     >
       <div className="mb-6">
-        <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-500 block mb-1">
+        <span className="text-[11px] font-mono uppercase tracking-wider text-[#d4af37] block mb-1">
           Formulário
         </span>
         <h3 className="text-xl font-medium text-white">
@@ -111,7 +102,8 @@ export function DiagnosticForm() {
         </p>
       </div>
 
-      <div className="space-y-3 mb-6">
+      <div className="space-y-3.5 mb-6">
+        {/* Nome */}
         <input 
           type="text" 
           placeholder="Nome" 
@@ -122,7 +114,8 @@ export function DiagnosticForm() {
           disabled={isSubmitting} 
         />
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {/* Email e WhatsApp */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
           <input 
             type="email" 
             placeholder="E-mail profissional" 
@@ -143,28 +136,8 @@ export function DiagnosticForm() {
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <input 
-            type="text" 
-            placeholder="Empresa" 
-            value={formData.company} 
-            className={inputClass} 
-            required 
-            onChange={(e) => setFormData({...formData, company: e.target.value})} 
-            disabled={isSubmitting} 
-          />
-          <input 
-            type="text" 
-            placeholder="Endereço da loja (URL)" 
-            value={formData.storeUrl} 
-            className={inputClass} 
-            required 
-            onChange={(e) => setFormData({...formData, storeUrl: e.target.value})} 
-            disabled={isSubmitting} 
-          />
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {/* Faturamento */}
+        <div className="relative">
           <select 
             className={`${inputClass} appearance-none ${!formData.revenue ? '!text-zinc-600' : ''}`} 
             value={formData.revenue} 
@@ -178,33 +151,17 @@ export function DiagnosticForm() {
             <option value="De R$ 10 a R$ 30 milhões" className="bg-[#090A0F] text-white">De R$ 10 a R$ 30 milhões</option>
             <option value="Acima de R$ 30 milhões" className="bg-[#090A0F] text-white">Acima de R$ 30 milhões</option>
           </select>
-
-          <select 
-            className={`${inputClass} appearance-none ${!formData.painPoint ? '!text-zinc-600' : ''}`} 
-            value={formData.painPoint} 
-            required 
-            onChange={(e) => setFormData({...formData, painPoint: e.target.value})} 
-            disabled={isSubmitting}
-          >
-            <option value="" className="bg-[#090A0F] text-zinc-500" disabled hidden>Qual seu maior incômodo hoje?</option>
-            <option value="Caixa não acompanha o faturamento" className="bg-[#090A0F] text-white">Caixa não acompanha o faturamento</option>
-            <option value="Não sei a margem real" className="bg-[#090A0F] text-white">Não sei a margem real</option>
-            <option value="Estoque parado" className="bg-[#090A0F] text-white">Estoque parado</option>
-            <option value="Antecipação de recebíveis frequente" className="bg-[#090A0F] text-white">Antecipação de recebíveis frequente</option>
-            <option value="Carga ou risco tributário" className="bg-[#090A0F] text-white">Carga ou risco tributário</option>
-            <option value="Acesso a crédito" className="bg-[#090A0F] text-white">Acesso a crédito</option>
-            <option value="Outro" className="bg-[#090A0F] text-white">Outro</option>
-          </select>
         </div>
 
+        {/* LGPD */}
         <div className="pt-2">
           <label className="flex items-start gap-2.5 text-xs text-zinc-400 cursor-pointer select-none">
             <input 
-              type="checkbox"
-              required
-              checked={formData.lgpdConsent}
-              onChange={(e) => setFormData({...formData, lgpdConsent: e.target.checked})}
-              className="mt-0.5 rounded border-zinc-700 text-white bg-black/40 focus:ring-0"
+              type="checkbox" 
+              required 
+              checked={formData.lgpdConsent} 
+              onChange={(e) => setFormData({...formData, lgpdConsent: e.target.checked})} 
+              className="mt-0.5 rounded border-zinc-700 text-[#d4af37] bg-black/40 focus:ring-0 accent-[#d4af37]" 
             />
             <span className="leading-tight">
               Concordo em ser contatado pela Mont Finance sobre o diagnóstico e em ter meus dados tratados para esse fim, conforme a LGPD.
