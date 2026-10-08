@@ -7,7 +7,6 @@ interface FormDataState {
   name: string;
   email: string;
   whatsapp: string;
-  company: string;
   revenue: string;
   lgpdConsent: boolean;
   honeypot: string;
@@ -17,7 +16,6 @@ interface FormErrors {
   name?: string;
   email?: string;
   whatsapp?: string;
-  company?: string;
   revenue?: string;
   lgpdConsent?: string;
 }
@@ -27,7 +25,6 @@ export function DiagnosticForm() {
     name: "",
     email: "",
     whatsapp: "",
-    company: "",
     revenue: "",
     lgpdConsent: false,
     honeypot: "",
@@ -36,9 +33,8 @@ export function DiagnosticForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
-  const [submittedData, setSubmittedData] = useState<{ name: string; company: string; revenue: string }>({
+  const [submittedData, setSubmittedData] = useState<{ name: string; revenue: string }>({
     name: "",
-    company: "",
     revenue: "",
   });
 
@@ -80,10 +76,6 @@ export function DiagnosticForm() {
       newErrors.whatsapp = "Informe um WhatsApp válido com DDD.";
     }
 
-    if (!formData.company.trim() || formData.company.trim().length < 2) {
-      newErrors.company = "Informe o nome da empresa e o site/loja.";
-    }
-
     if (!formData.revenue) {
       newErrors.revenue = "Selecione o faturamento anual aproximado.";
     }
@@ -104,7 +96,6 @@ export function DiagnosticForm() {
       setStatus("success");
       setSubmittedData({
         name: formData.name,
-        company: formData.company,
         revenue: formData.revenue,
       });
       return;
@@ -125,9 +116,8 @@ export function DiagnosticForm() {
           name: formData.name.trim(),
           email: formData.email.trim(),
           whatsapp: formData.whatsapp.trim(),
-          company: formData.company.trim(),
+          company: null,
           revenue: formData.revenue,
-          // Remover os valores fixos "E-commerce" gravados em company/employees
           employees: null,
         },
       ]);
@@ -153,7 +143,6 @@ export function DiagnosticForm() {
           Nome: formData.name.trim(),
           Email: formData.email.trim(),
           WhatsApp: formData.whatsapp.trim(),
-          Empresa_e_Loja: formData.company.trim(),
           Faturamento_Anual: formData.revenue,
           UTM_Source: utms.utm_source || "direto",
           UTM_Medium: utms.utm_medium || "",
@@ -177,7 +166,6 @@ export function DiagnosticForm() {
     if (supabaseSuccess || formSubmitSuccess) {
       setSubmittedData({
         name: formData.name.trim(),
-        company: formData.company.trim(),
         revenue: formData.revenue,
       });
       trackLeadSubmit({
@@ -189,7 +177,6 @@ export function DiagnosticForm() {
       // Falha real: NÃO mostrar tela de sucesso
       setSubmittedData({
         name: formData.name.trim(),
-        company: formData.company.trim(),
         revenue: formData.revenue,
       });
       setStatus("error");
@@ -200,7 +187,7 @@ export function DiagnosticForm() {
   const isUnder3M = submittedData.revenue === "Até R$ 3 milhões";
 
   const waMessage = encodeURIComponent(
-    `Olá! Acabei de enviar meus dados no site da Mont Finance.\n\nNome: ${submittedData.name}\nEmpresa/Loja: ${submittedData.company}\nFaturamento Anual: ${submittedData.revenue}\n\nGostaria de combinar os detalhes do diagnóstico!`
+    `Olá! Acabei de enviar meus dados no site da Mont Finance.\n\nNome: ${submittedData.name}\nFaturamento Anual: ${submittedData.revenue}\n\nGostaria de combinar os detalhes do diagnóstico!`
   );
   const waUrl = `https://wa.me/5562999200405?text=${waMessage}`;
 
@@ -393,25 +380,6 @@ export function DiagnosticForm() {
             />
             {errors.whatsapp && <p className="text-[11px] text-rose-400 mt-1">{errors.whatsapp}</p>}
           </div>
-        </div>
-
-        {/* Empresa e endereço da loja */}
-        <div>
-          <label className="text-[11px] font-mono text-zinc-400 block mb-1">
-            Empresa e endereço da loja *
-          </label>
-          <input
-            type="text"
-            placeholder="Nome da empresa / Site ou Instagram da loja"
-            value={formData.company}
-            className={`${inputClass} ${errors.company ? "border-rose-500" : ""}`}
-            onChange={(e) => {
-              setFormData({ ...formData, company: e.target.value });
-              if (errors.company) setErrors({ ...errors, company: undefined });
-            }}
-            disabled={isSubmitting}
-          />
-          {errors.company && <p className="text-[11px] text-rose-400 mt-1">{errors.company}</p>}
         </div>
 
         {/* Faturamento Anual Aproximado */}
