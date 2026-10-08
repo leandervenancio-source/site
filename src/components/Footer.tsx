@@ -11,7 +11,7 @@ export function Footer() {
               montgestão
             </Link>
             <p className="text-branco/50 max-w-sm mt-4 text-sm font-light leading-relaxed">
-              Aumentamos a performance financeira e estruturamos o acesso inteligente a capital para indústrias e distribuidoras que faturam acima de R$ 3 milhões/ano.
+              Aumentamos a performance financeira, estruturamos o acesso inteligente a capital e otimizamos a carga fiscal de indústrias e distribuidoras que faturam acima de R$ 3 milhões/ano.
             </p>
             <div className="flex space-x-3 mt-8">
               {[
@@ -26,17 +26,19 @@ export function Footer() {
           </div>
           
           <div className="md:col-span-3">
-            <h3 className="font-display text-[10px] font-bold tracking-[0.3em] uppercase mb-6 text-accent-premium">Soluções</h3>
+            <h3 className="font-display text-[10px] font-bold tracking-[0.3em] uppercase mb-6 text-accent-premium">Serviços & Soluções</h3>
             <ul className="space-y-3.5">
-              <li><Link to="/performance-program" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Performance Program</Link></li>
-              <li><Link to="/assessoria-credito" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Assessoria de Crédito</Link></li>
+              <li><Link to="/" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Performance Financeira</Link></li>
+              <li><Link to="/solucoes-de-capital" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Soluções de Capital</Link></li>
+              <li><Link to="/consultoria-tributaria" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Consultoria Tributária</Link></li>
             </ul>
           </div>
 
           <div className="md:col-span-2">
             <h3 className="font-display text-[10px] font-bold tracking-[0.3em] uppercase mb-6 text-accent-premium">Navegação</h3>
             <ul className="space-y-3.5">
-              <li><Link to="/" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Home</Link></li>
+              <li><Link to="/" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Início</Link></li>
+              <li><Link to="/performance-program" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Método DAPE</Link></li>
               <li><Link to="/materiais" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Conteúdos</Link></li>
               <li><Link to="/diagnostico" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Diagnóstico</Link></li>
             </ul>

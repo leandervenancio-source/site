@@ -148,7 +148,7 @@ export function Home() {
               </h1>
 
               <p className="text-lg sm:text-xl text-white/85 font-light leading-relaxed mb-10 max-w-3xl mx-auto">
-                Unimos metodologia e tecnologia para aumentar a performance financeira e o acesso a capital inteligente de <span className="text-white font-medium">indústrias e distribuidoras</span>.
+                Unimos metodologia e tecnologia para aumentar a performance financeira, a margem de lucro e a geração de caixa de <span className="text-white font-medium">indústrias e distribuidoras</span>.
               </p>
 
               {/* Main Primary CTA */}
@@ -167,23 +167,24 @@ export function Home() {
                 </a>
               </div>
 
-              {/* Sub-Hero Feature Selector (Inspired by O2 Inc. Hero Pills) */}
+              {/* Sub-Hero Feature Selector - Performance Pillars */}
               <div className="pt-8 border-t border-white/10 max-w-2xl mx-auto">
                 <p className="text-xs uppercase tracking-[0.25em] text-accent-premium font-bold mb-4">
-                  Soluções integradas para o momento da sua empresa:
+                  Pilares da Performance Financeira:
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-3">
                   {[
-                    { id: "performance", label: "Performance Program · Carro-Chefe", to: "/performance-program" },
-                    { id: "credito", label: "Assessoria de Crédito · Captação", to: "/assessoria-credito" },
-                  ].map((item) => (
-                    <Link
-                      key={item.id}
-                      to={item.to}
+                    { label: "Controladoria Estratégica", href: "#cockpit" },
+                    { label: "FP&A & Projeção a 90 Dias", href: "#cockpit" },
+                    { label: "CFO as a Service", href: "#cockpit" },
+                  ].map((item, i) => (
+                    <a
+                      key={i}
+                      href={item.href}
                       className="px-5 py-2.5 rounded-full text-xs font-medium tracking-wider border border-white/20 bg-white/[0.04] text-white/90 hover:text-obsidian hover:bg-accent-premium hover:border-accent-premium transition-all duration-300 shadow-sm"
                     >
                       {item.label}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </div>
@@ -866,7 +867,7 @@ export function Home() {
                   <span className="font-serif italic text-accent-premium">que ela realmente merece.</span>
                 </h2>
                 <p className="text-base sm:text-lg text-white/80 font-light leading-relaxed mb-8">
-                  Se a sua empresa fatura acima de R$ 3 milhões ao ano e você busca alavancas reais de lucro, gestão rigorosa de capital de giro e crédito bancário estruturado, aplique para o nosso diagnóstico confidencial.
+                  Se a sua empresa fatura acima de R$ 3 milhões ao ano e você busca alavancas reais de lucro, gestão rigorosa de capital de giro e previsibilidade financeira absoluta, aplique para o nosso diagnóstico confidencial.
                 </p>
 
                 <div className="space-y-4 mb-8 text-sm text-white/90">
