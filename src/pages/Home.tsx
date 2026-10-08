@@ -16,86 +16,15 @@ import {
   Scale
 } from "lucide-react";
 import { DiagnosticForm } from "../components/DiagnosticForm";
+import { FinancialCockpit } from "../components/FinancialCockpit";
 import { trackCtaClick, trackWhatsAppClick } from "../lib/analytics";
-
-type ChannelType = "consolidado" | "site_proprio" | "mercado_livre" | "shopee";
 
 export function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [selectedChannel, setSelectedChannel] = useState<ChannelType>("consolidado");
 
   const toggleFaq = (idx: number) => {
     setOpenFaq(openFaq === idx ? null : idx);
   };
-
-  const channelData: Record<ChannelType, {
-    name: string;
-    tag: string;
-    venda: number;
-    cmv: number;
-    midia: number;
-    impostos: number;
-    taxas: number;
-    frete: number;
-    margem: number;
-    percentual: string;
-    insight: string;
-  }> = {
-    consolidado: {
-      name: "Mix Consolidado",
-      tag: "Exemplo Geral",
-      venda: 100,
-      cmv: 38,
-      midia: 18,
-      impostos: 11,
-      taxas: 12,
-      frete: 8,
-      margem: 13,
-      percentual: "13.0%",
-      insight: "De cada 100 reais de venda, sobram 13 de margem de contribuição depois de comissão, frete, devoluções, impostos, mídia e custo do produto. Exemplo ilustrativo, com números hipotéticos: a proporção real muda por canal, produto e período, e é isso que o diagnóstico mostra."
-    },
-    site_proprio: {
-      name: "Site Próprio (D2C)",
-      tag: "Shopify / VTEX / Nuvem",
-      venda: 100,
-      cmv: 33,
-      midia: 25,
-      impostos: 10,
-      taxas: 4,
-      frete: 7,
-      margem: 21,
-      percentual: "21.0%",
-      insight: "No e-commerce próprio não há comissões de marketplace, mas o custo de tráfego pago (CAC/ROAS) exige controle rigoroso diário para não queimar a margem de contribuição."
-    },
-    mercado_livre: {
-      name: "Mercado Livre",
-      tag: "Full & Coletas",
-      venda: 100,
-      cmv: 39,
-      midia: 11,
-      impostos: 11,
-      taxas: 18,
-      frete: 9,
-      margem: 12,
-      percentual: "12.0%",
-      insight: "Volume alto com margem comprimida: comissões somadas a frete obrigatório exigem precificação por anúncio para não gerar faturamento com prejuízo oculto."
-    },
-    shopee: {
-      name: "Shopee & Outros",
-      tag: "Marketplaces Gerais",
-      venda: 100,
-      cmv: 41,
-      midia: 8,
-      impostos: 10,
-      taxas: 20,
-      frete: 11,
-      margem: 10,
-      percentual: "10.0%",
-      insight: "Taxas e coparticipações somadas a devoluções. Um CFO Terceirizado aponta quais SKUs devem ou não continuar nesses canais para preservar o caixa."
-    }
-  };
-
-  const activeChannel = channelData[selectedChannel];
 
   const symptoms = [
     {
@@ -343,128 +272,11 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          5. GRÁFICO ILUSTRATIVO: PARA ONDE VÃO R$ 100 VENDIDOS
+          5. GRÁFICO ILUSTRATIVO & COCKPIT DE ANÁLISE (Estilo O2inc · Mont Finance)
       ========================================================================= */}
-      <section id="grafico-100" className="py-20 sm:py-28 border-b border-white/[0.08] bg-[#0E1118]/40">
+      <section id="grafico-100" className="py-20 sm:py-28 border-b border-white/[0.08] bg-[#0E1118]/40 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#d4af37] font-bold block mb-3">
-              Gráfico ilustrativo
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
-              Para onde vão R$ 100 vendidos
-            </h2>
-            <p className="text-sm text-zinc-300 font-light leading-relaxed">
-              De cada 100 reais de venda, sobram 13 de margem de contribuição depois de comissão, frete, devoluções, impostos, mídia e custo do produto.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto rounded-2xl bg-[#0E1118] border border-white/[0.08] shadow-2xl overflow-hidden">
-            
-            {/* Top Bar Cockpit */}
-            <div className="px-6 py-4 bg-black/40 border-b border-white/[0.08] flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div className="flex items-center gap-2.5">
-                <img src="/favicon.png" alt="Mont" className="h-5 w-auto object-contain" />
-                <span className="text-xs font-mono text-zinc-300 font-semibold uppercase tracking-wider">
-                  Mont Finance · Simulação de Margem
-                </span>
-              </div>
-
-              {/* Seletor de Canais */}
-              <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/5 border border-white/10 overflow-x-auto">
-                {(["consolidado", "site_proprio", "mercado_livre", "shopee"] as ChannelType[]).map((key) => (
-                  <button
-                    key={key}
-                    onClick={() => setSelectedChannel(key)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all whitespace-nowrap ${
-                      selectedChannel === key 
-                        ? "bg-[#d4af37] text-black font-bold shadow-md" 
-                        : "text-zinc-400 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    {channelData[key].name}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Conteúdo do Cockpit */}
-            <div className="p-6 sm:p-8">
-              
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 mb-6">
-                <div>
-                  <span className="px-2.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-[#d4af37]/10 text-[#d4af37] border border-[#d4af37]/20 mb-2 inline-block">
-                    {activeChannel.tag}
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-display font-bold text-white">
-                    Decomposição dos R$ 100 Faturados
-                  </h3>
-                </div>
-
-                <div className="bg-white/[0.03] border border-white/10 px-4 py-2.5 rounded-xl">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400 block">
-                    Margem de Contribuição
-                  </span>
-                  <span className="text-2xl font-mono font-bold text-[#d4af37]">
-                    R$ {activeChannel.margem.toFixed(2)} ({activeChannel.percentual})
-                  </span>
-                </div>
-              </div>
-
-              {/* Waterfall Bar */}
-              <div className="mb-6">
-                <div className="flex justify-between items-center text-xs font-mono text-zinc-400 mb-2">
-                  <span>Venda Bruta: R$ 100,00</span>
-                  <span className="text-[#d4af37] font-semibold">Margem: R$ {activeChannel.margem.toFixed(2)}</span>
-                </div>
-                <div className="h-4 w-full rounded-full bg-zinc-800 overflow-hidden flex shadow-inner">
-                  <div style={{ width: `${activeChannel.cmv}%` }} className="bg-rose-500 h-full" title="Custo do Produto"></div>
-                  <div style={{ width: `${activeChannel.midia}%` }} className="bg-amber-500 h-full" title="Mídia & Tráfego"></div>
-                  <div style={{ width: `${activeChannel.impostos}%` }} className="bg-purple-500 h-full" title="Impostos"></div>
-                  <div style={{ width: `${activeChannel.taxas}%` }} className="bg-blue-500 h-full" title="Comissões & Taxas"></div>
-                  <div style={{ width: `${activeChannel.frete}%` }} className="bg-orange-500 h-full" title="Frete & Devoluções"></div>
-                  <div style={{ width: `${activeChannel.margem}%` }} className="bg-[#d4af37] h-full" title="Margem de Contribuição"></div>
-                </div>
-              </div>
-
-              {/* Grid de Custos */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 mb-6">
-                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-zinc-400 block mb-0.5">(-) CMV / Custo</span>
-                  <span className="text-sm font-mono font-bold text-rose-400">- R$ {activeChannel.cmv.toFixed(2)}</span>
-                </div>
-                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-zinc-400 block mb-0.5">(-) Mídia & Ads</span>
-                  <span className="text-sm font-mono font-bold text-amber-400">- R$ {activeChannel.midia.toFixed(2)}</span>
-                </div>
-                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-zinc-400 block mb-0.5">(-) Impostos</span>
-                  <span className="text-sm font-mono font-bold text-purple-400">- R$ {activeChannel.impostos.toFixed(2)}</span>
-                </div>
-                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-zinc-400 block mb-0.5">(-) Comissões</span>
-                  <span className="text-sm font-mono font-bold text-blue-400">- R$ {activeChannel.taxas.toFixed(2)}</span>
-                </div>
-                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-zinc-400 block mb-0.5">(-) Fretes</span>
-                  <span className="text-sm font-mono font-bold text-orange-400">- R$ {activeChannel.frete.toFixed(2)}</span>
-                </div>
-                <div className="p-3 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/30">
-                  <span className="text-[10px] font-mono text-[#d4af37] font-bold block mb-0.5">(=) Margem Real</span>
-                  <span className="text-sm font-mono font-bold text-[#E5C378]">+ R$ {activeChannel.margem.toFixed(2)}</span>
-                </div>
-              </div>
-
-              {/* Nota Obrigatória */}
-              <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-xs text-zinc-400 font-light leading-relaxed">
-                *Exemplo ilustrativo, com números hipotéticos: a proporção real muda por canal, produto e período, e é isso que o diagnóstico mostra.
-              </div>
-
-            </div>
-
-          </div>
-
+          <FinancialCockpit />
         </div>
       </section>
 
