@@ -756,10 +756,10 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          7. MÉTODO DAPE (Copy Original Aprovada)
+          7. MÉTODO DAPE (Diagrama Circular / Orbital Original com os 3 Cards)
       ========================================================================= */}
-      <section className="py-24 sm:py-32 border-b border-white/[0.08] relative">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="metodo-dape" className="py-24 sm:py-32 border-b border-white/[0.08] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-20">
             <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#d4af37] font-bold block mb-3">
@@ -773,25 +773,145 @@ export function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {dapeSteps.map((item, idx) => (
-              <div 
-                key={idx} 
-                className="p-8 rounded-3xl bg-[#0E1118] border border-white/[0.08] hover:border-[#d4af37]/40 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <span className="w-12 h-12 rounded-2xl bg-[#d4af37]/15 border border-[#d4af37]/30 text-[#d4af37] text-2xl font-display font-bold flex items-center justify-center mb-6">
-                    {item.letter}
-                  </span>
-                  <h3 className="text-xl font-display font-bold text-white mb-3">
-                    {item.letter} — {item.title}
-                  </h3>
-                  <p className="text-xs text-zinc-300 font-light leading-relaxed">
-                    {item.desc}
-                  </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            
+            {/* Left side: Framework Circular (Desktop View) */}
+            <div className="lg:col-span-9 relative">
+              <div className="hidden md:flex relative w-full max-w-[420px] lg:max-w-[560px] mx-auto aspect-square items-center justify-center">
+                
+                {/* Rotating Dashed Circle Connector */}
+                <motion.div 
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+                  className="absolute w-[68%] h-[68%] border border-dashed border-white/20 rounded-full z-0"
+                ></motion.div>
+                
+                <div className="absolute inset-0 z-10">
+                  {/* Execução (E) - Top Left */}
+                  <div className="absolute top-[26%] left-[26%] -translate-x-1/2 -translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="relative group">
+                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-2xl lg:text-4xl font-black shadow-2xl shadow-black/50 border-4 border-[#090A0F] relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                          E
+                        </div>
+                      </div>
+                      <div className="absolute right-full mr-4 text-right w-[160px] lg:w-[220px]">
+                        <div className="text-white font-display font-bold text-xl lg:text-2xl leading-none mb-1">Execução</div>
+                        <div className="text-[9px] lg:text-[10px] tracking-[0.3em] uppercase text-[#d4af37] font-black mb-1.5">Resultados</div>
+                        <p className="text-[11px] lg:text-xs text-white/60 leading-relaxed font-light">Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Dados (D) - Top Right */}
+                  <div className="absolute top-[26%] right-[26%] translate-x-1/2 -translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="relative group">
+                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-2xl lg:text-4xl font-black shadow-2xl shadow-black/50 border-4 border-[#090A0F] relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">
+                          D
+                        </div>
+                      </div>
+                      <div className="absolute left-full ml-4 text-left w-[160px] lg:w-[220px]">
+                        <div className="text-white font-display font-bold text-xl lg:text-2xl leading-none mb-1">Dados</div>
+                        <div className="text-[9px] lg:text-[10px] tracking-[0.3em] uppercase text-[#d4af37] font-black mb-1.5">Informação</div>
+                        <p className="text-[11px] lg:text-xs text-white/60 leading-relaxed font-light">Sistema, processos de registro, indicadores, conciliações e controles padronizados.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Planejamento (P) - Bottom Left */}
+                  <div className="absolute bottom-[26%] left-[26%] -translate-x-1/2 translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="relative group">
+                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-2xl lg:text-4xl font-black shadow-2xl shadow-black/50 border-4 border-[#090A0F] relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">
+                          P
+                        </div>
+                      </div>
+                      <div className="absolute right-full mr-4 text-right w-[160px] lg:w-[220px]">
+                        <div className="text-white font-display font-bold text-xl lg:text-2xl leading-none mb-1">Planejamento</div>
+                        <div className="text-[9px] lg:text-[10px] tracking-[0.3em] uppercase text-[#d4af37] font-black mb-1.5">Prioridades</div>
+                        <p className="text-[11px] lg:text-xs text-white/60 leading-relaxed font-light">Definição de objetivos, estratégias, projetos e planos de ação.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Análise (A) - Bottom Right */}
+                  <div className="absolute bottom-[26%] right-[26%] translate-x-1/2 translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="relative group">
+                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-2xl lg:text-4xl font-black shadow-2xl shadow-black/50 border-4 border-[#090A0F] relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                          A
+                        </div>
+                      </div>
+                      <div className="absolute left-full ml-4 text-left w-[160px] lg:w-[220px]">
+                        <div className="text-white font-display font-bold text-xl lg:text-2xl leading-none mb-1">Análise</div>
+                        <div className="text-[9px] lg:text-[10px] tracking-[0.3em] uppercase text-[#d4af37] font-black mb-1.5">Inteligência</div>
+                        <p className="text-[11px] lg:text-xs text-white/60 leading-relaxed font-light">Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios.</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
+
+              {/* Mobile View (Vertical List) */}
+              <div className="md:hidden space-y-4 py-4">
+                {[
+                  { 
+                    letter: "D", 
+                    title: "Dados", 
+                    subtitle: "Informação", 
+                    desc: "Sistema, processos de registro, indicadores, conciliações e controles padronizados." 
+                  },
+                  { 
+                    letter: "A", 
+                    title: "Análise", 
+                    subtitle: "Inteligência", 
+                    desc: "Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios." 
+                  },
+                  { 
+                    letter: "P", 
+                    title: "Planejamento", 
+                    subtitle: "Prioridades", 
+                    desc: "Definição de objetivos, estratégias, projetos e planos de ação." 
+                  },
+                  { 
+                    letter: "E", 
+                    title: "Execução", 
+                    subtitle: "Resultados", 
+                    desc: "Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis." 
+                  }
+                ].map((item, i) => (
+                  <div 
+                    key={i}
+                    className="flex flex-col items-center text-center p-6 rounded-2xl bg-[#0E1118] border border-white/[0.08]"
+                  >
+                    <div 
+                      className="w-14 h-14 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-2xl font-black border-4 border-[#090A0F] mb-3 shadow-xl"
+                    >
+                      {item.letter}
+                    </div>
+                    <div className="font-display font-bold text-xl mb-1 text-white">{item.title}</div>
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-[#d4af37] font-black mb-2">{item.subtitle}</div>
+                    <p className="text-xs text-zinc-400 leading-relaxed font-light max-w-xs">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right side: 3 Cards */}
+            <div className="lg:col-span-3 flex flex-col gap-4">
+              {[
+                { title: "Cultura Data-Driven", desc: "Decisões e equipes guiadas por dados e indicadores claros." },
+                { title: "Gestão Ágil", desc: "Processos dinâmicos que eliminam gargalos e aceleram a execução." },
+                { title: "Cultura de Melhoria Contínua", desc: "Ações e processos são constantemente aprimorados em busca da excelência." }
+              ].map((item, i) => (
+                <div key={i} className="p-6 rounded-2xl bg-[#0E1118] border border-white/[0.08] hover:border-[#d4af37]/30 transition-all duration-300 text-left">
+                  <div className="text-[#d4af37] font-display font-bold text-base mb-2">{item.title}</div>
+                  <p className="text-zinc-400 text-xs font-light leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
           </div>
 
         </div>
