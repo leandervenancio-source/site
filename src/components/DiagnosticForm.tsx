@@ -92,7 +92,7 @@ export function DiagnosticForm() {
     }
   };
 
-  const inputClass = "w-full px-4 py-3 bg-black/40 border border-white/[0.08] text-white placeholder:text-zinc-600 placeholder:text-xs focus:border-zinc-500 focus:outline-none transition-colors rounded-xl font-normal text-xs";
+  const inputClass = "w-full px-4 py-3 bg-black/40 border border-white/[0.08] text-white placeholder:text-zinc-600 placeholder:text-xs focus:border-[#d4af37]/60 focus:outline-none transition-colors rounded-xl font-normal text-xs";
 
   return (
     <form
@@ -222,9 +222,9 @@ export function DiagnosticForm() {
       <button 
         type="submit" 
         disabled={isSubmitting} 
-        className="w-full py-3 rounded-xl bg-white text-black hover:bg-zinc-200 text-xs font-medium transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-sm"
+        className="w-full py-3.5 rounded-xl bg-[#d4af37] text-black hover:bg-[#c5a059] text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-[0_0_20px_rgba(212,175,55,0.25)]"
       >
-        {isSubmitting && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
+        {isSubmitting && <Loader2 className="w-3.5 h-3.5 animate-spin text-black" />}
         {isSubmitting ? "Enviando..." : "Agendar diagnóstico"}
       </button>
     </form>

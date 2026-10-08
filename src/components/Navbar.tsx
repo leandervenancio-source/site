@@ -50,11 +50,15 @@ export function Navbar() {
         <div className="flex justify-between items-center">
           
           {/* Minimalist Tech Brand Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="w-2 h-2 rounded-sm bg-white group-hover:bg-zinc-300 transition-colors"></span>
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <img 
+              src="/favicon.png" 
+              alt="Mont Finance" 
+              className="h-7 w-auto object-contain transition-transform group-hover:scale-105 drop-shadow-[0_0_8px_rgba(212,175,55,0.3)]" 
+            />
             <div className="flex items-baseline tracking-tight text-base font-sans">
               <span className="font-semibold text-white">mont</span>
-              <span className="font-normal text-zinc-400 ml-1">finance</span>
+              <span className="font-normal text-[#d4af37] ml-1">finance</span>
             </div>
           </Link>
           
@@ -67,8 +71,8 @@ export function Navbar() {
                   key={tab.path}
                   to={tab.path}
                   className={cn(
-                    "text-xs font-medium transition-colors py-1",
-                    active ? "text-white" : "text-zinc-400 hover:text-zinc-200"
+                    "text-xs font-medium tracking-wide transition-colors py-1",
+                    active ? "text-[#d4af37] font-semibold" : "text-zinc-400 hover:text-white"
                   )}
                 >
                   {tab.name}
@@ -81,10 +85,10 @@ export function Navbar() {
           <div className="hidden md:flex items-center">
             <Link
               to="/diagnostico"
-              className="px-4 py-2 rounded-lg bg-white text-black hover:bg-zinc-200 text-xs font-medium transition-all shadow-sm flex items-center gap-1.5"
+              className="px-5 py-2 rounded-full bg-[#d4af37] hover:bg-[#c5a059] text-black text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(212,175,55,0.25)] flex items-center gap-1.5"
             >
               <span>Diagnóstico</span>
-              <ArrowRight className="w-3 h-3 text-black/70" />
+              <ArrowRight className="w-3 h-3 text-black" />
             </Link>
           </div>
 

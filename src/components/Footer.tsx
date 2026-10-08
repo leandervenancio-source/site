@@ -8,11 +8,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           
           <div className="md:col-span-5">
-            <Link to="/" className="flex items-center gap-2 mb-4 group inline-flex">
-              <span className="w-2 h-2 rounded-sm bg-white group-hover:bg-zinc-300 transition-colors"></span>
+            <Link to="/" className="flex items-center gap-2.5 mb-4 group inline-flex">
+              <img 
+                src="/favicon.png" 
+                alt="Mont Finance" 
+                className="h-7 w-auto object-contain transition-transform group-hover:scale-105 drop-shadow-[0_0_8px_rgba(212,175,55,0.3)]" 
+              />
               <div className="flex items-baseline tracking-tight text-base font-sans">
                 <span className="font-semibold text-white">mont</span>
-                <span className="font-normal text-zinc-400 ml-1">finance</span>
+                <span className="font-normal text-[#d4af37] ml-1">finance</span>
               </div>
             </Link>
             <p className="text-xs text-zinc-400 max-w-sm font-normal leading-relaxed mb-6">
