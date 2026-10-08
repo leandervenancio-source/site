@@ -5,7 +5,7 @@ import { cn } from "../lib/utils";
 
 const mainTabs = [
   { 
-    name: "Performance Financeira", 
+    name: "Home", 
     path: "/", 
     isActive: (p: string) => p === "/" || p === "/performance-program" 
   },
