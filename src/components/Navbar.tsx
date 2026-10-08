@@ -49,7 +49,7 @@ export function Navbar() {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="font-sans text-2xl lg:text-3xl font-black tracking-tighter lowercase text-branco hover:text-accent-premium transition-all duration-500 flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-accent-premium animate-pulse"></span>
-              montgestão
+              mont finance
             </Link>
           </div>
           

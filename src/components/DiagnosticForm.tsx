@@ -9,9 +9,10 @@ export function DiagnosticForm() {
     email: "",
     whatsapp: "",
     company: "",
-    segment: "",
+    storeUrl: "",
     revenue: "",
-    employees: "",
+    painPoint: "",
+    lgpdConsent: false
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -19,6 +20,11 @@ export function DiagnosticForm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (!formData.lgpdConsent) {
+      alert("Por favor, confirme a concordância com o contato conforme a LGPD.");
+      return;
+    }
+
     setIsSubmitting(true);
     setSuccess(false);
 
@@ -32,9 +38,9 @@ export function DiagnosticForm() {
               name: formData.name,
               email: formData.email,
               whatsapp: formData.whatsapp,
-              company: `${formData.company} [${formData.segment || 'Geral'}]`,
+              company: `${formData.company} [Loja: ${formData.storeUrl || 'Não informado'}]`,
               revenue: formData.revenue,
-              employees: formData.employees || "0"
+              employees: formData.painPoint || "E-commerce"
             }
           ]);
         if (error) {
@@ -53,14 +59,14 @@ export function DiagnosticForm() {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                _subject: "🚀 Novo Lead (Diagnóstico Estratégico): " + formData.name + " (" + formData.company + ")",
+                _subject: "🚀 Novo Diagnóstico Mont Finance: " + formData.name + " (" + formData.company + ")",
                 Nome: formData.name,
-                Empresa: formData.company,
-                Segmento: formData.segment,
+                Email_Profissional: formData.email,
                 WhatsApp: formData.whatsapp,
-                Email: formData.email,
+                Empresa: formData.company,
+                Endereco_da_Loja_URL: formData.storeUrl,
                 Faturamento_Anual: formData.revenue,
-                Funcionarios: formData.employees,
+                Maior_Incomodo_Hoje: formData.painPoint,
                 _template: "table"
             })
         });
@@ -74,9 +80,10 @@ export function DiagnosticForm() {
         email: "",
         whatsapp: "",
         company: "",
-        segment: "",
+        storeUrl: "",
         revenue: "",
-        employees: "",
+        painPoint: "",
+        lgpdConsent: false
       });
     } catch (error) {
       console.error("Erro ao enviar formulário:", error);
@@ -99,13 +106,13 @@ export function DiagnosticForm() {
     >
       <div className="mb-6">
         <span className="text-[10px] uppercase font-bold tracking-[0.25em] text-accent-premium block mb-2">
-          Análise Preliminar
+          Mont Finance · Diagnóstico
         </span>
         <h3 className="text-xl sm:text-2xl font-display font-light text-branco">
-          Solicitar Diagnóstico <span className="font-serif italic text-accent-premium">Estratégico</span>
+          Comece entendendo para onde <span className="font-serif italic text-accent-premium">vai o dinheiro</span>
         </h3>
         <p className="text-xs text-branco/60 font-light mt-1">
-          Foco em Indústrias e Distribuidoras que faturam acima de R$ 3 milhões/ano.
+          Uma conversa estratégica com um especialista da Mont Finance sobre a situação do seu e-commerce.
         </p>
       </div>
 
@@ -122,33 +129,8 @@ export function DiagnosticForm() {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
           <input 
-            type="text" 
-            placeholder="Nome da Empresa" 
-            value={formData.company} 
-            className={inputClass} 
-            required 
-            onChange={(e) => setFormData({...formData, company: e.target.value})} 
-            disabled={isSubmitting} 
-          />
-          <select 
-            className={`${inputClass} pr-8 appearance-none ${!formData.segment ? '!text-white/40' : ''}`} 
-            value={formData.segment} 
-            required 
-            onChange={(e) => setFormData({...formData, segment: e.target.value})} 
-            disabled={isSubmitting}
-          >
-            <option value="" className="bg-obsidian text-white/40" disabled hidden>Segmento de Atuação</option>
-            <option value="Indústria" className="bg-obsidian text-branco">Indústria</option>
-            <option value="Distribuidora" className="bg-obsidian text-branco">Distribuidora</option>
-            <option value="Varejo Físico / Comércio" className="bg-obsidian text-branco">Varejo Físico / Comércio</option>
-            <option value="Serviços / Outro" className="bg-obsidian text-branco">Serviços / Outro</option>
-          </select>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-          <input 
             type="email" 
-            placeholder="E-mail Corporativo" 
+            placeholder="E-mail Profissional" 
             value={formData.email} 
             className={inputClass} 
             required 
@@ -167,6 +149,27 @@ export function DiagnosticForm() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <input 
+            type="text" 
+            placeholder="Nome da Empresa" 
+            value={formData.company} 
+            className={inputClass} 
+            required 
+            onChange={(e) => setFormData({...formData, company: e.target.value})} 
+            disabled={isSubmitting} 
+          />
+          <input 
+            type="text" 
+            placeholder="Endereço da Loja (URL / Site)" 
+            value={formData.storeUrl} 
+            className={inputClass} 
+            required 
+            onChange={(e) => setFormData({...formData, storeUrl: e.target.value})} 
+            disabled={isSubmitting} 
+          />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
           <select 
             className={`${inputClass} pr-8 appearance-none ${!formData.revenue ? '!text-white/40' : ''}`} 
             value={formData.revenue} 
@@ -174,28 +177,50 @@ export function DiagnosticForm() {
             onChange={(e) => setFormData({...formData, revenue: e.target.value})} 
             disabled={isSubmitting}
           >
-            <option value="" className="bg-obsidian text-white/40" disabled hidden>Faturamento Anual</option>
-            <option value="Abaixo de R$ 3 milhões / ano" className="bg-obsidian text-branco">Até R$ 3 milhões / ano</option>
-            <option value="R$ 3M a R$ 10M / ano" className="bg-obsidian text-branco">R$ 3M a R$ 10M / ano</option>
-            <option value="R$ 10M a R$ 30M / ano" className="bg-obsidian text-branco">R$ 10M a R$ 30M / ano</option>
-            <option value="Acima de R$ 30M / ano" className="bg-obsidian text-branco">Acima de R$ 30 milhões / ano</option>
+            <option value="" className="bg-obsidian text-white/40" disabled hidden>Faturamento Anual Aproximado</option>
+            <option value="Até R$ 3 milhões" className="bg-obsidian text-branco">Até R$ 3 milhões</option>
+            <option value="De R$ 3 a R$ 10 milhões" className="bg-obsidian text-branco">De R$ 3 a R$ 10 milhões</option>
+            <option value="De R$ 10 a R$ 30 milhões" className="bg-obsidian text-branco">De R$ 10 a R$ 30 milhões</option>
+            <option value="Acima de R$ 30 milhões" className="bg-obsidian text-branco">Acima de R$ 30 milhões</option>
           </select>
-          <input 
-            type="number" 
-            min="1" 
-            placeholder="Nº de Colaboradores" 
-            value={formData.employees} 
-            className={inputClass} 
+
+          <select 
+            className={`${inputClass} pr-8 appearance-none ${!formData.painPoint ? '!text-white/40' : ''}`} 
+            value={formData.painPoint} 
             required 
-            onChange={(e) => setFormData({...formData, employees: e.target.value})} 
-            disabled={isSubmitting} 
-          />
+            onChange={(e) => setFormData({...formData, painPoint: e.target.value})} 
+            disabled={isSubmitting}
+          >
+            <option value="" className="bg-obsidian text-white/40" disabled hidden>Qual seu maior incômodo hoje?</option>
+            <option value="Caixa não acompanha o faturamento" className="bg-obsidian text-branco">Caixa não acompanha o faturamento</option>
+            <option value="Não sei a margem real" className="bg-obsidian text-branco">Não sei a margem real</option>
+            <option value="Estoque parado" className="bg-obsidian text-branco">Estoque parado</option>
+            <option value="Antecipação de recebíveis frequente" className="bg-obsidian text-branco">Antecipação de recebíveis frequente</option>
+            <option value="Carga ou risco tributário" className="bg-obsidian text-branco">Carga ou risco tributário</option>
+            <option value="Acesso a crédito" className="bg-obsidian text-branco">Acesso a crédito</option>
+            <option value="Outro" className="bg-obsidian text-branco">Outro</option>
+          </select>
+        </div>
+
+        <div className="pt-2">
+          <label className="flex items-start gap-3 text-xs text-white/70 cursor-pointer select-none">
+            <input 
+              type="checkbox"
+              required
+              checked={formData.lgpdConsent}
+              onChange={(e) => setFormData({...formData, lgpdConsent: e.target.checked})}
+              className="mt-0.5 rounded border-white/20 text-accent-premium focus:ring-accent-premium/40 bg-obsidian/60"
+            />
+            <span>
+              Concordo em ser contatado pela Mont Finance sobre o diagnóstico e em ter meus dados tratados para esse fim, conforme a LGPD.
+            </span>
+          </label>
         </div>
       </div>
       
       {success && (
         <div className="mb-6 p-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-xl text-center text-xs font-medium">
-          Solicitação recebida com sucesso! Nosso advisor entrará em contato para agendar a sessão.
+          Solicitação recebida com sucesso! Um especialista da Mont Finance entrará em contato para agendar o seu diagnóstico.
         </div>
       )}
 
@@ -205,8 +230,12 @@ export function DiagnosticForm() {
         className="w-full py-4 text-xs font-bold tracking-[0.2em] uppercase text-obsidian bg-accent-premium hover:bg-white transition-all duration-300 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-accent-premium/20 disabled:opacity-50"
       >
         {isSubmitting && <Loader2 className="w-4 h-4 animate-spin" />}
-        {isSubmitting ? "Enviando Dados..." : "Solicitar Sessão Estratégica"}
+        {isSubmitting ? "Enviando Dados..." : "Agendar Diagnóstico"}
       </button>
+
+      <p className="text-[11px] text-white/40 text-center mt-3">
+        Os resultados variam conforme o caso de cada empresa. Nenhum resultado é garantido.
+      </p>
     </motion.form>
   );
 }

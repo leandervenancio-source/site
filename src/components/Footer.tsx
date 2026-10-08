@@ -8,10 +8,10 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16">
           <div className="md:col-span-4">
             <Link to="/" className="font-sans text-3xl font-black tracking-tighter lowercase text-branco mb-4 block hover:text-accent-premium transition-all duration-500">
-              montgestão
+              mont finance
             </Link>
             <p className="text-branco/50 max-w-sm mt-4 text-sm font-light leading-relaxed">
-              Aumentamos a performance financeira, estruturamos o acesso inteligente a capital e otimizamos a carga fiscal de indústrias e distribuidoras que faturam acima de R$ 3 milhões/ano.
+              CFO Terceirizado para empresas de e-commerce: gestão, finanças, tributação e capital integrados para aumentar lucro, gerar caixa e reduzir riscos.
             </p>
             <div className="flex space-x-3 mt-8">
               {[
@@ -28,9 +28,9 @@ export function Footer() {
           <div className="md:col-span-3">
             <h3 className="font-display text-[10px] font-bold tracking-[0.3em] uppercase mb-6 text-accent-premium">Serviços & Soluções</h3>
             <ul className="space-y-3.5">
-              <li><Link to="/" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Performance Financeira</Link></li>
-              <li><Link to="/solucoes-de-capital" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Soluções de Capital</Link></li>
-              <li><Link to="/consultoria-tributaria" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Consultoria Tributária</Link></li>
+              <li><Link to="/" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Performance Financeira (CFO)</Link></li>
+              <li><Link to="/solucoes-de-capital" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Captação de Recursos</Link></li>
+              <li><Link to="/consultoria-tributaria" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Inteligência Tributária</Link></li>
             </ul>
           </div>
 
@@ -38,9 +38,9 @@ export function Footer() {
             <h3 className="font-display text-[10px] font-bold tracking-[0.3em] uppercase mb-6 text-accent-premium">Navegação</h3>
             <ul className="space-y-3.5">
               <li><Link to="/" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Início</Link></li>
-              <li><Link to="/performance-program" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Método DAPE</Link></li>
+              <li><a href="/#niveis-de-servico" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Níveis de Serviço</a></li>
+              <li><a href="/#diagnostico" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Diagnóstico</a></li>
               <li><Link to="/materiais" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Conteúdos</Link></li>
-              <li><Link to="/diagnostico" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" /> Diagnóstico</Link></li>
             </ul>
           </div>
           
@@ -49,20 +49,18 @@ export function Footer() {
             <ul className="space-y-3.5">
               <li><a href="mailto:contato@montgestao.com.br" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300 break-all">contato@montgestao.com.br</a></li>
               <li><a href="https://wa.me/message/NRXMFPWG6DUZB1" target="_blank" rel="noopener noreferrer" className="text-branco/50 hover:text-accent-premium text-xs font-light transition-all duration-300">(62) 99920-0405</a></li>
-              <li className="pt-2 text-[11px] text-branco/30 font-mono">Atendimento Nacional</li>
+              <li className="pt-2 text-[11px] text-branco/30 font-mono">Atendimento Nacional para E-commerce</li>
             </ul>
           </div>
         </div>
         
-        <div className="border-t border-white/5 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-branco/30 text-[10px] font-mono uppercase tracking-widest">
+        <div className="border-t border-white/5 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-branco/30 text-[10px] font-mono tracking-wide">
           <p>
-            &copy; {new Date().getFullYear()} Mont Gestão. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} Mont Finance. Todos os direitos reservados.
           </p>
-          <div className="flex space-x-6">
-            <Link to="/diagnostico" className="hover:text-accent-premium transition-colors">Agendar Diagnóstico</Link>
-            <span>·</span>
-            <span>Indústrias & Distribuidoras</span>
-          </div>
+          <p className="max-w-xl text-center md:text-right text-[10px] text-white/30 leading-relaxed">
+            O conteúdo deste site é informativo e não constitui parecer jurídico, contábil ou tributário. Cada situação exige análise do caso concreto.
+          </p>
         </div>
       </div>
     </footer>
