@@ -274,7 +274,7 @@ export function Home() {
       {/* =========================================================================
           5. GRÁFICO ILUSTRATIVO & COCKPIT DE ANÁLISE (Estilo O2inc · Mont Finance)
       ========================================================================= */}
-      <section id="grafico-100" className="py-20 sm:py-28 border-b border-white/[0.08] bg-[#0E1118]/40 overflow-hidden">
+      <section id="grafico-100" className="py-10 sm:py-12 lg:py-14 border-b border-white/[0.08] bg-[#0E1118]/40 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <FinancialCockpit />
         </div>
