@@ -1,40 +1,28 @@
-import { motion, AnimatePresence } from "motion/react";
-import { Link } from "react-router-dom";
+import { motion } from "motion/react";
+import { useState } from "react";
 import { 
   ArrowRight, 
   CheckCircle2, 
   ChevronDown, 
-  TrendingUp, 
-  BarChart3, 
-  Layers, 
-  DollarSign, 
-  Scale, 
-  Landmark, 
   AlertTriangle, 
   Check, 
   Phone, 
   Mail,
-  ShieldCheck,
-  Building2,
-  Users,
-  Compass,
-  Laptop,
+  Linkedin,
+  Shield,
   Coins,
-  Cpu,
-  Calendar,
-  Sparkles,
-  ArrowUpRight
+  TrendingUp,
+  BarChart3,
+  Scale
 } from "lucide-react";
-import { useState } from "react";
 import { DiagnosticForm } from "../components/DiagnosticForm";
+import { trackCtaClick, trackWhatsAppClick } from "../lib/analytics";
 
-type ChannelType = "consolidado" | "mercado_livre" | "site_proprio" | "shopee";
-type CockpitView = "dre" | "fluxo" | "ciclo";
+type ChannelType = "consolidado" | "site_proprio" | "mercado_livre" | "shopee";
 
 export function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [selectedChannel, setSelectedChannel] = useState<ChannelType>("consolidado");
-  const [cockpitView, setCockpitView] = useState<CockpitView>("dre");
 
   const toggleFaq = (idx: number) => {
     setOpenFaq(openFaq === idx ? null : idx);
@@ -55,7 +43,7 @@ export function Home() {
   }> = {
     consolidado: {
       name: "Mix Consolidado",
-      tag: "Exemplo Ilustrativo Geral",
+      tag: "Exemplo Geral",
       venda: 100,
       cmv: 38,
       midia: 18,
@@ -68,7 +56,7 @@ export function Home() {
     },
     site_proprio: {
       name: "Site Próprio (D2C)",
-      tag: "Shopify / VTEX / Nuvemshop",
+      tag: "Shopify / VTEX / Nuvem",
       venda: 100,
       cmv: 33,
       midia: 25,
@@ -90,11 +78,11 @@ export function Home() {
       frete: 9,
       margem: 12,
       percentual: "12.0%",
-      insight: "Volume alto com margem comprimida: comissões de até 19% somadas a coparticipação em frete obrigatório exigem precificação cirúrgica por anúncio para não gerar faturamento com prejuízo oculto."
+      insight: "Volume alto com margem comprimida: comissões somadas a frete obrigatório exigem precificação por anúncio para não gerar faturamento com prejuízo oculto."
     },
     shopee: {
       name: "Shopee & Outros",
-      tag: "Marketplaces Secundários",
+      tag: "Marketplaces Gerais",
       venda: 100,
       cmv: 41,
       midia: 8,
@@ -103,7 +91,7 @@ export function Home() {
       frete: 11,
       margem: 10,
       percentual: "10.0%",
-      insight: "Taxas agressivas somadas a frete reverso e devoluções. Um CFO Terceirizado aponta imediatamente quais SKUs devem ou não continuar nesses canais para preservar o caixa."
+      insight: "Taxas e coparticipações somadas a devoluções. Um CFO Terceirizado aponta quais SKUs devem ou não continuar nesses canais para preservar o caixa."
     }
   };
 
@@ -132,53 +120,21 @@ export function Home() {
     }
   ];
 
-  const fourFronts = [
+  const threeFronts = [
     {
       frontNumber: "01",
-      title: "Gestão",
-      desc: "Margem por canal e por produto, mix de canais, estoque e giro, orçamento e metas."
+      title: "Finanças",
+      desc: "DRE gerencial, margem por canal e por produto, fluxo de caixa, estoque e giro, orçamento e indicadores que sustentam a decisão."
     },
     {
       frontNumber: "02",
-      title: "Finanças",
-      desc: "DRE gerencial, fluxo de caixa, ciclo financeiro e indicadores que sustentam a decisão."
+      title: "Tributação",
+      desc: "Créditos, riscos e estrutura tributária vistos pelo efeito em preço, margem e caixa."
     },
     {
       frontNumber: "03",
-      title: "Tributação",
-      desc: "Créditos, riscos e estrutura tributária vistos pelo efeito em preço, margem e caixa.",
-      link: "/consultoria-tributaria",
-      linkText: "Conhecer Consultoria Tributária"
-    },
-    {
-      frontNumber: "04",
       title: "Capital",
-      desc: "Quanto de capital a operação precisa, de que forma captar e como chegar preparado aos bancos.",
-      link: "/solucoes-de-capital",
-      linkText: "Conhecer Soluções de Capital"
-    }
-  ];
-
-  const dapeSteps = [
-    {
-      letter: "D",
-      title: "Dados",
-      desc: "Reunimos e organizamos as informações financeiras, comerciais e tributárias da operação."
-    },
-    {
-      letter: "A",
-      title: "Análise",
-      desc: "Identificamos onde estão a margem, o caixa e os riscos, e qual é a causa de cada um."
-    },
-    {
-      letter: "P",
-      title: "Planejamento",
-      desc: "Transformamos a análise em metas, orçamento e prioridades."
-    },
-    {
-      letter: "E",
-      title: "Execução",
-      desc: "Acompanhamos a implementação e ajustamos o rumo com base nos números."
+      desc: "Quanto de capital a operação precisa, de que forma captar e como chegar preparado aos bancos."
     }
   ];
 
@@ -189,7 +145,7 @@ export function Home() {
     },
     {
       q: "A Mont Finance substitui a minha contabilidade?",
-      a: "Não. A contabilidade cuida das obrigações fiscais e legais. A Mont Finance trabalha ao lado dela, usando os números para apoiar decisões de gestão, finanças, tributação e capital."
+      a: "Não. A contabilidade cuida das obrigações fiscais e legais. A Mont Finance trabalha ao lado dela, usando os números para apoiar decisões de finanças, tributação e capital."
     },
     {
       q: "Qual a diferença entre Controladoria e CFO Terceirizado completo?",
@@ -209,45 +165,31 @@ export function Home() {
     }
   ];
 
-  const platforms = [
-    "Mercado Livre",
-    "Shopify",
-    "VTEX",
-    "Shopee",
-    "Amazon",
-    "Bling ERP",
-    "Tiny ERP",
-    "Nuvemshop",
-    "Magalu",
-    "Omie"
-  ];
-
   return (
     <div className="bg-[#090A0F] text-white font-sans selection:bg-[#d4af37] selection:text-black min-h-screen">
       
       {/* =========================================================================
-          1. TOPO & HERO (Copy Original Aprovada + Identidade Visual Mont Finance)
+          1 & 2. HERO (Copy Oficial Briefing v2)
       ========================================================================= */}
-      <section id="topo" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden border-b border-white/[0.08]">
-        
-        {/* Soft Ambient Gold/Champagne Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[550px] bg-[radial-gradient(ellipse_at_top,_#d4af37_0%,_transparent_65%)] opacity-15 pointer-events-none blur-3xl"></div>
+      <section id="topo" className="relative pt-32 pb-20 md:pt-40 md:pb-24 overflow-hidden border-b border-white/[0.08]">
+        {/* Soft Ambient Gold Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[520px] bg-[radial-gradient(ellipse_at_top,_#d4af37_0%,_transparent_65%)] opacity-15 pointer-events-none blur-3xl"></div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           
-          {/* Tag de Topo com a Logo Oficial */}
+          {/* Badge Oficial */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-[#d4af37]/30 backdrop-blur-md mb-8">
             <img 
               src="/favicon.png" 
               alt="Mont Finance" 
-              className="h-4 w-auto object-contain drop-shadow-[0_0_6px_rgba(212,175,55,0.5)]" 
+              className="h-4 w-auto object-contain drop-shadow-[0_0_6px_rgba(212,175,55,0.4)]" 
             />
             <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
               CFO Terceirizado para e-commerce
             </span>
           </div>
 
-          {/* Headline Principal da Copy Original */}
+          {/* Headline Principal */}
           <div className="max-w-4xl mx-auto mb-8">
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.08]">
               Seu e-commerce fatura. <br />
@@ -257,258 +199,114 @@ export function Home() {
             </h1>
           </div>
 
-          {/* Subtítulo da Copy Original */}
+          {/* Frase Central Nova */}
           <p className="text-base sm:text-xl text-zinc-300 font-light leading-relaxed mb-10 max-w-3xl mx-auto">
-            A Mont Finance é o CFO Terceirizado que integra gestão, finanças, tributação e capital para aumentar lucro, gerar caixa e reduzir riscos na sua operação.
+            A Mont Finance é o CFO Terceirizado que integra finanças, tributação e capital para aumentar lucro, gerar caixa e reduzir riscos na sua operação.
           </p>
 
-          {/* Botões de Ação com Cores da Identidade Visual */}
+          {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <a 
               href="#diagnostico" 
+              onClick={() => trackCtaClick("hero_primary", "Agendar diagnóstico")}
               className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#d4af37] hover:bg-[#c5a059] text-black text-xs font-bold uppercase tracking-[0.15em] transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] hover:scale-[1.02]"
             >
               Agendar diagnóstico
             </a>
             <a 
-              href="#niveis-de-servico" 
+              href="#niveis" 
+              onClick={() => trackCtaClick("hero_secondary", "Ver os níveis de serviço")}
               className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/[0.03] hover:bg-white/[0.08] text-white border border-white/15 hover:border-[#d4af37]/40 text-xs font-bold uppercase tracking-[0.15em] transition-all"
             >
               Ver os níveis de serviço
             </a>
           </div>
 
-          {/* Qualificação de Público da Copy */}
-          <p className="text-xs text-zinc-400 font-mono tracking-wide max-w-2xl mx-auto mb-14">
+          {/* Qualificação de Público */}
+          <p className="text-xs text-zinc-400 font-mono tracking-wide max-w-2xl mx-auto">
             ✦ Para empresas de e-commerce com faturamento acima de R$ 3 milhões por ano, que fabricam e/ou vendem online, no varejo ou no atacado.
           </p>
 
-          {/* Ribbon Visual com Estética Fintech Minimalista */}
-          <div className="relative rounded-3xl overflow-hidden border border-white/[0.1] bg-gradient-to-b from-[#0E1118] to-[#090A0F] p-3 sm:p-5 max-w-5xl mx-auto shadow-[0_20px_80px_rgba(0,0,0,0.8)]">
-            <div className="relative rounded-2xl overflow-hidden bg-black/60 border border-white/5 p-8 sm:p-12 text-left flex flex-col md:flex-row items-center justify-between gap-8">
-              
-              <div className="max-w-xl">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse"></span>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#d4af37]">
-                    Mont Finance · Performance Financeira
-                  </span>
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-2">
-                  Gestão · Finanças · Tributação · Capital
-                </h3>
-                <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
-                  Quatro frentes que decidem o seu resultado, tratadas juntas para transformar o caos de números do comércio eletrônico em margem líquida e caixa sustentável.
-                </p>
-              </div>
+        </div>
+      </section>
 
-              <div className="shrink-0 flex items-center justify-center p-6 rounded-2xl bg-white/[0.02] border border-[#d4af37]/20">
-                <img 
-                  src="/favicon.png" 
-                  alt="Mont Finance Emblem" 
-                  className="h-20 w-auto object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]" 
-                />
-              </div>
-
+      {/* =========================================================================
+          3. FAIXA DE FATOS (Foco > 3M, 3 Frentes, Método DAPE, Nacional)
+      ========================================================================= */}
+      <section className="py-10 border-b border-white/[0.08] bg-[#0E1118]/60">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            
+            <div className="p-4 rounded-xl border border-white/[0.04] bg-white/[0.01]">
+              <span className="text-xl sm:text-2xl font-display font-bold text-white block mb-1">
+                Acima de R$ 3 Mi
+              </span>
+              <span className="text-xs text-zinc-400 font-light leading-snug block">
+                Foco em operações com tração e volume de vendas
+              </span>
             </div>
-          </div>
 
-        </div>
-      </section>
+            <div className="p-4 rounded-xl border border-white/[0.04] bg-white/[0.01]">
+              <span className="text-xl sm:text-2xl font-display font-bold text-[#d4af37] block mb-1">
+                3 Frentes
+              </span>
+              <span className="text-xs text-zinc-400 font-light leading-snug block">
+                Finanças, tributação e capital na mesma mesa
+              </span>
+            </div>
 
-      {/* =========================================================================
-          2. CARROSSEL DE PLATAFORMAS (Visual Tech & Startup Minimalista)
-      ========================================================================= */}
-      <section className="py-12 border-b border-white/[0.08] bg-[#0E1118]/40 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
-          <p className="text-xs font-mono uppercase tracking-widest text-zinc-400">
-            Inteligência integrada aos principais marketplaces, ERPs e plataformas de e-commerce
-          </p>
-        </div>
+            <div className="p-4 rounded-xl border border-white/[0.04] bg-white/[0.01]">
+              <span className="text-xl sm:text-2xl font-display font-bold text-white block mb-1">
+                Método DAPE
+              </span>
+              <span className="text-xs text-zinc-400 font-light leading-snug block">
+                Dados, análise, planejamento e execução com rotina
+              </span>
+            </div>
 
-        {/* Marquee Wrapper com Máscaras de Gradiente */}
-        <div className="relative w-full overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-[#090A0F] to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-[#090A0F] to-transparent z-10 pointer-events-none"></div>
+            <div className="p-4 rounded-xl border border-white/[0.04] bg-white/[0.01]">
+              <span className="text-xl sm:text-2xl font-display font-bold text-[#d4af37] block mb-1">
+                Nacional
+              </span>
+              <span className="text-xs text-zinc-400 font-light leading-snug block">
+                Atendimento remoto e executivo em todo o Brasil
+              </span>
+            </div>
 
-          <div className="animate-marquee py-2 flex items-center gap-12">
-            {[...platforms, ...platforms].map((platform, idx) => (
-              <div 
-                key={idx} 
-                className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] whitespace-nowrap text-zinc-400 hover:text-white transition-colors"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
-                <span className="text-xs font-mono font-medium tracking-wider">{platform}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          3. GRÁFICO ILUSTRATIVO: PARA ONDE VAI CADA R$ 100 VENDIDOS
+          4. CAUSA ECONÔMICA (Sintoma x Causa)
       ========================================================================= */}
-      <section id="grafico-100" className="py-24 sm:py-32 border-b border-white/[0.08] relative">
+      <section className="py-20 sm:py-28 border-b border-white/[0.08] bg-[#090A0F]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#d4af37] font-bold block mb-3">
-              Gráfico ilustrativo
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white mb-5 leading-tight">
-              Para onde vai cada R$ 100 vendidos
-            </h2>
-            <p className="text-base text-zinc-300 font-light leading-relaxed">
-              Exemplo ilustrativo com números hipotéticos: de cada 100 reais de venda, sobram 13 de margem de contribuição depois de comissão, frete, devoluções, impostos, mídia e custo do produto.
-            </p>
-          </div>
-
-          {/* Cockpit Interativo com a Estética Minimalista */}
-          <div className="rounded-3xl bg-[#0E1118] border border-white/[0.08] shadow-[0_30px_100px_rgba(0,0,0,0.6)] overflow-hidden">
-            
-            {/* Barra de Topo do Cockpit */}
-            <div className="px-6 sm:px-8 py-5 bg-black/40 border-b border-white/[0.08] flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <img src="/favicon.png" alt="Mont" className="h-5 w-auto object-contain" />
-                <div>
-                  <span className="text-xs font-mono text-zinc-200 font-semibold uppercase tracking-wider block">
-                    Mont Finance · Decomposição de Margem de Contribuição
-                  </span>
-                  <span className="text-[11px] text-zinc-400 font-light">
-                    Exemplo ilustrativo com números hipotéticos
-                  </span>
-                </div>
-              </div>
-
-              {/* Seletor de Canais */}
-              <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/5 border border-white/10 overflow-x-auto">
-                {(["consolidado", "site_proprio", "mercado_livre", "shopee"] as ChannelType[]).map((key) => (
-                  <button
-                    key={key}
-                    onClick={() => setSelectedChannel(key)}
-                    className={`px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all whitespace-nowrap ${
-                      selectedChannel === key 
-                        ? "bg-[#d4af37] text-black font-bold shadow-md" 
-                        : "text-zinc-400 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    {channelData[key].name}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Corpo do Cockpit */}
-            <div className="p-6 sm:p-10">
-              
-              <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4 mb-8 pb-8 border-b border-white/[0.08]">
-                <div>
-                  <span className="px-3 py-1 rounded-md text-[10px] font-mono uppercase tracking-wider bg-[#d4af37]/10 text-[#d4af37] border border-[#d4af37]/20 mb-2 inline-block">
-                    {activeChannel.tag}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-white">
-                    Simulação dos R$ 100 Faturados
-                  </h3>
-                </div>
-
-                <div className="bg-white/[0.03] border border-white/10 p-4 rounded-2xl flex items-center gap-4">
-                  <div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400 block">
-                      Margem de Contribuição Líquida
-                    </span>
-                    <span className="text-3xl font-mono font-bold text-[#d4af37]">
-                      R$ {activeChannel.margem.toFixed(2)} ({activeChannel.percentual})
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Barra Progressiva Waterfall */}
-              <div className="mb-8">
-                <div className="flex justify-between items-center text-xs font-mono text-zinc-400 mb-2.5">
-                  <span>Venda Bruta: R$ 100,00</span>
-                  <span className="text-[#d4af37] font-semibold">Sobra de Margem: R$ {activeChannel.margem.toFixed(2)}</span>
-                </div>
-                <div className="h-4 w-full rounded-full bg-zinc-800 overflow-hidden flex shadow-inner">
-                  <div style={{ width: `${activeChannel.cmv}%` }} className="bg-rose-500 h-full" title="Custo do Produto (CMV)"></div>
-                  <div style={{ width: `${activeChannel.midia}%` }} className="bg-amber-500 h-full" title="Mídia & Tráfego"></div>
-                  <div style={{ width: `${activeChannel.impostos}%` }} className="bg-purple-500 h-full" title="Impostos"></div>
-                  <div style={{ width: `${activeChannel.taxas}%` }} className="bg-blue-500 h-full" title="Comissões & Taxas"></div>
-                  <div style={{ width: `${activeChannel.frete}%` }} className="bg-orange-500 h-full" title="Frete & Devoluções"></div>
-                  <div style={{ width: `${activeChannel.margem}%` }} className="bg-[#d4af37] h-full" title="Margem de Contribuição"></div>
-                </div>
-              </div>
-
-              {/* Grade de Custos */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
-                <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-zinc-400 block mb-1">(-) Custo Produto</span>
-                  <span className="text-base font-mono font-bold text-rose-400">- R$ {activeChannel.cmv.toFixed(2)}</span>
-                </div>
-                <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-zinc-400 block mb-1">(-) Mídia & Ads</span>
-                  <span className="text-base font-mono font-bold text-amber-400">- R$ {activeChannel.midia.toFixed(2)}</span>
-                </div>
-                <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-zinc-400 block mb-1">(-) Impostos</span>
-                  <span className="text-base font-mono font-bold text-purple-400">- R$ {activeChannel.impostos.toFixed(2)}</span>
-                </div>
-                <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-zinc-400 block mb-1">(-) Comissões</span>
-                  <span className="text-base font-mono font-bold text-blue-400">- R$ {activeChannel.taxas.toFixed(2)}</span>
-                </div>
-                <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-zinc-400 block mb-1">(-) Frete & Devoluções</span>
-                  <span className="text-base font-mono font-bold text-orange-400">- R$ {activeChannel.frete.toFixed(2)}</span>
-                </div>
-                <div className="p-3.5 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/30">
-                  <span className="text-[10px] font-mono text-[#d4af37] font-bold block mb-1">(=) Margem Real</span>
-                  <span className="text-base font-mono font-bold text-[#E5C378]">+ R$ {activeChannel.margem.toFixed(2)}</span>
-                </div>
-              </div>
-
-              {/* Nota de rodapé do gráfico da copy original */}
-              <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] text-xs text-zinc-400 font-light leading-relaxed">
-                *Exemplo ilustrativo, com números hipotéticos. A proporção real muda por canal, produto e período, e é isso que o diagnóstico mostra.
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* =========================================================================
-          4. CAUSA ECONÔMICA (Copy Original Aprovada)
-      ========================================================================= */}
-      <section className="py-24 sm:py-32 border-b border-white/[0.08] bg-[#0E1118]/30">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#d4af37] font-bold block mb-3">
               Causa econômica
             </span>
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white mb-6">
-              O que parece problema de caixa ou de vendas <br />
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-5 leading-tight">
+              O que parece problema de caixa ou de vendas <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
                 costuma ter outra origem
               </span>
             </h2>
-            <p className="text-base text-zinc-300 font-light leading-relaxed">
+            <p className="text-sm text-zinc-300 font-light leading-relaxed">
               Antes de decidir vender mais, vale saber onde o dinheiro está ficando. Estes são sintomas que ouvimos de empresários de e-commerce e as causas que costumam estar por trás.
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto space-y-4">
+          <div className="max-w-4xl mx-auto space-y-3.5">
             {symptoms.map((item, idx) => (
               <div 
                 key={idx} 
-                className="p-6 sm:p-7 rounded-2xl bg-[#0E1118] border border-white/[0.08] hover:border-[#d4af37]/40 transition-all flex flex-col md:flex-row md:items-center justify-between gap-6 group"
+                className="p-5 sm:p-6 rounded-2xl bg-[#0E1118] border border-white/[0.08] hover:border-[#d4af37]/40 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 group"
               >
-                <div className="md:w-5/12 flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center shrink-0 mt-0.5">
-                    <AlertTriangle className="w-4 h-4" />
+                <div className="md:w-5/12 flex items-start gap-3">
+                  <div className="w-7 h-7 rounded-lg bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center shrink-0 mt-0.5">
+                    <AlertTriangle className="w-3.5 h-3.5" />
                   </div>
                   <div>
                     <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block mb-0.5">
@@ -524,9 +322,9 @@ export function Home() {
                   <ArrowRight className="w-4 h-4" />
                 </div>
 
-                <div className="md:w-6/12 flex items-start gap-3.5 pl-0 md:pl-6 border-t md:border-t-0 md:border-l border-white/[0.08] pt-4 md:pt-0">
-                  <div className="w-8 h-8 rounded-xl bg-[#d4af37]/15 border border-[#d4af37]/30 text-[#d4af37] flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4" />
+                <div className="md:w-6/12 flex items-start gap-3 pl-0 md:pl-5 border-t md:border-t-0 md:border-l border-white/[0.08] pt-3.5 md:pt-0">
+                  <div className="w-7 h-7 rounded-lg bg-[#d4af37]/15 border border-[#d4af37]/30 text-[#d4af37] flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
                   </div>
                   <div>
                     <span className="text-[10px] font-mono uppercase tracking-wider text-[#d4af37] font-bold block mb-0.5">
@@ -545,34 +343,160 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          5. INTEGRAÇÃO: O QUE NOS DIFERENCIA (As Quatro Frentes da Copy)
+          5. GRÁFICO ILUSTRATIVO: PARA ONDE VÃO R$ 100 VENDIDOS
       ========================================================================= */}
-      <section className="py-24 sm:py-32 border-b border-white/[0.08] relative">
+      <section id="grafico-100" className="py-20 sm:py-28 border-b border-white/[0.08] bg-[#0E1118]/40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#d4af37] font-bold block mb-3">
-              Integração · O que nos diferencia
+              Gráfico ilustrativo
             </span>
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white mb-6">
-              Quatro frentes que decidem o seu resultado, <br />
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+              Para onde vão R$ 100 vendidos
+            </h2>
+            <p className="text-sm text-zinc-300 font-light leading-relaxed">
+              De cada 100 reais de venda, sobram 13 de margem de contribuição depois de comissão, frete, devoluções, impostos, mídia e custo do produto.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto rounded-2xl bg-[#0E1118] border border-white/[0.08] shadow-2xl overflow-hidden">
+            
+            {/* Top Bar Cockpit */}
+            <div className="px-6 py-4 bg-black/40 border-b border-white/[0.08] flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="flex items-center gap-2.5">
+                <img src="/favicon.png" alt="Mont" className="h-5 w-auto object-contain" />
+                <span className="text-xs font-mono text-zinc-300 font-semibold uppercase tracking-wider">
+                  Mont Finance · Simulação de Margem
+                </span>
+              </div>
+
+              {/* Seletor de Canais */}
+              <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/5 border border-white/10 overflow-x-auto">
+                {(["consolidado", "site_proprio", "mercado_livre", "shopee"] as ChannelType[]).map((key) => (
+                  <button
+                    key={key}
+                    onClick={() => setSelectedChannel(key)}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all whitespace-nowrap ${
+                      selectedChannel === key 
+                        ? "bg-[#d4af37] text-black font-bold shadow-md" 
+                        : "text-zinc-400 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    {channelData[key].name}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Conteúdo do Cockpit */}
+            <div className="p-6 sm:p-8">
+              
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 mb-6">
+                <div>
+                  <span className="px-2.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-[#d4af37]/10 text-[#d4af37] border border-[#d4af37]/20 mb-2 inline-block">
+                    {activeChannel.tag}
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-white">
+                    Decomposição dos R$ 100 Faturados
+                  </h3>
+                </div>
+
+                <div className="bg-white/[0.03] border border-white/10 px-4 py-2.5 rounded-xl">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400 block">
+                    Margem de Contribuição
+                  </span>
+                  <span className="text-2xl font-mono font-bold text-[#d4af37]">
+                    R$ {activeChannel.margem.toFixed(2)} ({activeChannel.percentual})
+                  </span>
+                </div>
+              </div>
+
+              {/* Waterfall Bar */}
+              <div className="mb-6">
+                <div className="flex justify-between items-center text-xs font-mono text-zinc-400 mb-2">
+                  <span>Venda Bruta: R$ 100,00</span>
+                  <span className="text-[#d4af37] font-semibold">Margem: R$ {activeChannel.margem.toFixed(2)}</span>
+                </div>
+                <div className="h-4 w-full rounded-full bg-zinc-800 overflow-hidden flex shadow-inner">
+                  <div style={{ width: `${activeChannel.cmv}%` }} className="bg-rose-500 h-full" title="Custo do Produto"></div>
+                  <div style={{ width: `${activeChannel.midia}%` }} className="bg-amber-500 h-full" title="Mídia & Tráfego"></div>
+                  <div style={{ width: `${activeChannel.impostos}%` }} className="bg-purple-500 h-full" title="Impostos"></div>
+                  <div style={{ width: `${activeChannel.taxas}%` }} className="bg-blue-500 h-full" title="Comissões & Taxas"></div>
+                  <div style={{ width: `${activeChannel.frete}%` }} className="bg-orange-500 h-full" title="Frete & Devoluções"></div>
+                  <div style={{ width: `${activeChannel.margem}%` }} className="bg-[#d4af37] h-full" title="Margem de Contribuição"></div>
+                </div>
+              </div>
+
+              {/* Grid de Custos */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 mb-6">
+                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                  <span className="text-[10px] font-mono text-zinc-400 block mb-0.5">(-) CMV / Custo</span>
+                  <span className="text-sm font-mono font-bold text-rose-400">- R$ {activeChannel.cmv.toFixed(2)}</span>
+                </div>
+                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                  <span className="text-[10px] font-mono text-zinc-400 block mb-0.5">(-) Mídia & Ads</span>
+                  <span className="text-sm font-mono font-bold text-amber-400">- R$ {activeChannel.midia.toFixed(2)}</span>
+                </div>
+                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                  <span className="text-[10px] font-mono text-zinc-400 block mb-0.5">(-) Impostos</span>
+                  <span className="text-sm font-mono font-bold text-purple-400">- R$ {activeChannel.impostos.toFixed(2)}</span>
+                </div>
+                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                  <span className="text-[10px] font-mono text-zinc-400 block mb-0.5">(-) Comissões</span>
+                  <span className="text-sm font-mono font-bold text-blue-400">- R$ {activeChannel.taxas.toFixed(2)}</span>
+                </div>
+                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                  <span className="text-[10px] font-mono text-zinc-400 block mb-0.5">(-) Fretes</span>
+                  <span className="text-sm font-mono font-bold text-orange-400">- R$ {activeChannel.frete.toFixed(2)}</span>
+                </div>
+                <div className="p-3 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/30">
+                  <span className="text-[10px] font-mono text-[#d4af37] font-bold block mb-0.5">(=) Margem Real</span>
+                  <span className="text-sm font-mono font-bold text-[#E5C378]">+ R$ {activeChannel.margem.toFixed(2)}</span>
+                </div>
+              </div>
+
+              {/* Nota Obrigatória */}
+              <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-xs text-zinc-400 font-light leading-relaxed">
+                *Exemplo ilustrativo, com números hipotéticos: a proporção real muda por canal, produto e período, e é isso que o diagnóstico mostra.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          6. TRÊS FRENTES INTEGRADAS (Finanças, Tributação e Capital)
+      ========================================================================= */}
+      <section id="frentes" className="py-20 sm:py-28 border-b border-white/[0.08] relative">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#d4af37] font-bold block mb-3">
+              Integração
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white mb-5">
+              Três frentes que decidem o seu resultado, <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF9F6] via-[#E5C378] to-[#D4AF37]">
                 tratadas juntas
               </span>
             </h2>
-            <p className="text-base text-zinc-300 font-light leading-relaxed">
-              Na maioria das empresas, gestão, finanças, tributação e capital são tocadas por pessoas diferentes, que nem sempre conversam. Um CFO Terceirizado coloca tudo na mesma mesa.
+            <p className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
+              Na maioria das empresas, finanças, tributação e capital são tocadas por pessoas diferentes, que nem sempre conversam. Um CFO Terceirizado coloca tudo na mesma mesa.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {fourFronts.map((f, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {threeFronts.map((f, i) => (
               <div 
                 key={i} 
-                className="p-8 rounded-3xl bg-[#0E1118] border border-white/[0.08] hover:border-[#d4af37]/40 transition-all flex flex-col justify-between group hover:-translate-y-1"
+                className="p-8 rounded-2xl bg-[#0E1118] border border-white/[0.08] hover:border-[#d4af37]/40 transition-all flex flex-col justify-between group hover:-translate-y-1"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center justify-between mb-5">
                     <span className="text-[10px] font-mono font-bold px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-zinc-300">
                       Frente {f.frontNumber}
                     </span>
@@ -580,26 +504,25 @@ export function Home() {
                   </div>
 
                   <h3 className="text-2xl font-display font-bold text-white mb-3">{f.title}</h3>
-                  <p className="text-xs text-zinc-300 font-light leading-relaxed mb-6">{f.desc}</p>
+                  <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-6">{f.desc}</p>
                 </div>
 
-                {f.link && (
-                  <Link 
-                    to={f.link} 
-                    className="pt-4 border-t border-white/[0.08] text-xs font-bold text-[#d4af37] hover:text-white flex items-center gap-1.5 transition-colors"
-                  >
-                    <span>{f.linkText}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                )}
+                <a 
+                  href="#diagnostico" 
+                  onClick={() => trackCtaClick(`frente_${f.title.toLowerCase()}`, `Diagnosticar ${f.title}`)}
+                  className="pt-4 border-t border-white/[0.08] text-xs font-semibold text-[#d4af37] hover:text-white flex items-center gap-1.5 transition-colors"
+                >
+                  <span>Avaliar {f.title.toLowerCase()} no diagnóstico</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
               </div>
             ))}
           </div>
 
-          {/* Citação de Integração da Copy Original */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#d4af37]/10 via-white/[0.02] to-transparent border border-[#d4af37]/20 text-center max-w-4xl mx-auto">
-            <p className="text-base sm:text-lg text-zinc-200 font-light leading-relaxed italic">
-              "O imposto muda o preço que você pode praticar. O prazo de recebimento muda o capital de giro que você precisa. O capital muda o quanto dá para crescer. A diferença está em enxergar essas quatro frentes ao mesmo tempo."
+          {/* Fechamento da Seção Três Frentes */}
+          <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#d4af37]/10 via-white/[0.02] to-transparent border border-[#d4af37]/20 text-center max-w-4xl mx-auto">
+            <p className="text-sm sm:text-base text-zinc-200 font-light leading-relaxed italic">
+              "O imposto muda o preço que você pode praticar. O prazo de recebimento muda o capital de giro que você precisa. O capital muda o quanto dá para crescer. A diferença está em enxergar essas três frentes ao mesmo tempo."
             </p>
           </div>
 
@@ -607,27 +530,27 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          6. NÍVEIS DE SERVIÇO (Copy Original Aprovada)
+          7. DOIS NÍVEIS DE SERVIÇO & CONTRATÁVEL À PARTE
       ========================================================================= */}
-      <section id="niveis-de-servico" className="py-24 sm:py-32 border-b border-white/[0.08] bg-[#0E1118]/30">
+      <section id="niveis" className="py-20 sm:py-28 border-b border-white/[0.08] bg-[#0E1118]/40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#d4af37] font-bold block mb-3">
               Níveis de serviço
             </span>
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white mb-6">
-              Dois níveis de CFO Terceirizado, <br />
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white mb-5">
+              Dois níveis de CFO Terceirizado, <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
                 conforme o momento da empresa
               </span>
             </h2>
-            <p className="text-base text-zinc-300 font-light leading-relaxed">
+            <p className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
               Os dois começam pela mesma pergunta: qual é o resultado real do negócio e o que fazer com ele. A diferença está na profundidade do acompanhamento.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-14">
             
             {/* Nível 1 — Controladoria */}
             <div className="p-8 sm:p-10 rounded-3xl bg-[#0E1118] border border-white/[0.08] flex flex-col justify-between hover:border-white/20 transition-all">
@@ -636,11 +559,11 @@ export function Home() {
                   Nível 1
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-3">Controladoria</h3>
-                <p className="text-sm text-zinc-300 font-light leading-relaxed mb-8">
+                <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-6">
                   Visão de CFO sobre os seus números, para você decidir com base em fatos e não em percepção.
                 </p>
 
-                <ul className="space-y-4 mb-8 text-sm text-zinc-300">
+                <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-zinc-300">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
                     <span>Plano de contas gerencial pensado para e-commerce</span>
@@ -661,35 +584,31 @@ export function Home() {
               </div>
 
               <div className="pt-6 border-t border-white/[0.08]">
-                <span className="text-xs text-zinc-400 block mb-6">
+                <span className="text-xs text-zinc-400 block mb-5 leading-relaxed">
                   <strong>Para quem precisa:</strong> enxergar a margem real e o caixa com clareza e ainda não tem essa base confiável.
                 </span>
                 <a 
                   href="#diagnostico" 
-                  className="w-full py-4 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/15 text-white text-xs font-bold uppercase tracking-[0.15em] text-center block transition-all"
+                  onClick={() => trackCtaClick("nivel_1_controladoria", "Agendar para Nível 1")}
+                  className="w-full py-3.5 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/15 text-white text-xs font-bold uppercase tracking-[0.15em] text-center block transition-all"
                 >
                   Agendar para Nível 1
                 </a>
               </div>
             </div>
 
-            {/* Nível 2 — CFO Terceirizado completo */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#0E1118] border-2 border-[#d4af37] relative flex flex-col justify-between shadow-[0_20px_50px_rgba(212,175,55,0.15)]">
-              
-              <div className="absolute -top-3.5 right-8 px-4 py-1 rounded-full bg-[#d4af37] text-black text-[10px] font-mono font-bold uppercase tracking-widest shadow-md">
-                Mais Escolhido
-              </div>
-
+            {/* Nível 2 — CFO Terceirizado completo (SEM selo Mais Escolhido) */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#0E1118] border border-[#d4af37]/40 hover:border-[#d4af37] transition-all flex flex-col justify-between shadow-[0_15px_40px_rgba(212,175,55,0.1)]">
               <div>
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#d4af37] block mb-2">
                   Nível 2
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-3">CFO Terceirizado completo</h3>
-                <p className="text-sm text-zinc-300 font-light leading-relaxed mb-8">
+                <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-6">
                   Tudo da Controladoria, mais planejamento financeiro e um CFO como interlocutor direto da sua liderança.
                 </p>
 
-                <ul className="space-y-4 mb-8 text-sm text-zinc-300">
+                <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-zinc-300">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
                     <span>Tudo o que está no nível Controladoria</span>
@@ -710,12 +629,13 @@ export function Home() {
               </div>
 
               <div className="pt-6 border-t border-white/[0.08]">
-                <span className="text-xs text-zinc-400 block mb-6">
+                <span className="text-xs text-zinc-400 block mb-5 leading-relaxed">
                   <strong>Para quem precisa:</strong> já cresce e precisa de planejamento, cenários e um parceiro estratégico nas decisões financeiras.
                 </span>
                 <a 
                   href="#diagnostico" 
-                  className="w-full py-4 rounded-full bg-[#d4af37] hover:bg-[#c5a059] text-black text-xs font-bold uppercase tracking-[0.15em] text-center block transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+                  onClick={() => trackCtaClick("nivel_2_cfo_completo", "Agendar para Nível 2")}
+                  className="w-full py-3.5 rounded-full bg-[#d4af37] hover:bg-[#c5a059] text-black text-xs font-bold uppercase tracking-[0.15em] text-center block transition-all shadow-[0_0_20px_rgba(212,175,55,0.25)]"
                 >
                   Agendar para Nível 2
                 </a>
@@ -724,30 +644,84 @@ export function Home() {
 
           </div>
 
-          {/* Serviços contratados à parte */}
-          <div className="max-w-5xl mx-auto p-8 rounded-3xl bg-white/[0.02] border border-white/[0.08]">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#d4af37] font-bold block mb-4">
-              Serviços contratados à parte
-            </span>
+          {/* Bloco Curto: Contratável à parte (Tom de processo, sem promessa) */}
+          <div className="max-w-5xl mx-auto p-6 sm:p-8 rounded-3xl bg-white/[0.02] border border-white/[0.08]">
+            <div className="mb-6">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#d4af37] font-bold block mb-1">
+                Contratável à parte
+              </span>
+              <p className="text-xs text-zinc-400 font-light">
+                Frentes especializadas que podem ser acionadas de acordo com as necessidades específicas da sua empresa.
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 rounded-2xl bg-[#090A0F] border border-white/[0.08]">
-                <h4 className="text-base font-bold text-white mb-2">Inteligência Tributária</h4>
-                <p className="text-xs text-zinc-400 font-light leading-relaxed mb-4">
-                  Revisão de créditos e riscos, planejamento e estrutura tributária, sempre conectados ao efeito em margem e caixa.
-                </p>
-                <Link to="/consultoria-tributaria" className="text-xs font-bold text-[#d4af37] hover:text-white inline-flex items-center gap-1.5 transition-colors">
-                  Ver Consultoria Tributária <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+              {/* Inteligência Tributária */}
+              <div className="p-6 rounded-2xl bg-[#090A0F] border border-white/[0.08] flex flex-col justify-between">
+                <div>
+                  <h4 className="text-lg font-bold text-white mb-2">Inteligência Tributária</h4>
+                  <p className="text-xs text-zinc-300 font-light leading-relaxed mb-4">
+                    Revisão de créditos e riscos, planejamento e estrutura tributária, sempre conectados ao efeito em preço, margem e caixa.
+                  </p>
+                  <ul className="space-y-2 mb-4 text-xs text-zinc-400">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
+                      Levantamento de possíveis créditos tributários
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
+                      Revisão do enquadramento e da estrutura tributária
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
+                      Tributação na formação de preço por canal
+                    </li>
+                  </ul>
+                  <p className="text-[11px] text-zinc-500 italic mb-4 leading-relaxed">
+                    *Cada análise depende do caso concreto e de validação técnica. Não há resultado garantido.
+                  </p>
+                </div>
+                <a 
+                  href="#diagnostico" 
+                  onClick={() => trackCtaClick("contratavel_tributario", "Consultar Inteligência Tributária")}
+                  className="text-xs font-bold text-[#d4af37] hover:text-white inline-flex items-center gap-1.5 transition-colors pt-3 border-t border-white/[0.06]"
+                >
+                  Consultar no diagnóstico <ArrowRight className="w-3.5 h-3.5" />
+                </a>
               </div>
 
-              <div className="p-6 rounded-2xl bg-[#090A0F] border border-white/[0.08]">
-                <h4 className="text-base font-bold text-white mb-2">Captação de Recursos</h4>
-                <p className="text-xs text-zinc-400 font-light leading-relaxed mb-4">
-                  Diagnóstico da necessidade de capital, preparação para captação e relacionamento com instituições financeiras.
-                </p>
-                <Link to="/solucoes-de-capital" className="text-xs font-bold text-[#d4af37] hover:text-white inline-flex items-center gap-1.5 transition-colors">
-                  Ver Soluções de Capital <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+              {/* Captação de Recursos */}
+              <div className="p-6 rounded-2xl bg-[#090A0F] border border-white/[0.08] flex flex-col justify-between">
+                <div>
+                  <h4 className="text-lg font-bold text-white mb-2">Captação de Recursos</h4>
+                  <p className="text-xs text-zinc-300 font-light leading-relaxed mb-4">
+                    Diagnóstico da necessidade de capital, organização dos números e preparação para conversar com instituições financeiras.
+                  </p>
+                  <ul className="space-y-2 mb-4 text-xs text-zinc-400">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
+                      Diagnóstico do endividamento e do custo do capital
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
+                      Preparação dos números para análise de crédito
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
+                      Relacionamento com bancos e outras instituições
+                    </li>
+                  </ul>
+                  <p className="text-[11px] text-zinc-500 italic mb-4 leading-relaxed">
+                    *Aprovação, taxas e prazos dependem de cada instituição e do perfil da empresa.
+                  </p>
+                </div>
+                <a 
+                  href="#diagnostico" 
+                  onClick={() => trackCtaClick("contratavel_capital", "Consultar Captação de Recursos")}
+                  className="text-xs font-bold text-[#d4af37] hover:text-white inline-flex items-center gap-1.5 transition-colors pt-3 border-t border-white/[0.06]"
+                >
+                  Consultar no diagnóstico <ArrowRight className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
           </div>
@@ -756,81 +730,47 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          7. MÉTODO DAPE (Diagrama Circular / Orbital Original com os 3 Cards)
+          8. MÉTODO DAPE (Dados, Análise, Planejamento, Execução)
       ========================================================================= */}
-      <section id="metodo-dape" className="py-24 sm:py-32 border-b border-white/[0.08] relative overflow-hidden">
+      <section id="metodo-dape" className="py-20 sm:py-28 border-b border-white/[0.08] relative overflow-hidden bg-[#090A0F]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#d4af37] font-bold block mb-3">
               Metodologia
             </span>
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white mb-6">
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white mb-5">
               DAPE: do dado à <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF9F6] via-[#E5C378] to-[#D4AF37]">execução</span>
             </h2>
-            <p className="text-base text-zinc-300 font-light leading-relaxed">
+            <p className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
               Um método próprio para sair do número solto e chegar à decisão que muda o resultado.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            {/* Left side: Framework Circular (Desktop View) */}
-            <div className="lg:col-span-9 relative">
-              <div className="hidden md:flex relative w-full max-w-[420px] lg:max-w-[560px] mx-auto aspect-square items-center justify-center">
+            {/* Diagrama Orbital Circular Desktop */}
+            <div className="lg:col-span-8 relative">
+              <div className="hidden md:flex relative w-full max-w-[460px] mx-auto aspect-square items-center justify-center">
                 
                 {/* Rotating Dashed Circle Connector */}
                 <motion.div 
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+                  transition={{ duration: 55, repeat: Infinity, ease: "linear" }}
                   className="absolute w-[68%] h-[68%] border border-dashed border-white/20 rounded-full z-0"
                 ></motion.div>
                 
                 <div className="absolute inset-0 z-10">
-                  {/* Execução (E) - Top Left */}
-                  <div className="absolute top-[26%] left-[26%] -translate-x-1/2 -translate-y-1/2">
-                    <div className="relative flex items-center justify-center">
-                      <div className="relative group">
-                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-2xl lg:text-4xl font-black shadow-2xl shadow-black/50 border-4 border-[#090A0F] relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
-                          E
-                        </div>
-                      </div>
-                      <div className="absolute right-full mr-4 text-right w-[160px] lg:w-[220px]">
-                        <div className="text-white font-display font-bold text-xl lg:text-2xl leading-none mb-1">Execução</div>
-                        <div className="text-[9px] lg:text-[10px] tracking-[0.3em] uppercase text-[#d4af37] font-black mb-1.5">Resultados</div>
-                        <p className="text-[11px] lg:text-xs text-white/60 leading-relaxed font-light">Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis.</p>
-                      </div>
-                    </div>
-                  </div>
-
                   {/* Dados (D) - Top Right */}
                   <div className="absolute top-[26%] right-[26%] translate-x-1/2 -translate-y-1/2">
                     <div className="relative flex items-center justify-center">
-                      <div className="relative group">
-                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-2xl lg:text-4xl font-black shadow-2xl shadow-black/50 border-4 border-[#090A0F] relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">
-                          D
-                        </div>
+                      <div className="w-16 h-16 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-3xl font-black shadow-2xl border-4 border-[#090A0F] z-10">
+                        D
                       </div>
-                      <div className="absolute left-full ml-4 text-left w-[160px] lg:w-[220px]">
-                        <div className="text-white font-display font-bold text-xl lg:text-2xl leading-none mb-1">Dados</div>
-                        <div className="text-[9px] lg:text-[10px] tracking-[0.3em] uppercase text-[#d4af37] font-black mb-1.5">Informação</div>
-                        <p className="text-[11px] lg:text-xs text-white/60 leading-relaxed font-light">Sistema, processos de registro, indicadores, conciliações e controles padronizados.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Planejamento (P) - Bottom Left */}
-                  <div className="absolute bottom-[26%] left-[26%] -translate-x-1/2 translate-y-1/2">
-                    <div className="relative flex items-center justify-center">
-                      <div className="relative group">
-                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-2xl lg:text-4xl font-black shadow-2xl shadow-black/50 border-4 border-[#090A0F] relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">
-                          P
-                        </div>
-                      </div>
-                      <div className="absolute right-full mr-4 text-right w-[160px] lg:w-[220px]">
-                        <div className="text-white font-display font-bold text-xl lg:text-2xl leading-none mb-1">Planejamento</div>
-                        <div className="text-[9px] lg:text-[10px] tracking-[0.3em] uppercase text-[#d4af37] font-black mb-1.5">Prioridades</div>
-                        <p className="text-[11px] lg:text-xs text-white/60 leading-relaxed font-light">Definição de objetivos, estratégias, projetos e planos de ação.</p>
+                      <div className="absolute left-full ml-4 text-left w-[180px]">
+                        <div className="text-white font-display font-bold text-lg mb-0.5">Dados</div>
+                        <div className="text-[9px] tracking-[0.25em] uppercase text-[#d4af37] font-bold mb-1">Organização</div>
+                        <p className="text-[11px] text-zinc-400 font-light leading-relaxed">Reunimos e organizamos as informações financeiras, comerciais e tributárias da operação.</p>
                       </div>
                     </div>
                   </div>
@@ -838,75 +778,80 @@ export function Home() {
                   {/* Análise (A) - Bottom Right */}
                   <div className="absolute bottom-[26%] right-[26%] translate-x-1/2 translate-y-1/2">
                     <div className="relative flex items-center justify-center">
-                      <div className="relative group">
-                        <div className="w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-2xl lg:text-4xl font-black shadow-2xl shadow-black/50 border-4 border-[#090A0F] relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
-                          A
-                        </div>
+                      <div className="w-16 h-16 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-3xl font-black shadow-2xl border-4 border-[#090A0F] z-10">
+                        A
                       </div>
-                      <div className="absolute left-full ml-4 text-left w-[160px] lg:w-[220px]">
-                        <div className="text-white font-display font-bold text-xl lg:text-2xl leading-none mb-1">Análise</div>
-                        <div className="text-[9px] lg:text-[10px] tracking-[0.3em] uppercase text-[#d4af37] font-black mb-1.5">Inteligência</div>
-                        <p className="text-[11px] lg:text-xs text-white/60 leading-relaxed font-light">Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios.</p>
+                      <div className="absolute left-full ml-4 text-left w-[180px]">
+                        <div className="text-white font-display font-bold text-lg mb-0.5">Análise</div>
+                        <div className="text-[9px] tracking-[0.25em] uppercase text-[#d4af37] font-bold mb-1">Diagnóstico</div>
+                        <p className="text-[11px] text-zinc-400 font-light leading-relaxed">Identificamos onde estão a margem, o caixa e os riscos, e qual é a causa de cada um.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Planejamento (P) - Bottom Left */}
+                  <div className="absolute bottom-[26%] left-[26%] -translate-x-1/2 translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-3xl font-black shadow-2xl border-4 border-[#090A0F] z-10">
+                        P
+                      </div>
+                      <div className="absolute right-full mr-4 text-right w-[180px]">
+                        <div className="text-white font-display font-bold text-lg mb-0.5">Planejamento</div>
+                        <div className="text-[9px] tracking-[0.25em] uppercase text-[#d4af37] font-bold mb-1">Prioridades</div>
+                        <p className="text-[11px] text-zinc-400 font-light leading-relaxed">Transformamos a análise em metas, orçamento e prioridades claras de ação.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Execução (E) - Top Left */}
+                  <div className="absolute top-[26%] left-[26%] -translate-x-1/2 -translate-y-1/2">
+                    <div className="relative flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-3xl font-black shadow-2xl border-4 border-[#090A0F] z-10">
+                        E
+                      </div>
+                      <div className="absolute right-full mr-4 text-right w-[180px]">
+                        <div className="text-white font-display font-bold text-lg mb-0.5">Execução</div>
+                        <div className="text-[9px] tracking-[0.25em] uppercase text-[#d4af37] font-bold mb-1">Resultados</div>
+                        <p className="text-[11px] text-zinc-400 font-light leading-relaxed">Acompanhamos a implementação e ajustamos o rumo com base contínua nos números.</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Mobile View (Vertical List) */}
-              <div className="md:hidden space-y-4 py-4">
+              {/* Mobile View (Sequência D-A-P-E) */}
+              <div className="md:hidden space-y-3 py-2">
                 {[
-                  { 
-                    letter: "D", 
-                    title: "Dados", 
-                    subtitle: "Informação", 
-                    desc: "Sistema, processos de registro, indicadores, conciliações e controles padronizados." 
-                  },
-                  { 
-                    letter: "A", 
-                    title: "Análise", 
-                    subtitle: "Inteligência", 
-                    desc: "Diagnóstico, causas-efeitos, tendências, oportunidades, indicadores e relatórios." 
-                  },
-                  { 
-                    letter: "P", 
-                    title: "Planejamento", 
-                    subtitle: "Prioridades", 
-                    desc: "Definição de objetivos, estratégias, projetos e planos de ação." 
-                  },
-                  { 
-                    letter: "E", 
-                    title: "Execução", 
-                    subtitle: "Resultados", 
-                    desc: "Rotinas, processos, acompanhamento de tarefas e uso de metodologias ágeis." 
-                  }
+                  { letter: "D", title: "Dados", sub: "Organização", desc: "Reunimos e organizamos as informações financeiras, comerciais e tributárias da operação." },
+                  { letter: "A", title: "Análise", sub: "Diagnóstico", desc: "Identificamos onde estão a margem, o caixa e os riscos, e qual é a causa de cada um." },
+                  { letter: "P", title: "Planejamento", sub: "Prioridades", desc: "Transformamos a análise em metas, orçamento e prioridades claras de ação." },
+                  { letter: "E", title: "Execução", sub: "Resultados", desc: "Acompanhamos a implementação e ajustamos o rumo com base contínua nos números." },
                 ].map((item, i) => (
-                  <div 
-                    key={i}
-                    className="flex flex-col items-center text-center p-6 rounded-2xl bg-[#0E1118] border border-white/[0.08]"
-                  >
-                    <div 
-                      className="w-14 h-14 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-2xl font-black border-4 border-[#090A0F] mb-3 shadow-xl"
-                    >
+                  <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-[#0E1118] border border-white/[0.08]">
+                    <div className="w-11 h-11 rounded-full bg-[#d4af37] text-black flex items-center justify-center text-xl font-black shrink-0">
                       {item.letter}
                     </div>
-                    <div className="font-display font-bold text-xl mb-1 text-white">{item.title}</div>
-                    <div className="text-[10px] tracking-[0.3em] uppercase text-[#d4af37] font-black mb-2">{item.subtitle}</div>
-                    <p className="text-xs text-zinc-400 leading-relaxed font-light max-w-xs">{item.desc}</p>
+                    <div>
+                      <div className="flex items-baseline gap-2 mb-0.5">
+                        <span className="font-display font-bold text-white text-base">{item.title}</span>
+                        <span className="text-[9px] font-mono uppercase text-[#d4af37] font-bold">{item.sub}</span>
+                      </div>
+                      <p className="text-xs text-zinc-300 font-light leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Right side: 3 Cards */}
-            <div className="lg:col-span-3 flex flex-col gap-4">
+            {/* Cards Laterais de Cultura */}
+            <div className="lg:col-span-4 flex flex-col gap-3.5">
               {[
-                { title: "Cultura Data-Driven", desc: "Decisões e equipes guiadas por dados e indicadores claros." },
-                { title: "Gestão Ágil", desc: "Processos dinâmicos que eliminam gargalos e aceleram a execução." },
-                { title: "Cultura de Melhoria Contínua", desc: "Ações e processos são constantemente aprimorados em busca da excelência." }
+                { title: "Cultura Data-Driven", desc: "Decisões e equipes guiadas por dados reais e indicadores confiáveis, sem achismos." },
+                { title: "Gestão Ágil", desc: "Processos dinâmicos que eliminam gargalos operacionais e aceleram a tomada de decisão." },
+                { title: "Melhoria Contínua", desc: "Ações e indicadores são constantemente ajustados em busca da rentabilidade do caixa." }
               ].map((item, i) => (
-                <div key={i} className="p-6 rounded-2xl bg-[#0E1118] border border-white/[0.08] hover:border-[#d4af37]/30 transition-all duration-300 text-left">
-                  <div className="text-[#d4af37] font-display font-bold text-base mb-2">{item.title}</div>
+                <div key={i} className="p-5 rounded-2xl bg-[#0E1118] border border-white/[0.08] hover:border-[#d4af37]/30 transition-all text-left">
+                  <div className="text-[#d4af37] font-display font-bold text-sm mb-1">{item.title}</div>
                   <p className="text-zinc-400 text-xs font-light leading-relaxed">{item.desc}</p>
                 </div>
               ))}
@@ -918,26 +863,97 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          8. DIAGNÓSTICO E FORMULÁRIO (Copy Original Aprovada)
+          9. QUEM CONDUZ (Leander Venâncio, Fundador e Head Advisor)
       ========================================================================= */}
-      <section id="diagnostico" className="py-24 sm:py-32 border-b border-white/[0.08] bg-[#0E1118]/40">
+      <section id="quem-conduz" className="py-20 sm:py-28 border-b border-white/[0.08] bg-[#0E1118]/40">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#d4af37] font-bold block mb-3">
+              Liderança
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4">
+              Quem conduz o advisory
+            </h2>
+            <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed">
+              Experiência executiva direta ao lado de fundadores e líderes de empresas em crescimento.
+            </p>
+          </div>
+
+          <div className="p-8 sm:p-12 rounded-3xl bg-[#0E1118] border border-white/[0.08] flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            
+            <div className="shrink-0 relative">
+              <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border border-[#d4af37]/30 bg-black/50 shadow-2xl relative">
+                <img 
+                  src="/assets/Foto Leander (2).png" 
+                  alt="Leander Venâncio" 
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
+
+            <div className="text-left flex-1">
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#d4af37] block mb-1 font-bold">
+                Fundador & Head Advisor
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-3">
+                Leander Venâncio
+              </h3>
+              
+              <div className="flex flex-wrap gap-2 mb-5">
+                <span className="px-2.5 py-1 rounded bg-white/[0.04] border border-white/10 text-zinc-300 text-[11px] font-mono">
+                  FGV Finanças
+                </span>
+                <span className="px-2.5 py-1 rounded bg-white/[0.04] border border-white/10 text-zinc-300 text-[11px] font-mono">
+                  UFG Engenharia
+                </span>
+                <span className="px-2.5 py-1 rounded bg-white/[0.04] border border-white/10 text-zinc-300 text-[11px] font-mono">
+                  +10 anos em gestão financeira
+                </span>
+              </div>
+
+              <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-6">
+                Mais de 10 anos atuando diretamente ao lado de empresários na organização de números, recomposição de margens e estruturação de capital. Combina o rigor técnico da engenharia com a visão estratégica financeira para transformar a tomada de decisão no e-commerce.
+              </p>
+
+              <a 
+                href="https://www.linkedin.com/in/leander-ven%C3%A2ncio-9996ab141/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-2 text-xs font-semibold text-[#d4af37] hover:text-white transition-colors group"
+              >
+                <Linkedin className="w-4 h-4 text-[#d4af37] group-hover:text-white transition-colors" />
+                <span>Conectar no LinkedIn</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          10. DIAGNÓSTICO (Texto + WhatsApp + E-mail + Formulário)
+      ========================================================================= */}
+      <section id="diagnostico" className="py-20 sm:py-28 border-b border-white/[0.08] bg-[#090A0F]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             
-            {/* Coluna Esquerda: Informações do Diagnóstico */}
+            {/* Coluna Esquerda: Texto Institucional e Contatos */}
             <div className="lg:col-span-5">
               <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#d4af37] font-bold block mb-3">
                 Diagnóstico
               </span>
-              <h2 className="text-3xl sm:text-5xl font-display font-bold text-white mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-5 leading-tight">
                 Comece entendendo para onde vai o dinheiro da sua operação
               </h2>
-              <p className="text-base text-zinc-300 font-light leading-relaxed mb-8">
+              <p className="text-sm text-zinc-300 font-light leading-relaxed mb-6">
                 O diagnóstico é uma conversa com um especialista da Mont Finance sobre a situação do seu e-commerce.
               </p>
 
-              <div className="space-y-4 mb-8 text-xs text-zinc-300">
+              <div className="space-y-3.5 mb-8 text-xs text-zinc-300">
                 <div className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center shrink-0 mt-0.5">
                     <Check className="w-3.5 h-3.5" />
@@ -958,16 +974,25 @@ export function Home() {
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.08] space-y-2 text-xs text-zinc-400">
-                <div className="flex items-center gap-2">
+              <div className="p-5 rounded-2xl bg-[#0E1118] border border-white/[0.08] space-y-3 text-xs text-zinc-300">
+                <a 
+                  href="https://wa.me/5562999200405" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  onClick={() => trackWhatsAppClick("diagnostic_contact_box")}
+                  className="flex items-center gap-2.5 hover:text-white transition-colors"
+                >
                   <Phone className="w-4 h-4 text-[#d4af37]" />
                   <span>WhatsApp: (62) 99920-0405</span>
-                </div>
-                <div className="flex items-center gap-2">
+                </a>
+                <a 
+                  href="mailto:contato@montgestao.com.br" 
+                  className="flex items-center gap-2.5 hover:text-white transition-colors break-all"
+                >
                   <Mail className="w-4 h-4 text-[#d4af37]" />
-                  <span>contato@montgestao.com.br</span>
-                </div>
-                <p className="text-[11px] text-zinc-500 pt-1">
+                  <span>E-mail: contato@montgestao.com.br</span>
+                </a>
+                <p className="text-[11px] text-zinc-500 pt-1 leading-relaxed border-t border-white/[0.06]">
                   *Os resultados variam conforme o caso de cada empresa. Nenhum resultado é garantido.
                 </p>
               </div>
@@ -984,12 +1009,12 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          9. PERGUNTAS FREQUENTES (Copy Original Aprovada)
+          11. FAQ CURTO (6 Perguntas Oficiais do Briefing v2)
       ========================================================================= */}
-      <section className="py-24 sm:py-32">
+      <section id="faq" className="py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center mb-16">
+          <div className="text-center mb-14">
             <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#d4af37] font-bold block mb-3">
               Perguntas frequentes
             </span>
@@ -1003,13 +1028,13 @@ export function Home() {
               <div key={idx} className="py-5">
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="w-full text-left flex items-center justify-between gap-4 py-2 hover:text-[#d4af37] transition-colors"
+                  className="w-full text-left flex items-center justify-between gap-4 py-1 hover:text-[#d4af37] transition-colors"
                 >
-                  <span className="text-base font-semibold text-white">{faq.q}</span>
+                  <span className="text-sm sm:text-base font-semibold text-white">{faq.q}</span>
                   <ChevronDown className={`w-4 h-4 text-[#d4af37] shrink-0 transition-transform duration-300 ${openFaq === idx ? 'rotate-180 text-white' : ''}`} />
                 </button>
                 {openFaq === idx && (
-                  <div className="pt-3 pb-2 text-sm text-zinc-300 font-light leading-relaxed">
+                  <div className="pt-3 pb-1 text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
                     {faq.a}
                   </div>
                 )}

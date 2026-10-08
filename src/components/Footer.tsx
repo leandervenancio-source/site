@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { Linkedin, Instagram } from "lucide-react";
+import { trackWhatsAppClick } from "../lib/analytics";
 
 export function Footer() {
   return (
@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           
           <div className="md:col-span-5">
-            <Link to="/" className="flex items-center gap-2.5 mb-4 group inline-flex">
+            <a href="#topo" className="flex items-center gap-2.5 mb-4 group inline-flex">
               <img 
                 src="/favicon.png" 
                 alt="Mont Finance" 
@@ -18,9 +18,9 @@ export function Footer() {
                 <span className="font-semibold text-white">mont</span>
                 <span className="font-normal text-[#d4af37] ml-1">finance</span>
               </div>
-            </Link>
+            </a>
             <p className="text-xs text-zinc-400 max-w-sm font-normal leading-relaxed mb-6">
-              CFO Terceirizado para empresas de e-commerce: gestão, finanças, tributação e capital integrados para aumentar lucro, gerar caixa e reduzir riscos.
+              CFO Terceirizado para empresas de e-commerce: finanças, tributação e capital integrados para aumentar lucro, gerar caixa e reduzir riscos.
             </p>
             <div className="flex space-x-2">
               <a 
@@ -28,6 +28,7 @@ export function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
+                aria-label="Instagram de Leander Venâncio"
               >
                 <Instagram className="w-3.5 h-3.5" />
               </a>
@@ -36,6 +37,7 @@ export function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
+                aria-label="LinkedIn de Leander Venâncio"
               >
                 <Linkedin className="w-3.5 h-3.5" />
               </a>
@@ -43,29 +45,45 @@ export function Footer() {
           </div>
           
           <div className="md:col-span-3">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-zinc-200 mb-4">Serviços</h3>
+            <h3 className="text-xs font-mono uppercase tracking-wider text-zinc-200 mb-4">Três Frentes</h3>
             <ul className="space-y-2.5 text-xs text-zinc-400">
-              <li><Link to="/" className="hover:text-white transition-colors">Performance Financeira</Link></li>
-              <li><Link to="/solucoes-de-capital" className="hover:text-white transition-colors">Soluções de Capital</Link></li>
-              <li><Link to="/consultoria-tributaria" className="hover:text-white transition-colors">Consultoria Tributária</Link></li>
+              <li><a href="#frentes" className="hover:text-white transition-colors">Finanças</a></li>
+              <li><a href="#frentes" className="hover:text-white transition-colors">Tributação</a></li>
+              <li><a href="#frentes" className="hover:text-white transition-colors">Capital</a></li>
             </ul>
           </div>
 
           <div className="md:col-span-2">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-zinc-200 mb-4">Links</h3>
+            <h3 className="text-xs font-mono uppercase tracking-wider text-zinc-200 mb-4">Navegação</h3>
             <ul className="space-y-2.5 text-xs text-zinc-400">
-              <li><Link to="/" className="hover:text-white transition-colors">Início</Link></li>
-              <li><a href="/#niveis-de-servico" className="hover:text-white transition-colors">Níveis de serviço</a></li>
-              <li><a href="/#diagnostico" className="hover:text-white transition-colors">Diagnóstico</a></li>
-              <li><Link to="/materiais" className="hover:text-white transition-colors">Conteúdos</Link></li>
+              <li><a href="#topo" className="hover:text-white transition-colors">Início</a></li>
+              <li><a href="#niveis" className="hover:text-white transition-colors">Níveis de serviço</a></li>
+              <li><a href="#metodo-dape" className="hover:text-white transition-colors">Método DAPE</a></li>
+              <li><a href="#quem-conduz" className="hover:text-white transition-colors">Quem conduz</a></li>
+              <li><a href="#diagnostico" className="hover:text-white transition-colors">Diagnóstico</a></li>
+              <li><a href="#faq" className="hover:text-white transition-colors">Perguntas frequentes</a></li>
             </ul>
           </div>
           
           <div className="md:col-span-2">
             <h3 className="text-xs font-mono uppercase tracking-wider text-zinc-200 mb-4">Contato</h3>
             <ul className="space-y-2.5 text-xs text-zinc-400">
-              <li><a href="mailto:contato@montgestao.com.br" className="hover:text-white transition-colors break-all">contato@montgestao.com.br</a></li>
-              <li><a href="https://wa.me/message/NRXMFPWG6DUZB1" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">(62) 99920-0405</a></li>
+              <li>
+                <a href="mailto:contato@montgestao.com.br" className="hover:text-white transition-colors break-all">
+                  contato@montgestao.com.br
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://wa.me/5562999200405" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  onClick={() => trackWhatsAppClick("footer")}
+                  className="hover:text-white transition-colors"
+                >
+                  (62) 99920-0405
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -74,7 +92,7 @@ export function Footer() {
           <p>
             &copy; {new Date().getFullYear()} Mont Finance. Todos os direitos reservados.
           </p>
-          <p className="text-[11px] text-zinc-500 max-w-md text-center md:text-right">
+          <p className="text-[11px] text-zinc-500 max-w-md text-center md:text-right leading-relaxed">
             O conteúdo deste site é informativo e não constitui parecer jurídico, contábil ou tributário. Cada situação exige análise do caso concreto.
           </p>
         </div>
