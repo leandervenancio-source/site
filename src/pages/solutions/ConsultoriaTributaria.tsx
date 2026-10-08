@@ -20,25 +20,25 @@ export function ConsultoriaTributaria() {
   const pillars = [
     {
       title: "Recuperação Administrativa de Créditos",
-      desc: "Levantamento de créditos tributários pagos a maior nos últimos 5 anos (PIS, COFINS, ICMS e Previdenciário). Processamento 100% administrativo na Receita Federal e SEFAZ, sem ações judiciais morosas.",
+      desc: "Levantamento de créditos tributários pagos a maior nos últimos 5 anos (PIS, COFINS, ICMS e monofásicos). Processamento 100% administrativo na Receita Federal e SEFAZ, sem ações judiciais morosas.",
       icon: Coins,
       kpi: "Injeção Imediata de Caixa"
     },
     {
       title: "Planejamento Tributário & Elisão Fiscal",
-      desc: "Revisão de enquadramento (Lucro Real vs. Lucro Presumido), aproveitamento de regimes especiais estaduais (TTD/benefícios fiscais para atacadistas e indústrias) e reestruturação societária legal.",
+      desc: "Revisão de enquadramento (Simples Nacional vs. Lucro Real vs. Presumido), aproveitamento de regimes especiais estaduais para e-commerce (TTD/benefícios fiscais) e estruturação de filiais.",
       icon: Scale,
       kpi: "Redução Legal da Carga Mensal"
     },
     {
       title: "Compliance & Auditoria Digital de SPED",
-      desc: "Cruzamento prévio de arquivos SPED Fiscal, EFD Contribuições e ECD com a mesma inteligência de malha utilizada pelos órgãos fiscalizadores, eliminando riscos de autuações e multas pesadas.",
+      desc: "Cruzamento prévio de arquivos SPED Fiscal, EFD Contribuições e notas fiscais com a mesma inteligência algorítmica utilizada pela Receita, eliminando riscos de autuações e multas.",
       icon: ShieldCheck,
       kpi: "Blindagem e Segurança Jurídica"
     },
     {
       title: "Tributação Estratégica na Precificação",
-      desc: "Parametrização exata de impostos na formação de preços de venda: crédito de entrada, Substituição Tributária (ST), DIFAL e benefícios interestaduais, assegurando que o imposto não devore sua margem.",
+      desc: "Parametrização exata de impostos na formação de preços por SKU nos canais: crédito de entrada, Substituição Tributária (ST), DIFAL e benefícios interestaduais, assegurando que o tributo não devore a margem.",
       icon: Calculator,
       kpi: "Margem Real de Contribuição"
     }
@@ -48,7 +48,7 @@ export function ConsultoriaTributaria() {
     {
       num: "01",
       title: "Auditoria & Varredura dos Últimos 60 Meses",
-      desc: "Extração e leitura algorítmica de todas as notas fiscais eletrônicas e arquivos SPED dos últimos 5 anos, mapeando todas as discrepâncias e valores recolhidos a mais.",
+      desc: "Extração e leitura algorítmica de todas as notas fiscais eletrônicas e arquivos fiscais dos últimos 5 anos, mapeando todas as discrepâncias e valores recolhidos a mais nos canais.",
       icon: SearchCheck
     },
     {
@@ -66,36 +66,36 @@ export function ConsultoriaTributaria() {
     {
       num: "04",
       title: "Parametrização & Governança Contínua",
-      desc: "Ajuste definitivo do cadastro tributário de produtos (NCM/CST) no ERP para que a empresa pare de pagar impostos indevidos daqui para a frente.",
+      desc: "Ajuste definitivo do cadastro tributário de produtos (NCM/CST) no ERP para que o e-commerce pare de pagar impostos indevidos daqui para a frente.",
       icon: Layers
     }
   ];
 
   const opportunities = [
     {
-      title: "Indústrias de Transformação (Lucro Real)",
+      title: "E-commerce & Fabricantes no Lucro Real",
       items: [
-        "Créditos de PIS/COFINS sobre insumos fabris essenciais (embalagens, fretes, energia)",
-        "Exclusão do ICMS da base de cálculo do PIS e da COFINS (Tese do Século já pacificada)",
-        "Equiparações fiscais e incentivos à modernização do parque fabril"
+        "Créditos de PIS/COFINS sobre insumos essenciais (embalagens, fretes de entrega, energia e taxa de plataformas)",
+        "Exclusão do ICMS da base de cálculo do PIS e da COFINS (Tese do Século)",
+        "Equiparações fiscais e incentivos logísticos interestaduais"
       ]
     },
     {
-      title: "Distribuidoras & Atacadistas",
+      title: "Lojas Virtuais & Distribuidores em Marketplaces",
       items: [
-        "Regimes especiais estaduais para fomento ao atacado e logística",
-        "Ajuste da Substituição Tributária (ICMS-ST) em operações interestaduais",
-        "Revisão de fretes e armazenagem na base de aproveitamento fiscal"
+        "Regimes especiais estaduais para comércio eletrônico (como benefícios em SC, MG e ES)",
+        "Ajuste da Substituição Tributária (ICMS-ST) e DIFAL em vendas para consumidor final em outros estados",
+        "Revisão de frete e reversa na base de aproveitamento fiscal"
       ]
     }
   ];
 
   return (
-    <div className="bg-obsidian text-white font-sans min-h-screen">
+    <div className="bg-[#090A0F] text-white font-sans selection:bg-[#d4af37] selection:text-black min-h-screen">
       {/* Hero Section */}
-      <section className="pt-36 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_50%_0%,_#d4af37_0%,_transparent_60%)]"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="pt-36 pb-20 md:pt-40 md:pb-28 relative overflow-hidden border-b border-white/[0.08]">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[550px] bg-[radial-gradient(ellipse_at_top,_#d4af37_0%,_transparent_65%)] opacity-15 pointer-events-none blur-3xl"></div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             
             <motion.div
@@ -103,33 +103,42 @@ export function ConsultoriaTributaria() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-premium/15 border border-accent-premium/40 text-accent-premium text-xs font-bold tracking-[0.25em] uppercase mb-8 shadow-sm">
-                <Scale className="w-3.5 h-3.5" />
-                Inteligência Fiscal & Compliance Estruturado
-              </span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-[#d4af37]/30 backdrop-blur-md mb-8">
+                <img 
+                  src="/favicon.png" 
+                  alt="Mont Finance" 
+                  className="h-4 w-auto object-contain drop-shadow-[0_0_6px_rgba(212,175,55,0.5)]" 
+                />
+                <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
+                  Inteligência Fiscal & Compliance Estruturado
+                </span>
+              </div>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-light leading-[1.08] tracking-tight text-white mb-8">
-                Consultoria <span className="font-serif italic text-accent-premium">Tributária</span>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold leading-[1.08] tracking-tight text-white mb-8">
+                Consultoria <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF9F6] via-[#E5C378] to-[#D4AF37]">
+                  Tributária Estratégica
+                </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-white/85 font-light leading-relaxed mb-6 max-w-3xl mx-auto">
-                Maximização de margens através da inteligência tributária e segurança jurídica. Diagnóstico minucioso, recuperação administrativa de créditos e planejamento fiscal para indústrias e distribuidoras.
+              <p className="text-lg sm:text-xl text-zinc-300 font-light leading-relaxed mb-6 max-w-3xl mx-auto">
+                Maximização de margens através da inteligência tributária e segurança jurídica. Diagnóstico minucioso, recuperação administrativa de créditos e planejamento fiscal para e-commerces e empresas digitais.
               </p>
 
-              <p className="text-sm text-accent-premium font-medium mb-12 tracking-wide">
+              <p className="text-xs font-mono text-[#d4af37] mb-12 tracking-wide">
                 ✦ Redução legal e perene da carga tributária aliada à injeção de liquidez direta no caixa.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link 
                   to="/diagnostico" 
-                  className="w-full sm:w-auto px-10 py-5 text-xs font-bold uppercase tracking-[0.2em] text-obsidian bg-accent-premium hover:bg-white transition-all duration-300 rounded-full text-center shadow-[0_0_30px_rgba(212,175,55,0.3)]"
+                  className="w-full sm:w-auto px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-black bg-[#d4af37] hover:bg-[#c5a059] transition-all rounded-full text-center shadow-[0_0_20px_rgba(212,175,55,0.25)] hover:scale-[1.02]"
                 >
                   Solicitar Diagnóstico Tributário
                 </Link>
                 <a
                   href="#pilares"
-                  className="w-full sm:w-auto px-8 py-5 text-xs font-bold uppercase tracking-[0.2em] text-white/90 hover:text-white border border-white/20 hover:border-accent-premium transition-all duration-300 rounded-full text-center"
+                  className="w-full sm:w-auto px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-white hover:text-white border border-white/15 hover:border-[#d4af37]/40 transition-all rounded-full text-center bg-white/[0.03]"
                 >
                   Ver Nossas Entregas
                 </a>
@@ -141,29 +150,31 @@ export function ConsultoriaTributaria() {
       </section>
 
       {/* 4 Pilares Estratégicos */}
-      <section id="pilares" className="py-20 bg-white/5 border-y border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="pilares" className="py-24 sm:py-32 bg-[#0E1118]/40 border-b border-white/[0.08]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-accent-premium text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+            <span className="text-[#d4af37] text-xs font-mono uppercase tracking-[0.25em] font-bold mb-3 block">
               Escopo de Atuação
             </span>
-            <h2 className="text-3xl sm:text-5xl font-display font-light text-white">
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white leading-tight">
               Transforme a complexidade fiscal em <br />
-              <span className="italic text-accent-premium font-serif">vantagem competitiva real.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
+                vantagem competitiva real
+              </span>
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pillars.map((b, i) => (
-              <div key={i} className="p-8 bg-obsidian/90 border border-white/10 rounded-2xl hover:border-accent-premium/40 transition-all flex flex-col justify-between">
+              <div key={i} className="p-8 bg-[#0E1118] border border-white/[0.08] rounded-3xl hover:border-[#d4af37]/40 transition-all flex flex-col justify-between">
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-accent-premium/15 flex items-center justify-center text-accent-premium mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-[#d4af37]/15 border border-[#d4af37]/30 flex items-center justify-center text-[#d4af37] mb-6">
                     <b.icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-display font-medium text-white mb-3">{b.title}</h3>
-                  <p className="text-sm text-white/70 font-light leading-relaxed mb-6">{b.desc}</p>
+                  <h3 className="text-lg font-display font-bold text-white mb-3">{b.title}</h3>
+                  <p className="text-xs text-zinc-300 font-light leading-relaxed mb-6">{b.desc}</p>
                 </div>
-                <div className="pt-4 border-t border-white/10 text-xs font-mono text-accent-premium">
+                <div className="pt-4 border-t border-white/[0.08] text-xs font-mono text-[#d4af37]">
                   ✦ {b.kpi}
                 </div>
               </div>
@@ -173,29 +184,32 @@ export function ConsultoriaTributaria() {
       </section>
 
       {/* Método de 4 Etapas */}
-      <section className="py-28 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 sm:py-32 border-b border-white/[0.08] relative">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-accent-premium text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+            <span className="text-[#d4af37] text-xs font-mono uppercase tracking-[0.25em] font-bold mb-3 block">
               Metodologia Segura & Administrativa
             </span>
-            <h2 className="text-3xl sm:text-5xl font-display font-light text-white">
-              Do diagnóstico ao crédito <span className="italic text-accent-premium font-serif">homologado</span>
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white leading-tight">
+              Do diagnóstico ao crédito <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF9F6] via-[#E5C378] to-[#D4AF37]">
+                homologado e aproveitado
+              </span>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((s) => (
-              <div key={s.num} className="p-8 bg-white/[0.03] border border-white/10 hover:border-accent-premium/50 transition-all duration-300 rounded-2xl flex flex-col justify-between group">
+              <div key={s.num} className="p-8 bg-[#0E1118] border border-white/[0.08] hover:border-[#d4af37]/40 transition-all duration-300 rounded-3xl flex flex-col justify-between group">
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-xs font-mono font-bold text-accent-premium tracking-widest">{s.num}</span>
-                    <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-accent-premium group-hover:bg-accent-premium group-hover:text-obsidian transition-colors">
+                    <span className="text-xs font-mono font-bold text-[#d4af37] tracking-widest">{s.num}</span>
+                    <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center text-[#d4af37] group-hover:bg-[#d4af37] group-hover:text-black transition-colors">
                       <s.icon className="w-4 h-4" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-display font-medium text-white mb-3">{s.title}</h3>
-                  <p className="text-sm text-white/70 font-light leading-relaxed">{s.desc}</p>
+                  <h3 className="text-lg font-display font-bold text-white mb-3">{s.title}</h3>
+                  <p className="text-xs text-zinc-300 font-light leading-relaxed">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -204,29 +218,29 @@ export function ConsultoriaTributaria() {
       </section>
 
       {/* Oportunidades Específicas por Setor */}
-      <section className="py-20 bg-white/[0.02] border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 sm:py-32 bg-[#0E1118]/40 border-b border-white/[0.08]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-accent-premium text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
-              Foco Setorial
+            <span className="text-[#d4af37] text-xs font-mono uppercase tracking-[0.25em] font-bold mb-3 block">
+              Foco no E-commerce
             </span>
-            <h2 className="text-3xl sm:text-4xl font-display font-light text-white mb-4">
-              Onde estão as maiores oportunidades de recuperação e economia?
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4 leading-tight">
+              Onde estão as maiores oportunidades de recuperação e economia fiscal?
             </h2>
-            <p className="text-sm text-white/70 font-light">
-              Nossa equipe atua cirurgicamente nas brechas tributárias legais dos segmentos de maior intensidade fiscal:
+            <p className="text-sm text-zinc-300 font-light">
+              Nossa equipe atua cirurgicamente nas oportunidades legais dos canais digitais e tributação interestadual:
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {opportunities.map((item, idx) => (
-              <div key={idx} className="p-8 bg-obsidian border border-white/10 rounded-3xl relative overflow-hidden">
-                <div className="w-2.5 h-2.5 rounded-full bg-accent-premium mb-4"></div>
-                <h3 className="text-xl font-display font-medium text-white mb-6">{item.title}</h3>
+              <div key={idx} className="p-8 bg-[#0E1118] border border-white/[0.08] rounded-3xl relative overflow-hidden">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#d4af37] mb-4"></div>
+                <h3 className="text-xl font-display font-bold text-white mb-6">{item.title}</h3>
                 <ul className="space-y-4">
                   {item.items.map((line, lIdx) => (
-                    <li key={lIdx} className="flex items-start gap-3 text-sm text-white/80 font-light">
-                      <CheckCircle2 className="w-4 h-4 text-accent-premium shrink-0 mt-0.5" />
+                    <li key={lIdx} className="flex items-start gap-3 text-xs sm:text-sm text-zinc-300 font-light">
+                      <CheckCircle2 className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
                       <span>{line}</span>
                     </li>
                   ))}
@@ -238,20 +252,22 @@ export function ConsultoriaTributaria() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-24 bg-gradient-to-b from-obsidian to-azul-noite border-t border-white/10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-5xl font-display font-light text-white mb-6">
-            Descubra quanto dinheiro a sua empresa <br />
-            <span className="font-serif italic text-accent-premium">está deixando na mesa do Fisco.</span>
+      <section className="py-24 sm:py-32">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-white mb-6 leading-tight">
+            Descubra quanto dinheiro a sua operação <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF9F6] via-[#E5C378] to-[#D4AF37]">
+              está deixando na mesa do Fisco
+            </span>
           </h2>
-          <p className="text-base sm:text-lg text-white/80 font-light max-w-2xl mx-auto mb-10">
-            Realizamos uma varredura fiscal preliminar e confidencial sem custo antecipado para empresas que faturam acima de R$ 3 milhões ao ano.
+          <p className="text-base text-zinc-300 font-light max-w-2xl mx-auto mb-10">
+            Realizamos uma varredura fiscal preliminar e confidencial sem custo antecipado para empresas de e-commerce que faturam acima de R$ 3 milhões ao ano.
           </p>
           <Link
             to="/diagnostico"
-            className="inline-flex items-center gap-2 px-10 py-5 text-xs font-bold uppercase tracking-[0.2em] text-obsidian bg-accent-premium hover:bg-white transition-all duration-500 rounded-full shadow-xl shadow-accent-premium/20"
+            className="inline-flex items-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-[0.15em] text-black bg-[#d4af37] hover:bg-[#c5a059] transition-all rounded-full shadow-[0_0_25px_rgba(212,175,55,0.3)] hover:scale-[1.02]"
           >
-            Agendar Varredura Tributária <ArrowRight className="w-4 h-4" />
+            Agendar Varredura Tributária <ArrowRight className="w-4 h-4 text-black" />
           </Link>
         </div>
       </section>

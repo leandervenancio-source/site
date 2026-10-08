@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen, Download } from "lucide-react";
 import { useState } from "react";
 import { MaterialPopup } from "../components/MaterialPopup";
 
@@ -36,7 +36,7 @@ const materials = [
     title: "Planilha de Precificação",
     category: "Finanças",
     type: "Planilha",
-    excerpt: "Automatize seus cálculos e descubra o preço de venda ideal dos seus produtos ou serviços em poucos clicks, considerando custos, impostos e margem de lucro. A ferramenta definitiva para garantir a rentabilidade do seu negócio sem margem para erros.",
+    excerpt: "Automatize seus cálculos e descubra o preço de venda ideal dos seus produtos nos canais online considerando custos, comissões, impostos e margem de contribuição. A ferramenta definitiva para garantir a rentabilidade sem margem para erros.",
     image: "/assets/cover_planilha_precificacao.png",
     link: "https://docs.google.com/spreadsheets/d/1masAga6dTvuwkFfISVvCmKWtJnHfBlWQ/edit?usp=drive_link&ouid=115374873829391183526&rtpof=true&sd=true"
   },
@@ -45,7 +45,7 @@ const materials = [
     title: "E-book Precificação",
     category: "Finanças",
     type: "E-book",
-    excerpt: "Desvende a lógica financeira por trás do preço ideal e aprenda a margem de lucro exata para produtos ou serviços sem espantar clientes. O guia prático para você valorizar seu trabalho, cobrar com confiança e garantir a saúde financeira do seu negócio.",
+    excerpt: "Desvende a lógica financeira por trás do preço ideal e aprenda a margem de lucro exata para produtos no e-commerce sem espantar clientes. O guia prático para valorizar seu mix e garantir a saúde do seu caixa.",
     image: "/assets/cover_ebook_precificacao.png",
     link: "https://drive.google.com/file/d/1fFgvZtFxAkCJah4Rr-s4KRPJQF8pwDOR/view?usp=drive_link"
   },
@@ -54,7 +54,7 @@ const materials = [
     title: "Planilha de Fluxo de Caixa",
     category: "Finanças",
     type: "Planilha",
-    excerpt: "Tenha o controle absoluto das entradas e saídas do seu negócio com lançamentos simples e relatórios visuais gerados automaticamente. A ferramenta ideal para antecipar cenários, evitar surpresas no vermelho e tomar decisões financeiras seguras.",
+    excerpt: "Tenha o controle absoluto das entradas e saídas do seu negócio com lançamentos simples e relatórios visuais gerados automaticamente. A ferramenta ideal para antecipar cenários a 90 dias e tomar decisões financeiras seguras.",
     image: "/assets/cover_planilha_fluxo_caixa.png",
     link: "https://docs.google.com/spreadsheets/d/1ZZhtTaLvN21ZoqPQNmS-DwP7n3QpPS_T/edit?usp=drive_link&ouid=115374873829391183526&rtpof=true&sd=true"
   },
@@ -63,7 +63,7 @@ const materials = [
     title: "E-book Fluxo de Caixa",
     category: "Finanças",
     type: "E-book",
-    excerpt: "Domine o coração financeiro da sua empresa, aprendendo a projetar entradas e saídas para antecipar cenários e evitar o sufoco no vermelho. O guia prático para você tomar decisões estratégicas seguras e garantir a liquidez constante do seu negócio.",
+    excerpt: "Domine o coração financeiro da sua empresa, aprendendo a projetar entradas de adquirentes e saídas para antecipar cenários e evitar o sufoco no vermelho. O guia prático para garantir liquidez constante.",
     image: "/assets/cover_ebook_fluxo_caixa.png",
     link: "https://drive.google.com/file/d/1qugl3OG79GyCFRRs361CvOy2V4T6wBRA/view?usp=drive_link"
   },
@@ -72,7 +72,7 @@ const materials = [
     title: "Infográfico Gestão de Compras",
     category: "Finanças",
     type: "Infográfico em PNG",
-    excerpt: "Visualize de forma rápida e clara o ciclo ideal de suprimentos, desde a cotação inteligente até a negociação estratégica de prazos com fornecedores. O mapa visual definitivo para reduzir custos, evitar desperdícios e otimizar o capital de giro da sua empresa.",
+    excerpt: "Visualize de forma rápida e clara o ciclo ideal de suprimentos, desde a cotação inteligente até a negociação estratégica de prazos com fornecedores para otimizar o capital de giro.",
     image: "/assets/cover_infografico_compras.png",
     link: "https://drive.google.com/file/d/1Ae9vH846ZtxsKkPoZ47tPc8ITZqZKNTE/view?usp=drive_link"
   },
@@ -81,7 +81,7 @@ const materials = [
     title: "E-book Gestão de Compras",
     category: "Finanças",
     type: "E-book",
-    excerpt: "Aprenda a negociar com fornecedores, planejar a demanda com precisão e alinhar prazos de pagamento para manter seu caixa sempre folgado. O guia estratégico para reduzir custos operacionais e aumentar a lucratividade da sua empresa logo na compra.",
+    excerpt: "Aprenda a negociar com fornecedores, planejar a demanda de estoque com precisão e alinhar prazos de pagamento para manter seu caixa sempre folgado na operação digital.",
     image: "/assets/cover_ebook_compras.png",
     link: "https://drive.google.com/file/d/16V3bu1B9nF0rbVFTbB_w1irD6YN-AhoJ/view?usp=drive_link"
   },
@@ -90,7 +90,7 @@ const materials = [
     title: "E-book sobre DRE",
     category: "Finanças",
     type: "E-book",
-    excerpt: "Aprenda a decifrar o verdadeiro resultado econômico da sua empresa e descubra se a sua operação gera lucro ou prejuízo real. O guia definitivo para analisar sua DRE de forma simples, identificar gargalos de custos e tomar decisões altamente lucrativas.",
+    excerpt: "Aprenda a decifrar o verdadeiro resultado econômico da sua empresa e descubra se a sua operação gera lucro ou prejuízo real. O guia definitivo para analisar sua DRE de forma simples por canal de venda.",
     image: "/assets/cover_ebook_dre.png",
     link: "https://drive.google.com/file/d/1GbmqxZnwS8UH9KM-SKG3uBRPhpZdi3Ya/view?usp=drive_link"
   }
@@ -106,73 +106,86 @@ export function Materials() {
   };
 
   return (
-    <div className="bg-branco">
+    <div className="bg-[#090A0F] text-white font-sans selection:bg-[#d4af37] selection:text-black min-h-screen">
       <MaterialPopup 
         isOpen={isPopupOpen} 
         onClose={() => setIsPopupOpen(false)} 
         materialTitle={selectedMaterial.title}
         materialLink={selectedMaterial.link}
       />
+
       {/* Header */}
-      <section className="bg-obsidian text-branco pt-40 pb-32 lg:pt-56 lg:pb-48 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,_#d4af37_0%,_transparent_60%)]"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <section className="pt-36 pb-20 md:pt-40 md:pb-28 relative overflow-hidden border-b border-white/[0.08]">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[550px] bg-[radial-gradient(ellipse_at_top,_#d4af37_0%,_transparent_65%)] opacity-15 pointer-events-none blur-3xl"></div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto"
           >
-            <span className="text-accent-premium font-sans text-xs font-semibold tracking-[0.2em] uppercase mb-8 block">
-              Acervo Estratégico
-            </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-light leading-[1.1] mb-8 text-branco">
-              Inteligência aplicada para <span className="italic text-accent-premium font-medium">alavancar sua performance.</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-[#d4af37]/30 backdrop-blur-md mb-8">
+              <img 
+                src="/favicon.png" 
+                alt="Mont Finance" 
+                className="h-4 w-auto object-contain drop-shadow-[0_0_6px_rgba(212,175,55,0.5)]" 
+              />
+              <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
+                Acervo Estratégico · Conteúdos Gratuitos
+              </span>
+            </div>
+
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold leading-[1.08] tracking-tight text-white mb-8">
+              Inteligência aplicada para <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF9F6] via-[#E5C378] to-[#D4AF37]">
+                alavancar sua performance
+              </span>
             </h1>
-            <p className="text-lg md:text-xl text-branco/70 font-sans font-light leading-relaxed mb-12 max-w-2xl mx-auto">
-              Ferramentas, planilhas e frameworks práticos desenvolvidos pela Mont Gestão para maximizar o lucro, o capital de giro e o controle de caixa de indústrias e distribuidoras.
+
+            <p className="text-base sm:text-xl text-zinc-300 font-light leading-relaxed max-w-2xl mx-auto">
+              Ferramentas, planilhas e e-books práticos desenvolvidos pela Mont Finance para maximizar lucro, capital de giro e previsibilidade de caixa no seu e-commerce.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Materials Grid */}
-      <section className="py-32 bg-zinc-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
+      <section className="py-24 sm:py-32 bg-[#0E1118]/40 border-b border-white/[0.08]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {materials.map((material, idx) => (
               <motion.div
                 key={material.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: (idx % 3) * 0.1 }}
+                transition={{ duration: 0.6, delay: (idx % 3) * 0.1 }}
                 onClick={() => handleDownloadClick(material)}
-                className="group cursor-pointer bg-branco border border-obsidian/10 hover:border-accent-premium transition-all duration-500 overflow-hidden flex flex-col h-full shadow-sm hover:shadow-xl"
+                className="group cursor-pointer bg-[#0E1118] border border-white/[0.08] hover:border-[#d4af37]/50 transition-all duration-300 rounded-3xl overflow-hidden flex flex-col h-full shadow-lg hover:shadow-2xl hover:-translate-y-1"
               >
-                <div className="aspect-[16/9] overflow-hidden relative">
-                  <div className="absolute top-4 left-4 z-10 bg-azul-noite/90 backdrop-blur-sm text-branco text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-2">
+                <div className="aspect-[16/9] overflow-hidden relative bg-black/60">
+                  <div className="absolute top-4 left-4 z-10 bg-black/80 border border-white/10 text-white text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full backdrop-blur-md">
                     {material.type}
                   </div>
                   <img
                     src={material.image}
                     alt={material.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 opacity-90 group-hover:opacity-100"
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <div className="p-8 flex flex-col flex-grow">
-                  <span className="text-accent-premium text-xs font-bold uppercase tracking-[0.2em] mb-4 block">
+                <div className="p-7 flex flex-col flex-grow">
+                  <span className="text-[#d4af37] text-[10px] font-mono font-bold uppercase tracking-widest mb-3 block">
                     {material.category}
                   </span>
-                  <h2 className="text-xl font-display font-medium text-obsidian mb-4 group-hover:text-accent-premium transition-colors">
+                  <h2 className="text-xl font-display font-bold text-white mb-3 group-hover:text-[#d4af37] transition-colors">
                     {material.title}
                   </h2>
-                  <p className="text-obsidian/70 text-sm font-light leading-relaxed mb-8 flex-grow">
+                  <p className="text-zinc-400 text-xs font-light leading-relaxed mb-6 flex-grow">
                     {material.excerpt}
                   </p>
-                  <div className="inline-flex items-center text-obsidian text-xs font-bold uppercase tracking-[0.15em] group-hover:text-accent-premium transition-colors mt-auto">
-                    Baixar material <ArrowRight className="ml-2 h-4 w-4" />
+                  <div className="inline-flex items-center text-xs font-mono font-bold uppercase tracking-wider text-[#d4af37] group-hover:text-white transition-colors mt-auto pt-4 border-t border-white/[0.08]">
+                    Baixar material <ArrowRight className="ml-2 h-3.5 w-3.5" />
                   </div>
                 </div>
               </motion.div>
@@ -181,48 +194,25 @@ export function Materials() {
         </div>
       </section>
 
-      {/* Newsletter / CTA */}
-      <section className="py-32 bg-obsidian text-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,_#d4af37_0%,_transparent_60%)]"></div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto relative z-10"
-        >
-          <span className="text-accent-premium font-sans text-xs font-semibold tracking-[0.2em] uppercase mb-6 block">
-            Newsletter
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light text-branco mb-8 leading-tight">
-            Receba inteligência de negócios em <span className="italic text-accent-premium font-medium">primeira mão.</span>
+      {/* CTA de Diagnóstico */}
+      <section className="py-24 sm:py-32">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-white mb-6 leading-tight">
+            Quer uma análise completa e personalizada <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF9F6] via-[#E5C378] to-[#D4AF37]">
+              dos números da sua empresa?
+            </span>
           </h2>
-          <p className="text-lg text-branco/60 mb-12 font-light max-w-2xl mx-auto">
-            Junte-se a centenas de CEOs e fundadores que recebem nossos frameworks e análises exclusivas sobre estruturação, margem e governança.
+          <p className="text-base text-zinc-300 font-light max-w-2xl mx-auto mb-10">
+            Agende uma conversa estratégica com um especialista da Mont Finance e descubra onde estão os gargalos de margem e caixa da sua operação.
           </p>
-          <form className="flex flex-col max-w-xl mx-auto gap-4">
-            <div className="flex flex-col sm:flex-row gap-4 w-full">
-              <input
-                type="email"
-                placeholder="E-mail"
-                className="flex-grow px-6 py-4 bg-branco/5 border border-branco/20 text-branco placeholder-branco/40 focus:outline-none focus:border-accent-premium text-sm font-light transition-colors rounded-full"
-                required
-              />
-              <input
-                type="tel"
-                placeholder="Seu WhatsApp"
-                className="flex-grow px-6 py-4 bg-branco/5 border border-branco/20 text-branco placeholder-branco/40 focus:outline-none focus:border-accent-premium text-sm font-light transition-colors rounded-full"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full px-8 py-4 bg-accent-premium hover:bg-white text-obsidian font-bold text-xs tracking-[0.2em] uppercase transition-colors whitespace-nowrap rounded-full"
-            >
-              Inscrever-se
-            </button>
-          </form>
-        </motion.div>
+          <a
+            href="/diagnostico"
+            className="inline-flex items-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-[0.15em] text-black bg-[#d4af37] hover:bg-[#c5a059] transition-all rounded-full shadow-[0_0_25px_rgba(212,175,55,0.3)] hover:scale-[1.02]"
+          >
+            Agendar Diagnóstico Gratuito <ArrowRight className="w-4 h-4 text-black" />
+          </a>
+        </div>
       </section>
     </div>
   );

@@ -54,13 +54,13 @@ export function SolucoesCapital() {
     },
     {
       title: "Redução de Taxas e Spreads Bancários",
-      desc: "Com números auditados, DRE gerencial e defesa técnica elaborada pela Mont Gestão, o risco percebido pelas instituições cai drasticamente, barateando o custo financeiro.",
+      desc: "Com números auditados, DRE gerencial e defesa técnica elaborada pela Mont Finance, o risco percebido pelas instituições cai drasticamente, barateando o custo financeiro.",
       icon: BadgePercent,
       kpi: "Custo Médio da Dívida Reduzido"
     },
     {
       title: "Capital de Giro para Expansão",
-      desc: "Funding desenhado sob medida para financiar compras de matéria-prima, suportar sazonalidades e alavancar a capacidade de atendimento da distribuição.",
+      desc: "Funding desenhado sob medida para financiar estoques, antecipar compras para sazonalidades (como Black Friday) e alavancar a operação de e-commerce.",
       icon: TrendingUp,
       kpi: "Crescimento Sustentável"
     },
@@ -74,25 +74,25 @@ export function SolucoesCapital() {
 
   const profiles = [
     {
-      title: "Indústrias com Alto Ciclo Financeiro",
-      desc: "Operações que necessitam financiar prazos longos de produção e recebimento sem drenar a liquidez imediata."
+      title: "E-commerces com Estoque e Ciclo Longo",
+      desc: "Operações que necessitam financiar prazos de fabricação, importação e repasse de marketplaces sem drenar a liquidez imediata."
     },
     {
-      title: "Distribuidoras e Atacadistas em Expansão",
-      desc: "Empresas com forte giro de estoque que precisam de limites expressivos para negociação antecipada de compras volumosas."
+      title: "Operações Digitais em Forte Crescimento",
+      desc: "Empresas com alto giro de estoque que precisam de limites expressivos para negociação antecipada de compras com fornecedores."
     },
     {
       title: "Empresas em Reestruturação de Passivos",
-      desc: "Companhias sólidas que acumularam dívidas caras no curto prazo e precisam renegociar prazos e garantias com inteligência."
+      desc: "Companhias sólidas que acumularam antecipações ou dívidas caras no curto prazo e precisam renegociar prazos e taxas com inteligência."
     }
   ];
 
   return (
-    <div className="bg-obsidian text-white font-sans min-h-screen">
+    <div className="bg-[#090A0F] text-white font-sans selection:bg-[#d4af37] selection:text-black min-h-screen">
       {/* Hero Section */}
-      <section className="pt-36 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_50%_0%,_#d4af37_0%,_transparent_60%)]"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="pt-36 pb-20 md:pt-40 md:pb-28 relative overflow-hidden border-b border-white/[0.08]">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[550px] bg-[radial-gradient(ellipse_at_top,_#d4af37_0%,_transparent_65%)] opacity-15 pointer-events-none blur-3xl"></div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             
             <motion.div
@@ -100,33 +100,42 @@ export function SolucoesCapital() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-premium/15 border border-accent-premium/40 text-accent-premium text-xs font-bold tracking-[0.25em] uppercase mb-8 shadow-sm">
-                <Landmark className="w-3.5 h-3.5" />
-                Captação Estruturada & Otimização de Passivos
-              </span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-[#d4af37]/30 backdrop-blur-md mb-8">
+                <img 
+                  src="/favicon.png" 
+                  alt="Mont Finance" 
+                  className="h-4 w-auto object-contain drop-shadow-[0_0_6px_rgba(212,175,55,0.5)]" 
+                />
+                <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
+                  Captação Estruturada & Otimização de Passivos
+                </span>
+              </div>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-light leading-[1.08] tracking-tight text-white mb-8">
-                Soluções de <span className="font-serif italic text-accent-premium">Capital Inteligente</span>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold leading-[1.08] tracking-tight text-white mb-8">
+                Soluções de <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF9F6] via-[#E5C378] to-[#D4AF37]">
+                  Capital Inteligente
+                </span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-white/85 font-light leading-relaxed mb-6 max-w-3xl mx-auto">
-                Acesso a capital bancário e mercado estruturado com as menores taxas e melhores prazos, operado 100% via esteira digital e respaldado pelo controle dos números da sua empresa.
+              <p className="text-lg sm:text-xl text-zinc-300 font-light leading-relaxed mb-6 max-w-3xl mx-auto">
+                Acesso a capital bancário e mercado estruturado com as menores taxas e melhores prazos, operado 100% via esteira digital e respaldado pelo controle real dos números da sua empresa.
               </p>
 
-              <p className="text-sm text-accent-premium font-medium mb-12 tracking-wide">
-                ✦ Captação segura como consequência da maturidade dos seus indicadores contábeis e financeiros.
+              <p className="text-xs font-mono text-[#d4af37] mb-12 tracking-wide">
+                ✦ Captação segura como consequência natural da maturidade dos seus indicadores contábeis e financeiros.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link 
                   to="/diagnostico" 
-                  className="w-full sm:w-auto px-10 py-5 text-xs font-bold uppercase tracking-[0.2em] text-obsidian bg-accent-premium hover:bg-white transition-all duration-300 rounded-full text-center shadow-[0_0_30px_rgba(212,175,55,0.3)]"
+                  className="w-full sm:w-auto px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-black bg-[#d4af37] hover:bg-[#c5a059] transition-all rounded-full text-center shadow-[0_0_20px_rgba(212,175,55,0.25)] hover:scale-[1.02]"
                 >
                   Avaliar Capacidade de Captação
                 </Link>
                 <a
                   href="#como-funciona"
-                  className="w-full sm:w-auto px-8 py-5 text-xs font-bold uppercase tracking-[0.2em] text-white/90 hover:text-white border border-white/20 hover:border-accent-premium transition-all duration-300 rounded-full text-center"
+                  className="w-full sm:w-auto px-8 py-3.5 text-xs font-bold uppercase tracking-[0.15em] text-white hover:text-white border border-white/15 hover:border-[#d4af37]/40 transition-all rounded-full text-center bg-white/[0.03]"
                 >
                   Entenda a Esteira
                 </a>
@@ -138,29 +147,31 @@ export function SolucoesCapital() {
       </section>
 
       {/* 4 Pilares de Atuação */}
-      <section className="py-20 bg-white/5 border-y border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 sm:py-32 bg-[#0E1118]/40 border-b border-white/[0.08]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-accent-premium text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+            <span className="text-[#d4af37] text-xs font-mono uppercase tracking-[0.25em] font-bold mb-3 block">
               Estruturação Financeira
             </span>
-            <h2 className="text-3xl sm:text-5xl font-display font-light text-white">
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white leading-tight">
               Recursos certos, no tempo certo, <br />
-              <span className="italic text-accent-premium font-serif">com o menor custo.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
+                com o menor custo
+              </span>
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pillars.map((b, i) => (
-              <div key={i} className="p-8 bg-obsidian/90 border border-white/10 rounded-2xl hover:border-accent-premium/40 transition-all flex flex-col justify-between">
+              <div key={i} className="p-8 bg-[#0E1118] border border-white/[0.08] rounded-3xl hover:border-[#d4af37]/40 transition-all flex flex-col justify-between">
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-accent-premium/15 flex items-center justify-center text-accent-premium mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-[#d4af37]/15 border border-[#d4af37]/30 flex items-center justify-center text-[#d4af37] mb-6">
                     <b.icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-display font-medium text-white mb-3">{b.title}</h3>
-                  <p className="text-sm text-white/70 font-light leading-relaxed mb-6">{b.desc}</p>
+                  <h3 className="text-lg font-display font-bold text-white mb-3">{b.title}</h3>
+                  <p className="text-xs text-zinc-300 font-light leading-relaxed mb-6">{b.desc}</p>
                 </div>
-                <div className="pt-4 border-t border-white/10 text-xs font-mono text-accent-premium">
+                <div className="pt-4 border-t border-white/[0.08] text-xs font-mono text-[#d4af37]">
                   ✦ {b.kpi}
                 </div>
               </div>
@@ -170,29 +181,32 @@ export function SolucoesCapital() {
       </section>
 
       {/* Como Funciona o Processo */}
-      <section id="como-funciona" className="py-28 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="como-funciona" className="py-24 sm:py-32 border-b border-white/[0.08] relative">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-accent-premium text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+            <span className="text-[#d4af37] text-xs font-mono uppercase tracking-[0.25em] font-bold mb-3 block">
               Esteira Digital Integrada
             </span>
-            <h2 className="text-3xl sm:text-5xl font-display font-light text-white">
-              Do dossiê estratégico ao recurso <span className="italic text-accent-premium font-serif">em conta</span>
+            <h2 className="text-3xl sm:text-5xl font-display font-bold text-white leading-tight">
+              Do dossiê estratégico ao recurso <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF9F6] via-[#E5C378] to-[#D4AF37]">
+                liberado em conta
+              </span>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((s) => (
-              <div key={s.num} className="p-8 bg-white/[0.03] border border-white/10 hover:border-accent-premium/50 transition-all duration-300 rounded-2xl flex flex-col justify-between group">
+              <div key={s.num} className="p-8 bg-[#0E1118] border border-white/[0.08] hover:border-[#d4af37]/40 transition-all duration-300 rounded-3xl flex flex-col justify-between group">
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-xs font-mono font-bold text-accent-premium tracking-widest">{s.num}</span>
-                    <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-accent-premium group-hover:bg-accent-premium group-hover:text-obsidian transition-colors">
+                    <span className="text-xs font-mono font-bold text-[#d4af37] tracking-widest">{s.num}</span>
+                    <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center text-[#d4af37] group-hover:bg-[#d4af37] group-hover:text-black transition-colors">
                       <s.icon className="w-4 h-4" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-display font-medium text-white mb-3">{s.title}</h3>
-                  <p className="text-sm text-white/70 font-light leading-relaxed">{s.desc}</p>
+                  <h3 className="text-lg font-display font-bold text-white mb-3">{s.title}</h3>
+                  <p className="text-xs text-zinc-300 font-light leading-relaxed">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -201,34 +215,34 @@ export function SolucoesCapital() {
       </section>
 
       {/* Para Quem é Indicado */}
-      <section className="py-20 bg-white/[0.02] border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 sm:py-32 bg-[#0E1118]/40 border-b border-white/[0.08]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5">
-              <span className="text-accent-premium text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+              <span className="text-[#d4af37] text-xs font-mono uppercase tracking-[0.25em] font-bold mb-3 block">
                 Perfil de Elegibilidade
               </span>
-              <h2 className="text-3xl sm:text-4xl font-display font-light text-white mb-6">
-                Estruturado para empresas que <span className="italic text-accent-premium font-serif">já faturam alto.</span>
+              <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-6 leading-tight">
+                Estruturado para empresas que <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF9F6] via-[#E5C378] to-[#D4AF37]">já faturam alto</span>
               </h2>
-              <p className="text-base text-white/80 font-light leading-relaxed mb-6">
-                Não atuamos com empréstimos de balcão ou soluções emergenciais desordenadas. Nossas operações são estruturadas exclusivamente para negócios que faturam acima de R$ 3 milhões ao ano e exigem governança no endividamento.
+              <p className="text-sm text-zinc-300 font-light leading-relaxed mb-6">
+                Não atuamos com empréstimos emergenciais desordenados. Nossas operações são estruturadas exclusivamente para empresas de e-commerce e canais digitais que faturam acima de R$ 3 milhões ao ano e buscam governança e redução de custo financeiro.
               </p>
-              <div className="p-4 rounded-xl bg-accent-premium/10 border border-accent-premium/30 text-xs text-white/90">
-                <strong className="text-accent-premium block mb-1">Critério de Análise:</strong>
-                Empresas com CNPJ ativo há mais de 2 anos, faturamento comprovado e sem bloqueios fiscais impeditivos.
+              <div className="p-4 rounded-2xl bg-[#d4af37]/10 border border-[#d4af37]/20 text-xs text-zinc-200">
+                <strong className="text-[#d4af37] block mb-1">Critério de Análise:</strong>
+                Empresas com CNPJ ativo há mais de 2 anos, faturamento comprovado e governança mínima para apresentação a comitês de crédito.
               </div>
             </div>
 
             <div className="lg:col-span-7 space-y-4">
               {profiles.map((p, idx) => (
-                <div key={idx} className="p-6 bg-obsidian border border-white/10 rounded-2xl flex items-start gap-4 hover:border-accent-premium/40 transition-all">
-                  <div className="w-8 h-8 rounded-lg bg-accent-premium/15 flex items-center justify-center text-accent-premium shrink-0 mt-0.5">
+                <div key={idx} className="p-6 bg-[#0E1118] border border-white/[0.08] rounded-2xl flex items-start gap-4 hover:border-[#d4af37]/30 transition-all">
+                  <div className="w-8 h-8 rounded-xl bg-[#d4af37]/15 flex items-center justify-center text-[#d4af37] shrink-0 mt-0.5">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="text-base font-display font-medium text-white mb-1">{p.title}</h3>
-                    <p className="text-xs text-white/70 font-light leading-relaxed">{p.desc}</p>
+                    <h3 className="text-sm font-semibold text-white mb-1">{p.title}</h3>
+                    <p className="text-xs text-zinc-400 font-light leading-relaxed">{p.desc}</p>
                   </div>
                 </div>
               ))}
@@ -238,20 +252,22 @@ export function SolucoesCapital() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-24 bg-gradient-to-b from-obsidian to-azul-noite border-t border-white/10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-5xl font-display font-light text-white mb-6">
+      <section className="py-24 sm:py-32">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-white mb-6 leading-tight">
             Estruture o capital da sua empresa <br />
-            <span className="font-serif italic text-accent-premium">sem comprometer a sua margem.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF9F6] via-[#E5C378] to-[#D4AF37]">
+              sem comprometer o seu caixa
+            </span>
           </h2>
-          <p className="text-base sm:text-lg text-white/80 font-light max-w-2xl mx-auto mb-10">
+          <p className="text-base text-zinc-300 font-light max-w-2xl mx-auto mb-10">
             Fale com os nossos especialistas e receba um diagnóstico técnico de limites, taxas e estruturas disponíveis para o faturamento da sua operação.
           </p>
           <Link
             to="/diagnostico"
-            className="inline-flex items-center gap-2 px-10 py-5 text-xs font-bold uppercase tracking-[0.2em] text-obsidian bg-accent-premium hover:bg-white transition-all duration-500 rounded-full shadow-xl shadow-accent-premium/20"
+            className="inline-flex items-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-[0.15em] text-black bg-[#d4af37] hover:bg-[#c5a059] transition-all rounded-full shadow-[0_0_25px_rgba(212,175,55,0.3)] hover:scale-[1.02]"
           >
-            Solicitar Análise de Capital <ArrowRight className="w-4 h-4" />
+            Solicitar Análise de Capital <ArrowRight className="w-4 h-4 text-black" />
           </Link>
         </div>
       </section>

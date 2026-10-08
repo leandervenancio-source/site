@@ -73,9 +73,9 @@ export function PerformanceProgram() {
   ];
 
   return (
-    <div className="bg-soft-white font-sans">
+    <div className="bg-[#090A0F] text-white font-sans selection:bg-[#d4af37] selection:text-black min-h-screen">
       {/* Hero Section */}
-      <section className="bg-obsidian text-branco pt-32 pb-20 relative overflow-hidden min-h-[90vh] flex items-center">
+      <section className="bg-[#090A0F] text-white pt-32 pb-20 relative overflow-hidden min-h-[90vh] flex items-center">
         {/* Abstract Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent-premium/5 blur-[120px] rounded-full"></div>
@@ -111,13 +111,13 @@ export function PerformanceProgram() {
       </section>
 
       {/* Sinais Section */}
-      <section className="py-12 lg:py-16 bg-soft-white">
+      <section className="py-20 lg:py-24 bg-[#0E1118]/40 border-y border-white/[0.08]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 lg:mb-12">
-            <span className="text-accent-muted font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Desafios</span>
-            <h2 className="text-3xl md:text-5xl font-display text-obsidian mb-0 leading-tight tracking-tight">
+            <span className="text-[#d4af37] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Desafios</span>
+            <h2 className="text-3xl md:text-5xl font-display text-white mb-0 leading-tight tracking-tight">
               Sua empresa sofre com <br />
-              <span className="font-serif italic text-accent-muted">baixa performance?</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">baixa performance?</span>
             </h2>
           </div>
 
@@ -128,11 +128,11 @@ export function PerformanceProgram() {
               { icon: BarChart3, title: "Decisões baseadas no 'feeling' por falta de números confiáveis" },
               { icon: Target, title: "Metas são definidas, mas a execução nunca sai do papel" }
             ].map((item, i) => (
-              <div key={i} className="bento-card bg-white p-10 flex flex-col items-center text-center group">
-                <div className="w-16 h-16 bg-obsidian rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-accent-premium transition-all duration-500 shadow-xl">
-                  <item.icon className="w-8 h-8 text-accent-premium group-hover:text-obsidian transition-colors" />
+              <div key={i} className="p-8 rounded-3xl bg-[#0E1118] border border-white/[0.08] hover:border-[#d4af37]/40 transition-all flex flex-col items-center text-center group">
+                <div className="w-16 h-16 bg-[#090A0F] border border-white/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-[#d4af37] transition-all duration-500 shadow-xl">
+                  <item.icon className="w-8 h-8 text-[#d4af37] group-hover:text-black transition-colors" />
                 </div>
-                <h3 className="text-lg font-display font-medium text-obsidian leading-snug">{item.title}</h3>
+                <h3 className="text-base font-display font-medium text-white leading-snug">{item.title}</h3>
               </div>
             ))}
           </div>
