@@ -1,7 +1,6 @@
 import { useState, FormEvent } from "react";
-import { motion } from "motion/react";
 import { supabase } from "../lib/supabase";
-import { Loader2, ArrowRight } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 export function DiagnosticForm() {
   const [formData, setFormData] = useState({
@@ -93,33 +92,29 @@ export function DiagnosticForm() {
     }
   };
 
-  const inputClass = "w-full px-5 py-3.5 bg-obsidian/60 border border-white/10 text-branco placeholder:text-white/40 placeholder:text-sm focus:border-accent-premium focus:ring-1 focus:ring-accent-premium/40 outline-none transition-all duration-300 rounded-xl font-light text-sm shadow-inner";
+  const inputClass = "w-full px-4 py-3 bg-black/40 border border-white/[0.08] text-white placeholder:text-zinc-600 placeholder:text-xs focus:border-zinc-500 focus:outline-none transition-colors rounded-xl font-normal text-xs";
 
   return (
-    <motion.form
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
+    <form
       onSubmit={handleSubmit}
-      className="bg-white/[0.04] backdrop-blur-2xl p-6 sm:p-8 md:p-10 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.6)] rounded-[2rem] relative"
+      className="bg-[#0E1118] border border-white/[0.08] p-6 sm:p-8 rounded-2xl shadow-xl"
     >
       <div className="mb-6">
-        <span className="text-[10px] uppercase font-bold tracking-[0.25em] text-accent-premium block mb-2">
-          Mont Finance · Diagnóstico
+        <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-500 block mb-1">
+          Formulário
         </span>
-        <h3 className="text-xl sm:text-2xl font-display font-light text-branco">
-          Comece entendendo para onde <span className="font-serif italic text-accent-premium">vai o dinheiro</span>
+        <h3 className="text-xl font-medium text-white">
+          Agendar diagnóstico
         </h3>
-        <p className="text-xs text-branco/60 font-light mt-1">
-          Uma conversa estratégica com um especialista da Mont Finance sobre a situação do seu e-commerce.
+        <p className="text-xs text-zinc-400 mt-1">
+          Preencha os dados da sua operação para iniciarmos a análise.
         </p>
       </div>
 
-      <div className="space-y-3.5 mb-6 relative z-10">
+      <div className="space-y-3 mb-6">
         <input 
           type="text" 
-          placeholder="Seu Nome Completo" 
+          placeholder="Nome" 
           value={formData.name} 
           className={inputClass} 
           required 
@@ -127,10 +122,10 @@ export function DiagnosticForm() {
           disabled={isSubmitting} 
         />
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <input 
             type="email" 
-            placeholder="E-mail Profissional" 
+            placeholder="E-mail profissional" 
             value={formData.email} 
             className={inputClass} 
             required 
@@ -139,7 +134,7 @@ export function DiagnosticForm() {
           />
           <input 
             type="tel" 
-            placeholder="WhatsApp com DDD" 
+            placeholder="WhatsApp" 
             value={formData.whatsapp} 
             className={inputClass} 
             required 
@@ -148,10 +143,10 @@ export function DiagnosticForm() {
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <input 
             type="text" 
-            placeholder="Nome da Empresa" 
+            placeholder="Empresa" 
             value={formData.company} 
             className={inputClass} 
             required 
@@ -160,7 +155,7 @@ export function DiagnosticForm() {
           />
           <input 
             type="text" 
-            placeholder="Endereço da Loja (URL / Site)" 
+            placeholder="Endereço da loja (URL)" 
             value={formData.storeUrl} 
             className={inputClass} 
             required 
@@ -169,49 +164,49 @@ export function DiagnosticForm() {
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <select 
-            className={`${inputClass} pr-8 appearance-none ${!formData.revenue ? '!text-white/40' : ''}`} 
+            className={`${inputClass} appearance-none ${!formData.revenue ? '!text-zinc-600' : ''}`} 
             value={formData.revenue} 
             required 
             onChange={(e) => setFormData({...formData, revenue: e.target.value})} 
             disabled={isSubmitting}
           >
-            <option value="" className="bg-obsidian text-white/40" disabled hidden>Faturamento Anual Aproximado</option>
-            <option value="Até R$ 3 milhões" className="bg-obsidian text-branco">Até R$ 3 milhões</option>
-            <option value="De R$ 3 a R$ 10 milhões" className="bg-obsidian text-branco">De R$ 3 a R$ 10 milhões</option>
-            <option value="De R$ 10 a R$ 30 milhões" className="bg-obsidian text-branco">De R$ 10 a R$ 30 milhões</option>
-            <option value="Acima de R$ 30 milhões" className="bg-obsidian text-branco">Acima de R$ 30 milhões</option>
+            <option value="" className="bg-[#090A0F] text-zinc-500" disabled hidden>Faturamento anual aproximado</option>
+            <option value="Até R$ 3 milhões" className="bg-[#090A0F] text-white">Até R$ 3 milhões</option>
+            <option value="De R$ 3 a R$ 10 milhões" className="bg-[#090A0F] text-white">De R$ 3 a R$ 10 milhões</option>
+            <option value="De R$ 10 a R$ 30 milhões" className="bg-[#090A0F] text-white">De R$ 10 a R$ 30 milhões</option>
+            <option value="Acima de R$ 30 milhões" className="bg-[#090A0F] text-white">Acima de R$ 30 milhões</option>
           </select>
 
           <select 
-            className={`${inputClass} pr-8 appearance-none ${!formData.painPoint ? '!text-white/40' : ''}`} 
+            className={`${inputClass} appearance-none ${!formData.painPoint ? '!text-zinc-600' : ''}`} 
             value={formData.painPoint} 
             required 
             onChange={(e) => setFormData({...formData, painPoint: e.target.value})} 
             disabled={isSubmitting}
           >
-            <option value="" className="bg-obsidian text-white/40" disabled hidden>Qual seu maior incômodo hoje?</option>
-            <option value="Caixa não acompanha o faturamento" className="bg-obsidian text-branco">Caixa não acompanha o faturamento</option>
-            <option value="Não sei a margem real" className="bg-obsidian text-branco">Não sei a margem real</option>
-            <option value="Estoque parado" className="bg-obsidian text-branco">Estoque parado</option>
-            <option value="Antecipação de recebíveis frequente" className="bg-obsidian text-branco">Antecipação de recebíveis frequente</option>
-            <option value="Carga ou risco tributário" className="bg-obsidian text-branco">Carga ou risco tributário</option>
-            <option value="Acesso a crédito" className="bg-obsidian text-branco">Acesso a crédito</option>
-            <option value="Outro" className="bg-obsidian text-branco">Outro</option>
+            <option value="" className="bg-[#090A0F] text-zinc-500" disabled hidden>Qual seu maior incômodo hoje?</option>
+            <option value="Caixa não acompanha o faturamento" className="bg-[#090A0F] text-white">Caixa não acompanha o faturamento</option>
+            <option value="Não sei a margem real" className="bg-[#090A0F] text-white">Não sei a margem real</option>
+            <option value="Estoque parado" className="bg-[#090A0F] text-white">Estoque parado</option>
+            <option value="Antecipação de recebíveis frequente" className="bg-[#090A0F] text-white">Antecipação de recebíveis frequente</option>
+            <option value="Carga ou risco tributário" className="bg-[#090A0F] text-white">Carga ou risco tributário</option>
+            <option value="Acesso a crédito" className="bg-[#090A0F] text-white">Acesso a crédito</option>
+            <option value="Outro" className="bg-[#090A0F] text-white">Outro</option>
           </select>
         </div>
 
         <div className="pt-2">
-          <label className="flex items-start gap-3 text-xs text-white/70 cursor-pointer select-none">
+          <label className="flex items-start gap-2.5 text-xs text-zinc-400 cursor-pointer select-none">
             <input 
               type="checkbox"
               required
               checked={formData.lgpdConsent}
               onChange={(e) => setFormData({...formData, lgpdConsent: e.target.checked})}
-              className="mt-0.5 rounded border-white/20 text-accent-premium focus:ring-accent-premium/40 bg-obsidian/60"
+              className="mt-0.5 rounded border-zinc-700 text-white bg-black/40 focus:ring-0"
             />
-            <span>
+            <span className="leading-tight">
               Concordo em ser contatado pela Mont Finance sobre o diagnóstico e em ter meus dados tratados para esse fim, conforme a LGPD.
             </span>
           </label>
@@ -219,23 +214,19 @@ export function DiagnosticForm() {
       </div>
       
       {success && (
-        <div className="mb-6 p-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-xl text-center text-xs font-medium">
-          Solicitação recebida com sucesso! Um especialista da Mont Finance entrará em contato para agendar o seu diagnóstico.
+        <div className="mb-4 p-3 bg-emerald-950/30 border border-emerald-500/30 text-emerald-300 rounded-xl text-center text-xs">
+          Solicitação recebida com sucesso! Entraremos em contato em breve.
         </div>
       )}
 
       <button 
         type="submit" 
         disabled={isSubmitting} 
-        className="w-full py-4 text-xs font-bold tracking-[0.2em] uppercase text-obsidian bg-accent-premium hover:bg-white transition-all duration-300 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-accent-premium/20 disabled:opacity-50"
+        className="w-full py-3 rounded-xl bg-white text-black hover:bg-zinc-200 text-xs font-medium transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-sm"
       >
-        {isSubmitting && <Loader2 className="w-4 h-4 animate-spin" />}
-        {isSubmitting ? "Enviando Dados..." : "Agendar Diagnóstico"}
+        {isSubmitting && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
+        {isSubmitting ? "Enviando..." : "Agendar diagnóstico"}
       </button>
-
-      <p className="text-[11px] text-white/40 text-center mt-3">
-        Os resultados variam conforme o caso de cada empresa. Nenhum resultado é garantido.
-      </p>
-    </motion.form>
+    </form>
   );
 }
