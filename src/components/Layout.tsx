@@ -39,7 +39,7 @@ export function Layout() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col relative bg-[#090A0F] text-zinc-100">
+    <div className="min-h-screen flex flex-col relative bg-[#14181B] text-[#F5F3EE]">
       <Navbar />
       <main className="flex-grow">
         <Outlet />
@@ -48,17 +48,17 @@ export function Layout() {
 
       {/* Botão fixo no rodapé do celular (some quando o formulário de diagnóstico está na tela) */}
       <div
-        className={`fixed bottom-0 left-0 right-0 p-3 bg-[#090A0F]/90 backdrop-blur-lg border-t border-white/10 z-40 md:hidden transition-all duration-300 ${
+        className={`fixed bottom-0 left-0 right-0 p-3 bg-[#14181B]/95 backdrop-blur-lg border-t border-[#F5F3EE]/10 z-40 md:hidden transition-all duration-300 ${
           isDiagnosticVisible ? "opacity-0 pointer-events-none translate-y-full" : "opacity-100 translate-y-0"
         }`}
       >
         <a
           href="#diagnostico"
           onClick={() => trackCtaClick("floating_mobile", "Agendar diagnóstico")}
-          className="w-full py-3.5 rounded-xl bg-[#d4af37] text-black text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.3)] active:scale-[0.98] transition-all"
+          className="w-full py-3.5 rounded-xl bg-[#E8A33D] text-[#14181B] text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(232,163,61,0.3)] active:scale-[0.98] transition-all"
         >
           <span>Agendar diagnóstico</span>
-          <ArrowRight className="w-4 h-4 text-black" />
+          <ArrowRight className="w-4 h-4 text-[#14181B]" />
         </a>
       </div>
 

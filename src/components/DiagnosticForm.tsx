@@ -192,25 +192,25 @@ export function DiagnosticForm() {
   const waUrl = `https://wa.me/5562999200405?text=${waMessage}`;
 
   const inputClass =
-    "w-full px-4 py-3.5 bg-black/40 border border-white/[0.08] text-white placeholder:text-zinc-500 placeholder:text-xs focus:border-[#d4af37] focus:outline-none transition-colors rounded-xl font-normal text-xs";
+    "w-full px-4 py-3.5 bg-[#14181B] border border-[#F5F3EE]/10 text-[#F5F3EE] placeholder:text-[#5B6166] placeholder:text-xs focus:border-[#E8A33D] focus:outline-none transition-colors rounded-xl font-normal text-xs";
 
   // =========================================================================
   // TELA DE SUCESSO CONFIRMADO
   // =========================================================================
   if (status === "success") {
     return (
-      <div className="bg-[#0E1118] border border-[#d4af37]/40 p-8 sm:p-10 rounded-2xl shadow-2xl text-center animate-fadeIn">
-        <div className="w-14 h-14 rounded-full bg-[#d4af37]/15 border border-[#d4af37]/40 text-[#d4af37] flex items-center justify-center mx-auto mb-5">
+      <div className="bg-[#1B2024] border border-[#E8A33D]/40 p-8 sm:p-10 rounded-2xl shadow-xl text-center">
+        <div className="w-14 h-14 rounded-full bg-[#E8A33D]/15 border border-[#E8A33D]/40 text-[#E8A33D] flex items-center justify-center mx-auto mb-5">
           <CheckCircle2 className="w-8 h-8" />
         </div>
 
-        <span className="text-[11px] font-mono uppercase tracking-widest text-[#d4af37] block mb-2 font-bold">
+        <span className="text-[11px] font-mono uppercase tracking-widest text-[#E8A33D] block mb-2 font-medium">
           Confirmação de recebimento
         </span>
-        <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-3">
+        <h3 className="text-2xl sm:text-3xl font-serif text-[#F5F3EE] font-normal mb-3">
           Cadastro recebido, {firstName}.
         </h3>
-        <p className="text-sm text-zinc-300 font-light leading-relaxed max-w-md mx-auto mb-6">
+        <p className="text-sm text-[#F5F3EE]/80 font-normal leading-relaxed max-w-md mx-auto mb-6">
           Um especialista da Mont Finance vai entrar em contato para combinar o diagnóstico da sua operação.
         </p>
 
@@ -226,13 +226,13 @@ export function DiagnosticForm() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("form_success_button")}
-            className="w-full py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(37,211,102,0.35)]"
+            className="w-full py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(37,211,102,0.3)] hover:-translate-y-0.5"
           >
             <MessageSquare className="w-4 h-4 fill-white" />
             <span>Chamar no WhatsApp agora</span>
           </a>
 
-          <p className="text-[11px] text-zinc-500 pt-1">
+          <p className="text-[11px] text-[#5B6166] pt-1">
             Se preferir agilizar seu atendimento sem esperar o contato por e-mail, clique no botão acima.
           </p>
         </div>
@@ -245,18 +245,18 @@ export function DiagnosticForm() {
   // =========================================================================
   if (status === "error") {
     return (
-      <div className="bg-[#0E1118] border border-rose-500/30 p-8 sm:p-10 rounded-2xl shadow-2xl text-center">
-        <div className="w-14 h-14 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 flex items-center justify-center mx-auto mb-5">
+      <div className="bg-[#1B2024] border border-[#B5412F]/30 p-8 sm:p-10 rounded-2xl shadow-xl text-center">
+        <div className="w-14 h-14 rounded-full bg-[#B5412F]/10 border border-[#B5412F]/30 text-[#B5412F] flex items-center justify-center mx-auto mb-5">
           <AlertCircle className="w-8 h-8" />
         </div>
 
-        <span className="text-[11px] font-mono uppercase tracking-widest text-rose-400 block mb-2 font-bold">
+        <span className="text-[11px] font-mono uppercase tracking-widest text-[#B5412F] block mb-2 font-medium">
           Falta só um passo
         </span>
-        <h3 className="text-2xl font-display font-bold text-white mb-3">
+        <h3 className="text-2xl font-serif text-[#F5F3EE] font-normal mb-3">
           Finalize seu contato diretamente
         </h3>
-        <p className="text-xs text-zinc-300 font-light leading-relaxed max-w-md mx-auto mb-6">
+        <p className="text-xs text-[#F5F3EE]/80 font-normal leading-relaxed max-w-md mx-auto mb-6">
           Houve uma oscilação na rede e seus dados não foram salvos automaticamente. Para não perder tempo, você pode falar direto com nosso especialista pelo WhatsApp com os dados preenchidos ou nos enviar um e-mail:
         </p>
 
@@ -266,7 +266,7 @@ export function DiagnosticForm() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("form_fallback_button")}
-            className="w-full py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,211,102,0.3)]"
+            className="w-full py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(37,211,102,0.3)]"
           >
             <MessageSquare className="w-4 h-4 fill-white" />
             <span>Chamar no WhatsApp agora</span>
@@ -274,16 +274,16 @@ export function DiagnosticForm() {
 
           <a
             href="mailto:contato@montgestao.com.br"
-            className="w-full py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-white border border-white/10 text-xs font-semibold flex items-center justify-center gap-2 transition-colors"
+            className="w-full py-3.5 rounded-xl bg-[#14181B] hover:bg-white/[0.04] text-[#F5F3EE] border border-[#F5F3EE]/10 text-xs font-semibold flex items-center justify-center gap-2 transition-colors"
           >
-            <Mail className="w-4 h-4 text-[#d4af37]" />
+            <Mail className="w-4 h-4 text-[#E8A33D]" />
             <span>Enviar e-mail para contato@montgestao.com.br</span>
           </a>
         </div>
 
         <button
           onClick={() => setStatus("idle")}
-          className="text-xs text-zinc-400 hover:text-white underline transition-colors"
+          className="text-xs text-[#5B6166] hover:text-[#F5F3EE] underline transition-colors"
         >
           Voltar e tentar enviar novamente
         </button>
@@ -298,7 +298,7 @@ export function DiagnosticForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="bg-[#0E1118] border border-white/[0.08] p-6 sm:p-8 rounded-2xl shadow-xl"
+      className="bg-[#1B2024] border border-[#F5F3EE]/10 p-6 sm:p-8 rounded-2xl shadow-xl"
     >
       {/* Honeypot field for anti-spam (invisible to users) */}
       <input
@@ -312,85 +312,85 @@ export function DiagnosticForm() {
       />
 
       <div className="mb-6">
-        <span className="text-[11px] font-mono uppercase tracking-wider text-[#d4af37] block mb-1">
+        <span className="text-[11px] font-mono uppercase tracking-wider text-[#E8A33D] font-medium block mb-1">
           Formulário
         </span>
-        <h3 className="text-xl font-medium text-white">
+        <h3 className="text-2xl font-serif text-[#F5F3EE] font-normal">
           Agendar diagnóstico
         </h3>
-        <p className="text-xs text-zinc-400 mt-1">
-          Preencha os dados da sua operação para iniciarmos a análise.
+        <p className="text-xs text-[#5B6166] mt-1 font-normal">
+          Preencha os dados da sua operação para iniciarmos a análise estratégica.
         </p>
       </div>
 
       <div className="space-y-4 mb-6">
         {/* Nome */}
         <div>
-          <label className="text-[11px] font-mono text-zinc-400 block mb-1">
+          <label className="text-[11px] font-mono text-[#5B6166] block mb-1">
             Nome completo *
           </label>
           <input
             type="text"
             placeholder="Seu nome"
             value={formData.name}
-            className={`${inputClass} ${errors.name ? "border-rose-500" : ""}`}
+            className={`${inputClass} ${errors.name ? "!border-[#B5412F]" : ""}`}
             onChange={(e) => {
               setFormData({ ...formData, name: e.target.value });
               if (errors.name) setErrors({ ...errors, name: undefined });
             }}
             disabled={isSubmitting}
           />
-          {errors.name && <p className="text-[11px] text-rose-400 mt-1">{errors.name}</p>}
+          {errors.name && <p className="text-[11px] text-[#B5412F] mt-1">{errors.name}</p>}
         </div>
 
         {/* E-mail e WhatsApp */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
           <div>
-            <label className="text-[11px] font-mono text-zinc-400 block mb-1">
+            <label className="text-[11px] font-mono text-[#5B6166] block mb-1">
               E-mail profissional *
             </label>
             <input
               type="email"
               placeholder="seu@empresa.com.br"
               value={formData.email}
-              className={`${inputClass} ${errors.email ? "border-rose-500" : ""}`}
+              className={`${inputClass} ${errors.email ? "!border-[#B5412F]" : ""}`}
               onChange={(e) => {
                 setFormData({ ...formData, email: e.target.value });
                 if (errors.email) setErrors({ ...errors, email: undefined });
               }}
               disabled={isSubmitting}
             />
-            {errors.email && <p className="text-[11px] text-rose-400 mt-1">{errors.email}</p>}
+            {errors.email && <p className="text-[11px] text-[#B5412F] mt-1">{errors.email}</p>}
           </div>
 
           <div>
-            <label className="text-[11px] font-mono text-zinc-400 block mb-1">
+            <label className="text-[11px] font-mono text-[#5B6166] block mb-1">
               WhatsApp *
             </label>
             <input
               type="tel"
               placeholder="(11) 99999-9999"
               value={formData.whatsapp}
-              className={`${inputClass} ${errors.whatsapp ? "border-rose-500" : ""}`}
+              className={`${inputClass} ${errors.whatsapp ? "!border-[#B5412F]" : ""}`}
               onChange={(e) => {
                 setFormData({ ...formData, whatsapp: e.target.value });
                 if (errors.whatsapp) setErrors({ ...errors, whatsapp: undefined });
               }}
               disabled={isSubmitting}
             />
-            {errors.whatsapp && <p className="text-[11px] text-rose-400 mt-1">{errors.whatsapp}</p>}
+            {errors.whatsapp && <p className="text-[11px] text-[#B5412F] mt-1">{errors.whatsapp}</p>}
           </div>
         </div>
 
         {/* Faturamento Anual Aproximado */}
         <div>
-          <label className="text-[11px] font-mono text-zinc-400 block mb-1">
+          <label className="text-[11px] font-mono text-[#5B6166] block mb-1">
             Faturamento anual aproximado *
           </label>
           <div className="relative">
             <select
-              className={`${inputClass} appearance-none ${!formData.revenue ? "!text-zinc-500" : ""} ${
-                errors.revenue ? "border-rose-500" : ""
+              className={`${inputClass} appearance-none ${!formData.revenue ? "!text-[#5B6166]" : ""} ${
+                errors.revenue ? "!border-[#B5412F]" : ""
               }`}
               value={formData.revenue}
               onChange={(e) => {
@@ -399,29 +399,29 @@ export function DiagnosticForm() {
               }}
               disabled={isSubmitting}
             >
-              <option value="" className="bg-[#090A0F] text-zinc-500" disabled hidden>
+              <option value="" className="bg-[#14181B] text-[#5B6166]" disabled hidden>
                 Selecione a faixa de faturamento
               </option>
-              <option value="Até R$ 3 milhões" className="bg-[#090A0F] text-white">
+              <option value="Até R$ 3 milhões" className="bg-[#14181B] text-[#F5F3EE]">
                 Até R$ 3 milhões
               </option>
-              <option value="De R$ 3 a R$ 10 milhões" className="bg-[#090A0F] text-white">
+              <option value="De R$ 3 a R$ 10 milhões" className="bg-[#14181B] text-[#F5F3EE]">
                 De R$ 3 a R$ 10 milhões
               </option>
-              <option value="De R$ 10 a R$ 30 milhões" className="bg-[#090A0F] text-white">
+              <option value="De R$ 10 a R$ 30 milhões" className="bg-[#14181B] text-[#F5F3EE]">
                 De R$ 10 a R$ 30 milhões
               </option>
-              <option value="Acima de R$ 30 milhões" className="bg-[#090A0F] text-white">
+              <option value="Acima de R$ 30 milhões" className="bg-[#14181B] text-[#F5F3EE]">
                 Acima de R$ 30 milhões
               </option>
             </select>
           </div>
-          {errors.revenue && <p className="text-[11px] text-rose-400 mt-1">{errors.revenue}</p>}
+          {errors.revenue && <p className="text-[11px] text-[#B5412F] mt-1">{errors.revenue}</p>}
         </div>
 
         {/* Consentimento LGPD Obrigatório */}
         <div className="pt-2">
-          <label className="flex items-start gap-2.5 text-xs text-zinc-400 cursor-pointer select-none">
+          <label className="flex items-start gap-2.5 text-xs text-[#5B6166] cursor-pointer select-none">
             <input
               type="checkbox"
               checked={formData.lgpdConsent}
@@ -429,30 +429,30 @@ export function DiagnosticForm() {
                 setFormData({ ...formData, lgpdConsent: e.target.checked });
                 if (errors.lgpdConsent) setErrors({ ...errors, lgpdConsent: undefined });
               }}
-              className="mt-0.5 rounded border-zinc-700 text-[#d4af37] bg-black/40 focus:ring-0 accent-[#d4af37]"
+              className="mt-0.5 rounded border-zinc-700 text-[#E8A33D] bg-[#14181B] focus:ring-0 accent-[#E8A33D]"
             />
             <span className="leading-tight">
               Concordo em ser contatado pela Mont Finance sobre o diagnóstico e em ter meus dados tratados para esse fim, conforme a LGPD. *
             </span>
           </label>
-          {errors.lgpdConsent && <p className="text-[11px] text-rose-400 mt-1">{errors.lgpdConsent}</p>}
+          {errors.lgpdConsent && <p className="text-[11px] text-[#B5412F] mt-1">{errors.lgpdConsent}</p>}
         </div>
       </div>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-3.5 rounded-xl bg-[#d4af37] text-black hover:bg-[#c5a059] text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-[0_0_20px_rgba(212,175,55,0.25)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+        className="w-full py-3.5 rounded-xl bg-[#E8A33D] text-[#14181B] hover:bg-[#D4932D] text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-[0_4px_16px_rgba(232,163,61,0.25)] hover:shadow-[0_6px_22px_rgba(232,163,61,0.4)] hover:-translate-y-0.5 active:translate-y-0"
       >
         {isSubmitting ? (
           <>
-            <Loader2 className="w-3.5 h-3.5 animate-spin text-black" />
+            <Loader2 className="w-3.5 h-3.5 animate-spin text-[#14181B]" />
             <span>Processando...</span>
           </>
         ) : (
           <>
             <span>Agendar diagnóstico</span>
-            <ArrowRight className="w-3.5 h-3.5 text-black" />
+            <ArrowRight className="w-3.5 h-3.5 text-[#14181B]" />
           </>
         )}
       </button>
