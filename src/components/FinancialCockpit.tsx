@@ -106,14 +106,15 @@ export function FinancialCockpit() {
   return (
     <div className="w-full">
       {/* Header Compacto (Ideal para telas de notebook) */}
-      <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-        <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#E8A33D] font-medium block mb-1.5">
+      <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[11px] font-bold uppercase tracking-wider text-[#F5B85D] mb-4">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
           {currentHeader.tag}
-        </span>
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-normal text-[#F5F3EE] mb-2 leading-tight">
+        </div>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-3 leading-tight">
           {currentHeader.title}
         </h2>
-        <p className="text-xs text-[#5B6166] font-normal leading-relaxed max-w-xl mx-auto">
+        <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto">
           {currentHeader.subtitle}
         </p>
       </div>

@@ -1,58 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
-  --font-display: "Instrument Serif", Georgia, serif;
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Manrope", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   
   --color-petroleo: #0E4A55;
-  --color-petroleo-deep: #07252B;
-  --color-petroleo-dark: #0A323A;
-  --color-petroleo-surface: #0F434D;
-  --color-petroleo-hover: #13525E;
-  --color-petroleo-light: #186D7D;
+  --color-petroleo-deep: #071A1E;
+  --color-petroleo-dark: #0A272D;
+  --color-petroleo-surface: #0E363E;
+  --color-petroleo-hover: #14505B;
+  --color-petroleo-light: #1A7180;
   
-  --color-papel: #F5F3EE;
+  --color-papel: #F4F6F7;
   --color-papel-card: #FFFFFF;
   --color-ambar: #E8A33D;
   --color-ambar-hover: #D4932D;
   --color-ambar-subtle: rgba(232, 163, 61, 0.12);
   
-  --color-grafite: #14181B;
-  --color-lucro: #2F705B;
-  --color-alerta: #B5412F;
-  --color-pedra: #5B6166;
-  --color-nevoa: #E2DED4;
+  --color-grafite: #11181A;
+  --color-lucro: #10B981;
+  --color-alerta: #EF4444;
+  --color-pedra: #64748B;
+  --color-nevoa: #E2E8F0;
   
-  --color-obsidian: #07252B;
-  --color-surface: #0A323A;
-  --color-surface-hover: #0F434D;
-  --color-border-subtle: rgba(245, 243, 238, 0.1);
-  --color-border-active: rgba(232, 163, 61, 0.4);
-  
-  --color-accent-premium: #E8A33D;
-  --color-accent-muted: #C98A2C;
-  --color-soft-white: #F5F3EE;
+  --color-obsidian: #051214;
+  --color-surface: #0A272D;
+  --color-surface-hover: #0E363E;
 }
 
 @layer base {
   body {
-    @apply font-sans text-[#F5F3EE] bg-[#07252B] antialiased selection:bg-[#E8A33D] selection:text-[#07252B];
+    @apply font-sans text-[#F4F6F7] bg-[#071A1E] antialiased selection:bg-[#E8A33D] selection:text-[#071A1E];
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight text-[#F5F3EE];
+    @apply font-display tracking-tight text-[#F4F6F7];
   }
 }
 
 @layer utilities {
-  .font-serif-italic {
-    font-family: var(--font-serif);
-    font-style: italic;
+  .gradiente {
+    background: linear-gradient(135deg, #FFFFFF 30%, #E8A33D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-
+  .gradiente-dark {
+    background: linear-gradient(135deg, #071A1E 30%, #0E4A55 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .gradiente-ambar {
+    background: linear-gradient(135deg, #E8A33D 0%, #F5B85D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
