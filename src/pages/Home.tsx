@@ -127,19 +127,19 @@ export function Home() {
   ];
 
   return (
-    <div className="font-sans selection:bg-[#E8A33D] selection:text-[#14181B] min-h-screen">
+    <div className="font-sans selection:bg-[#E8A33D] selection:text-[#07252B] min-h-screen">
       
       {/* =========================================================================
-          1 & 2. HERO (Dark Grafite #14181B)
+          1 & 2. HERO (Dark Petróleo Profundo #07252B)
       ========================================================================= */}
-      <section id="topo" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[#14181B] text-[#F5F3EE] border-b border-[#F5F3EE]/10">
+      <section id="topo" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[#07252B] text-[#F5F3EE] border-b border-[#0E4A55]/40">
         {/* Soft Ambient Brand Glow in Petróleo */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-[560px] bg-[radial-gradient(ellipse_at_top,_#0E4A55_0%,_transparent_70%)] opacity-30 pointer-events-none blur-3xl"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-[560px] bg-[radial-gradient(ellipse_at_top,_#0E4A55_0%,_transparent_70%)] opacity-40 pointer-events-none blur-3xl"></div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           
           {/* Badge Oficial */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#1B2024] border border-[#F5F3EE]/10 backdrop-blur-md mb-8">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#0A323A] border border-[#0E4A55]/60 backdrop-blur-md mb-8 shadow-sm">
             <img 
               src="/brand/mont-finance-icone-ambar.png" 
               alt="Mont Finance" 
@@ -161,7 +161,7 @@ export function Home() {
           </div>
 
           {/* Frase Central Nova */}
-          <p className="text-base sm:text-xl text-[#F5F3EE]/80 font-normal leading-relaxed mb-10 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-[#F5F3EE]/85 font-normal leading-relaxed mb-10 max-w-3xl mx-auto">
             A Mont Finance é o CFO Terceirizado que integra finanças, tributação e capital para aumentar lucro, gerar caixa e reduzir riscos na sua operação.
           </p>
 
@@ -170,21 +170,21 @@ export function Home() {
             <a 
               href="#diagnostico" 
               onClick={() => trackCtaClick("hero_primary", "Agendar diagnóstico")}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#E8A33D] hover:bg-[#D4932D] text-[#14181B] text-xs font-semibold uppercase tracking-[0.14em] transition-all shadow-[0_4px_16px_rgba(232,163,61,0.25)] hover:shadow-[0_6px_24px_rgba(232,163,61,0.4)] hover:-translate-y-0.5 active:translate-y-0"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#E8A33D] hover:bg-[#D4932D] text-[#07252B] text-xs font-semibold uppercase tracking-[0.14em] transition-all shadow-[0_4px_16px_rgba(232,163,61,0.25)] hover:shadow-[0_6px_24px_rgba(232,163,61,0.4)] hover:-translate-y-0.5 active:translate-y-0"
             >
               Agendar diagnóstico
             </a>
             <a 
               href="#niveis" 
               onClick={() => trackCtaClick("hero_secondary", "Ver os níveis de serviço")}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-transparent hover:bg-[#1B2024] text-[#F5F3EE] border border-[#F5F3EE]/20 hover:border-[#E8A33D]/50 text-xs font-semibold uppercase tracking-[0.14em] transition-all"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-transparent hover:bg-[#0A323A] text-[#F5F3EE] border border-[#0E4A55]/70 hover:border-[#E8A33D]/60 text-xs font-semibold uppercase tracking-[0.14em] transition-all"
             >
               Ver os níveis de serviço
             </a>
           </div>
 
           {/* Qualificação de Público */}
-          <p className="text-xs text-[#5B6166] font-mono tracking-wide max-w-2xl mx-auto">
+          <p className="text-xs text-[#A0B1B5] font-mono tracking-wide max-w-2xl mx-auto">
             ✦ Para empresas de e-commerce com faturamento acima de R$ 3 milhões por ano, que fabricam e/ou vendem online, no varejo ou no atacado.
           </p>
 
@@ -192,44 +192,44 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          3. FAIXA DE FATOS (Dark Surface #1B2024)
+          3. FAIXA DE FATOS (Dark Petróleo Médio #0A323A)
       ========================================================================= */}
-      <section className="py-10 border-b border-[#F5F3EE]/10 bg-[#1B2024]">
+      <section className="py-10 border-b border-[#0E4A55]/40 bg-[#0A323A]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             
-            <div className="p-4 rounded-xl border border-[#F5F3EE]/05 bg-[#14181B]/40">
+            <div className="p-4 rounded-xl border border-[#0E4A55]/40 bg-[#07252B]/80 shadow-sm">
               <span className="text-xl sm:text-2xl font-serif text-[#F5F3EE] block mb-1">
                 Acima de R$ 3 Mi
               </span>
-              <span className="text-xs text-[#5B6166] font-normal leading-snug block">
+              <span className="text-xs text-[#A0B1B5] font-normal leading-snug block">
                 Foco em operações com tração e volume de vendas
               </span>
             </div>
 
-            <div className="p-4 rounded-xl border border-[#F5F3EE]/05 bg-[#14181B]/40">
+            <div className="p-4 rounded-xl border border-[#0E4A55]/40 bg-[#07252B]/80 shadow-sm">
               <span className="text-xl sm:text-2xl font-serif text-[#E8A33D] block mb-1">
                 3 Frentes
               </span>
-              <span className="text-xs text-[#5B6166] font-normal leading-snug block">
+              <span className="text-xs text-[#A0B1B5] font-normal leading-snug block">
                 Finanças, tributação e capital na mesma mesa
               </span>
             </div>
 
-            <div className="p-4 rounded-xl border border-[#F5F3EE]/05 bg-[#14181B]/40">
+            <div className="p-4 rounded-xl border border-[#0E4A55]/40 bg-[#07252B]/80 shadow-sm">
               <span className="text-xl sm:text-2xl font-serif text-[#F5F3EE] block mb-1">
                 Método DAPE
               </span>
-              <span className="text-xs text-[#5B6166] font-normal leading-snug block">
+              <span className="text-xs text-[#A0B1B5] font-normal leading-snug block">
                 Dados, análise, planejamento e execução com rotina
               </span>
             </div>
 
-            <div className="p-4 rounded-xl border border-[#F5F3EE]/05 bg-[#14181B]/40">
+            <div className="p-4 rounded-xl border border-[#0E4A55]/40 bg-[#07252B]/80 shadow-sm">
               <span className="text-xl sm:text-2xl font-serif text-[#E8A33D] block mb-1">
                 Nacional
               </span>
-              <span className="text-xs text-[#5B6166] font-normal leading-snug block">
+              <span className="text-xs text-[#A0B1B5] font-normal leading-snug block">
                 Atendimento remoto e executivo em todo o Brasil
               </span>
             </div>
@@ -302,9 +302,10 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          5. GRÁFICO ILUSTRATIVO & COCKPIT DE ANÁLISE — [SESSÃO ESCURA: Grafite #14181B]
+      {/* =========================================================================
+          5. GRÁFICO ILUSTRATIVO & COCKPIT DE ANÁLISE — [SESSÃO ESCURA: Petróleo Profundo #07252B]
       ========================================================================= */}
-      <section id="grafico-100" className="py-12 sm:py-16 lg:py-20 bg-[#14181B] text-[#F5F3EE] border-b border-[#F5F3EE]/10 overflow-hidden">
+      <section id="grafico-100" className="py-12 sm:py-16 lg:py-20 bg-[#07252B] text-[#F5F3EE] border-b border-[#0E4A55]/40 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <FinancialCockpit />
         </div>
@@ -333,7 +334,7 @@ export function Home() {
             {threeFronts.map((f, i) => (
               <div 
                 key={i} 
-                className="p-8 rounded-2xl bg-white border border-[#14181B]/08 hover:border-[#E8A33D] transition-all flex flex-col justify-between group hover:-translate-y-1 shadow-sm hover:shadow-md"
+                className="p-8 rounded-2xl bg-white border border-[#14181B]/08 hover:border-[#0E4A55] transition-all flex flex-col justify-between group hover:-translate-y-1 shadow-sm hover:shadow-md"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
@@ -360,7 +361,7 @@ export function Home() {
           </div>
 
           {/* Fechamento da Seção Três Frentes */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-white border-l-4 border-l-[#E8A33D] border border-[#14181B]/08 text-center max-w-4xl mx-auto shadow-sm mb-24">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border-l-4 border-l-[#0E4A55] border border-[#14181B]/08 text-center max-w-4xl mx-auto shadow-sm mb-24">
             <p className="text-sm sm:text-base text-[#14181B]/90 font-serif italic leading-relaxed">
               "O imposto muda o preço que você pode praticar. O prazo de recebimento muda o capital de giro que você precisa. O capital muda o quanto dá para crescer. A diferença está em enxergar essas três frentes ao mesmo tempo."
             </p>
@@ -391,7 +392,7 @@ export function Home() {
                     <th className="p-4 sm:p-5 text-xs font-mono font-semibold uppercase text-[#5B6166] w-1/4">
                       O que sua operação precisa
                     </th>
-                    <th className="p-4 sm:p-5 text-xs font-mono font-bold uppercase text-[#0E4A55] bg-[#E8A33D]/10 border-x border-[#E8A33D]/30 w-1/3">
+                    <th className="p-4 sm:p-5 text-xs font-mono font-bold uppercase text-white bg-[#0E4A55] border-x border-[#0E4A55] w-1/3">
                       <div className="flex items-center gap-1.5">
                         <Sparkles className="w-3.5 h-3.5 text-[#E8A33D]" />
                         <span>Mont Finance (CFO Terceirizado)</span>
@@ -411,7 +412,7 @@ export function Home() {
                       <td className="p-4 sm:p-5 font-semibold text-[#14181B] align-top">
                         {row.criteria}
                       </td>
-                      <td className="p-4 sm:p-5 bg-[#E8A33D]/05 border-x border-[#E8A33D]/20 text-[#14181B] font-medium align-top leading-relaxed">
+                      <td className="p-4 sm:p-5 bg-[#0E4A55]/06 border-x border-[#0E4A55]/20 text-[#14181B] font-medium align-top leading-relaxed">
                         <div className="flex items-start gap-2">
                           <Check className="w-4 h-4 text-[#2F705B] shrink-0 mt-0.5" />
                           <span>{row.mont}</span>
@@ -443,7 +444,7 @@ export function Home() {
                     {row.criteria}
                   </div>
                   
-                  <div className="p-3 rounded-xl bg-[#E8A33D]/10 border border-[#E8A33D]/30 space-y-1">
+                  <div className="p-3 rounded-xl bg-[#0E4A55]/08 border border-[#0E4A55]/30 space-y-1">
                     <span className="text-[10px] font-mono uppercase font-bold text-[#0E4A55] flex items-center gap-1">
                       <Check className="w-3 h-3 text-[#2F705B]" /> Mont Finance
                     </span>
@@ -470,9 +471,9 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          7. DOIS NÍVEIS DE SERVIÇO & CONTRATÁVEL À PARTE — [SESSÃO ESCURA: Grafite #14181B]
+          7. DOIS NÍVEIS DE SERVIÇO & CONTRATÁVEL À PARTE — [SESSÃO ESCURA: Petróleo Profundo #07252B]
       ========================================================================= */}
-      <section id="niveis" className="py-20 sm:py-28 bg-[#14181B] text-[#F5F3EE] border-b border-[#F5F3EE]/10">
+      <section id="niveis" className="py-20 sm:py-28 bg-[#07252B] text-[#F5F3EE] border-b border-[#0E4A55]/40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -483,7 +484,7 @@ export function Home() {
               Dois níveis de CFO Terceirizado, <br className="hidden sm:inline" />
               <span className="italic font-normal text-[#F5F3EE]">conforme o momento da empresa</span>
             </h2>
-            <p className="text-sm sm:text-base text-[#F5F3EE]/80 font-normal leading-relaxed">
+            <p className="text-sm sm:text-base text-[#F5F3EE]/85 font-normal leading-relaxed">
               Os dois começam pela mesma pergunta: qual é o resultado real do negócio e o que fazer com ele. A diferença está na profundidade do acompanhamento.
             </p>
           </div>
@@ -491,17 +492,17 @@ export function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-14">
             
             {/* Nível 1 — Controladoria */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#1B2024] border border-[#F5F3EE]/10 flex flex-col justify-between hover:border-[#F5F3EE]/25 transition-all shadow-sm">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#0A323A] border border-[#0E4A55]/50 flex flex-col justify-between hover:border-[#0E4A55] transition-all shadow-sm">
               <div>
-                <span className="text-xs font-mono font-medium uppercase tracking-widest text-[#5B6166] block mb-2">
+                <span className="text-xs font-mono font-medium uppercase tracking-widest text-[#A0B1B5] block mb-2">
                   Nível 1
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-serif text-[#F5F3EE] font-normal mb-3">Controladoria</h3>
-                <p className="text-xs sm:text-sm text-[#F5F3EE]/80 font-normal leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-[#F5F3EE]/85 font-normal leading-relaxed mb-6">
                   Visão de CFO sobre os seus números, para você decidir com base em fatos e não em percepção.
                 </p>
 
-                <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-[#F5F3EE]/85">
+                <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-[#F5F3EE]/90">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#E8A33D] shrink-0 mt-0.5" />
                     <span>Plano de contas gerencial pensado para e-commerce</span>
@@ -521,14 +522,14 @@ export function Home() {
                 </ul>
               </div>
 
-              <div className="pt-6 border-t border-[#F5F3EE]/10">
-                <span className="text-xs text-[#5B6166] block mb-5 leading-relaxed">
+              <div className="pt-6 border-t border-[#0E4A55]/40">
+                <span className="text-xs text-[#A0B1B5] block mb-5 leading-relaxed">
                   <strong className="text-[#F5F3EE]/90">Para quem precisa:</strong> enxergar a margem real e o caixa com clareza e ainda não tem essa base confiável.
                 </span>
                 <a 
                   href="#diagnostico" 
                   onClick={() => trackCtaClick("nivel_1_controladoria", "Agendar para Nível 1")}
-                  className="w-full py-3.5 rounded-full bg-transparent hover:bg-[#14181B] border border-[#F5F3EE]/20 hover:border-[#E8A33D]/50 text-[#F5F3EE] text-xs font-semibold uppercase tracking-[0.14em] text-center block transition-all"
+                  className="w-full py-3.5 rounded-full bg-transparent hover:bg-[#07252B] border border-[#0E4A55]/70 hover:border-[#E8A33D]/60 text-[#F5F3EE] text-xs font-semibold uppercase tracking-[0.14em] text-center block transition-all"
                 >
                   Agendar para Nível 1
                 </a>
@@ -536,17 +537,17 @@ export function Home() {
             </div>
 
             {/* Nível 2 — CFO Terceirizado completo */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#1B2024] border border-[#E8A33D]/40 hover:border-[#E8A33D] transition-all flex flex-col justify-between shadow-[0_8px_30px_rgba(232,163,61,0.1)]">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#0A323A] border-2 border-[#E8A33D] transition-all flex flex-col justify-between shadow-[0_8px_30px_rgba(232,163,61,0.15)]">
               <div>
                 <span className="text-xs font-mono font-medium uppercase tracking-widest text-[#E8A33D] block mb-2">
                   Nível 2
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-serif text-[#F5F3EE] font-normal mb-3">CFO Terceirizado completo</h3>
-                <p className="text-xs sm:text-sm text-[#F5F3EE]/80 font-normal leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-[#F5F3EE]/85 font-normal leading-relaxed mb-6">
                   Tudo da Controladoria, mais planejamento financeiro e um CFO como interlocutor direto da sua liderança.
                 </p>
 
-                <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-[#F5F3EE]/85">
+                <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-[#F5F3EE]/90">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#E8A33D] shrink-0 mt-0.5" />
                     <span>Tudo o que está no nível Controladoria</span>
@@ -566,14 +567,14 @@ export function Home() {
                 </ul>
               </div>
 
-              <div className="pt-6 border-t border-[#F5F3EE]/10">
-                <span className="text-xs text-[#5B6166] block mb-5 leading-relaxed">
+              <div className="pt-6 border-t border-[#0E4A55]/40">
+                <span className="text-xs text-[#A0B1B5] block mb-5 leading-relaxed">
                   <strong className="text-[#F5F3EE]/90">Para quem precisa:</strong> já cresce e precisa de planejamento, cenários e um parceiro estratégico nas decisões financeiras.
                 </span>
                 <a 
                   href="#diagnostico" 
                   onClick={() => trackCtaClick("nivel_2_cfo_completo", "Agendar para Nível 2")}
-                  className="w-full py-3.5 rounded-full bg-[#E8A33D] hover:bg-[#D4932D] text-[#14181B] text-xs font-semibold uppercase tracking-[0.14em] text-center block transition-all shadow-[0_4px_16px_rgba(232,163,61,0.25)] hover:shadow-[0_6px_22px_rgba(232,163,61,0.4)]"
+                  className="w-full py-3.5 rounded-full bg-[#E8A33D] hover:bg-[#D4932D] text-[#07252B] text-xs font-semibold uppercase tracking-[0.14em] text-center block transition-all shadow-[0_4px_16px_rgba(232,163,61,0.25)] hover:shadow-[0_6px_22px_rgba(232,163,61,0.4)]"
                 >
                   Agendar para Nível 2
                 </a>
@@ -583,25 +584,25 @@ export function Home() {
           </div>
 
           {/* Bloco Curto: Contratável à parte */}
-          <div className="max-w-5xl mx-auto p-6 sm:p-8 rounded-3xl bg-[#14181B]/80 border border-[#F5F3EE]/10">
+          <div className="max-w-5xl mx-auto p-6 sm:p-8 rounded-3xl bg-[#051C21] border border-[#0E4A55]/50 shadow-sm">
             <div className="mb-6">
               <span className="text-xs font-mono uppercase tracking-widest text-[#E8A33D] font-medium block mb-1">
                 Contratável à parte
               </span>
-              <p className="text-xs text-[#5B6166] font-normal">
+              <p className="text-xs text-[#A0B1B5] font-normal">
                 Frentes especializadas que podem ser acionadas de acordo com as necessidades específicas da sua empresa.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Inteligência Tributária */}
-              <div className="p-6 rounded-2xl bg-[#1B2024] border border-[#F5F3EE]/10 flex flex-col justify-between">
+              <div className="p-6 rounded-2xl bg-[#0A323A] border border-[#0E4A55]/40 flex flex-col justify-between">
                 <div>
                   <h4 className="text-lg font-serif text-[#F5F3EE] font-normal mb-2">Inteligência Tributária</h4>
-                  <p className="text-xs text-[#F5F3EE]/80 font-normal leading-relaxed mb-4">
+                  <p className="text-xs text-[#F5F3EE]/85 font-normal leading-relaxed mb-4">
                     Revisão de créditos e riscos, planejamento e estrutura tributária, sempre conectados ao efeito em preço, margem e caixa.
                   </p>
-                  <ul className="space-y-2 mb-4 text-xs text-[#5B6166]">
+                  <ul className="space-y-2 mb-4 text-xs text-[#A0B1B5]">
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
                       Levantamento de possíveis créditos tributários
@@ -615,27 +616,27 @@ export function Home() {
                       Tributação na formação de preço por canal
                     </li>
                   </ul>
-                  <p className="text-[11px] text-[#5B6166] italic mb-4 leading-relaxed">
+                  <p className="text-[11px] text-[#A0B1B5] italic mb-4 leading-relaxed">
                     *Cada análise depende do caso concreto e de validação técnica. Não há resultado garantido.
                   </p>
                 </div>
                 <a 
                   href="#diagnostico" 
                   onClick={() => trackCtaClick("contratavel_tributario", "Consultar Inteligência Tributária")}
-                  className="text-xs font-semibold text-[#E8A33D] hover:text-[#F5F3EE] inline-flex items-center gap-1.5 transition-colors pt-3 border-t border-[#F5F3EE]/10"
+                  className="text-xs font-semibold text-[#E8A33D] hover:text-[#F5F3EE] inline-flex items-center gap-1.5 transition-colors pt-3 border-t border-[#0E4A55]/40"
                 >
                   Consultar no diagnóstico <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
 
               {/* Captação de Recursos */}
-              <div className="p-6 rounded-2xl bg-[#1B2024] border border-[#F5F3EE]/10 flex flex-col justify-between">
+              <div className="p-6 rounded-2xl bg-[#0A323A] border border-[#0E4A55]/40 flex flex-col justify-between">
                 <div>
                   <h4 className="text-lg font-serif text-[#F5F3EE] font-normal mb-2">Captação de Recursos</h4>
-                  <p className="text-xs text-[#F5F3EE]/80 font-normal leading-relaxed mb-4">
+                  <p className="text-xs text-[#F5F3EE]/85 font-normal leading-relaxed mb-4">
                     Diagnóstico da necessidade de capital, organização dos números e preparação para conversar com instituições financeiras.
                   </p>
-                  <ul className="space-y-2 mb-4 text-xs text-[#5B6166]">
+                  <ul className="space-y-2 mb-4 text-xs text-[#A0B1B5]">
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
                       Diagnóstico do endividamento e do custo do capital
@@ -649,14 +650,14 @@ export function Home() {
                       Relacionamento com bancos e outras instituições
                     </li>
                   </ul>
-                  <p className="text-[11px] text-[#5B6166] italic mb-4 leading-relaxed">
+                  <p className="text-[11px] text-[#A0B1B5] italic mb-4 leading-relaxed">
                     *Aprovação, taxas e prazos dependem de cada instituição e do perfil da empresa.
                   </p>
                 </div>
                 <a 
                   href="#diagnostico" 
                   onClick={() => trackCtaClick("contratavel_capital", "Consultar Captação de Recursos")}
-                  className="text-xs font-semibold text-[#E8A33D] hover:text-[#F5F3EE] inline-flex items-center gap-1.5 transition-colors pt-3 border-t border-[#F5F3EE]/10"
+                  className="text-xs font-semibold text-[#E8A33D] hover:text-[#F5F3EE] inline-flex items-center gap-1.5 transition-colors pt-3 border-t border-[#0E4A55]/40"
                 >
                   Consultar no diagnóstico <ArrowRight className="w-3.5 h-3.5" />
                 </a>
@@ -702,7 +703,7 @@ export function Home() {
                   {/* Dados (D) - Top Right */}
                   <div className="absolute top-[26%] right-[26%] translate-x-1/2 -translate-y-1/2">
                     <div className="relative flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-[#E8A33D] text-[#14181B] flex items-center justify-center text-3xl font-serif font-bold shadow-md border-4 border-[#F5F3EE] z-10">
+                      <div className="w-16 h-16 rounded-full bg-[#0E4A55] text-[#F5F3EE] flex items-center justify-center text-3xl font-serif font-bold shadow-md border-4 border-[#F5F3EE] z-10 ring-2 ring-[#E8A33D]/50">
                         D
                       </div>
                       <div className="absolute left-full ml-4 text-left w-[180px]">
@@ -716,7 +717,7 @@ export function Home() {
                   {/* Análise (A) - Bottom Right */}
                   <div className="absolute bottom-[26%] right-[26%] translate-x-1/2 translate-y-1/2">
                     <div className="relative flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-[#E8A33D] text-[#14181B] flex items-center justify-center text-3xl font-serif font-bold shadow-md border-4 border-[#F5F3EE] z-10">
+                      <div className="w-16 h-16 rounded-full bg-[#0E4A55] text-[#F5F3EE] flex items-center justify-center text-3xl font-serif font-bold shadow-md border-4 border-[#F5F3EE] z-10 ring-2 ring-[#E8A33D]/50">
                         A
                       </div>
                       <div className="absolute left-full ml-4 text-left w-[180px]">
@@ -730,7 +731,7 @@ export function Home() {
                   {/* Planejamento (P) - Bottom Left */}
                   <div className="absolute bottom-[26%] left-[26%] -translate-x-1/2 translate-y-1/2">
                     <div className="relative flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-[#E8A33D] text-[#14181B] flex items-center justify-center text-3xl font-serif font-bold shadow-md border-4 border-[#F5F3EE] z-10">
+                      <div className="w-16 h-16 rounded-full bg-[#0E4A55] text-[#F5F3EE] flex items-center justify-center text-3xl font-serif font-bold shadow-md border-4 border-[#F5F3EE] z-10 ring-2 ring-[#E8A33D]/50">
                         P
                       </div>
                       <div className="absolute right-full mr-4 text-right w-[180px]">
@@ -744,7 +745,7 @@ export function Home() {
                   {/* Execução (E) - Top Left */}
                   <div className="absolute top-[26%] left-[26%] -translate-x-1/2 -translate-y-1/2">
                     <div className="relative flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-[#E8A33D] text-[#14181B] flex items-center justify-center text-3xl font-serif font-bold shadow-md border-4 border-[#F5F3EE] z-10">
+                      <div className="w-16 h-16 rounded-full bg-[#0E4A55] text-[#F5F3EE] flex items-center justify-center text-3xl font-serif font-bold shadow-md border-4 border-[#F5F3EE] z-10 ring-2 ring-[#E8A33D]/50">
                         E
                       </div>
                       <div className="absolute right-full mr-4 text-right w-[180px]">
@@ -766,7 +767,7 @@ export function Home() {
                   { letter: "E", title: "Execução", sub: "Resultados", desc: "Acompanhamos a implementação e ajustamos o rumo com base contínua nos números." },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-white border border-[#14181B]/10 shadow-sm">
-                    <div className="w-11 h-11 rounded-full bg-[#E8A33D] text-[#14181B] flex items-center justify-center text-xl font-serif font-bold shrink-0">
+                    <div className="w-11 h-11 rounded-full bg-[#0E4A55] text-[#F5F3EE] flex items-center justify-center text-xl font-serif font-bold shrink-0 ring-2 ring-[#E8A33D]/40">
                       {item.letter}
                     </div>
                     <div>
@@ -788,7 +789,7 @@ export function Home() {
                 { title: "Gestão Ágil", desc: "Processos dinâmicos que eliminam gargalos operacionais e aceleram a tomada de decisão." },
                 { title: "Melhoria Contínua", desc: "Ações e indicadores são constantemente ajustados em busca da rentabilidade do caixa." }
               ].map((item, i) => (
-                <div key={i} className="p-5 rounded-2xl bg-white border border-[#14181B]/10 hover:border-[#E8A33D] shadow-sm transition-all text-left">
+                <div key={i} className="p-5 rounded-2xl bg-white border border-[#14181B]/10 hover:border-[#0E4A55] shadow-sm transition-all text-left">
                   <div className="text-[#0E4A55] font-serif text-base mb-1">{item.title}</div>
                   <p className="text-[#5B6166] text-xs font-normal leading-relaxed">{item.desc}</p>
                 </div>
@@ -801,9 +802,9 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          9. QUEM CONDUZ (Leander Venâncio) — [SESSÃO ESCURA: Grafite #14181B]
+          9. QUEM CONDUZ (Leander Venâncio) — [SESSÃO ESCURA: Petróleo Profundo #07252B]
       ========================================================================= */}
-      <section id="quem-conduz" className="py-20 sm:py-28 bg-[#14181B] text-[#F5F3EE] border-b border-[#F5F3EE]/10">
+      <section id="quem-conduz" className="py-20 sm:py-28 bg-[#07252B] text-[#F5F3EE] border-b border-[#0E4A55]/40">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -813,15 +814,15 @@ export function Home() {
             <h2 className="text-3xl sm:text-4xl font-serif text-[#F5F3EE] font-normal mb-4">
               Quem conduz o advisory
             </h2>
-            <p className="text-xs sm:text-sm text-[#5B6166] font-normal leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#A0B1B5] font-normal leading-relaxed">
               Experiência executiva direta ao lado de fundadores e líderes de empresas em crescimento.
             </p>
           </div>
 
-          <div className="p-8 sm:p-12 rounded-3xl bg-[#1B2024] border border-[#F5F3EE]/10 flex flex-col md:flex-row items-center gap-8 md:gap-12 shadow-sm">
+          <div className="p-8 sm:p-12 rounded-3xl bg-[#0A323A] border border-[#0E4A55]/50 flex flex-col md:flex-row items-center gap-8 md:gap-12 shadow-sm">
             
             <div className="shrink-0 relative">
-              <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border border-[#E8A33D]/30 bg-black/40 shadow-xl relative">
+              <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden border border-[#E8A33D]/40 bg-[#07252B] shadow-2xl relative">
                 <img 
                   src="/assets/Foto Leander (2).png" 
                   alt="Leander Venâncio" 
@@ -839,18 +840,18 @@ export function Home() {
               </h3>
               
               <div className="flex flex-wrap gap-2 mb-5">
-                <span className="px-2.5 py-1 rounded bg-[#14181B] border border-[#F5F3EE]/10 text-[#F5F3EE]/85 text-[11px] font-mono">
+                <span className="px-2.5 py-1 rounded bg-[#07252B] border border-[#0E4A55]/60 text-[#F5F3EE]/90 text-[11px] font-mono">
                   FGV Finanças
                 </span>
-                <span className="px-2.5 py-1 rounded bg-[#14181B] border border-[#F5F3EE]/10 text-[#F5F3EE]/85 text-[11px] font-mono">
+                <span className="px-2.5 py-1 rounded bg-[#07252B] border border-[#0E4A55]/60 text-[#F5F3EE]/90 text-[11px] font-mono">
                   UFG Engenharia
                 </span>
-                <span className="px-2.5 py-1 rounded bg-[#14181B] border border-[#F5F3EE]/10 text-[#F5F3EE]/85 text-[11px] font-mono">
+                <span className="px-2.5 py-1 rounded bg-[#07252B] border border-[#0E4A55]/60 text-[#F5F3EE]/90 text-[11px] font-mono">
                   +10 anos em gestão financeira
                 </span>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#F5F3EE]/80 font-normal leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-[#F5F3EE]/85 font-normal leading-relaxed mb-6">
                 Mais de 10 anos atuando diretamente ao lado de empresários na organização de números, recomposição de margens e estruturação de capital. Combina o rigor técnico da engenharia com a visão estratégica financeira para transformar a tomada de decisão no e-commerce.
               </p>
 

@@ -199,22 +199,22 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
 
   const containerClass = isLight
     ? "bg-white border border-[#14181B]/10 p-6 sm:p-8 rounded-2xl shadow-xl text-[#14181B]"
-    : "bg-[#1B2024] border border-[#F5F3EE]/10 p-6 sm:p-8 rounded-2xl shadow-xl text-[#F5F3EE]";
+    : "bg-[#0A323A] border border-[#0E4A55]/50 p-6 sm:p-8 rounded-2xl shadow-xl text-[#F5F3EE]";
 
   const inputClass = isLight
-    ? "w-full px-4 py-3.5 bg-[#F5F3EE]/60 border border-[#14181B]/15 text-[#14181B] placeholder:text-[#5B6166] placeholder:text-xs focus:border-[#E8A33D] focus:bg-white focus:outline-none transition-colors rounded-xl font-normal text-xs"
-    : "w-full px-4 py-3.5 bg-[#14181B] border border-[#F5F3EE]/10 text-[#F5F3EE] placeholder:text-[#5B6166] placeholder:text-xs focus:border-[#E8A33D] focus:outline-none transition-colors rounded-xl font-normal text-xs";
+    ? "w-full px-4 py-3.5 bg-[#F5F3EE]/60 border border-[#14181B]/15 text-[#14181B] placeholder:text-[#5B6166] placeholder:text-xs focus:border-[#0E4A55] focus:bg-white focus:outline-none transition-colors rounded-xl font-normal text-xs"
+    : "w-full px-4 py-3.5 bg-[#07252B] border border-[#0E4A55]/40 text-[#F5F3EE] placeholder:text-[#A0B1B5] placeholder:text-xs focus:border-[#E8A33D] focus:outline-none transition-colors rounded-xl font-normal text-xs";
 
   const labelClass = isLight
     ? "text-[11px] font-mono text-[#5B6166] block mb-1 font-medium"
-    : "text-[11px] font-mono text-[#5B6166] block mb-1 font-medium";
+    : "text-[11px] font-mono text-[#A0B1B5] block mb-1 font-medium";
 
   // =========================================================================
   // TELA DE SUCESSO CONFIRMADO
   // =========================================================================
   if (status === "success") {
     return (
-      <div className={isLight ? "bg-white border border-[#E8A33D]/40 p-8 sm:p-10 rounded-2xl shadow-xl text-center" : "bg-[#1B2024] border border-[#E8A33D]/40 p-8 sm:p-10 rounded-2xl shadow-xl text-center"}>
+      <div className={isLight ? "bg-white border border-[#E8A33D]/40 p-8 sm:p-10 rounded-2xl shadow-xl text-center" : "bg-[#0A323A] border border-[#E8A33D]/40 p-8 sm:p-10 rounded-2xl shadow-xl text-center"}>
         <div className="w-14 h-14 rounded-full bg-[#E8A33D]/15 border border-[#E8A33D]/40 text-[#E8A33D] flex items-center justify-center mx-auto mb-5">
           <CheckCircle2 className="w-8 h-8" />
         </div>
@@ -260,7 +260,7 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
   // =========================================================================
   if (status === "error") {
     return (
-      <div className={isLight ? "bg-white border border-[#B5412F]/30 p-8 sm:p-10 rounded-2xl shadow-xl text-center" : "bg-[#1B2024] border border-[#B5412F]/30 p-8 sm:p-10 rounded-2xl shadow-xl text-center"}>
+      <div className={isLight ? "bg-white border border-[#B5412F]/30 p-8 sm:p-10 rounded-2xl shadow-xl text-center" : "bg-[#0A323A] border border-[#B5412F]/30 p-8 sm:p-10 rounded-2xl shadow-xl text-center"}>
         <div className="w-14 h-14 rounded-full bg-[#B5412F]/10 border border-[#B5412F]/30 text-[#B5412F] flex items-center justify-center mx-auto mb-5">
           <AlertCircle className="w-8 h-8" />
         </div>
@@ -459,17 +459,17 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-3.5 rounded-xl bg-[#E8A33D] text-[#14181B] hover:bg-[#D4932D] text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-[0_4px_16px_rgba(232,163,61,0.25)] hover:shadow-[0_6px_22px_rgba(232,163,61,0.4)] hover:-translate-y-0.5 active:translate-y-0"
+        className="w-full py-3.5 rounded-xl bg-[#E8A33D] text-[#07252B] hover:bg-[#D4932D] text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-[0_4px_16px_rgba(232,163,61,0.25)] hover:shadow-[0_6px_22px_rgba(232,163,61,0.4)] hover:-translate-y-0.5 active:translate-y-0"
       >
         {isSubmitting ? (
           <>
-            <Loader2 className="w-3.5 h-3.5 animate-spin text-[#14181B]" />
+            <Loader2 className="w-3.5 h-3.5 animate-spin text-[#07252B]" />
             <span>Processando...</span>
           </>
         ) : (
           <>
             <span>Agendar diagnóstico</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#14181B]" />
+            <ArrowRight className="w-3.5 h-3.5 text-[#07252B]" />
           </>
         )}
       </button>

@@ -7,24 +7,30 @@
   --font-display: "Instrument Serif", Georgia, serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   
-  --color-grafite: #14181B;
   --color-petroleo: #0E4A55;
-  --color-petroleo-dark: #09343C;
-  --color-petroleo-light: #166473;
+  --color-petroleo-deep: #07252B;
+  --color-petroleo-dark: #0A323A;
+  --color-petroleo-surface: #0F434D;
+  --color-petroleo-hover: #13525E;
+  --color-petroleo-light: #186D7D;
+  
   --color-papel: #F5F3EE;
+  --color-papel-card: #FFFFFF;
   --color-ambar: #E8A33D;
   --color-ambar-hover: #D4932D;
   --color-ambar-subtle: rgba(232, 163, 61, 0.12);
+  
+  --color-grafite: #14181B;
   --color-lucro: #2F705B;
   --color-alerta: #B5412F;
   --color-pedra: #5B6166;
   --color-nevoa: #E2DED4;
   
-  --color-obsidian: #14181B;
-  --color-surface: #1B2024;
-  --color-surface-hover: #22292E;
-  --color-border-subtle: rgba(245, 243, 238, 0.08);
-  --color-border-active: rgba(232, 163, 61, 0.35);
+  --color-obsidian: #07252B;
+  --color-surface: #0A323A;
+  --color-surface-hover: #0F434D;
+  --color-border-subtle: rgba(245, 243, 238, 0.1);
+  --color-border-active: rgba(232, 163, 61, 0.4);
   
   --color-accent-premium: #E8A33D;
   --color-accent-muted: #C98A2C;
@@ -33,7 +39,7 @@
 
 @layer base {
   body {
-    @apply font-sans text-[#F5F3EE] bg-[#14181B] antialiased selection:bg-[#E8A33D] selection:text-[#14181B];
+    @apply font-sans text-[#F5F3EE] bg-[#07252B] antialiased selection:bg-[#E8A33D] selection:text-[#07252B];
   }
 
   h1, h2, h3, h4, h5, h6 {

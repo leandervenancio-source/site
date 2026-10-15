@@ -19,7 +19,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300",
         scrolled
-          ? "bg-[#14181B]/90 backdrop-blur-xl border-b border-[#F5F3EE]/10 py-3.5 shadow-sm"
+          ? "bg-[#07252B]/95 backdrop-blur-xl border-b border-[#0E4A55]/60 py-3.5 shadow-md"
           : "bg-transparent py-5"
       )}
     >
@@ -39,10 +39,10 @@ export function Navbar() {
             <a
               href="#diagnostico"
               onClick={() => trackCtaClick("navbar", "Agendar diagnóstico")}
-              className="px-5 py-2.5 rounded-full bg-[#E8A33D] hover:bg-[#D4932D] text-[#14181B] text-xs font-semibold uppercase tracking-wider transition-all shadow-[0_2px_12px_rgba(232,163,61,0.25)] hover:shadow-[0_4px_20px_rgba(232,163,61,0.4)] flex items-center gap-1.5"
+              className="px-5 py-2.5 rounded-full bg-[#E8A33D] hover:bg-[#D4932D] text-[#07252B] text-xs font-semibold uppercase tracking-wider transition-all shadow-[0_2px_12px_rgba(232,163,61,0.25)] hover:shadow-[0_4px_20px_rgba(232,163,61,0.4)] flex items-center gap-1.5"
             >
               <span>Agendar diagnóstico</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#14181B]" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#07252B]" />
             </a>
           </div>
         </div>
