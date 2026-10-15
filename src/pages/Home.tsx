@@ -7,8 +7,6 @@ import {
   AlertTriangle, 
   Check, 
   X,
-  Phone, 
-  Mail,
   Linkedin,
   ShieldCheck,
   Target,
@@ -16,7 +14,7 @@ import {
 } from "lucide-react";
 import { DiagnosticForm } from "../components/DiagnosticForm";
 import { FinancialCockpit } from "../components/FinancialCockpit";
-import { trackCtaClick, trackWhatsAppClick } from "../lib/analytics";
+import { trackCtaClick } from "../lib/analytics";
 
 export function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -936,34 +934,6 @@ export function Home() {
                     <span className="text-xs text-slate-500 leading-relaxed block">Indicamos se o seu momento pede Controladoria, CFO completo ou outra frente.</span>
                   </div>
                 </div>
-              </div>
-
-              {/* Caixa de Contato Direto */}
-              <div className="p-6 rounded-2xl bg-white border border-slate-200/90 space-y-3.5 text-xs text-slate-600 shadow-sm">
-                <a 
-                  href="https://wa.me/5562999200405" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  onClick={() => trackWhatsAppClick("diagnostic_contact_box")}
-                  className="flex items-center gap-3 text-slate-800 hover:text-[#0E4A55] font-bold transition-colors"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <span>WhatsApp direto: (62) 99920-0405</span>
-                </a>
-                <a 
-                  href="mailto:contato@montgestao.com.br" 
-                  className="flex items-center gap-3 text-slate-800 hover:text-[#0E4A55] font-bold transition-colors break-all"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-amber-50 text-[#E8A33D] flex items-center justify-center">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  <span>E-mail: contato@montgestao.com.br</span>
-                </a>
-                <p className="text-[11px] text-slate-400 pt-2 leading-relaxed border-t border-slate-100">
-                  *Os resultados variam conforme o caso de cada empresa. Nenhum resultado é garantido.
-                </p>
               </div>
             </div>
 
