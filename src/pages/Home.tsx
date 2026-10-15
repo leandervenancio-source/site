@@ -52,17 +52,17 @@ export function Home() {
     {
       frontNumber: "01",
       title: "Finanças",
-      desc: "DRE gerencial, margem por canal e por produto, fluxo de caixa, estoque e giro, orçamento e indicadores que sustentam a decisão."
+      desc: "DRE gerencial, margem por canal e por produto, fluxo de caixa, inteligência tributária, estoque e giro, e indicadores que sustentam a operação."
     },
     {
       frontNumber: "02",
-      title: "Tributação",
-      desc: "Créditos, riscos e estrutura tributária vistos pelo efeito em preço, margem e caixa."
+      title: "Estratégia",
+      desc: "Planejamento financeiro, cenários de crescimento, forecast, orçamento e alinhamento executivo para transformar metas em lucro e caixa."
     },
     {
       frontNumber: "03",
       title: "Capital",
-      desc: "Quanto de capital a operação precisa, de que forma captar e como chegar preparado aos bancos."
+      desc: "Quanto de capital a operação precisa, estrutura do ciclo financeiro, de que forma captar e como chegar preparado aos bancos."
     }
   ];
 
@@ -81,9 +81,9 @@ export function Home() {
     },
     {
       criteria: "Três Frentes Integradas",
-      mont: "Finanças, Tributação e Capital analisados juntos para maximizar margem e preservar caixa.",
-      bpo: "Olha apenas a guia de imposto a pagar, sem analisar o impacto tributário na margem por canal.",
-      consultoria: "Analisa custos isolados sem conexão com planejamento tributário e crédito bancário."
+      mont: "Finanças, Estratégia e Capital analisados juntos para maximizar margem, clareza e caixa.",
+      bpo: "Olha apenas a guia de imposto a pagar, sem visão estratégica ou análise de margem por canal.",
+      consultoria: "Analisa custos isolados sem conexão com estratégia prática e crédito bancário."
     },
     {
       criteria: "Rotina e Acompanhamento",
@@ -106,19 +106,19 @@ export function Home() {
     },
     {
       q: "A Mont Finance substitui a minha contabilidade?",
-      a: "Não. A contabilidade cuida das obrigações fiscais e legais. A Mont Finance trabalha ao lado dela, usando os números para apoiar decisões de finanças, tributação e capital."
+      a: "Não. A contabilidade cuida das obrigações fiscais e legais. A Mont Finance trabalha ao lado dela, usando os números para apoiar decisões de finanças, estratégia e capital."
     },
     {
       q: "Qual a diferença entre Controladoria e CFO Terceirizado completo?",
-      a: "A Controladoria entrega a base de decisão: DRE gerencial, fluxo de caixa e indicadores. O CFO Terceirizado completo soma planejamento (orçamento, forecast e variância) e a interlocução estratégica direta com o CFO."
+      a: "A Controladoria entrega a base de decisão: DRE gerencial, fluxo de caixa e indicadores. O CFO Terceirizado completo soma planejamento estratégico (orçamento, forecast e variância) e a interlocução direta com o CFO."
     },
     {
       q: "Preciso ter uma estrutura financeira pronta para começar?",
       a: "Não. Parte do trabalho é organizar os dados. Quanto mais informação você tiver, mais rápido avançamos, mas o diagnóstico existe justamente para mostrar o ponto de partida."
     },
     {
-      q: "Vocês também atuam com impostos e crédito?",
-      a: "Sim, como serviços contratados à parte: Inteligência Tributária e Captação de Recursos. Tributos e capital afetam diretamente margem e caixa, por isso aparecem conectados à análise financeira."
+      q: "Vocês também atuam com tributação e crédito?",
+      a: "Sim. A Inteligência Tributária é uma subárea especializada dentro de Finanças (e pode ser aprofundada como trabalho específico), enquanto a Captação de Recursos compõe a frente de Capital. Ambas conectadas à estratégia e ao resultado real do seu negócio."
     },
     {
       q: "O diagnóstico garante algum resultado?",
@@ -160,7 +160,7 @@ export function Home() {
 
           {/* Frase Central Nova */}
           <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed mb-10 max-w-3xl mx-auto">
-            A Mont Finance é o CFO Terceirizado que integra finanças, tributação e capital para aumentar lucro, gerar caixa e reduzir riscos na sua operação.
+            A Mont Finance é o CFO Terceirizado que integra finanças, estratégia e capital para aumentar lucro, gerar caixa e reduzir riscos na sua operação.
           </p>
 
           {/* CTAs de Alto Impacto Estilo Growth Machine */}
@@ -212,7 +212,7 @@ export function Home() {
                 3 Frentes
               </span>
               <span className="text-xs text-slate-400 font-medium leading-snug block">
-                Finanças, tributação e capital na mesma mesa
+                Finanças, estratégia e capital na mesma mesa
               </span>
             </div>
 
@@ -330,7 +330,7 @@ export function Home() {
               <span className="text-[#0E4A55]">tratadas juntas</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-              Na maioria das empresas, finanças, tributação e capital são tocadas por pessoas diferentes, que nem sempre conversam. Um CFO Terceirizado coloca tudo na mesma mesa.
+              Na maioria das empresas, finanças, estratégia e capital são tocadas por pessoas diferentes, que nem sempre conversam. Um CFO Terceirizado coloca tudo na mesma mesa.
             </p>
           </div>
 
@@ -373,7 +373,7 @@ export function Home() {
           {/* Fechamento da Seção Três Frentes (Banner Callout Moderno) */}
           <div className="p-6 sm:p-8 rounded-3xl bg-white border-l-4 border-l-[#0E4A55] border border-slate-200/90 shadow-sm max-w-4xl mx-auto mb-24">
             <p className="text-sm sm:text-base text-slate-800 font-semibold italic leading-relaxed text-center">
-              "O imposto muda o preço que você pode praticar. O prazo de recebimento muda o capital de giro que você precisa. O capital muda o quanto dá para crescer. A diferença está em enxergar essas três frentes ao mesmo tempo."
+              "A estratégia orienta as decisões e o rumo do negócio. As finanças e a inteligência tributária definem a margem real e a sustentabilidade. O capital viabiliza o ritmo de expansão. A diferença está em enxergar essas três frentes ao mesmo tempo."
             </p>
           </div>
 
@@ -633,11 +633,16 @@ export function Home() {
               {/* Inteligência Tributária */}
               <div className="p-6 sm:p-8 rounded-2xl bg-[#0A272D] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xl font-extrabold text-white tracking-tight mb-2">
-                    Inteligência Tributária
-                  </h4>
+                  <div className="flex items-center gap-2 mb-2 flex-wrap">
+                    <h4 className="text-xl font-extrabold text-white tracking-tight">
+                      Inteligência Tributária
+                    </h4>
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8A33D]/20 text-[#F5B85D]">
+                      Subárea de Finanças
+                    </span>
+                  </div>
                   <p className="text-xs text-slate-300 font-normal leading-relaxed mb-5">
-                    Revisão de créditos e riscos, planejamento e estrutura tributária, sempre conectados ao efeito em preço, margem e caixa.
+                    Como subárea integrada a Finanças, atua na revisão de créditos e riscos, planejamento e estrutura tributária, sempre conectados ao efeito em preço, margem e caixa.
                   </p>
                   <ul className="space-y-2.5 mb-5 text-xs text-slate-300">
                     <li className="flex items-center gap-2">

@@ -16,7 +16,7 @@ export function Footer() {
               />
             </a>
             <p className="text-xs text-slate-400 max-w-sm font-normal leading-relaxed mb-6">
-              CFO Terceirizado para empresas de e-commerce: finanças, tributação e capital integrados para aumentar lucro, gerar caixa e reduzir riscos.
+              CFO Terceirizado para empresas de e-commerce: finanças, estratégia e capital integrados para aumentar lucro, gerar caixa e reduzir riscos.
             </p>
             <div className="flex space-x-2.5">
               <a 
@@ -44,7 +44,7 @@ export function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4">Três Frentes</h3>
             <ul className="space-y-2.5 text-xs text-slate-400">
               <li><a href="#frentes" className="hover:text-[#F5B85D] transition-colors">Finanças</a></li>
-              <li><a href="#frentes" className="hover:text-[#F5B85D] transition-colors">Tributação</a></li>
+              <li><a href="#frentes" className="hover:text-[#F5B85D] transition-colors">Estratégia</a></li>
               <li><a href="#frentes" className="hover:text-[#F5B85D] transition-colors">Capital</a></li>
             </ul>
           </div>
