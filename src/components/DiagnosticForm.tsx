@@ -20,7 +20,11 @@ interface FormErrors {
   lgpdConsent?: string;
 }
 
-export function DiagnosticForm() {
+interface DiagnosticFormProps {
+  theme?: "dark" | "light";
+}
+
+export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
   const [formData, setFormData] = useState<FormDataState>({
     name: "",
     email: "",
@@ -191,15 +195,26 @@ export function DiagnosticForm() {
   );
   const waUrl = `https://wa.me/5562999200405?text=${waMessage}`;
 
-  const inputClass =
-    "w-full px-4 py-3.5 bg-[#14181B] border border-[#F5F3EE]/10 text-[#F5F3EE] placeholder:text-[#5B6166] placeholder:text-xs focus:border-[#E8A33D] focus:outline-none transition-colors rounded-xl font-normal text-xs";
+  const isLight = theme === "light";
+
+  const containerClass = isLight
+    ? "bg-white border border-[#14181B]/10 p-6 sm:p-8 rounded-2xl shadow-xl text-[#14181B]"
+    : "bg-[#1B2024] border border-[#F5F3EE]/10 p-6 sm:p-8 rounded-2xl shadow-xl text-[#F5F3EE]";
+
+  const inputClass = isLight
+    ? "w-full px-4 py-3.5 bg-[#F5F3EE]/60 border border-[#14181B]/15 text-[#14181B] placeholder:text-[#5B6166] placeholder:text-xs focus:border-[#E8A33D] focus:bg-white focus:outline-none transition-colors rounded-xl font-normal text-xs"
+    : "w-full px-4 py-3.5 bg-[#14181B] border border-[#F5F3EE]/10 text-[#F5F3EE] placeholder:text-[#5B6166] placeholder:text-xs focus:border-[#E8A33D] focus:outline-none transition-colors rounded-xl font-normal text-xs";
+
+  const labelClass = isLight
+    ? "text-[11px] font-mono text-[#5B6166] block mb-1 font-medium"
+    : "text-[11px] font-mono text-[#5B6166] block mb-1 font-medium";
 
   // =========================================================================
   // TELA DE SUCESSO CONFIRMADO
   // =========================================================================
   if (status === "success") {
     return (
-      <div className="bg-[#1B2024] border border-[#E8A33D]/40 p-8 sm:p-10 rounded-2xl shadow-xl text-center">
+      <div className={isLight ? "bg-white border border-[#E8A33D]/40 p-8 sm:p-10 rounded-2xl shadow-xl text-center" : "bg-[#1B2024] border border-[#E8A33D]/40 p-8 sm:p-10 rounded-2xl shadow-xl text-center"}>
         <div className="w-14 h-14 rounded-full bg-[#E8A33D]/15 border border-[#E8A33D]/40 text-[#E8A33D] flex items-center justify-center mx-auto mb-5">
           <CheckCircle2 className="w-8 h-8" />
         </div>
@@ -207,15 +222,15 @@ export function DiagnosticForm() {
         <span className="text-[11px] font-mono uppercase tracking-widest text-[#E8A33D] block mb-2 font-medium">
           Confirmação de recebimento
         </span>
-        <h3 className="text-2xl sm:text-3xl font-serif text-[#F5F3EE] font-normal mb-3">
+        <h3 className={`text-2xl sm:text-3xl font-serif font-normal mb-3 ${isLight ? "text-[#14181B]" : "text-[#F5F3EE]"}`}>
           Cadastro recebido, {firstName}.
         </h3>
-        <p className="text-sm text-[#F5F3EE]/80 font-normal leading-relaxed max-w-md mx-auto mb-6">
+        <p className={`text-sm font-normal leading-relaxed max-w-md mx-auto mb-6 ${isLight ? "text-[#5B6166]" : "text-[#F5F3EE]/80"}`}>
           Um especialista da Mont Finance vai entrar em contato para combinar o diagnóstico da sua operação.
         </p>
 
         {isUnder3M && (
-          <div className="mb-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-200/90 text-xs text-left leading-relaxed">
+          <div className="mb-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-800 text-xs text-left leading-relaxed">
             <strong>Observação sobre o faturamento:</strong> Nosso modelo de CFO Terceirizado é prioritariamente desenhado para operações acima de R$ 3 milhões/ano. Ainda assim, nossa equipe analisará o seu caso com atenção.
           </div>
         )}
@@ -241,11 +256,11 @@ export function DiagnosticForm() {
   }
 
   // =========================================================================
-  // TELA DE FALLBACK / FALHA (NÃO MOSTRAR SUCESSO SE AMBOS FALHAREM)
+  // TELA DE FALLBACK / FALHA
   // =========================================================================
   if (status === "error") {
     return (
-      <div className="bg-[#1B2024] border border-[#B5412F]/30 p-8 sm:p-10 rounded-2xl shadow-xl text-center">
+      <div className={isLight ? "bg-white border border-[#B5412F]/30 p-8 sm:p-10 rounded-2xl shadow-xl text-center" : "bg-[#1B2024] border border-[#B5412F]/30 p-8 sm:p-10 rounded-2xl shadow-xl text-center"}>
         <div className="w-14 h-14 rounded-full bg-[#B5412F]/10 border border-[#B5412F]/30 text-[#B5412F] flex items-center justify-center mx-auto mb-5">
           <AlertCircle className="w-8 h-8" />
         </div>
@@ -253,10 +268,10 @@ export function DiagnosticForm() {
         <span className="text-[11px] font-mono uppercase tracking-widest text-[#B5412F] block mb-2 font-medium">
           Falta só um passo
         </span>
-        <h3 className="text-2xl font-serif text-[#F5F3EE] font-normal mb-3">
+        <h3 className={`text-2xl font-serif font-normal mb-3 ${isLight ? "text-[#14181B]" : "text-[#F5F3EE]"}`}>
           Finalize seu contato diretamente
         </h3>
-        <p className="text-xs text-[#F5F3EE]/80 font-normal leading-relaxed max-w-md mx-auto mb-6">
+        <p className={`text-xs font-normal leading-relaxed max-w-md mx-auto mb-6 ${isLight ? "text-[#5B6166]" : "text-[#F5F3EE]/80"}`}>
           Houve uma oscilação na rede e seus dados não foram salvos automaticamente. Para não perder tempo, você pode falar direto com nosso especialista pelo WhatsApp com os dados preenchidos ou nos enviar um e-mail:
         </p>
 
@@ -274,7 +289,9 @@ export function DiagnosticForm() {
 
           <a
             href="mailto:contato@montgestao.com.br"
-            className="w-full py-3.5 rounded-xl bg-[#14181B] hover:bg-white/[0.04] text-[#F5F3EE] border border-[#F5F3EE]/10 text-xs font-semibold flex items-center justify-center gap-2 transition-colors"
+            className={`w-full py-3.5 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 transition-colors ${
+              isLight ? "bg-[#F5F3EE] hover:bg-[#EAE6DD] text-[#14181B] border-[#14181B]/15" : "bg-[#14181B] hover:bg-white/[0.04] text-[#F5F3EE] border-[#F5F3EE]/10"
+            }`}
           >
             <Mail className="w-4 h-4 text-[#E8A33D]" />
             <span>Enviar e-mail para contato@montgestao.com.br</span>
@@ -283,7 +300,7 @@ export function DiagnosticForm() {
 
         <button
           onClick={() => setStatus("idle")}
-          className="text-xs text-[#5B6166] hover:text-[#F5F3EE] underline transition-colors"
+          className="text-xs text-[#5B6166] hover:text-[#14181B] underline transition-colors"
         >
           Voltar e tentar enviar novamente
         </button>
@@ -298,7 +315,7 @@ export function DiagnosticForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="bg-[#1B2024] border border-[#F5F3EE]/10 p-6 sm:p-8 rounded-2xl shadow-xl"
+      className={containerClass}
     >
       {/* Honeypot field for anti-spam (invisible to users) */}
       <input
@@ -315,7 +332,7 @@ export function DiagnosticForm() {
         <span className="text-[11px] font-mono uppercase tracking-wider text-[#E8A33D] font-medium block mb-1">
           Formulário
         </span>
-        <h3 className="text-2xl font-serif text-[#F5F3EE] font-normal">
+        <h3 className={`text-2xl font-serif font-normal ${isLight ? "text-[#14181B]" : "text-[#F5F3EE]"}`}>
           Agendar diagnóstico
         </h3>
         <p className="text-xs text-[#5B6166] mt-1 font-normal">
@@ -326,7 +343,7 @@ export function DiagnosticForm() {
       <div className="space-y-4 mb-6">
         {/* Nome */}
         <div>
-          <label className="text-[11px] font-mono text-[#5B6166] block mb-1">
+          <label className={labelClass}>
             Nome completo *
           </label>
           <input
@@ -346,7 +363,7 @@ export function DiagnosticForm() {
         {/* E-mail e WhatsApp */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
           <div>
-            <label className="text-[11px] font-mono text-[#5B6166] block mb-1">
+            <label className={labelClass}>
               E-mail profissional *
             </label>
             <input
@@ -364,7 +381,7 @@ export function DiagnosticForm() {
           </div>
 
           <div>
-            <label className="text-[11px] font-mono text-[#5B6166] block mb-1">
+            <label className={labelClass}>
               WhatsApp *
             </label>
             <input
@@ -384,7 +401,7 @@ export function DiagnosticForm() {
 
         {/* Faturamento Anual Aproximado */}
         <div>
-          <label className="text-[11px] font-mono text-[#5B6166] block mb-1">
+          <label className={labelClass}>
             Faturamento anual aproximado *
           </label>
           <div className="relative">
@@ -399,19 +416,19 @@ export function DiagnosticForm() {
               }}
               disabled={isSubmitting}
             >
-              <option value="" className="bg-[#14181B] text-[#5B6166]" disabled hidden>
+              <option value="" className={isLight ? "bg-white text-[#5B6166]" : "bg-[#14181B] text-[#5B6166]"} disabled hidden>
                 Selecione a faixa de faturamento
               </option>
-              <option value="Até R$ 3 milhões" className="bg-[#14181B] text-[#F5F3EE]">
+              <option value="Até R$ 3 milhões" className={isLight ? "bg-white text-[#14181B]" : "bg-[#14181B] text-[#F5F3EE]"}>
                 Até R$ 3 milhões
               </option>
-              <option value="De R$ 3 a R$ 10 milhões" className="bg-[#14181B] text-[#F5F3EE]">
+              <option value="De R$ 3 a R$ 10 milhões" className={isLight ? "bg-white text-[#14181B]" : "bg-[#14181B] text-[#F5F3EE]"}>
                 De R$ 3 a R$ 10 milhões
               </option>
-              <option value="De R$ 10 a R$ 30 milhões" className="bg-[#14181B] text-[#F5F3EE]">
+              <option value="De R$ 10 a R$ 30 milhões" className={isLight ? "bg-white text-[#14181B]" : "bg-[#14181B] text-[#F5F3EE]"}>
                 De R$ 10 a R$ 30 milhões
               </option>
-              <option value="Acima de R$ 30 milhões" className="bg-[#14181B] text-[#F5F3EE]">
+              <option value="Acima de R$ 30 milhões" className={isLight ? "bg-white text-[#14181B]" : "bg-[#14181B] text-[#F5F3EE]"}>
                 Acima de R$ 30 milhões
               </option>
             </select>
@@ -429,7 +446,7 @@ export function DiagnosticForm() {
                 setFormData({ ...formData, lgpdConsent: e.target.checked });
                 if (errors.lgpdConsent) setErrors({ ...errors, lgpdConsent: undefined });
               }}
-              className="mt-0.5 rounded border-zinc-700 text-[#E8A33D] bg-[#14181B] focus:ring-0 accent-[#E8A33D]"
+              className="mt-0.5 rounded border-zinc-300 text-[#E8A33D] bg-white focus:ring-0 accent-[#E8A33D]"
             />
             <span className="leading-tight">
               Concordo em ser contatado pela Mont Finance sobre o diagnóstico e em ter meus dados tratados para esse fim, conforme a LGPD. *
