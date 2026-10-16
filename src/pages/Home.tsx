@@ -204,12 +204,7 @@ export function Home() {
       {/* =========================================================================
           3.1 LOGOS DE CLIENTES & OPERAÇÕES — [CARROSSEL CONTÍNUO GIRANDO NA PÁGINA]
       ========================================================================= */}
-      <section className="py-12 sm:py-16 bg-[#071A1E] border-b border-white/10 overflow-hidden relative">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
-            Empresas e marcas que confiam na nossa gestão e inteligência financeira
-          </span>
-        </div>
+      <section className="py-8 sm:py-10 bg-[#071A1E] border-b border-white/10 overflow-hidden relative">
 
         {/* Carrossel Infinito com Máscara de Gradiente Suave nas Bordas */}
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] py-4">
