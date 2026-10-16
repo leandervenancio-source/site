@@ -46,6 +46,17 @@ export function Home() {
     }
   ];
 
+  const clientLogos = [
+    { name: "Mafit", src: "/clientes/logo-mafit.png" },
+    { name: "Valentt", src: "/clientes/logo-valentt.png" },
+    { name: "Multlens", src: "/clientes/logo-multlens.png" },
+    { name: "Paredão Tintas", src: "/clientes/logo-paredao.png" },
+    { name: "Evolução Informática", src: "/clientes/logo-evolucao.png" },
+    { name: "Inove Gôndolas", src: "/clientes/logo-inove.png" },
+    { name: "Ativo 11", src: "/clientes/logo-ativo11.png" },
+    { name: "M", src: "/clientes/logo-m.png" }
+  ];
+
   const threeFronts = [
     {
       frontNumber: "01",
@@ -232,6 +243,37 @@ export function Home() {
               </span>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          3.1 LOGOS DE CLIENTES & OPERAÇÕES — [ESTILO GROWTH MACHINE]
+      ========================================================================= */}
+      <section className="py-12 sm:py-14 bg-[#071A1E] border-b border-white/10 overflow-hidden relative">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
+            Empresas e marcas que confiam na nossa gestão e inteligência financeira
+          </span>
+        </div>
+
+        {/* Grid Elegante de Logos */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 sm:gap-6 items-center justify-items-center">
+            {clientLogos.map((logo, idx) => (
+              <div 
+                key={idx} 
+                className="w-full h-16 flex items-center justify-center p-2 rounded-xl bg-white/[0.03] border border-white/5 hover:border-[#E8A33D]/40 hover:bg-white/[0.07] transition-all group"
+                title={logo.name}
+              >
+                <img 
+                  src={logo.src} 
+                  alt={logo.name} 
+                  className="max-h-8 sm:max-h-9 w-auto max-w-[100px] object-contain opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 brightness-0 invert group-hover:filter-none" 
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
