@@ -143,16 +143,17 @@ export function Home() {
       ========================================================================= */}
       <section id="topo" className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden bg-gradient-to-b from-[#051214] via-[#071A1E] to-[#0A272D] text-white border-b border-white/10">
         
-        {/* Vídeo de Fundo Estilo Growth Machine (Dashboard, Indicadores e Métricas Financeiras) */}
+        {/* Vídeo de Fundo Realista e Sofisticado (Executivo & Análise Financeira em Tempo Real) */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-25 sm:opacity-30 scale-105 filter contrast-125 brightness-95"
+            poster="/videos/hero-realistic-poster.jpg"
+            className="w-full h-full object-cover opacity-30 sm:opacity-35 scale-105 filter contrast-110 brightness-90"
           >
-            <source src="/videos/hero-dashboard.mp4" type="video/mp4" />
+            <source src="/videos/hero-realistic-broker.mp4" type="video/mp4" />
           </video>
           {/* Overlay em Gradiente com Blend Sofisticado para Contraste e Legibilidade Perfeitos */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#051214]/90 via-[#071A1E]/80 to-[#071A1E]"></div>
