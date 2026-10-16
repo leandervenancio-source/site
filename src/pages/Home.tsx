@@ -874,62 +874,61 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          10 & 11. DIAGNÓSTICO & FAQ — [SESSÃO CLARA: #F4F6F7]
+          10 & 11. DIAGNÓSTICO & FAQ — [ESTILO GROWTH MACHINE: FUNDO BRANCO E CARD LARANJA]
       ========================================================================= */}
-      <section id="diagnostico" className="py-20 sm:py-28 bg-[#F4F6F7] text-slate-900 border-b border-slate-200">
+      <section id="diagnostico" className="py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-24">
             
-            {/* Coluna Esquerda: Texto Institucional, Garantias e Contatos */}
-            <div className="lg:col-span-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
-                Diagnóstico Estratégico
+            {/* Coluna Esquerda: Estilo Growth Machine com Dot, Headline, Subheadline Âmbar e Bullets */}
+            <div className="lg:col-span-6">
+              <div className="flex items-center gap-2.5 text-xs font-bold tracking-[0.2em] uppercase text-slate-800 mb-6">
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-900"></span>
+                <span>DIAGNÓSTICO</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-5 leading-tight">
-                Comece entendendo para onde vai o <span className="text-[#0E4A55]">dinheiro da sua operação</span>
+
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-5 leading-[1.15]">
+                Dê o primeiro passo para escalar seu lucro e caixa com um diagnóstico gratuito
               </h2>
-              <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-8">
-                O diagnóstico é uma conversa estratégica com um especialista sênior da Mont Finance para mapear as reais alavancas de margem e caixa do seu e-commerce.
+
+              <p className="text-base sm:text-lg text-[#E8A33D] font-bold leading-snug mb-8">
+                Identifique as principais oportunidades de crescimento da sua empresa e receba um plano de ação personalizado.
               </p>
 
-              {/* 3 Garantias de Baixo Risco (Inspiradas na Growth Machine) */}
-              <div className="space-y-3.5 mb-8">
-                <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
-                  <div className="w-7 h-7 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                    <ShieldCheck className="w-4 h-4 stroke-[2.5]" />
+              {/* 3 Bullets com Círculo Laranja e Check Branco */}
+              <div className="space-y-4 mb-4">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-5 h-5 rounded-full bg-[#E8A33D] text-white flex items-center justify-center shrink-0 shadow-sm">
+                    <Check className="w-3.5 h-3.5 stroke-[3]" />
                   </div>
-                  <div>
-                    <strong className="text-xs sm:text-sm font-bold text-slate-900 block mb-0.5">100% gratuito e sem compromisso</strong>
-                    <span className="text-xs text-slate-500 leading-relaxed block">Você sai com clareza sobre suas finanças mesmo se decidir não nos contratar.</span>
-                  </div>
+                  <span className="text-sm sm:text-base font-semibold text-slate-800">
+                    Diagnóstico personalizado gratuito
+                  </span>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
-                  <div className="w-7 h-7 rounded-xl bg-teal-50 text-[#0E4A55] flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                    <Target className="w-4 h-4 stroke-[2.5]" />
+                <div className="flex items-center gap-3.5">
+                  <div className="w-5 h-5 rounded-full bg-[#E8A33D] text-white flex items-center justify-center shrink-0 shadow-sm">
+                    <Check className="w-3.5 h-3.5 stroke-[3]" />
                   </div>
-                  <div>
-                    <strong className="text-xs sm:text-sm font-bold text-slate-900 block mb-0.5">Raio-X de Margem, Caixa e Estoque</strong>
-                    <span className="text-xs text-slate-500 leading-relaxed block">Mapeamos exatamente onde estão os vazamentos silenciosos da sua operação.</span>
-                  </div>
+                  <span className="text-sm sm:text-base font-semibold text-slate-800">
+                    Descubra o mapa que pode aumentar sua margem e lucro
+                  </span>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
-                  <div className="w-7 h-7 rounded-xl bg-amber-50 text-[#E8A33D] flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                    <Sparkles className="w-4 h-4 stroke-[2.5]" />
+                <div className="flex items-center gap-3.5">
+                  <div className="w-5 h-5 rounded-full bg-[#E8A33D] text-white flex items-center justify-center shrink-0 shadow-sm">
+                    <Check className="w-3.5 h-3.5 stroke-[3]" />
                   </div>
-                  <div>
-                    <strong className="text-xs sm:text-sm font-bold text-slate-900 block mb-0.5">Direcionamento Executivo com Especialista</strong>
-                    <span className="text-xs text-slate-500 leading-relaxed block">Indicamos se o seu momento pede Controladoria, CFO completo ou outra frente.</span>
-                  </div>
+                  <span className="text-sm sm:text-base font-semibold text-slate-800">
+                    100% gratuito e sem compromisso
+                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Coluna Direita: Formulário */}
-            <div className="lg:col-span-7">
+            {/* Coluna Direita: Card com Borda Laranja e Formulário Multi-Step */}
+            <div className="lg:col-span-6">
               <DiagnosticForm theme="light" />
             </div>
 

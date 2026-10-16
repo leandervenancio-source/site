@@ -1,6 +1,6 @@
 import { useState, useEffect, FormEvent } from "react";
 import { supabase } from "../lib/supabase";
-import { Loader2, CheckCircle2, AlertCircle, ArrowRight, MessageSquare, Mail } from "lucide-react";
+import { Loader2, CheckCircle2, AlertCircle, ArrowRight, ArrowLeft, MessageSquare, Mail } from "lucide-react";
 import { trackLeadSubmit, trackWhatsAppClick } from "../lib/analytics";
 
 interface FormDataState {
@@ -25,12 +25,13 @@ interface DiagnosticFormProps {
 }
 
 export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
+  const [step, setStep] = useState<1 | 2 | 3>(1);
   const [formData, setFormData] = useState<FormDataState>({
     name: "",
     email: "",
     whatsapp: "",
     revenue: "",
-    lgpdConsent: false,
+    lgpdConsent: true,
     honeypot: "",
   });
 
@@ -63,16 +64,20 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
     }
   }, []);
 
-  const validate = (): boolean => {
-    const newErrors: FormErrors = {};
-
-    if (!formData.name.trim() || formData.name.trim().length < 2) {
-      newErrors.name = "Por favor, informe seu nome completo.";
-    }
-
+  const validateStep1 = (): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
-      newErrors.email = "Informe um e-mail profissional válido.";
+      setErrors((prev) => ({ ...prev, email: "Informe um e-mail profissional válido." }));
+      return false;
+    }
+    setErrors((prev) => ({ ...prev, email: undefined }));
+    return true;
+  };
+
+  const validateStep2 = (): boolean => {
+    const newErrors: FormErrors = {};
+    if (!formData.name.trim() || formData.name.trim().length < 2) {
+      newErrors.name = "Por favor, informe seu nome completo.";
     }
 
     const phoneDigits = formData.whatsapp.replace(/\D/g, "");
@@ -80,72 +85,93 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
       newErrors.whatsapp = "Informe um WhatsApp válido com DDD.";
     }
 
-    if (!formData.revenue) {
-      newErrors.revenue = "Selecione o faturamento anual aproximado.";
-    }
+    setErrors((prev) => ({ ...prev, ...newErrors }));
+    return Object.keys(newErrors).length === 0;
+  };
 
+  const validateStep3 = (): boolean => {
+    const newErrors: FormErrors = {};
+    if (!formData.revenue) {
+      newErrors.revenue = "Selecione a faixa de faturamento anual.";
+    }
     if (!formData.lgpdConsent) {
       newErrors.lgpdConsent = "É necessário concordar com os termos para avançar.";
     }
-
-    setErrors(newErrors);
+    setErrors((prev) => ({ ...prev, ...newErrors }));
     return Object.keys(newErrors).length === 0;
+  };
+
+  const handleNext = () => {
+    if (step === 1 && validateStep1()) {
+      setStep(2);
+    } else if (step === 2 && validateStep2()) {
+      setStep(3);
+    }
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    // Anti-spam honeypot
-    if (formData.honeypot) {
-      setStatus("success");
-      setSubmittedData({
-        name: formData.name,
-        revenue: formData.revenue,
-      });
+    if (step === 1) {
+      handleNext();
+      return;
+    }
+    if (step === 2) {
+      handleNext();
+      return;
+    }
+    if (!validateStep3()) {
       return;
     }
 
-    if (!validate()) {
+    // Anti-spam honeypot
+    if (formData.honeypot) {
+      setStatus("success");
       return;
     }
 
     setIsSubmitting(true);
+
     let supabaseSuccess = false;
     let formSubmitSuccess = false;
 
-    // 1. Gravação no Supabase
+    // 1. Tentar salvar no Supabase
     try {
-      const { error } = await supabase.from("leads").insert([
+      const { error: sbError } = await supabase.from("leads").insert([
         {
           name: formData.name.trim(),
-          email: formData.email.trim(),
+          email: formData.email.trim().toLowerCase(),
           whatsapp: formData.whatsapp.trim(),
-          company: null,
           revenue: formData.revenue,
-          employees: null,
+          utm_source: utms.utm_source || "direto",
+          utm_medium: utms.utm_medium || null,
+          utm_campaign: utms.utm_campaign || null,
+          utm_content: utms.utm_content || null,
+          utm_term: utms.utm_term || null,
         },
       ]);
-      if (!error) {
+
+      if (!sbError) {
         supabaseSuccess = true;
       } else {
-        console.warn("Aviso ao registrar lead no banco:", error.message);
+        console.warn("Aviso Supabase (Lead):", sbError.message);
       }
-    } catch (dbErr) {
-      console.warn("Exceção no registro de banco:", dbErr);
+    } catch (sbEx) {
+      console.warn("Exceção Supabase:", sbEx);
     }
 
-    // 2. Disparo de e-mail via FormSubmit
+    // 2. Enviar via FormSubmit
     try {
-      const res = await fetch("https://formsubmit.co/ajax/leandervenancio@gmail.com", {
+      const res = await fetch("https://formsubmit.co/ajax/contato@montgestao.com.br", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          _subject: `🚀 Novo Diagnóstico Mont Finance: ${formData.name.trim()}`,
+          _subject: `[Novo Lead CFO] ${formData.name.trim()} (${formData.revenue})`,
           Nome: formData.name.trim(),
-          Email: formData.email.trim(),
+          Email: formData.email.trim().toLowerCase(),
           WhatsApp: formData.whatsapp.trim(),
           Faturamento_Anual: formData.revenue,
           UTM_Source: utms.utm_source || "direto",
@@ -166,7 +192,6 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
 
     setIsSubmitting(false);
 
-    // Se pelo menos um dos canais confirmou, é sucesso!
     if (supabaseSuccess || formSubmitSuccess) {
       setSubmittedData({
         name: formData.name.trim(),
@@ -178,7 +203,6 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
       });
       setStatus("success");
     } else {
-      // Falha real: NÃO mostrar tela de sucesso
       setSubmittedData({
         name: formData.name.trim(),
         revenue: formData.revenue,
@@ -195,37 +219,27 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
   );
   const waUrl = `https://wa.me/5562999200405?text=${waMessage}`;
 
-  const isLight = theme === "light";
-
-  const containerClass = isLight
-    ? "bg-white border border-slate-200/90 p-7 sm:p-10 rounded-3xl shadow-xl text-slate-900 relative"
-    : "bg-[#0A272D] border border-white/10 p-7 sm:p-10 rounded-3xl shadow-xl text-white relative";
-
-  const inputClass = isLight
-    ? "w-full px-4 py-3.5 bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 placeholder:text-xs focus:border-[#0E4A55] focus:bg-white focus:outline-none transition-all rounded-xl font-medium text-xs"
-    : "w-full px-4 py-3.5 bg-[#071A1E] border border-white/10 text-white placeholder:text-slate-400 placeholder:text-xs focus:border-[#F5B85D] focus:outline-none transition-all rounded-xl font-medium text-xs";
-
-  const labelClass = isLight
-    ? "text-xs font-bold text-slate-700 block mb-1.5"
-    : "text-xs font-bold text-slate-300 block mb-1.5";
+  const containerClass = "rounded-[24px] sm:rounded-[32px] border-[8px] sm:border-[12px] border-[#E8A33D] bg-white p-6 sm:p-9 shadow-2xl text-slate-900 relative";
+  const inputClass = "w-full px-4 py-3.5 bg-slate-50 border border-slate-300 text-slate-900 placeholder:text-slate-400 focus:border-[#E8A33D] focus:bg-white focus:outline-none transition-all rounded-xl font-medium text-sm";
+  const labelClass = "text-xs font-bold text-slate-700 block mb-1.5";
 
   // =========================================================================
   // TELA DE SUCESSO CONFIRMADO
   // =========================================================================
   if (status === "success") {
     return (
-      <div className={isLight ? "bg-white border border-[#E8A33D]/40 p-8 sm:p-12 rounded-3xl shadow-xl text-center" : "bg-[#0A272D] border border-[#E8A33D]/40 p-8 sm:p-12 rounded-3xl shadow-xl text-center"}>
+      <div className={containerClass}>
         <div className="w-16 h-16 rounded-2xl bg-[#E8A33D]/15 border border-[#E8A33D]/40 text-[#E8A33D] flex items-center justify-center mx-auto mb-6">
           <CheckCircle2 className="w-8 h-8" />
         </div>
 
-        <span className="text-[11px] font-bold uppercase tracking-wider text-[#E8A33D] block mb-2">
+        <span className="text-[11px] font-bold uppercase tracking-wider text-[#E8A33D] block mb-2 text-center">
           Confirmação de Recebimento
         </span>
-        <h3 className={`text-2xl sm:text-3xl font-extrabold tracking-tight mb-3 ${isLight ? "text-slate-900" : "text-white"}`}>
+        <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3 text-slate-900 text-center">
           Cadastro recebido, {firstName}.
         </h3>
-        <p className={`text-sm font-normal leading-relaxed max-w-md mx-auto mb-6 ${isLight ? "text-slate-600" : "text-slate-300"}`}>
+        <p className="text-sm font-normal leading-relaxed max-w-md mx-auto mb-6 text-slate-600 text-center">
           Um especialista sênior da Mont Finance vai entrar em contato para combinar o diagnóstico da sua operação.
         </p>
 
@@ -241,13 +255,13 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("form_success_button")}
-            className="w-full py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(37,211,102,0.3)] hover:-translate-y-0.5"
+            className="w-full py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(37,211,102,0.3)] hover:-translate-y-0.5"
           >
             <MessageSquare className="w-4 h-4 fill-white" />
             <span>Chamar no WhatsApp agora</span>
           </a>
 
-          <p className="text-[11px] text-[#5B6166] pt-1">
+          <p className="text-[11px] text-slate-500 pt-1 text-center">
             Se preferir agilizar seu atendimento sem esperar o contato por e-mail, clique no botão acima.
           </p>
         </div>
@@ -260,19 +274,19 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
   // =========================================================================
   if (status === "error") {
     return (
-      <div className={isLight ? "bg-white border border-[#B5412F]/30 p-8 sm:p-10 rounded-2xl shadow-xl text-center" : "bg-[#0A323A] border border-[#B5412F]/30 p-8 sm:p-10 rounded-2xl shadow-xl text-center"}>
-        <div className="w-14 h-14 rounded-full bg-[#B5412F]/10 border border-[#B5412F]/30 text-[#B5412F] flex items-center justify-center mx-auto mb-5">
+      <div className={containerClass}>
+        <div className="w-14 h-14 rounded-full bg-rose-50 border border-rose-200 text-[#EF4444] flex items-center justify-center mx-auto mb-5">
           <AlertCircle className="w-8 h-8" />
         </div>
 
-        <span className="text-[11px] font-mono uppercase tracking-widest text-[#B5412F] block mb-2 font-medium">
+        <span className="text-[11px] font-bold uppercase tracking-widest text-[#EF4444] block mb-2 font-medium text-center">
           Falta só um passo
         </span>
-        <h3 className={`text-2xl font-serif font-normal mb-3 ${isLight ? "text-[#14181B]" : "text-[#F5F3EE]"}`}>
+        <h3 className="text-2xl font-extrabold text-slate-900 mb-3 text-center">
           Finalize seu contato diretamente
         </h3>
-        <p className={`text-xs font-normal leading-relaxed max-w-md mx-auto mb-6 ${isLight ? "text-[#5B6166]" : "text-[#F5F3EE]/80"}`}>
-          Houve uma oscilação na rede e seus dados não foram salvos automaticamente. Para não perder tempo, você pode falar direto com nosso especialista pelo WhatsApp com os dados preenchidos ou nos enviar um e-mail:
+        <p className="text-xs font-normal leading-relaxed max-w-md mx-auto mb-6 text-slate-600 text-center">
+          Houve uma oscilação na rede e seus dados não foram salvos automaticamente. Para não perder tempo, você pode falar direto com nosso especialista pelo WhatsApp com os dados preenchidos:
         </p>
 
         <div className="space-y-3 max-w-md mx-auto mb-6">
@@ -281,7 +295,7 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("form_fallback_button")}
-            className="w-full py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(37,211,102,0.3)]"
+            className="w-full py-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(37,211,102,0.3)]"
           >
             <MessageSquare className="w-4 h-4 fill-white" />
             <span>Chamar no WhatsApp agora</span>
@@ -289,9 +303,7 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
 
           <a
             href="mailto:contato@montgestao.com.br"
-            className={`w-full py-3.5 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 transition-colors ${
-              isLight ? "bg-[#F5F3EE] hover:bg-[#EAE6DD] text-[#14181B] border-[#14181B]/15" : "bg-[#14181B] hover:bg-white/[0.04] text-[#F5F3EE] border-[#F5F3EE]/10"
-            }`}
+            className="w-full py-3.5 rounded-xl border bg-slate-50 hover:bg-slate-100 text-slate-800 border-slate-200 text-xs font-semibold flex items-center justify-center gap-2 transition-colors"
           >
             <Mail className="w-4 h-4 text-[#E8A33D]" />
             <span>Enviar e-mail para contato@montgestao.com.br</span>
@@ -300,7 +312,7 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
 
         <button
           onClick={() => setStatus("idle")}
-          className="text-xs text-[#5B6166] hover:text-[#14181B] underline transition-colors"
+          className="text-xs text-slate-500 hover:text-slate-900 underline transition-colors block mx-auto"
         >
           Voltar e tentar enviar novamente
         </button>
@@ -309,7 +321,7 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
   }
 
   // =========================================================================
-  // FORMULÁRIO PRINCIPAL COM VALIDAÇÃO INLINE
+  // FORMULÁRIO MULTI-STEP ESTILO GROWTH MACHINE
   // =========================================================================
   return (
     <form
@@ -317,7 +329,7 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
       noValidate
       className={containerClass}
     >
-      {/* Honeypot field for anti-spam (invisible to users) */}
+      {/* Honeypot field for anti-spam */}
       <input
         type="text"
         name="b_website_trap"
@@ -328,152 +340,228 @@ export function DiagnosticForm({ theme = "light" }: DiagnosticFormProps) {
         autoComplete="off"
       />
 
-      <div className="mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/20 text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] mb-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
-          Formulário de Aplicação
-        </div>
-        <h3 className={`text-2xl sm:text-3xl font-extrabold tracking-tight ${isLight ? "text-slate-900" : "text-white"}`}>
-          Agendar Diagnóstico Gratuito
-        </h3>
-        <p className="text-xs sm:text-sm text-slate-500 mt-1.5 font-normal">
-          Preencha os dados da sua operação para iniciarmos a análise estratégica.
-        </p>
-      </div>
-
-      <div className="space-y-4 mb-6">
-        {/* Nome */}
-        <div>
-          <label className={labelClass}>
-            Nome completo *
-          </label>
-          <input
-            type="text"
-            placeholder="Seu nome"
-            value={formData.name}
-            className={`${inputClass} ${errors.name ? "!border-[#B5412F]" : ""}`}
-            onChange={(e) => {
-              setFormData({ ...formData, name: e.target.value });
-              if (errors.name) setErrors({ ...errors, name: undefined });
-            }}
-            disabled={isSubmitting}
-          />
-          {errors.name && <p className="text-[11px] text-[#B5412F] mt-1">{errors.name}</p>}
-        </div>
-
-        {/* E-mail e WhatsApp */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+      {/* ETAPA 1: E-MAIL CORPORATIVO */}
+      {step === 1 && (
+        <div className="space-y-5">
           <div>
             <label className={labelClass}>
-              E-mail profissional *
+              E-mail Corporativo*
             </label>
             <input
               type="email"
               placeholder="seu@empresa.com.br"
               value={formData.email}
-              className={`${inputClass} ${errors.email ? "!border-[#B5412F]" : ""}`}
+              className={`${inputClass} ${errors.email ? "!border-rose-500" : ""}`}
               onChange={(e) => {
                 setFormData({ ...formData, email: e.target.value });
-                if (errors.email) setErrors({ ...errors, email: undefined });
+                if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
               }}
-              disabled={isSubmitting}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  handleNext();
+                }
+              }}
+              autoFocus
             />
-            {errors.email && <p className="text-[11px] text-[#B5412F] mt-1">{errors.email}</p>}
+            {errors.email && <p className="text-[11px] text-rose-500 mt-1">{errors.email}</p>}
+          </div>
+
+          <p className="text-xs text-slate-500 leading-relaxed">
+            Utilizaremos seus dados para enviar conteúdos personalizados, ofertas e informações relevantes alinhadas aos seus interesses. Seguindo, você concorda com os termos.
+          </p>
+
+          {/* Barra de Progresso e Ação */}
+          <div className="pt-2">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-xs font-bold text-slate-500 shrink-0">1/3</span>
+              <div className="flex-1 bg-slate-200 h-2 rounded-full overflow-hidden">
+                <div className="bg-gradient-to-r from-[#E8A33D] to-orange-500 h-full rounded-full w-1/3 transition-all duration-300"></div>
+              </div>
+            </div>
+
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={handleNext}
+                className="w-full sm:w-auto px-8 py-3 rounded-xl bg-[#E8A33D] hover:bg-[#D4932D] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+              >
+                <span>Próximo</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ETAPA 2: NOME E WHATSAPP */}
+      {step === 2 && (
+        <div className="space-y-5">
+          <div>
+            <label className={labelClass}>
+              Nome Completo*
+            </label>
+            <input
+              type="text"
+              placeholder="Seu nome completo"
+              value={formData.name}
+              className={`${inputClass} ${errors.name ? "!border-rose-500" : ""}`}
+              onChange={(e) => {
+                setFormData({ ...formData, name: e.target.value });
+                if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
+              }}
+              autoFocus
+            />
+            {errors.name && <p className="text-[11px] text-rose-500 mt-1">{errors.name}</p>}
           </div>
 
           <div>
             <label className={labelClass}>
-              WhatsApp *
+              WhatsApp com DDD*
             </label>
             <input
               type="tel"
               placeholder="(11) 99999-9999"
               value={formData.whatsapp}
-              className={`${inputClass} ${errors.whatsapp ? "!border-[#B5412F]" : ""}`}
+              className={`${inputClass} ${errors.whatsapp ? "!border-rose-500" : ""}`}
               onChange={(e) => {
                 setFormData({ ...formData, whatsapp: e.target.value });
-                if (errors.whatsapp) setErrors({ ...errors, whatsapp: undefined });
+                if (errors.whatsapp) setErrors((prev) => ({ ...prev, whatsapp: undefined }));
               }}
-              disabled={isSubmitting}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  handleNext();
+                }
+              }}
             />
-            {errors.whatsapp && <p className="text-[11px] text-[#B5412F] mt-1">{errors.whatsapp}</p>}
+            {errors.whatsapp && <p className="text-[11px] text-rose-500 mt-1">{errors.whatsapp}</p>}
+          </div>
+
+          {/* Barra de Progresso e Ações */}
+          <div className="pt-2">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-xs font-bold text-slate-500 shrink-0">2/3</span>
+              <div className="flex-1 bg-slate-200 h-2 rounded-full overflow-hidden">
+                <div className="bg-gradient-to-r from-[#E8A33D] to-orange-500 h-full rounded-full w-2/3 transition-all duration-300"></div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between gap-4">
+              <button
+                type="button"
+                onClick={() => setStep(1)}
+                className="px-4 py-3 rounded-xl text-slate-600 hover:text-slate-900 text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Voltar</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={handleNext}
+                className="px-8 py-3 rounded-xl bg-[#E8A33D] hover:bg-[#D4932D] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+              >
+                <span>Próximo</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
+      )}
 
-        {/* Faturamento Anual Aproximado */}
-        <div>
-          <label className={labelClass}>
-            Faturamento anual aproximado *
-          </label>
-          <div className="relative">
-            <select
-              className={`${inputClass} appearance-none ${!formData.revenue ? "!text-[#5B6166]" : ""} ${
-                errors.revenue ? "!border-[#B5412F]" : ""
-              }`}
-              value={formData.revenue}
-              onChange={(e) => {
-                setFormData({ ...formData, revenue: e.target.value });
-                if (errors.revenue) setErrors({ ...errors, revenue: undefined });
-              }}
-              disabled={isSubmitting}
-            >
-              <option value="" className={isLight ? "bg-white text-[#5B6166]" : "bg-[#14181B] text-[#5B6166]"} disabled hidden>
-                Selecione a faixa de faturamento
-              </option>
-              <option value="Até R$ 3 milhões" className={isLight ? "bg-white text-[#14181B]" : "bg-[#14181B] text-[#F5F3EE]"}>
-                Até R$ 3 milhões
-              </option>
-              <option value="De R$ 3 a R$ 10 milhões" className={isLight ? "bg-white text-[#14181B]" : "bg-[#14181B] text-[#F5F3EE]"}>
-                De R$ 3 a R$ 10 milhões
-              </option>
-              <option value="De R$ 10 a R$ 30 milhões" className={isLight ? "bg-white text-[#14181B]" : "bg-[#14181B] text-[#F5F3EE]"}>
-                De R$ 10 a R$ 30 milhões
-              </option>
-              <option value="Acima de R$ 30 milhões" className={isLight ? "bg-white text-[#14181B]" : "bg-[#14181B] text-[#F5F3EE]"}>
-                Acima de R$ 30 milhões
-              </option>
-            </select>
+      {/* ETAPA 3: FATURAMENTO E CONFIRMAÇÃO */}
+      {step === 3 && (
+        <div className="space-y-5">
+          <div>
+            <label className={labelClass}>
+              Faturamento Anual Aproximado*
+            </label>
+            <div className="relative">
+              <select
+                className={`${inputClass} appearance-none cursor-pointer ${!formData.revenue ? "!text-slate-400" : ""} ${
+                  errors.revenue ? "!border-rose-500" : ""
+                }`}
+                value={formData.revenue}
+                onChange={(e) => {
+                  setFormData({ ...formData, revenue: e.target.value });
+                  if (errors.revenue) setErrors((prev) => ({ ...prev, revenue: undefined }));
+                }}
+                disabled={isSubmitting}
+                autoFocus
+              >
+                <option value="" disabled hidden>
+                  Selecione a faixa de faturamento
+                </option>
+                <option value="Até R$ 3 milhões">Até R$ 3 milhões</option>
+                <option value="De R$ 3 a R$ 10 milhões">De R$ 3 a R$ 10 milhões</option>
+                <option value="De R$ 10 a R$ 30 milhões">De R$ 10 a R$ 30 milhões</option>
+                <option value="Acima de R$ 30 milhões">Acima de R$ 30 milhões</option>
+              </select>
+            </div>
+            {errors.revenue && <p className="text-[11px] text-rose-500 mt-1">{errors.revenue}</p>}
           </div>
-          {errors.revenue && <p className="text-[11px] text-[#B5412F] mt-1">{errors.revenue}</p>}
-        </div>
 
-        {/* Consentimento LGPD Obrigatório */}
-        <div className="pt-2">
-          <label className="flex items-start gap-2.5 text-xs text-[#5B6166] cursor-pointer select-none">
-            <input
-              type="checkbox"
-              checked={formData.lgpdConsent}
-              onChange={(e) => {
-                setFormData({ ...formData, lgpdConsent: e.target.checked });
-                if (errors.lgpdConsent) setErrors({ ...errors, lgpdConsent: undefined });
-              }}
-              className="mt-0.5 rounded border-zinc-300 text-[#E8A33D] bg-white focus:ring-0 accent-[#E8A33D]"
-            />
-            <span className="leading-tight">
-              Concordo em ser contatado pela Mont Finance sobre o diagnóstico e em ter meus dados tratados para esse fim, conforme a LGPD. *
-            </span>
-          </label>
-          {errors.lgpdConsent && <p className="text-[11px] text-[#B5412F] mt-1">{errors.lgpdConsent}</p>}
-        </div>
-      </div>
+          <div className="pt-1">
+            <label className="flex items-start gap-2.5 text-xs text-slate-600 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={formData.lgpdConsent}
+                onChange={(e) => {
+                  setFormData({ ...formData, lgpdConsent: e.target.checked });
+                  if (errors.lgpdConsent) setErrors((prev) => ({ ...prev, lgpdConsent: undefined }));
+                }}
+                className="mt-0.5 rounded border-slate-300 text-[#E8A33D] focus:ring-[#E8A33D] accent-[#E8A33D]"
+                disabled={isSubmitting}
+              />
+              <span className="leading-tight">
+                Concordo com a Política de Privacidade e em receber o contato estratégico da Mont Finance.
+              </span>
+            </label>
+            {errors.lgpdConsent && <p className="text-[11px] text-rose-500 mt-1">{errors.lgpdConsent}</p>}
+          </div>
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full py-4 rounded-xl bg-gradient-to-r from-[#E8A33D] to-[#F5B85D] hover:from-[#F5B85D] hover:to-[#E8A33D] text-[#071A1E] text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2.5 disabled:opacity-50 shadow-[0_4px_20px_rgba(232,163,61,0.35)] hover:shadow-[0_6px_28px_rgba(232,163,61,0.5)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
-      >
-        {isSubmitting ? (
-          <>
-            <Loader2 className="w-4 h-4 animate-spin text-[#071A1E]" />
-            <span>Processando...</span>
-          </>
-        ) : (
-          <>
-            <span>Agendar Diagnóstico Gratuito</span>
-            <ArrowRight className="w-4 h-4 stroke-[3] text-[#071A1E]" />
-          </>
-        )}
-      </button>
+          {/* Barra de Progresso e Ações */}
+          <div className="pt-2">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-xs font-bold text-slate-500 shrink-0">3/3</span>
+              <div className="flex-1 bg-slate-200 h-2 rounded-full overflow-hidden">
+                <div className="bg-gradient-to-r from-[#E8A33D] to-orange-500 h-full rounded-full w-full transition-all duration-300"></div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between gap-4">
+              <button
+                type="button"
+                onClick={() => setStep(2)}
+                disabled={isSubmitting}
+                className="px-4 py-3 rounded-xl text-slate-600 hover:text-slate-900 text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Voltar</span>
+              </button>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="px-7 py-3 rounded-xl bg-gradient-to-r from-[#E8A33D] to-orange-500 hover:from-[#D4932D] hover:to-[#E8A33D] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg disabled:opacity-60 flex items-center justify-center gap-2"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Enviando...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Receber diagnóstico</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </form>
   );
 }
