@@ -10,7 +10,7 @@ export function Footer() {
           <div className="md:col-span-5">
             <a href="#topo" className="inline-block mb-5 group">
               <img 
-                src="/brand/mont-finance-logo-branco.png" 
+                src="/brand/mont-finance-logo-menu.png" 
                 alt="Mont Finance" 
                 className="h-8 w-auto object-contain transition-opacity group-hover:opacity-90" 
               />

@@ -28,9 +28,9 @@ export function Navbar() {
           {/* Logo Oficial Mont Finance */}
           <a href="#topo" className="flex items-center group">
             <img
-              src="/brand/mont-finance-logo-branco.png"
+              src="/brand/mont-finance-logo-menu.png"
               alt="Mont Finance"
-              className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+              className="h-7 sm:h-8 w-auto object-contain transition-transform group-hover:scale-[1.02]"
             />
           </a>
 
