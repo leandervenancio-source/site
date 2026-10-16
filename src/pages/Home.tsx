@@ -47,14 +47,14 @@ export function Home() {
   ];
 
   const clientLogos = [
-    { name: "Mafit", src: "/clientes/logo-mafit.png" },
-    { name: "Valentt", src: "/clientes/logo-valentt-dark.png" },
-    { name: "Multlens", src: "/clientes/logo-multlens.png" },
-    { name: "Paredão Tintas", src: "/clientes/logo-paredao.png" },
-    { name: "Evolução Informática", src: "/clientes/logo-evolucao.png" },
-    { name: "Inove Gôndolas", src: "/clientes/logo-inove.png" },
-    { name: "Ativo 11", src: "/clientes/logo-ativo11-dark.png" },
-    { name: "M", src: "/clientes/logo-m.png" }
+    { name: "Mafit", src: "/clientes/logo-mafit.png", className: "max-h-7 sm:max-h-8" },
+    { name: "Valentt", src: "/clientes/logo-valentt-dark.png", className: "max-h-6 sm:max-h-7" },
+    { name: "Multlens", src: "/clientes/logo-multlens.png", className: "max-h-11 sm:max-h-14 scale-105" },
+    { name: "Paredão Tintas", src: "/clientes/logo-paredao.png", className: "max-h-7 sm:max-h-9" },
+    { name: "Evolução Informática", src: "/clientes/logo-evolucao.png", className: "max-h-7 sm:max-h-9" },
+    { name: "Inove Gôndolas", src: "/clientes/logo-inove.png", className: "max-h-8 sm:max-h-10 scale-105" },
+    { name: "Ativo 11", src: "/clientes/logo-ativo11-dark.png", className: "max-h-8 sm:max-h-10" },
+    { name: "M", src: "/clientes/logo-m.png", className: "max-h-10 sm:max-h-12" }
   ];
 
   const threeFronts = [
@@ -263,13 +263,13 @@ export function Home() {
             {clientLogos.map((logo, idx) => (
               <div 
                 key={idx} 
-                className="w-full h-16 sm:h-20 flex items-center justify-center p-3 rounded-2xl bg-white border border-white/20 shadow-md hover:border-[#E8A33D] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                className="w-full h-16 sm:h-20 flex items-center justify-center p-2.5 sm:p-3 rounded-2xl bg-white border border-white/20 shadow-md hover:border-[#E8A33D] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                 title={logo.name}
               >
                 <img 
                   src={logo.src} 
                   alt={logo.name} 
-                  className="max-h-9 sm:max-h-11 w-auto max-w-[105px] object-contain group-hover:scale-105 transition-transform duration-300" 
+                  className={`${logo.className || "max-h-9 sm:max-h-11"} w-auto max-w-[110px] object-contain group-hover:scale-110 transition-transform duration-300`} 
                   loading="lazy"
                 />
               </div>
