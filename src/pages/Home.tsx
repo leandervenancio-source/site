@@ -47,14 +47,14 @@ export function Home() {
   ];
 
   const clientLogos = [
-    { name: "Mafit", src: "/clientes/logo-mafit.png", className: "max-h-7 sm:max-h-8" },
-    { name: "Valentt", src: "/clientes/logo-valentt-dark.png", className: "max-h-6 sm:max-h-7" },
-    { name: "Multlens", src: "/clientes/logo-multlens.png", className: "max-h-11 sm:max-h-14 scale-105" },
-    { name: "Paredão Tintas", src: "/clientes/logo-paredao.png", className: "max-h-7 sm:max-h-9" },
-    { name: "Evolução Informática", src: "/clientes/logo-evolucao.png", className: "max-h-7 sm:max-h-9" },
-    { name: "Inove Gôndolas", src: "/clientes/logo-inove.png", className: "max-h-9 sm:max-h-11 scale-105" },
-    { name: "Vantagro", src: "/clientes/logo-ativo11-dark.png", className: "max-h-12 sm:max-h-15 scale-115" },
-    { name: "M", src: "/clientes/logo-m.png", className: "max-h-10 sm:max-h-12" }
+    { name: "Mafit", src: "/clientes/logo-mafit-white.png", className: "h-7 sm:h-9" },
+    { name: "Valentt", src: "/clientes/logo-valentt-white.png", className: "h-6 sm:h-8" },
+    { name: "Multlens", src: "/clientes/logo-multlens-white.png", className: "h-11 sm:h-13" },
+    { name: "Paredão Tintas", src: "/clientes/logo-paredao-white.png", className: "h-8 sm:h-10" },
+    { name: "Evolução Informática", src: "/clientes/logo-evolucao-white.png", className: "h-7 sm:h-9" },
+    { name: "Inove Gôndolas", src: "/clientes/logo-inove-white.png", className: "h-9 sm:h-11" },
+    { name: "Vantagro", src: "/clientes/logo-vantagro-white.png", className: "h-11 sm:h-14" },
+    { name: "M", src: "/clientes/logo-m-white.png", className: "h-9 sm:h-11" }
   ];
 
   const threeFronts = [
@@ -258,18 +258,18 @@ export function Home() {
         </div>
 
         {/* Carrossel Infinito com Máscara de Gradiente Suave nas Bordas */}
-        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-          <div className="flex w-max animate-marquee gap-4 sm:gap-6 items-center py-2">
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] py-4">
+          <div className="flex w-max animate-marquee gap-10 sm:gap-16 items-center">
             {[...clientLogos, ...clientLogos].map((logo, idx) => (
               <div 
                 key={idx} 
-                className="w-44 sm:w-52 h-20 sm:h-24 shrink-0 flex items-center justify-center p-3 sm:p-4 rounded-2xl bg-white border border-white/20 shadow-md hover:border-[#E8A33D] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                className="shrink-0 flex items-center justify-center px-4 py-2 opacity-70 hover:opacity-100 hover:scale-105 transition-all duration-300 group cursor-default"
                 title={logo.name}
               >
                 <img 
                   src={logo.src} 
                   alt={logo.name} 
-                  className={`${logo.className || "max-h-9 sm:max-h-11"} w-auto max-w-[130px] object-contain group-hover:scale-110 transition-transform duration-300`} 
+                  className={`${logo.className || "h-8 sm:h-10"} w-auto object-contain brightness-100 drop-shadow-[0_2px_8px_rgba(255,255,255,0.06)]`} 
                   loading="lazy"
                 />
               </div>
