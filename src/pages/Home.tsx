@@ -151,13 +151,13 @@ export function Home() {
             muted
             playsInline
             poster="/videos/hero-realistic-poster.jpg"
-            className="w-full h-full object-cover opacity-30 sm:opacity-35 scale-105 filter contrast-110 brightness-90"
+            className="w-full h-full object-cover opacity-70 sm:opacity-80 scale-105 filter contrast-110 brightness-100"
           >
             <source src="/videos/hero-realistic-broker.mp4" type="video/mp4" />
           </video>
-          {/* Overlay em Gradiente com Blend Sofisticado para Contraste e Legibilidade Perfeitos */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#051214]/90 via-[#071A1E]/80 to-[#071A1E]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(14,74,85,0.45)_0%,_rgba(232,163,61,0.1)_45%,_transparent_75%)]"></div>
+          {/* Overlay em Gradiente Suave para Manter o Vídeo Bem Visível com Perfeita Legibilidade */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#051214]/70 via-[#071A1E]/40 to-[#071A1E]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(7,26,30,0.45)_0%,_transparent_75%)]"></div>
           {/* Malha Tecnológica Sutil */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
         </div>
@@ -174,7 +174,7 @@ export function Home() {
 
           {/* Headline Principal em Manrope ExtraBold com Gradiente */}
           <div className="max-w-4xl mx-auto mb-6">
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
               Seu e-commerce fatura. <br />
               <span className="block mt-2 gradiente font-extrabold">
                 Quanto disso vira lucro e caixa?
@@ -183,7 +183,7 @@ export function Home() {
           </div>
 
           {/* Frase Central Nova */}
-          <p className="text-base sm:text-xl text-slate-300 font-normal leading-relaxed mb-10 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed mb-10 max-w-3xl mx-auto drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
             A Mont Finance é o CFO Terceirizado que integra finanças, estratégia e capital para aumentar lucro, gerar caixa e reduzir riscos na sua operação.
           </p>
 
