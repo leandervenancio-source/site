@@ -52,8 +52,8 @@ export function Home() {
     { name: "Multlens", src: "/clientes/logo-multlens.png", className: "max-h-11 sm:max-h-14 scale-105" },
     { name: "Paredão Tintas", src: "/clientes/logo-paredao.png", className: "max-h-7 sm:max-h-9" },
     { name: "Evolução Informática", src: "/clientes/logo-evolucao.png", className: "max-h-7 sm:max-h-9" },
-    { name: "Inove Gôndolas", src: "/clientes/logo-inove.png", className: "max-h-8 sm:max-h-10 scale-105" },
-    { name: "Ativo 11", src: "/clientes/logo-ativo11-dark.png", className: "max-h-8 sm:max-h-10" },
+    { name: "Inove Gôndolas", src: "/clientes/logo-inove.png", className: "max-h-9 sm:max-h-11 scale-105" },
+    { name: "Vantagro", src: "/clientes/logo-ativo11-dark.png", className: "max-h-12 sm:max-h-15 scale-115" },
     { name: "M", src: "/clientes/logo-m.png", className: "max-h-10 sm:max-h-12" }
   ];
 
@@ -248,28 +248,28 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          3.1 LOGOS DE CLIENTES & OPERAÇÕES — [ESTILO GROWTH MACHINE]
+          3.1 LOGOS DE CLIENTES & OPERAÇÕES — [CARROSSEL CONTÍNUO GIRANDO NA PÁGINA]
       ========================================================================= */}
-      <section className="py-12 sm:py-14 bg-[#071A1E] border-b border-white/10 overflow-hidden relative">
+      <section className="py-12 sm:py-16 bg-[#071A1E] border-b border-white/10 overflow-hidden relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
           <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
             Empresas e marcas que confiam na nossa gestão e inteligência financeira
           </span>
         </div>
 
-        {/* Grid Elegante de Logos em Cards Brancos de Alto Contraste */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3.5 sm:gap-4 items-center justify-items-center">
-            {clientLogos.map((logo, idx) => (
+        {/* Carrossel Infinito com Máscara de Gradiente Suave nas Bordas */}
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="flex w-max animate-marquee gap-4 sm:gap-6 items-center py-2">
+            {[...clientLogos, ...clientLogos].map((logo, idx) => (
               <div 
                 key={idx} 
-                className="w-full h-16 sm:h-20 flex items-center justify-center p-2.5 sm:p-3 rounded-2xl bg-white border border-white/20 shadow-md hover:border-[#E8A33D] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                className="w-44 sm:w-52 h-20 sm:h-24 shrink-0 flex items-center justify-center p-3 sm:p-4 rounded-2xl bg-white border border-white/20 shadow-md hover:border-[#E8A33D] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                 title={logo.name}
               >
                 <img 
                   src={logo.src} 
                   alt={logo.name} 
-                  className={`${logo.className || "max-h-9 sm:max-h-11"} w-auto max-w-[110px] object-contain group-hover:scale-110 transition-transform duration-300`} 
+                  className={`${logo.className || "max-h-9 sm:max-h-11"} w-auto max-w-[130px] object-contain group-hover:scale-110 transition-transform duration-300`} 
                   loading="lazy"
                 />
               </div>
