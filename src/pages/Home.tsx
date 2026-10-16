@@ -200,52 +200,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* =========================================================================
-          3. FAIXA DE IMPACTO / FATOS — [ESTILO GROWTH MACHINE: Counter Cards com Glow]
-      ========================================================================= */}
-      <section className="py-12 border-b border-white/10 bg-[#061417]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
-            
-            <div className="p-6 rounded-2xl border border-white/10 bg-[#0A272D]/60 backdrop-blur-sm shadow-lg hover:border-[#E8A33D]/40 hover:-translate-y-1 transition-all">
-              <span className="text-2xl sm:text-3xl font-extrabold text-white block mb-1 tracking-tight">
-                Acima de R$ 3 Mi
-              </span>
-              <span className="text-xs text-slate-400 font-medium leading-snug block">
-                Foco em operações com tração e volume de vendas
-              </span>
-            </div>
-
-            <div className="p-6 rounded-2xl border border-white/10 bg-[#0A272D]/60 backdrop-blur-sm shadow-lg hover:border-[#E8A33D]/40 hover:-translate-y-1 transition-all">
-              <span className="text-2xl sm:text-3xl font-extrabold text-[#E8A33D] block mb-1 tracking-tight">
-                3 Frentes
-              </span>
-              <span className="text-xs text-slate-400 font-medium leading-snug block">
-                Finanças, estratégia e capital na mesma mesa
-              </span>
-            </div>
-
-            <div className="p-6 rounded-2xl border border-white/10 bg-[#0A272D]/60 backdrop-blur-sm shadow-lg hover:border-[#E8A33D]/40 hover:-translate-y-1 transition-all">
-              <span className="text-2xl sm:text-3xl font-extrabold text-white block mb-1 tracking-tight">
-                Método DAPE
-              </span>
-              <span className="text-xs text-slate-400 font-medium leading-snug block">
-                Dados, análise, planejamento e execução com rotina
-              </span>
-            </div>
-
-            <div className="p-6 rounded-2xl border border-white/10 bg-[#0A272D]/60 backdrop-blur-sm shadow-lg hover:border-[#E8A33D]/40 hover:-translate-y-1 transition-all">
-              <span className="text-2xl sm:text-3xl font-extrabold text-[#E8A33D] block mb-1 tracking-tight">
-                Nacional
-              </span>
-              <span className="text-xs text-slate-400 font-medium leading-snug block">
-                Atendimento remoto e executivo em todo o Brasil
-              </span>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* =========================================================================
           3.1 LOGOS DE CLIENTES & OPERAÇÕES — [CARROSSEL CONTÍNUO GIRANDO NA PÁGINA]
