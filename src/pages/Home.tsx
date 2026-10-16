@@ -143,9 +143,23 @@ export function Home() {
       ========================================================================= */}
       <section id="topo" className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden bg-gradient-to-b from-[#051214] via-[#071A1E] to-[#0A272D] text-white border-b border-white/10">
         
-        {/* Glow de Fundo e Malha Tecnológica */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-[620px] bg-[radial-gradient(ellipse_at_top,_rgba(14,74,85,0.5)_0%,_rgba(232,163,61,0.12)_45%,_transparent_75%)] opacity-70 pointer-events-none blur-3xl"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
+        {/* Vídeo de Fundo Estilo Growth Machine (Dashboard, Indicadores e Métricas Financeiras) */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-25 sm:opacity-30 scale-105 filter contrast-125 brightness-95"
+          >
+            <source src="/videos/hero-dashboard.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay em Gradiente com Blend Sofisticado para Contraste e Legibilidade Perfeitos */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#051214]/90 via-[#071A1E]/80 to-[#071A1E]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(14,74,85,0.45)_0%,_rgba(232,163,61,0.1)_45%,_transparent_75%)]"></div>
+          {/* Malha Tecnológica Sutil */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+        </div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           
