@@ -143,21 +143,21 @@ export function Home() {
       ========================================================================= */}
       <section id="topo" className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden bg-gradient-to-b from-[#051214] via-[#071A1E] to-[#0A272D] text-white border-b border-white/10">
         
-        {/* Vídeo de Fundo Realista: Gestão Empresarial (Duas Pessoas Analisando Dashboard de Métricas) */}
+        {/* Vídeo de Fundo Realista: Consultor Estratégico com Cliente Analisando Dashboard no Notebook */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           <video
             autoPlay
             loop
             muted
             playsInline
-            poster="/videos/hero-management-poster.jpg"
-            className="w-full h-full object-cover opacity-60 sm:opacity-70 scale-105 filter contrast-115 brightness-95"
+            poster="/videos/hero-consultant-poster.jpg"
+            className="w-full h-full object-cover opacity-65 sm:opacity-75 scale-105 filter contrast-110 brightness-95"
           >
-            <source src="/videos/hero-management-dashboard.mp4" type="video/mp4" />
+            <source src="/videos/hero-consultant-dashboard.mp4" type="video/mp4" />
           </video>
           {/* Overlay em Gradiente com Blend Sofisticado para Contraste e Legibilidade Perfeitos */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#051214]/80 via-[#071A1E]/50 to-[#071A1E]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(7,26,30,0.5)_0%,_transparent_75%)]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#051214]/75 via-[#071A1E]/45 to-[#071A1E]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(7,26,30,0.45)_0%,_transparent_75%)]"></div>
           {/* Malha Tecnológica Sutil */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
         </div>
