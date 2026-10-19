@@ -139,11 +139,11 @@ export function Home() {
     <div className="font-sans selection:bg-[#E8A33D] selection:text-[#071A1E] min-h-screen bg-[#071A1E]">
       
       {/* =========================================================================
-          1 & 2. HERO — [ESTILO GROWTH MACHINE: Dark Mesh, Gradient Headline, High-Impact CTAs]
+          1 & 2. HERO — [PROPORÇÃO NOTEBOOK: Full Viewport, Centered Layout, Balanced Elements]
       ========================================================================= */}
-      <section id="topo" className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden bg-gradient-to-b from-[#051214] via-[#071A1E] to-[#0A272D] text-white border-b border-white/10">
+      <section id="topo" className="relative min-h-[100dvh] flex flex-col justify-center pt-24 pb-10 sm:pt-28 sm:pb-12 lg:pt-20 lg:pb-10 overflow-hidden bg-gradient-to-b from-[#051214] via-[#071A1E] to-[#0A272D] text-white border-b border-white/10">
         
-        {/* Vídeo de Fundo Realista: Consultor Estratégico com Cliente Analisando Dashboard no Notebook */}
+        {/* Vídeo de Fundo Realista: Consultor Estratégico com Cliente Analisando Dashboard */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           <video
             autoPlay
@@ -151,48 +151,48 @@ export function Home() {
             muted
             playsInline
             poster="/videos/hero-consultant-poster.jpg"
-            className="w-full h-full object-cover opacity-65 sm:opacity-75 scale-105 filter contrast-110 brightness-95"
+            className="w-full h-full object-cover object-center opacity-60 sm:opacity-70 filter contrast-110 brightness-95"
           >
             <source src="/videos/hero-consultant-dashboard.mp4" type="video/mp4" />
           </video>
           {/* Overlay em Gradiente com Blend Sofisticado para Contraste e Legibilidade Perfeitos */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#051214]/75 via-[#071A1E]/45 to-[#071A1E]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(7,26,30,0.45)_0%,_transparent_75%)]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#051214]/80 via-[#071A1E]/55 to-[#071A1E]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(7,26,30,0.5)_0%,_transparent_75%)]"></div>
           {/* Malha Tecnológica Sutil */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center my-auto">
           
           {/* Badge Estilo Growth Machine com Ponto Pulsante */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#E8A33D]/10 border border-[#E8A33D]/30 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(232,163,61,0.15)]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E8A33D]/10 border border-[#E8A33D]/30 backdrop-blur-md mb-4 sm:mb-6 shadow-[0_0_20px_rgba(232,163,61,0.15)]">
             <span className="w-2 h-2 rounded-full bg-[#E8A33D] animate-pulse"></span>
-            <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#E8A33D]">
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-[#E8A33D]">
               CFO Terceirizado para e-commerce
             </span>
           </div>
 
           {/* Headline Principal em Manrope ExtraBold com Gradiente */}
-          <div className="max-w-4xl mx-auto mb-6">
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
+          <div className="max-w-4xl mx-auto mb-4 sm:mb-5">
+            <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-[1.12] drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
               Seu e-commerce fatura. <br />
-              <span className="block mt-2 gradiente font-extrabold">
+              <span className="block mt-1.5 gradiente font-extrabold">
                 Quanto disso vira lucro e caixa?
               </span>
             </h1>
           </div>
 
           {/* Frase Central Nova */}
-          <p className="text-base sm:text-xl text-slate-200 font-normal leading-relaxed mb-10 max-w-3xl mx-auto drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-200/95 font-normal leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
             A Mont Finance é o CFO Terceirizado que integra finanças, estratégia e capital para aumentar lucro, gerar caixa e reduzir riscos na sua operação.
           </p>
 
           {/* CTAs de Alto Impacto Estilo Growth Machine */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-5 sm:mb-6 w-full sm:w-auto">
             <a 
               href="#diagnostico" 
               onClick={() => trackCtaClick("hero_primary", "Agendar diagnóstico")}
-              className="w-full sm:w-auto px-9 py-4 rounded-xl bg-gradient-to-r from-[#E8A33D] to-[#F5B85D] hover:from-[#D4932D] hover:to-[#E8A33D] text-[#071A1E] text-xs font-extrabold uppercase tracking-wider transition-all shadow-[0_8px_30px_rgba(232,163,61,0.35)] hover:shadow-[0_12px_36px_rgba(232,163,61,0.5)] hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-7 py-3.5 sm:px-8 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#E8A33D] to-[#F5B85D] hover:from-[#D4932D] hover:to-[#E8A33D] text-[#071A1E] text-xs font-extrabold uppercase tracking-wider transition-all shadow-[0_8px_24px_rgba(232,163,61,0.35)] hover:shadow-[0_12px_32px_rgba(232,163,61,0.5)] hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2"
             >
               <span>Agendar diagnóstico gratuito</span>
               <ArrowRight className="w-4 h-4 stroke-[2.5]" />
@@ -200,14 +200,14 @@ export function Home() {
             <a 
               href="#niveis" 
               onClick={() => trackCtaClick("hero_secondary", "Ver os níveis de serviço")}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/20 hover:border-white/40 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-6 py-3.5 sm:px-7 sm:py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/20 hover:border-white/40 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
             >
               <span>Ver os níveis de serviço</span>
             </a>
           </div>
 
           {/* Qualificação de Público */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300 max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs text-slate-300 max-w-2xl mx-auto">
             <Sparkles className="w-3.5 h-3.5 text-[#E8A33D] shrink-0" />
             <span>Para empresas de e-commerce com faturamento acima de R$ 3 milhões por ano.</span>
           </div>
