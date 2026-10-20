@@ -79,31 +79,31 @@ export function Home() {
     {
       criteria: "Papel na sua empresa",
       mont: "Senta na mesa de decisão como CFO: orienta precificação, corte de desperdícios e alocação de caixa.",
-      bpo: "Operacional burocrático: digita boletos, emite notas e concilia contas sem analisar o negócio.",
+      tradicional: "Operacional burocrático: cumpre guias fiscais e conciliação bancária sem analisar o negócio.",
       consultoria: "Teórico e distante: entrega uma planilha pesada ou slides e você executa sozinho."
     },
     {
       criteria: "Especialização em E-commerce",
       mont: "100% focado na dinâmica digital: taxas de marketplace, frete, devoluções, estoque e NCG.",
-      bpo: "Atendimento genérico: trata sua loja online igual a uma padaria ou escritório.",
+      tradicional: "Atendimento genérico: trata sua loja online igual a uma padaria ou escritório.",
       consultoria: "Modelos tradicionais corporativos que ignoram o descasamento de caixa do e-commerce."
     },
     {
       criteria: "Três Frentes Integradas",
       mont: "Finanças, Estratégia e Capital analisados juntos para maximizar margem, clareza e caixa.",
-      bpo: "Olha apenas a guia de imposto a pagar, sem visão estratégica ou análise de margem por canal.",
+      tradicional: "Olha apenas a guia de imposto a pagar, sem visão estratégica ou análise de margem por canal.",
       consultoria: "Analisa custos isolados sem conexão com estratégia prática e crédito bancário."
     },
     {
       criteria: "Rotina e Acompanhamento",
       mont: "Presença contínua: reuniões executivas mensais, leitura de variância e forecast dos próximos meses.",
-      bpo: "Visão pelo retrovisor: fecha o balancete fiscal semanas após o mês terminar.",
+      tradicional: "Visão pelo retrovisor: fecha o balancete fiscal semanas após o mês terminar.",
       consultoria: "Projeto pontual com início e fim, sem acompanhamento da implementação prática."
     },
     {
       criteria: "Foco no Resultado Final",
       mont: "Lucro líquido real no bolso, previsibilidade no fluxo de caixa e redução estrutural de riscos.",
-      bpo: "Apenas conformidade legal para evitar multas de órgãos fiscais.",
+      tradicional: "Apenas conformidade legal para evitar multas de órgãos fiscais.",
       consultoria: "Foco na entrega do relatório contratado, independentemente do caixa melhorar."
     }
   ];
@@ -118,16 +118,16 @@ export function Home() {
       a: "Não. A contabilidade cuida das obrigações fiscais e legais. A Mont Finance trabalha ao lado dela, usando os números para apoiar decisões de finanças, estratégia e capital."
     },
     {
-      q: "Qual a diferença entre Controladoria e CFO Terceirizado completo?",
-      a: "A Controladoria entrega a base de decisão: DRE gerencial, fluxo de caixa e indicadores. O CFO Terceirizado completo soma planejamento estratégico (orçamento, forecast e variância) e a interlocução direta com o CFO."
+      q: "Qual a diferença entre o CFO Pro e o CFO Full?",
+      a: "O CFO Pro contempla o CFO Terceirizado com a controladoria da empresa organizada, identificando qual canal e produto dão lucro de verdade, quanto caixa está parado e para onde o dinheiro vai, com FP&A (orçamento, forecast, variância) e um rito mensal de decisão acompanhado. O CFO Full inclui tudo do CFO Pro, mais a execução financeira dirigida pelo CFO, na qual a rotina financeira do dia a dia é conduzida sob a direção do CFO, liberando seu tempo para focar no negócio."
     },
     {
       q: "Preciso ter uma estrutura financeira pronta para começar?",
       a: "Não. Parte do trabalho é organizar os dados. Quanto mais informação você tiver, mais rápido avançamos, mas o diagnóstico existe justamente para mostrar o ponto de partida."
     },
     {
-      q: "Vocês também atuam com tributação e crédito?",
-      a: "Sim. A Inteligência Tributária é uma subárea especializada dentro de Finanças (e pode ser aprofundada como trabalho específico), enquanto a Captação de Recursos compõe a frente de Capital. Ambas conectadas à estratégia e ao resultado real do seu negócio."
+      q: "Vocês também atuam com tributação, crédito e projetos pontuais?",
+      a: "Sim. A Inteligência Tributária (entregue com parceiros) e a Captação de Recursos (assessoria de crédito e capital) são frentes contratáveis à parte. Também realizamos projetos pontuais de Advisory para Planejamento Estratégico, Valuation e M&A."
     },
     {
       q: "O diagnóstico garante algum resultado?",
@@ -199,10 +199,10 @@ export function Home() {
             </a>
             <a 
               href="#niveis" 
-              onClick={() => trackCtaClick("hero_secondary", "Ver os níveis de serviço")}
+              onClick={() => trackCtaClick("hero_secondary", "Conhecer pacotes de CFO")}
               className="w-full sm:w-auto px-6 py-3.5 sm:px-7 sm:py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/20 hover:border-white/40 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
             >
-              <span>Ver os níveis de serviço</span>
+              <span>Conhecer os pacotes de CFO</span>
             </a>
           </div>
 
@@ -395,7 +395,7 @@ export function Home() {
                 <span className="text-[#0E4A55]">não resolvem o seu caixa?</span>
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
-                Enquanto o BPO apenas digita notas fiscais e consultores entregam slides e vão embora, a Mont Finance assume a cadeira executiva de finanças do seu e-commerce com você.
+                Enquanto a contabilidade tradicional apenas cumpre obrigações fiscais e consultores entregam relatórios teóricos e vão embora, a Mont Finance assume a cadeira executiva de finanças do seu e-commerce com você.
               </p>
             </div>
 
@@ -414,7 +414,7 @@ export function Home() {
                       </div>
                     </th>
                     <th className="p-5 text-xs font-bold uppercase tracking-wider text-slate-500 w-1/5">
-                      Contabilidade / BPO
+                      Contabilidade Tradicional
                     </th>
                     <th className="p-5 text-xs font-bold uppercase tracking-wider text-slate-500 w-1/5">
                       Consultoria Tradicional
@@ -440,7 +440,7 @@ export function Home() {
                           <div className="w-4 h-4 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 mt-0.5">
                             <X className="w-3 h-3 stroke-[2.5]" />
                           </div>
-                          <span>{row.bpo}</span>
+                          <span>{row.tradicional}</span>
                         </div>
                       </td>
                       <td className="p-5 text-slate-500 font-normal align-top leading-relaxed">
@@ -474,8 +474,8 @@ export function Home() {
 
                   <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-500 pt-1">
                     <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                      <span className="font-bold block text-slate-700 mb-0.5">Contabilidade:</span>
-                      {row.bpo}
+                      <span className="font-bold block text-slate-700 mb-0.5">Contabilidade Tradicional:</span>
+                      {row.tradicional}
                     </div>
                     <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
                       <span className="font-bold block text-slate-700 mb-0.5">Consultoria:</span>
@@ -503,118 +503,128 @@ export function Home() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[11px] font-bold uppercase tracking-wider text-[#F5B85D] mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
-              Níveis de Serviço
+              Pacotes de Serviço
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-5">
-              Dois níveis de CFO Terceirizado, <br className="hidden sm:inline" />
-              <span className="text-[#F5B85D]">conforme o momento da empresa</span>
+              Dois pacotes de CFO Terceirizado, <br className="hidden sm:inline" />
+              <span className="text-[#F5B85D]">conforme o momento da sua empresa</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
-              Os dois começam pela mesma pergunta: qual é o resultado real do negócio e o que fazer com ele. A diferença está na profundidade do acompanhamento.
+              O CFO Terceirizado da Mont Finance é estruturado em dois pacotes. Ambos entregam a visão executiva de finanças, a controladoria organizada e o rito mensal de decisão. A diferença está na camada de execução.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-14">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
             
-            {/* Nível 1 — Controladoria */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#0A272D]/90 border border-white/10 hover:border-white/20 flex flex-col justify-between transition-all duration-300 shadow-xl group">
+            {/* Pacote 1 — CFO Pro */}
+            <div id="cfo-pro" className="p-8 sm:p-10 rounded-3xl bg-[#0A272D]/90 border border-white/10 hover:border-white/20 flex flex-col justify-between transition-all duration-300 shadow-xl group">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 text-slate-300">
-                    Nível 1
+                    Pacote 1
+                  </span>
+                  <span className="text-xs font-semibold text-[#F5B85D]">
+                    CFO + Controladoria
                   </span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
-                  Controladoria
+                  CFO Pro
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed mb-6">
-                  Visão de CFO sobre os seus números, para você decidir com base em fatos e não em percepção.
+                  O CFO Terceirizado da Mont com a controladoria da empresa organizada. Você passa a saber qual canal e qual produto dão lucro de verdade, quanto caixa está parado e para onde o dinheiro vai, e decide todo mês com um plano de ação acompanhado.
                 </p>
 
                 <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-slate-200">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>Plano de contas gerencial pensado para e-commerce</span>
+                    <span>Controladoria organizada com apuração de margem real por canal e por produto</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>DRE gerencial com margem por canal</span>
+                    <span>Visão clara de quanto caixa está parado e para onde o dinheiro vai</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>Fluxo de caixa com visão dos próximos meses</span>
+                    <span>DRE gerencial e fluxo de caixa com projeção futura</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>Indicadores de acompanhamento e leitura mensal com você</span>
+                    <span>FP&A integrado: orçamento, forecast e análise de variância</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
+                    <span>Rito mensal de decisão com plano de ação acompanhado pelo CFO</span>
                   </li>
                 </ul>
               </div>
 
               <div className="pt-6 border-t border-white/10">
                 <span className="text-xs text-slate-400 block mb-5 leading-relaxed">
-                  <strong className="text-slate-200">Para quem precisa:</strong> enxergar a margem real e o caixa com clareza e ainda não tem essa base confiável.
+                  <strong className="text-slate-200">Para quem precisa:</strong> ter os números organizados, clareza sobre lucro e caixa e decidir todo mês com um CFO ao seu lado.
                 </span>
                 <a 
                   href="#diagnostico" 
-                  onClick={() => trackCtaClick("nivel_1_controladoria", "Agendar para Nível 1")}
+                  onClick={() => trackCtaClick("cfo_pro", "Agendar para CFO Pro")}
                   className="w-full py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-extrabold uppercase tracking-wider text-center flex items-center justify-center gap-2 transition-all"
                 >
-                  <span>Agendar para Nível 1</span>
+                  <span>Agendar diagnóstico para CFO Pro</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
 
-            {/* Nível 2 — CFO Terceirizado completo */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#0A272D] border-2 border-[#E8A33D] transition-all flex flex-col justify-between shadow-[0_0_50px_rgba(232,163,61,0.2)] relative">
-              <div className="absolute -top-3.5 right-8 px-4 py-1 rounded-full bg-gradient-to-r from-[#E8A33D] to-[#F5B85D] text-[#071A1E] text-[10px] font-black uppercase tracking-wider shadow-md">
-                Mais Completo
-              </div>
-
+            {/* Pacote 2 — CFO Full */}
+            <div id="cfo-full" className="p-8 sm:p-10 rounded-3xl bg-[#0A272D] border-2 border-[#E8A33D] transition-all flex flex-col justify-between shadow-[0_0_50px_rgba(232,163,61,0.2)] relative">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#E8A33D]/20 text-[#F5B85D]">
-                    Nível 2
+                    Pacote 2
+                  </span>
+                  <span className="text-xs font-semibold text-[#F5B85D]">
+                    CFO + Controladoria + Execução
                   </span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
-                  CFO Terceirizado completo
+                  CFO Full
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed mb-6">
-                  Tudo da Controladoria, mais planejamento financeiro e um CFO como interlocutor direto da sua liderança.
+                  Tudo do CFO Pro, mais a <strong className="text-white">execução financeira dirigida pelo CFO</strong>. A rotina financeira do dia a dia é conduzida sob a direção do CFO, e você ganha tempo para focar no negócio.
                 </p>
 
                 <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-slate-200">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span className="font-semibold text-white">Tudo o que está no nível Controladoria</span>
+                    <span className="font-semibold text-white">Tudo o que está incluído no CFO Pro</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>Orçamento, forecast e análise de variância</span>
+                    <span>Execução financeira dirigida pelo CFO no dia a dia</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>Cenários para decisões de estoque, preço, canal e investimento</span>
+                    <span>Rotina financeira conduzida sob a direção executiva do CFO</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>Interlocução estratégica direta com o CFO</span>
+                    <span>Liberação de tempo da liderança para focar na expansão do negócio</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
+                    <span>FP&A, orçamento, forecast e rito mensal de decisão com plano de ação acompanhado</span>
                   </li>
                 </ul>
               </div>
 
               <div className="pt-6 border-t border-white/10">
                 <span className="text-xs text-slate-400 block mb-5 leading-relaxed">
-                  <strong className="text-slate-200">Para quem precisa:</strong> já cresce e precisa de planejamento, cenários e um parceiro estratégico nas decisões financeiras.
+                  <strong className="text-slate-200">Para quem precisa:</strong> visão de CFO, controladoria organizada e a rotina financeira do dia a dia executada sob a liderança do CFO.
                 </span>
                 <a 
                   href="#diagnostico" 
-                  onClick={() => trackCtaClick("nivel_2_cfo_completo", "Agendar para Nível 2")}
+                  onClick={() => trackCtaClick("cfo_full", "Agendar para CFO Full")}
                   className="w-full py-4 rounded-xl bg-gradient-to-r from-[#E8A33D] to-[#F5B85D] hover:from-[#F5B85D] hover:to-[#E8A33D] text-[#071A1E] text-xs font-black uppercase tracking-wider text-center flex items-center justify-center gap-2 transition-all shadow-[0_4px_20px_rgba(232,163,61,0.35)] hover:scale-[1.02]"
                 >
-                  <span>Agendar para Nível 2</span>
+                  <span>Agendar diagnóstico para CFO Full</span>
                   <ArrowRight className="w-4 h-4 stroke-[3]" />
                 </a>
               </div>
@@ -622,37 +632,36 @@ export function Home() {
 
           </div>
 
-          {/* Bloco Curto: Contratável à parte */}
+          {/* Bloco Curto: Contratável à parte e Projetos Pontuais */}
           <div className="max-w-5xl mx-auto p-6 sm:p-10 rounded-3xl bg-[#071A1E] border border-white/10 shadow-2xl">
             <div className="mb-8 text-center sm:text-left">
               <span className="text-xs font-bold uppercase tracking-wider text-[#F5B85D] block mb-1">
-                Contratável à parte
+                Contratável à parte e projetos pontuais
               </span>
               <p className="text-xs sm:text-sm text-slate-300 font-normal">
                 Frentes especializadas que podem ser acionadas de acordo com as necessidades específicas da sua empresa.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Inteligência Tributária */}
               <div className="p-6 sm:p-8 rounded-2xl bg-[#0A272D] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-2 mb-2 flex-wrap">
+                  <div className="mb-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8A33D]/20 text-[#F5B85D] inline-block mb-2">
+                      Contratável à parte
+                    </span>
                     <h4 className="text-xl font-extrabold text-white tracking-tight">
                       Inteligência Tributária
                     </h4>
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8A33D]/20 text-[#F5B85D]">
-                      Subárea de Finanças
+                    <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
+                      Entregue com parceiros
                     </span>
                   </div>
                   <p className="text-xs text-slate-300 font-normal leading-relaxed mb-5">
-                    Como subárea integrada a Finanças, atua na revisão de créditos e riscos, planejamento e estrutura tributária, sempre conectados ao efeito em preço, margem e caixa.
+                    Entregue em parceria com especialistas tributários. Atua na análise da estrutura tributária e no reflexo fiscal sobre preço, margem e fluxo de caixa.
                   </p>
-                  <ul className="space-y-2.5 mb-5 text-xs text-slate-300">
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
-                      Levantamento de possíveis créditos tributários
-                    </li>
+                  <ul className="space-y-2 mb-5 text-xs text-slate-300">
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
                       Revisão do enquadramento e da estrutura tributária
@@ -661,9 +670,13 @@ export function Home() {
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
                       Tributação na formação de preço por canal
                     </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
+                      Análise técnica de riscos e conformidade fiscal
+                    </li>
                   </ul>
                   <p className="text-[11px] text-slate-400 italic mb-4 leading-relaxed">
-                    *Cada análise depende do caso concreto e de validação técnica. Não há resultado garantido.
+                    *Cada análise depende do caso concreto e de validação técnica. Sem promessa de resultado.
                   </p>
                 </div>
                 <a 
@@ -678,16 +691,24 @@ export function Home() {
               {/* Captação de Recursos */}
               <div className="p-6 sm:p-8 rounded-2xl bg-[#0A272D] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xl font-extrabold text-white tracking-tight mb-2">
-                    Captação de Recursos
-                  </h4>
+                  <div className="mb-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8A33D]/20 text-[#F5B85D] inline-block mb-2">
+                      Contratável à parte
+                    </span>
+                    <h4 className="text-xl font-extrabold text-white tracking-tight">
+                      Captação de Recursos
+                    </h4>
+                    <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
+                      Assessoria de crédito e capital
+                    </span>
+                  </div>
                   <p className="text-xs text-slate-300 font-normal leading-relaxed mb-5">
-                    Diagnóstico da necessidade de capital, organização dos números e preparação para conversar com instituições financeiras.
+                    Assessoria de crédito e capital com diagnóstico da necessidade de recursos, organização dos números e preparação para diálogo com instituições financeiras.
                   </p>
-                  <ul className="space-y-2.5 mb-5 text-xs text-slate-300">
+                  <ul className="space-y-2 mb-5 text-xs text-slate-300">
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
-                      Diagnóstico do endividamento e do custo do capital
+                      Diagnóstico do endividamento e necessidade de capital
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
@@ -695,7 +716,7 @@ export function Home() {
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
-                      Relacionamento com bancos e outras instituições
+                      Assessoria no relacionamento com instituições financeiras
                     </li>
                   </ul>
                   <p className="text-[11px] text-slate-400 italic mb-4 leading-relaxed">
@@ -705,6 +726,50 @@ export function Home() {
                 <a 
                   href="#diagnostico" 
                   onClick={() => trackCtaClick("contratavel_capital", "Consultar Captação de Recursos")}
+                  className="text-xs font-bold text-[#F5B85D] hover:text-white inline-flex items-center gap-1.5 transition-colors pt-4 border-t border-white/10"
+                >
+                  Consultar no diagnóstico <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+
+              {/* Advisory (Projetos Pontuais) */}
+              <div className="p-6 sm:p-8 rounded-2xl bg-[#0A272D] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="mb-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white/10 text-slate-300 inline-block mb-2">
+                      Projetos pontuais
+                    </span>
+                    <h4 className="text-xl font-extrabold text-white tracking-tight">
+                      Advisory
+                    </h4>
+                    <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
+                      Planejamento Estratégico, Valuation, M&A
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-300 font-normal leading-relaxed mb-5">
+                    Projetos estratégicos pontuais para momentos decisivos da empresa: crescimento estruturado, precificação do negócio e operações societárias.
+                  </p>
+                  <ul className="space-y-2 mb-5 text-xs text-slate-300">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
+                      Planejamento Estratégico plurianual
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
+                      Laudos técnicos de Valuation e modelagem
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
+                      Assessoria executiva em processos de M&A
+                    </li>
+                  </ul>
+                  <p className="text-[11px] text-slate-400 italic mb-4 leading-relaxed">
+                    *Escopo e cronograma estruturados sob medida para o projeto da empresa.
+                  </p>
+                </div>
+                <a 
+                  href="#diagnostico" 
+                  onClick={() => trackCtaClick("projeto_advisory", "Consultar Advisory")}
                   className="text-xs font-bold text-[#F5B85D] hover:text-white inline-flex items-center gap-1.5 transition-colors pt-4 border-t border-white/10"
                 >
                   Consultar no diagnóstico <ArrowRight className="w-4 h-4" />
@@ -800,7 +865,7 @@ export function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { title: "Cultura Data-Driven", desc: "Decisões e equipes guiadas por dados reais e indicadores confiáveis, sem achismos." },
-              { title: "Gestão Ágil", desc: "Processos dinâmicos que eliminam gargalos operacionais e aceleram a tomada de decisão." },
+              { title: "Processos Ágeis", desc: "Fluxos dinâmicos que eliminam gargalos operacionais e aceleram a tomada de decisão com base em números." },
               { title: "Melhoria Contínua", desc: "Ações e indicadores são constantemente ajustados em busca da rentabilidade do caixa." }
             ].map((item, i) => (
               <div key={i} className="p-6 rounded-2xl bg-white/70 border border-slate-200/80 hover:bg-white hover:border-[#0E4A55] transition-all">
@@ -863,7 +928,7 @@ export function Home() {
                   UFG Engenharia
                 </span>
                 <span className="px-3 py-1 rounded-full bg-white/10 border border-white/10 text-slate-200 text-xs font-bold font-mono">
-                  +10 anos em gestão financeira
+                  +10 anos de experiência financeira
                 </span>
               </div>
 

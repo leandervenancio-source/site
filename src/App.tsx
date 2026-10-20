@@ -13,6 +13,10 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          {/* URLs oficiais sugeridas */}
+          <Route path="cfo-terceirizado" element={<Navigate to="/#topo" replace />} />
+          <Route path="cfo-terceirizado/cfo-pro" element={<Navigate to="/#cfo-pro" replace />} />
+          <Route path="cfo-terceirizado/cfo-full" element={<Navigate to="/#cfo-full" replace />} />
           {/* Redirecionamentos para landing page única */}
           <Route path="diagnostico" element={<Navigate to="/#diagnostico" replace />} />
           <Route path="consultoria-tributaria" element={<Navigate to="/#niveis" replace />} />

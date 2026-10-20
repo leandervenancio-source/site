@@ -39,7 +39,7 @@ export function FinancialCockpit() {
     },
     site_proprio: {
       name: "Site Próprio (D2C)",
-      tag: "Shopify / VTEX / Nuvem",
+      tag: "Canal Próprio / Loja Virtual",
       venda: 100,
       cmv: 33,
       midia: 25,

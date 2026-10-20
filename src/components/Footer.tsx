@@ -53,7 +53,7 @@ export function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4">Navegação</h3>
             <ul className="space-y-2.5 text-xs text-slate-400">
               <li><a href="#topo" className="hover:text-[#F5B85D] transition-colors">Início</a></li>
-              <li><a href="#niveis" className="hover:text-[#F5B85D] transition-colors">Níveis de serviço</a></li>
+              <li><a href="#niveis" className="hover:text-[#F5B85D] transition-colors">Pacotes de serviço</a></li>
               <li><a href="#metodo-dape" className="hover:text-[#F5B85D] transition-colors">Método DAPE</a></li>
               <li><a href="#quem-conduz" className="hover:text-[#F5B85D] transition-colors">Quem conduz</a></li>
               <li><a href="#diagnostico" className="hover:text-[#F5B85D] transition-colors">Diagnóstico</a></li>

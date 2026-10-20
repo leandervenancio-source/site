@@ -48,7 +48,7 @@ export function Diagnostic() {
                 <div className="w-5 h-5 rounded-full bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="w-3.5 h-3.5" />
                 </div>
-                <span>Indicamos por onde começar e se faz sentido a Controladoria, o CFO Terceirizado completo ou outra frente.</span>
+                <span>Indicamos por onde começar e se faz sentido o CFO Pro, o CFO Full ou outra frente.</span>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-5 h-5 rounded-full bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center shrink-0 mt-0.5">
