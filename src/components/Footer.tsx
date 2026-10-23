@@ -1,5 +1,7 @@
 import { Linkedin, Instagram } from "lucide-react";
 import { trackWhatsAppClick } from "../lib/analytics";
+import { openLegalModal } from "./LegalModal";
+import { resetCookieConsent } from "./CookieBanner";
 
 export function Footer() {
   return (
@@ -84,10 +86,38 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-slate-500">
-          <p>
-            &copy; {new Date().getFullYear()} Mont Finance. Todos os direitos reservados.
-          </p>
+        <div className="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+            <p>
+              &copy; {new Date().getFullYear()} Mont Finance. Todos os direitos reservados.
+            </p>
+            <span className="hidden sm:inline text-white/20">•</span>
+            <div className="flex flex-wrap items-center justify-center gap-3 text-[11px]">
+              <button
+                type="button"
+                onClick={() => openLegalModal("privacy")}
+                className="text-slate-400 hover:text-[#F5B85D] transition-colors cursor-pointer"
+              >
+                Política de Privacidade (LGPD)
+              </button>
+              <span className="text-white/20">•</span>
+              <button
+                type="button"
+                onClick={() => openLegalModal("terms")}
+                className="text-slate-400 hover:text-[#F5B85D] transition-colors cursor-pointer"
+              >
+                Termos de Uso
+              </button>
+              <span className="text-white/20">•</span>
+              <button
+                type="button"
+                onClick={() => resetCookieConsent()}
+                className="text-slate-400 hover:text-[#F5B85D] transition-colors cursor-pointer"
+              >
+                Preferências de Cookies
+              </button>
+            </div>
+          </div>
           <p className="text-[11px] text-slate-500 max-w-md text-center md:text-right leading-relaxed">
             O conteúdo deste site é informativo e não constitui parecer jurídico, contábil ou tributário. Cada situação exige análise do caso concreto.
           </p>

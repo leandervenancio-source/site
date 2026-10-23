@@ -2,6 +2,7 @@ import { useState, useEffect, FormEvent } from "react";
 import { supabase } from "../lib/supabase";
 import { Loader2, CheckCircle2, AlertCircle, ArrowRight, ArrowLeft, MessageSquare, Mail, ShieldCheck, Lock } from "lucide-react";
 import { trackLeadSubmit, trackWhatsAppClick } from "../lib/analytics";
+import { openLegalModal } from "./LegalModal";
 
 interface FormDataState {
   name: string;
@@ -526,7 +527,31 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
                 disabled={isSubmitting}
               />
               <span className="leading-relaxed">
-                Concordo com a Política de Privacidade e em receber o contato estratégico da Mont Finance.
+                Concordo com a{" "}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openLegalModal("privacy");
+                  }}
+                  className="text-[#F5B85D] hover:underline font-semibold cursor-pointer"
+                >
+                  Política de Privacidade
+                </button>{" "}
+                e os{" "}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openLegalModal("terms");
+                  }}
+                  className="text-[#F5B85D] hover:underline font-semibold cursor-pointer"
+                >
+                  Termos de Uso
+                </button>
+                , autorizando o contato executivo da Mont Finance.
               </span>
             </label>
             {errors.lgpdConsent && <p className="text-[11px] text-rose-400 mt-1.5 font-medium">{errors.lgpdConsent}</p>}
@@ -565,9 +590,18 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
       )}
 
       {/* Rodapé de Confidencialidade */}
-      <div className="relative z-10 pt-5 border-t border-white/10 flex items-center justify-center gap-2 text-[11px] text-slate-400">
-        <Lock className="w-3.5 h-3.5 text-[#E8A33D] shrink-0" />
-        <span>Dados 100% confidenciais. Reunião executiva sem compromisso.</span>
+      <div className="relative z-10 pt-5 border-t border-white/10 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[11px] text-slate-400">
+        <div className="flex items-center gap-1.5">
+          <Lock className="w-3.5 h-3.5 text-[#E8A33D] shrink-0" />
+          <span>Dados 100% confidenciais (LGPD).</span>
+        </div>
+        <button
+          type="button"
+          onClick={() => openLegalModal("privacy")}
+          className="text-slate-300 hover:text-[#F5B85D] underline transition-colors cursor-pointer"
+        >
+          Política de Privacidade
+        </button>
       </div>
     </form>
   );

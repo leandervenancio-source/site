@@ -1,7 +1,9 @@
-// Utilitário para rastreamento de eventos GA4
+// Utilitário para rastreamento de eventos GA4 (respeita preferência LGPD)
+import { getCookieConsent } from "../components/CookieBanner";
 
 export const trackEvent = (eventName: string, params?: Record<string, any>) => {
   if (typeof window !== "undefined" && (window as any).gtag) {
+    if (getCookieConsent() === "essential") return;
     (window as any).gtag("event", eventName, params);
   }
 };

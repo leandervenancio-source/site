@@ -1,6 +1,8 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { LegalModal } from "./LegalModal";
+import { CookieBanner } from "./CookieBanner";
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { trackCtaClick, trackWhatsAppClick } from "../lib/analytics";
@@ -79,6 +81,10 @@ export function Layout() {
           <div className="absolute top-1/2 -right-1 -translate-y-1/2 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[6px] border-l-[#F5F3EE]"></div>
         </div>
       </a>
+
+      {/* Modal Jurídico LGPD & Banner de Cookies */}
+      <LegalModal />
+      <CookieBanner />
     </div>
   );
 }
