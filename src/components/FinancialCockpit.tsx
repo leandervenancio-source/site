@@ -105,8 +105,8 @@ export function FinancialCockpit() {
     {
       id: "r100",
       badge: "Visão 03",
-      label: "Para onde vão R$ 100",
-      question: "A cada R$ 100 vendidos, quanto cada custo (CMV, taxas, mídia) consome e quanto vira lucro?",
+      label: "Margem & Custos por Canal",
+      question: "De todo o faturamento de cada canal, quanto o CMV, impostos, taxas e mídia consomem e quanto vira lucro?",
       icon: PieChart
     },
     {
@@ -123,67 +123,107 @@ export function FinancialCockpit() {
     {
       name: string;
       subtitle: string;
-      cmv: number;
-      impostos: number;
-      taxas: number;
-      frete: number;
-      midia: number;
-      fixos: number;
-      lucro: number;
+      faturamento: string;
+      cmvPct: number;
+      cmvVal: string;
+      impostosPct: number;
+      impostosVal: string;
+      taxasPct: number;
+      taxasVal: string;
+      fretePct: number;
+      freteVal: string;
+      midiaPct: number;
+      midiaVal: string;
+      fixosPct: number;
+      fixosVal: string;
+      lucroPct: number;
+      lucroVal: string;
       insight: string;
     }
   > = {
     consolidado: {
       name: "Média Consolidada",
-      subtitle: "Soma de todos os canais da operação",
-      cmv: 38,
-      impostos: 11,
-      taxas: 12,
-      frete: 8,
-      midia: 13,
-      fixos: 7,
-      lucro: 11,
+      subtitle: "Faturamento Total: R$ 1.648.420",
+      faturamento: "R$ 1.648.420",
+      cmvPct: 38,
+      cmvVal: "R$ 626.400",
+      impostosPct: 11,
+      impostosVal: "R$ 181.326",
+      taxasPct: 10,
+      taxasVal: "R$ 164.842",
+      fretePct: 8,
+      freteVal: "R$ 131.874",
+      midiaPct: 11,
+      midiaVal: "R$ 186.200",
+      fixosPct: 8,
+      fixosVal: "R$ 131.874",
+      lucroPct: 14,
+      lucroVal: "R$ 225.904",
       insight:
-        "De cada R$ 100 vendidos no consolidado, R$ 89 vão para CMV (mercadoria), impostos, taxas, frete, mídia e estrutura, restando R$ 11 de lucro líquido."
+        "Dos R$ 1.648.420 faturados na operação, R$ 626.400 (38%) vão para o CMV (mercadoria) e R$ 796.116 para impostos, taxas, frete, mídia e estrutura — gerando R$ 225.904 (13,7%) de lucro líquido real."
     },
     site_proprio: {
       name: "Loja Própria (D2C)",
-      subtitle: "Menor taxa de intermediação, maior investimento em tráfego",
-      cmv: 35,
-      impostos: 10,
-      taxas: 4,
-      frete: 7,
-      midia: 21,
-      fixos: 7,
-      lucro: 16,
+      subtitle: "Faturamento do Canal: R$ 964.320",
+      faturamento: "R$ 964.320",
+      cmvPct: 35,
+      cmvVal: "R$ 337.512",
+      impostosPct: 11,
+      impostosVal: "R$ 106.075",
+      taxasPct: 4,
+      taxasVal: "R$ 38.573",
+      fretePct: 7,
+      freteVal: "R$ 67.502",
+      midiaPct: 16,
+      midiaVal: "R$ 154.291",
+      fixosPct: 8,
+      fixosVal: "R$ 77.146",
+      lucroPct: 19,
+      lucroVal: "R$ 183.221",
       insight:
-        "Na loja própria, a taxa de transação cai para R$ 4, permitindo absorver o investimento em tráfego pago e ainda reter R$ 16 de lucro líquido a cada R$ 100."
+        "Na Loja Própria (R$ 964.320), a taxa de gateway é de apenas R$ 38.573 (4%), permitindo investir R$ 154.291 em tráfego pago e ainda gerar R$ 183.221 (19%) de lucro líquido — 81% de todo o lucro da empresa."
     },
     mercado_livre: {
       name: "Mercado Livre",
-      subtitle: "Alto volume de vendas com comissão e logística pesadas",
-      cmv: 39,
-      impostos: 11,
-      taxas: 17,
-      frete: 10,
-      midia: 8,
-      fixos: 6,
-      lucro: 9,
+      subtitle: "Faturamento do Canal: R$ 382.650",
+      faturamento: "R$ 382.650",
+      cmvPct: 41,
+      cmvVal: "R$ 156.887",
+      impostosPct: 11,
+      impostosVal: "R$ 42.092",
+      taxasPct: 17,
+      taxasVal: "R$ 65.051",
+      fretePct: 10,
+      freteVal: "R$ 38.265",
+      midiaPct: 5,
+      midiaVal: "R$ 19.132",
+      fixosPct: 8,
+      fixosVal: "R$ 30.612",
+      lucroPct: 8,
+      lucroVal: "R$ 30.611",
       insight:
-        "Comissão (R$ 17) e frete (R$ 10) consomem R$ 27 de cada R$ 100 vendidos. Sem precificação exata por SKU, promoções derrubam o lucro para zero."
+        "Dos R$ 382.650 vendidos no Mercado Livre, comissão (R$ 65.051) e frete Full (R$ 38.265) consomem R$ 103.316 (27%), deixando R$ 30.611 (8%) de sobra líquida."
     },
     shopee: {
       name: "Shopee & Outros",
-      subtitle: "Pressão por preço baixo e cupons agressivos",
-      cmv: 41,
-      impostos: 10,
-      taxas: 20,
-      frete: 9,
-      midia: 7,
-      fixos: 7,
-      lucro: 6,
+      subtitle: "Faturamento do Canal: R$ 301.450",
+      faturamento: "R$ 301.450",
+      cmvPct: 44,
+      cmvVal: "R$ 132.001",
+      impostosPct: 11,
+      impostosVal: "R$ 33.159",
+      taxasPct: 20,
+      taxasVal: "R$ 61.218",
+      fretePct: 9,
+      freteVal: "R$ 26.107",
+      midiaPct: 4,
+      midiaVal: "R$ 12.777",
+      fixosPct: 8,
+      fixosVal: "R$ 24.116",
+      lucroPct: 4,
+      lucroVal: "R$ 12.072",
       insight:
-        "Mesmo com giro rápido, taxas (R$ 20) e CMV (R$ 41) comprimem a sobra líquida para R$ 6. Exige trava rígida de desconto mínimo."
+        "Mesmo faturando R$ 301.450, o peso do CMV (R$ 132.001 · 44%) somado às comissões e cupons (R$ 61.218 · 20%) comprime o lucro líquido do canal para apenas R$ 12.072 (4%)."
     }
   };
 
@@ -972,7 +1012,7 @@ export function FinancialCockpit() {
             )}
 
             {/* ===================================================================
-                TELA 3: DECOMPOSIÇÃO DE R$ 100 VENDIDOS (COM CMV EM DESTAQUE)
+                TELA 3: DECOMPOSIÇÃO DOS NÚMEROS REAIS POR CANAL (COM CMV EM DESTAQUE)
             =================================================================== */}
             {activeTab === "r100" && (
               <motion.div
@@ -987,10 +1027,10 @@ export function FinancialCockpit() {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
                   <div>
                     <span className="text-xs font-extrabold uppercase tracking-wider text-white block">
-                      Simulador: Para onde vão cada R$ 100,00 vendidos?
+                      Raio-X de Resultado: Para onde vai o faturamento de cada canal?
                     </span>
                     <span className="text-xs text-slate-400">
-                      Clique nos canais ao lado para comparar o peso do CMV, taxas e mídia em cada canal:
+                      Clique nos canais ao lado para comparar os valores reais de CMV, taxas, mídia e lucro líquido:
                     </span>
                   </div>
 
@@ -1012,131 +1052,166 @@ export function FinancialCockpit() {
                   </div>
                 </div>
 
-                {/* Barra de Proporção Visual de R$ 100 */}
+                {/* Barra de Proporção Visual dos Números Reais do Canal */}
                 <div className="p-5 rounded-2xl bg-[#071A1E] border border-white/10">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                     <span className="text-xs sm:text-sm font-bold text-white">
-                      {currentSim.name}: <span className="text-slate-400 font-normal">{currentSim.subtitle}</span>
+                      {currentSim.name}: <span className="text-slate-300 font-mono font-semibold">{currentSim.subtitle}</span>
                     </span>
                     <span className="text-sm font-mono font-extrabold text-emerald-400">
-                      Sobra Líquida: R$ {currentSim.lucro},00 de cada R$ 100,00
+                      Sobra Líquida: {currentSim.lucroVal} ({currentSim.lucroPct}% do faturamento)
                     </span>
                   </div>
 
                   {/* Barra Segmentada Grande */}
                   <div className="h-7 w-full rounded-xl bg-[#0A272D] overflow-hidden flex shadow-inner p-0.5 gap-0.5 mb-5">
                     <div
-                      style={{ width: `${currentSim.cmv}%` }}
+                      style={{ width: `${currentSim.cmvPct}%` }}
                       className="bg-rose-500 h-full rounded-l-lg flex items-center justify-center text-[10px] font-mono font-bold text-white transition-all duration-500"
-                      title="Custo da Mercadoria Vendida (CMV)"
+                      title={`CMV: ${currentSim.cmvVal} (${currentSim.cmvPct}%)`}
                     >
-                      CMV R${currentSim.cmv}
+                      CMV {currentSim.cmvPct}%
                     </div>
                     <div
-                      style={{ width: `${currentSim.impostos}%` }}
+                      style={{ width: `${currentSim.impostosPct}%` }}
                       className="bg-purple-500 h-full flex items-center justify-center text-[10px] font-mono font-bold text-white transition-all duration-500"
-                      title="Impostos"
+                      title={`Impostos: ${currentSim.impostosVal} (${currentSim.impostosPct}%)`}
                     >
-                      R${currentSim.impostos}
+                      {currentSim.impostosPct}%
                     </div>
                     <div
-                      style={{ width: `${currentSim.taxas}%` }}
+                      style={{ width: `${currentSim.taxasPct}%` }}
                       className="bg-orange-500 h-full flex items-center justify-center text-[10px] font-mono font-bold text-white transition-all duration-500"
-                      title="Taxas e Comissões"
+                      title={`Taxas e Comissões: ${currentSim.taxasVal} (${currentSim.taxasPct}%)`}
                     >
-                      {currentSim.taxas >= 8 ? `R$${currentSim.taxas}` : ""}
+                      {currentSim.taxasPct >= 7 ? `${currentSim.taxasPct}%` : ""}
                     </div>
                     <div
-                      style={{ width: `${currentSim.frete}%` }}
+                      style={{ width: `${currentSim.fretePct}%` }}
                       className="bg-sky-500 h-full flex items-center justify-center text-[10px] font-mono font-bold text-white transition-all duration-500"
-                      title="Frete e Logística"
+                      title={`Frete e Logística: ${currentSim.freteVal} (${currentSim.fretePct}%)`}
                     >
-                      {currentSim.frete >= 8 ? `R$${currentSim.frete}` : ""}
+                      {currentSim.fretePct >= 7 ? `${currentSim.fretePct}%` : ""}
                     </div>
                     <div
-                      style={{ width: `${currentSim.midia}%` }}
+                      style={{ width: `${currentSim.midiaPct}%` }}
                       className="bg-[#E8A33D] h-full flex items-center justify-center text-[10px] font-mono font-bold text-[#071A1E] transition-all duration-500"
-                      title="Mídia / Ads"
+                      title={`Mídia / Ads: ${currentSim.midiaVal} (${currentSim.midiaPct}%)`}
                     >
-                      R${currentSim.midia}
+                      {currentSim.midiaPct >= 6 ? `${currentSim.midiaPct}%` : ""}
                     </div>
                     <div
-                      style={{ width: `${currentSim.fixos}%` }}
+                      style={{ width: `${currentSim.fixosPct}%` }}
                       className="bg-slate-500 h-full flex items-center justify-center text-[10px] font-mono font-bold text-white transition-all duration-500"
-                      title="Despesas Fixas"
+                      title={`Despesas Fixas: ${currentSim.fixosVal} (${currentSim.fixosPct}%)`}
                     >
-                      R${currentSim.fixos}
+                      {currentSim.fixosPct}%
                     </div>
                     <div
-                      style={{ width: `${currentSim.lucro}%` }}
+                      style={{ width: `${currentSim.lucroPct}%` }}
                       className="bg-emerald-500 h-full rounded-r-lg flex items-center justify-center text-[10px] font-mono font-extrabold text-[#071A1E] transition-all duration-500"
-                      title="Lucro Líquido"
+                      title={`Lucro Líquido: ${currentSim.lucroVal} (${currentSim.lucroPct}%)`}
                     >
-                      R${currentSim.lucro}
+                      {currentSim.lucroPct}%
                     </div>
                   </div>
 
-                  {/* 7 Blocos Didáticos da Decomposição */}
+                  {/* 7 Blocos Didáticos da Decomposição com Valores Reais */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 text-left">
                     <div className="p-3 rounded-xl bg-[#0A272D] border border-rose-500/30">
-                      <span className="w-2 h-2 rounded-full bg-rose-500 inline-block mr-1.5"></span>
-                      <span className="text-[10px] font-bold uppercase text-rose-300">1. CMV</span>
-                      <strong className="text-sm font-mono font-extrabold text-white block mt-1">
-                        - R$ {currentSim.cmv},00
+                      <div className="flex items-center justify-between gap-1">
+                        <div>
+                          <span className="w-2 h-2 rounded-full bg-rose-500 inline-block mr-1.5"></span>
+                          <span className="text-[10px] font-bold uppercase text-rose-300">1. CMV</span>
+                        </div>
+                        <span className="text-[10px] font-mono font-bold text-rose-300">{currentSim.cmvPct}%</span>
+                      </div>
+                      <strong className="text-xs sm:text-sm font-mono font-extrabold text-white block mt-1">
+                        - {currentSim.cmvVal}
                       </strong>
                       <span className="text-[10px] text-slate-400">Custo Mercadoria</span>
                     </div>
 
                     <div className="p-3 rounded-xl bg-[#0A272D] border border-white/10">
-                      <span className="w-2 h-2 rounded-full bg-purple-500 inline-block mr-1.5"></span>
-                      <span className="text-[10px] font-bold uppercase text-slate-300">2. Impostos</span>
-                      <strong className="text-sm font-mono font-extrabold text-white block mt-1">
-                        - R$ {currentSim.impostos},00
+                      <div className="flex items-center justify-between gap-1">
+                        <div>
+                          <span className="w-2 h-2 rounded-full bg-purple-500 inline-block mr-1.5"></span>
+                          <span className="text-[10px] font-bold uppercase text-slate-300">2. Impostos</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-slate-400">{currentSim.impostosPct}%</span>
+                      </div>
+                      <strong className="text-xs sm:text-sm font-mono font-extrabold text-white block mt-1">
+                        - {currentSim.impostosVal}
                       </strong>
                       <span className="text-[10px] text-slate-400">ICMS, DIFAL, PIS/COF</span>
                     </div>
 
                     <div className="p-3 rounded-xl bg-[#0A272D] border border-white/10">
-                      <span className="w-2 h-2 rounded-full bg-orange-500 inline-block mr-1.5"></span>
-                      <span className="text-[10px] font-bold uppercase text-slate-300">3. Taxas</span>
-                      <strong className="text-sm font-mono font-extrabold text-white block mt-1">
-                        - R$ {currentSim.taxas},00
+                      <div className="flex items-center justify-between gap-1">
+                        <div>
+                          <span className="w-2 h-2 rounded-full bg-orange-500 inline-block mr-1.5"></span>
+                          <span className="text-[10px] font-bold uppercase text-slate-300">3. Taxas</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-slate-400">{currentSim.taxasPct}%</span>
+                      </div>
+                      <strong className="text-xs sm:text-sm font-mono font-extrabold text-white block mt-1">
+                        - {currentSim.taxasVal}
                       </strong>
                       <span className="text-[10px] text-slate-400">Comissão / Gateway</span>
                     </div>
 
                     <div className="p-3 rounded-xl bg-[#0A272D] border border-white/10">
-                      <span className="w-2 h-2 rounded-full bg-sky-500 inline-block mr-1.5"></span>
-                      <span className="text-[10px] font-bold uppercase text-slate-300">4. Frete</span>
-                      <strong className="text-sm font-mono font-extrabold text-white block mt-1">
-                        - R$ {currentSim.frete},00
+                      <div className="flex items-center justify-between gap-1">
+                        <div>
+                          <span className="w-2 h-2 rounded-full bg-sky-500 inline-block mr-1.5"></span>
+                          <span className="text-[10px] font-bold uppercase text-slate-300">4. Frete</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-slate-400">{currentSim.fretePct}%</span>
+                      </div>
+                      <strong className="text-xs sm:text-sm font-mono font-extrabold text-white block mt-1">
+                        - {currentSim.freteVal}
                       </strong>
                       <span className="text-[10px] text-slate-400">Envio e logística</span>
                     </div>
 
                     <div className="p-3 rounded-xl bg-[#0A272D] border border-white/10">
-                      <span className="w-2 h-2 rounded-full bg-[#E8A33D] inline-block mr-1.5"></span>
-                      <span className="text-[10px] font-bold uppercase text-slate-300">5. Mídia (Ads)</span>
-                      <strong className="text-sm font-mono font-extrabold text-white block mt-1">
-                        - R$ {currentSim.midia},00
+                      <div className="flex items-center justify-between gap-1">
+                        <div>
+                          <span className="w-2 h-2 rounded-full bg-[#E8A33D] inline-block mr-1.5"></span>
+                          <span className="text-[10px] font-bold uppercase text-slate-300">5. Mídia (Ads)</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-slate-400">{currentSim.midiaPct}%</span>
+                      </div>
+                      <strong className="text-xs sm:text-sm font-mono font-extrabold text-white block mt-1">
+                        - {currentSim.midiaVal}
                       </strong>
                       <span className="text-[10px] text-slate-400">Meta, Google, Mktp</span>
                     </div>
 
                     <div className="p-3 rounded-xl bg-[#0A272D] border border-white/10">
-                      <span className="w-2 h-2 rounded-full bg-slate-400 inline-block mr-1.5"></span>
-                      <span className="text-[10px] font-bold uppercase text-slate-300">6. Fixos</span>
-                      <strong className="text-sm font-mono font-extrabold text-white block mt-1">
-                        - R$ {currentSim.fixos},00
+                      <div className="flex items-center justify-between gap-1">
+                        <div>
+                          <span className="w-2 h-2 rounded-full bg-slate-400 inline-block mr-1.5"></span>
+                          <span className="text-[10px] font-bold uppercase text-slate-300">6. Fixos</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-slate-400">{currentSim.fixosPct}%</span>
+                      </div>
+                      <strong className="text-xs sm:text-sm font-mono font-extrabold text-white block mt-1">
+                        - {currentSim.fixosVal}
                       </strong>
                       <span className="text-[10px] text-slate-400">Equipe e estrutura</span>
                     </div>
 
                     <div className="p-3 rounded-xl bg-emerald-500/15 border-2 border-emerald-500/50 col-span-2 sm:col-span-1">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block mr-1.5"></span>
-                      <span className="text-[10px] font-extrabold uppercase text-emerald-300">(=) Lucro</span>
-                      <strong className="text-base font-mono font-extrabold text-emerald-400 block mt-1">
-                        + R$ {currentSim.lucro},00
+                      <div className="flex items-center justify-between gap-1">
+                        <div>
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block mr-1.5"></span>
+                          <span className="text-[10px] font-extrabold uppercase text-emerald-300">(=) Lucro</span>
+                        </div>
+                        <span className="text-[10px] font-mono font-extrabold text-emerald-300">{currentSim.lucroPct}%</span>
+                      </div>
+                      <strong className="text-xs sm:text-sm font-mono font-extrabold text-emerald-400 block mt-1">
+                        + {currentSim.lucroVal}
                       </strong>
                       <span className="text-[10px] text-emerald-300 font-semibold">Sobra no bolso</span>
                     </div>
