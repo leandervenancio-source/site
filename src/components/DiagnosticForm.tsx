@@ -67,7 +67,7 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
   const validateStep1 = (): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
-      setErrors((prev) => ({ ...prev, email: "Informe um e-mail profissional válido." }));
+      setErrors((prev) => ({ ...prev, email: "Informe um e-mail válido." }));
       return false;
     }
     setErrors((prev) => ({ ...prev, email: undefined }));
@@ -367,7 +367,7 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
         </div>
 
         <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-          {step === 1 && "Inicie pelo seu e-mail profissional"}
+          {step === 1 && "Inicie pelo seu melhor e-mail"}
           {step === 2 && "Para quem enviamos o diagnóstico?"}
           {step === 3 && "Qual o porte atual da sua operação?"}
         </h3>
@@ -378,16 +378,16 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
         </p>
       </div>
 
-      {/* ETAPA 1: E-MAIL CORPORATIVO */}
+      {/* ETAPA 1: MELHOR E-MAIL */}
       {step === 1 && (
         <div className="space-y-5 relative z-10 my-6">
           <div>
             <label className={labelClass}>
-              E-mail Corporativo*
+              Seu melhor e-mail*
             </label>
             <input
               type="email"
-              placeholder="voce@suaempresa.com.br"
+              placeholder="seu@email.com.br"
               value={formData.email}
               className={`${inputClass} ${errors.email ? "!border-rose-500" : ""}`}
               onChange={(e) => {
