@@ -231,47 +231,57 @@ export function FinancialCockpit() {
                 transition={{ duration: 0.25 }}
                 className="space-y-6"
               >
-                {/* Resumo Geral no Topo */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                {/* Resumo Geral no Topo (Com CMV Explícito) */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                   <div className="p-4 rounded-2xl bg-[#071A1E] border border-white/10">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
                       Faturamento Mensal
                     </span>
-                    <span className="text-lg sm:text-xl font-extrabold font-mono text-white block">
+                    <span className="text-base sm:text-lg font-extrabold font-mono text-white block">
                       R$ 1.200.000
                     </span>
-                    <span className="text-[11px] text-slate-400">Soma dos 3 canais</span>
+                    <span className="text-[11px] text-slate-400">100% · Soma dos 3 canais</span>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-[#071A1E] border border-rose-500/25">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-rose-300 block mb-1">
+                      (-) CMV (Mercadoria)
+                    </span>
+                    <span className="text-base sm:text-lg font-extrabold font-mono text-rose-400 block">
+                      - R$ 448.000
+                    </span>
+                    <span className="text-[11px] text-slate-400">37,3% · Custo da Mercadoria</span>
                   </div>
 
                   <div className="p-4 rounded-2xl bg-[#071A1E] border border-white/10">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
-                      Taxas + Frete + Mídia
+                      (-) Impostos, Taxas e Ads
                     </span>
-                    <span className="text-lg sm:text-xl font-extrabold font-mono text-rose-400 block">
-                      - R$ 392.000
+                    <span className="text-base sm:text-lg font-extrabold font-mono text-amber-400 block">
+                      - R$ 484.000
                     </span>
-                    <span className="text-[11px] text-slate-400">32,6% da receita bruta</span>
+                    <span className="text-[11px] text-slate-400">40,3% · Variáveis de venda</span>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-[#071A1E] border border-white/10">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
-                      Margem de Contribuição
+                  <div className="p-4 rounded-2xl bg-[#071A1E] border border-[#E8A33D]/30">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#F5B85D] block mb-1">
+                      (=) Margem Contribuição
                     </span>
-                    <span className="text-lg sm:text-xl font-extrabold font-mono text-[#F5B85D] block">
+                    <span className="text-base sm:text-lg font-extrabold font-mono text-[#F5B85D] block">
                       R$ 268.000
                     </span>
-                    <span className="text-[11px] text-[#F5B85D]">22,3% após custos variáveis</span>
+                    <span className="text-[11px] text-[#F5B85D]/90">22,3% após variáveis</span>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30">
+                  <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 col-span-2 sm:col-span-1">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 block mb-1">
-                      Lucro Líquido no Bolso
+                      (=) Lucro Líquido
                     </span>
-                    <span className="text-lg sm:text-xl font-extrabold font-mono text-emerald-400 block">
-                      R$ 142.000 (11,8%)
+                    <span className="text-base sm:text-lg font-extrabold font-mono text-emerald-400 block">
+                      R$ 142.000
                     </span>
                     <span className="text-[11px] text-emerald-300/90 flex items-center gap-1">
-                      <TrendingUp className="w-3 h-3" /> Após despesas fixas
+                      <TrendingUp className="w-3 h-3" /> 11,8% livre no bolso
                     </span>
                   </div>
                 </div>
@@ -280,7 +290,7 @@ export function FinancialCockpit() {
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-slate-200">
-                      Comparativo de Rentabilidade Real por Canal
+                      Comparativo de Rentabilidade Real por Canal (Com CMV separado)
                     </h4>
                     <span className="text-[11px] text-slate-400 hidden sm:inline">
                       Faturar mais nem sempre significa lucrar mais
@@ -307,17 +317,17 @@ export function FinancialCockpit() {
                           <span>Vendas no canal:</span>
                           <strong className="text-white">R$ 420.000</strong>
                         </div>
-                        <div className="flex justify-between text-slate-400">
-                          <span>(-) Produto + Imposto:</span>
-                          <span>- R$ 189.000</span>
+                        <div className="flex justify-between text-rose-300">
+                          <span>(-) CMV (Mercadoria):</span>
+                          <span>- R$ 147.000 (35%)</span>
                         </div>
                         <div className="flex justify-between text-slate-400">
-                          <span>(-) Taxas e Frete:</span>
-                          <span>- R$ 46.200</span>
+                          <span>(-) Impostos, Taxa e Frete:</span>
+                          <span>- R$ 88.200</span>
                         </div>
                         <div className="flex justify-between text-amber-300">
                           <span>(-) Tráfego Pago (Ads):</span>
-                          <span>- R$ 88.200</span>
+                          <span>- R$ 48.200</span>
                         </div>
                         <div className="flex justify-between pt-2 border-t border-white/10 text-emerald-400 font-bold text-sm">
                           <span>(=) Lucro do Canal:</span>
@@ -345,13 +355,13 @@ export function FinancialCockpit() {
                           <span>Vendas no canal:</span>
                           <strong className="text-white">R$ 510.000</strong>
                         </div>
-                        <div className="flex justify-between text-slate-400">
-                          <span>(-) Produto + Imposto:</span>
-                          <span>- R$ 255.000</span>
+                        <div className="flex justify-between text-rose-300">
+                          <span>(-) CMV (Mercadoria):</span>
+                          <span>- R$ 193.800 (38%)</span>
                         </div>
                         <div className="flex justify-between text-rose-400">
-                          <span>(-) Comissão + Full:</span>
-                          <span>- R$ 137.700</span>
+                          <span>(-) Imposto, Comissão e Full:</span>
+                          <span>- R$ 193.800</span>
                         </div>
                         <div className="flex justify-between text-slate-400">
                           <span>(-) Mídia Interna:</span>
@@ -383,13 +393,13 @@ export function FinancialCockpit() {
                           <span>Vendas no canal:</span>
                           <strong className="text-white">R$ 270.000</strong>
                         </div>
-                        <div className="flex justify-between text-slate-400">
-                          <span>(-) Produto + Imposto:</span>
-                          <span>- R$ 137.700</span>
+                        <div className="flex justify-between text-rose-300">
+                          <span>(-) CMV (Mercadoria):</span>
+                          <span>- R$ 107.200 (40%)</span>
                         </div>
                         <div className="flex justify-between text-rose-400">
-                          <span>(-) Comissão + Cupons:</span>
-                          <span>- R$ 78.300</span>
+                          <span>(-) Imposto, Taxa e Cupom:</span>
+                          <span>- R$ 96.500</span>
                         </div>
                         <div className="flex justify-between text-slate-400">
                           <span>(-) Mídia / Destaque:</span>
@@ -688,13 +698,13 @@ export function FinancialCockpit() {
 
                   {/* 7 Blocos Didáticos da Decomposição */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 text-left">
-                    <div className="p-3 rounded-xl bg-[#0A272D] border border-white/10">
+                    <div className="p-3 rounded-xl bg-[#0A272D] border border-rose-500/30">
                       <span className="w-2 h-2 rounded-full bg-rose-500 inline-block mr-1.5"></span>
-                      <span className="text-[10px] font-bold uppercase text-slate-300">1. Produto</span>
+                      <span className="text-[10px] font-bold uppercase text-rose-300">1. CMV</span>
                       <strong className="text-sm font-mono font-extrabold text-white block mt-1">
                         - R$ {currentSim.cmv},00
                       </strong>
-                      <span className="text-[10px] text-slate-400">CMV + embalagem</span>
+                      <span className="text-[10px] text-slate-400">Mercadoria vendida</span>
                     </div>
 
                     <div className="p-3 rounded-xl bg-[#0A272D] border border-white/10">
