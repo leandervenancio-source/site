@@ -5,22 +5,82 @@ import {
   PackageSearch,
   PieChart,
   CalendarClock,
-  TrendingUp,
   AlertTriangle,
   CheckCircle2,
   ArrowRight,
   Sparkles,
   Layers,
-  DollarSign
+  DollarSign,
+  RefreshCw,
+  Calendar,
+  SlidersHorizontal,
+  Megaphone,
+  TrendingUp,
+  Info
 } from "lucide-react";
 import { trackCtaClick } from "../lib/analytics";
 
 type CockpitTab = "canais" | "skus" | "r100" | "caixa";
 type ChannelSimKey = "consolidado" | "site_proprio" | "mercado_livre" | "shopee";
 
+// 30 dias de barras empilhadas para o gráfico "Vendas por dia x meta" (em milhares R$)
+const dailySalesBars = [
+  { label: "ter 01/09", site: 17, loja: 1.2, shopee: 5.2, ml: 2.3 },
+  { label: "qua 02/09", site: 22, loja: 1.5, shopee: 5.0, ml: 2.7 },
+  { label: "qui 03/09", site: 20.5, loja: 1.4, shopee: 5.6, ml: 2.5 },
+  { label: "sex 04/09", site: 21.8, loja: 1.6, shopee: 5.1, ml: 2.7 },
+  { label: "sáb 05/09", site: 16.5, loja: 0.9, shopee: 4.1, ml: 1.9 },
+  { label: "dom 06/09", site: 16.0, loja: 0.6, shopee: 4.2, ml: 1.9 },
+  { label: "seg 07/09", site: 17.8, loja: 1.0, shopee: 3.6, ml: 1.9 },
+  { label: "ter 08/09", site: 15.2, loja: 1.1, shopee: 4.1, ml: 2.1 },
+  { label: "qua 09/09", site: 21.0, loja: 2.1, shopee: 8.2, ml: 3.6 },
+  { label: "qui 10/09", site: 19.5, loja: 1.4, shopee: 5.1, ml: 2.4 },
+  { label: "sex 11/09", site: 15.0, loja: 1.2, shopee: 4.6, ml: 2.0 },
+  { label: "sáb 12/09", site: 15.8, loja: 1.1, shopee: 4.3, ml: 1.8 },
+  { label: "dom 13/09", site: 12.6, loja: 0.7, shopee: 3.8, ml: 1.5 },
+  { label: "seg 14/09", site: 17.5, loja: 1.5, shopee: 4.9, ml: 2.6 },
+  { label: "ter 15/09", site: 22.0, loja: 1.3, shopee: 3.4, ml: 1.9 },
+  { label: "qua 16/09", site: 28.5, loja: 1.8, shopee: 3.5, ml: 2.0 },
+  { label: "qui 17/09", site: 19.2, loja: 1.1, shopee: 4.1, ml: 2.1 },
+  { label: "sex 18/09", site: 23.8, loja: 1.4, shopee: 2.8, ml: 1.6 },
+  { label: "sáb 19/09", site: 20.0, loja: 0.9, shopee: 2.9, ml: 1.4 },
+  { label: "dom 20/09", site: 33.8, loja: 0.8, shopee: 1.9, ml: 1.2 },
+  { label: "seg 21/09", site: 19.5, loja: 1.4, shopee: 5.2, ml: 2.8 },
+  { label: "ter 22/09", site: 19.0, loja: 1.1, shopee: 3.2, ml: 1.8 },
+  { label: "qua 23/09", site: 22.0, loja: 1.2, shopee: 3.1, ml: 1.7 },
+  { label: "qui 24/09", site: 22.4, loja: 1.5, shopee: 3.9, ml: 2.3 },
+  { label: "sex 25/09", site: 21.8, loja: 1.1, shopee: 2.9, ml: 1.6 },
+  { label: "sáb 26/09", site: 16.0, loja: 0.9, shopee: 2.6, ml: 1.4 },
+  { label: "dom 27/09", site: 19.2, loja: 0.7, shopee: 2.1, ml: 1.1 },
+  { label: "seg 28/09", site: 27.5, loja: 1.6, shopee: 3.2, ml: 1.8 },
+  { label: "ter 29/09", site: 21.6, loja: 1.1, shopee: 2.6, ml: 1.7 },
+  { label: "qua 30/09", site: 29.8, loja: 1.4, shopee: 3.0, ml: 1.8 }
+];
+
+const attainmentRowsDia = [
+  { dia: "ter 01/09", vendido: "R$ 25.689,83", meta: "R$ 53.333,33", pct: "48,2%" },
+  { dia: "qua 02/09", vendido: "R$ 31.228,93", meta: "R$ 53.333,33", pct: "58,6%" },
+  { dia: "qui 03/09", vendido: "R$ 30.039,18", meta: "R$ 53.333,33", pct: "56,3%" },
+  { dia: "sex 04/09", vendido: "R$ 31.228,13", meta: "R$ 53.333,33", pct: "58,6%" },
+  { dia: "sáb 05/09", vendido: "R$ 23.462,75", meta: "R$ 53.333,33", pct: "44,0%" },
+  { dia: "dom 06/09", vendido: "R$ 22.704,16", meta: "R$ 53.333,33", pct: "42,6%" },
+  { dia: "seg 07/09", vendido: "R$ 24.319,22", meta: "R$ 53.333,33", pct: "45,6%" },
+  { dia: "ter 08/09", vendido: "R$ 22.544,81", meta: "R$ 53.333,33", pct: "42,3%" }
+];
+
+const attainmentRowsCanal = [
+  { dia: "Site Próprio", vendido: "R$ 613.511,46", meta: "R$ 1.300.000,00", pct: "47,2%" },
+  { dia: "Shopee", vendido: "R$ 105.239,81", meta: "R$ 180.000,00", pct: "58,5%" },
+  { dia: "Mercado Livre", vendido: "R$ 59.711,28", meta: "R$ 70.000,00", pct: "85,3%" },
+  { dia: "Loja Física", vendido: "R$ 28.821,33", meta: "R$ 50.000,00", pct: "57,6%" },
+  { dia: "Troca / Reenvio", vendido: "R$ 19.333,95", meta: "—", pct: "—" }
+];
+
 export function FinancialCockpit() {
   const [activeTab, setActiveTab] = useState<CockpitTab>("canais");
   const [selectedChannel, setSelectedChannel] = useState<ChannelSimKey>("consolidado");
+  const [chartPeriod, setChartPeriod] = useState<"Dia" | "Semana" | "Mês">("Dia");
+  const [attainmentView, setAttainmentView] = useState<"Dia" | "Canal">("Dia");
 
   const tabs: {
     id: CockpitTab;
@@ -32,8 +92,8 @@ export function FinancialCockpit() {
     {
       id: "canais",
       badge: "Visão 01",
-      label: "Lucro Real por Canal",
-      question: "Qual canal coloca lucro no bolso e qual só gera faturamento sem margem?",
+      label: "Vendas por Canal & ROAS",
+      question: "Como estão o faturamento, ticket médio, investimento em mídia e atingimento de meta por canal?",
       icon: BarChart3
     },
     {
@@ -47,7 +107,7 @@ export function FinancialCockpit() {
       id: "r100",
       badge: "Visão 03",
       label: "Para onde vão R$ 100",
-      question: "A cada R$ 100 vendidos, quanto cada custo consome e quanto sobra de lucro?",
+      question: "A cada R$ 100 vendidos, quanto cada custo (CMV, taxas, mídia) consome e quanto vira lucro?",
       icon: PieChart
     },
     {
@@ -85,7 +145,7 @@ export function FinancialCockpit() {
       fixos: 7,
       lucro: 11,
       insight:
-        "De cada R$ 100 vendidos no consolidado, R$ 89 vão para custos do produto, impostos, taxas, frete, mídia e estrutura, restando R$ 11 de lucro líquido."
+        "De cada R$ 100 vendidos no consolidado, R$ 89 vão para CMV (mercadoria), impostos, taxas, frete, mídia e estrutura, restando R$ 11 de lucro líquido."
     },
     site_proprio: {
       name: "Loja Própria (D2C)",
@@ -124,12 +184,13 @@ export function FinancialCockpit() {
       fixos: 7,
       lucro: 6,
       insight:
-        "Mesmo com giro rápido, taxas (R$ 20) e custo de mercadoria (R$ 41) comprimem a sobra líquida para R$ 6. Exige trava rígida de desconto mínimo."
+        "Mesmo com giro rápido, taxas (R$ 20) e CMV (R$ 41) comprimem a sobra líquida para R$ 6. Exige trava rígida de desconto mínimo."
     }
   };
 
   const currentSim = channelSimData[selectedChannel];
   const currentTabInfo = tabs.find((t) => t.id === activeTab)!;
+  const activeAttainmentRows = attainmentView === "Dia" ? attainmentRowsDia : attainmentRowsCanal;
 
   return (
     <div className="w-full">
@@ -153,7 +214,7 @@ export function FinancialCockpit() {
       {/* =========================================================================
           SELETOR INTERATIVO NO TOPO (4 TELAS DE DECISÃO)
       ========================================================================= */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6 max-w-5xl mx-auto">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6 max-w-6xl mx-auto">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -189,10 +250,10 @@ export function FinancialCockpit() {
       {/* =========================================================================
           PAINEL EXECUTIVO PRINCIPAL (TELA DIDÁTICA E ATRATIVA)
       ========================================================================= */}
-      <div className="max-w-5xl mx-auto rounded-3xl bg-[#0A272D] border border-white/15 shadow-[0_30px_80px_rgba(0,0,0,0.55)] overflow-hidden">
+      <div className="max-w-6xl mx-auto rounded-3xl bg-[#0A272D] border border-white/15 shadow-[0_30px_80px_rgba(0,0,0,0.55)] overflow-hidden">
         
         {/* Barra Superior do Painel com a Pergunta do Empresário */}
-        <div className="px-5 sm:px-8 py-4 bg-[#061518] border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="px-5 sm:px-7 py-3.5 bg-[#061518] border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className="hidden sm:flex items-center gap-1.5">
               <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
@@ -216,11 +277,11 @@ export function FinancialCockpit() {
         </div>
 
         {/* Corpo Dinâmico das 4 Visões */}
-        <div className="p-5 sm:p-8">
+        <div className="p-4 sm:p-7">
           <AnimatePresence mode="wait">
             
             {/* ===================================================================
-                TELA 1: LUCRO REAL POR CANAL (DRE POR CANAL DE VENDA)
+                TELA 1: VENDAS POR CANAL (ESTRUTURA FIEL À IMAGEM NA IDENTIDADE MONT FINANCE)
             =================================================================== */}
             {activeTab === "canais" && (
               <motion.div
@@ -229,205 +290,523 @@ export function FinancialCockpit() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.25 }}
-                className="space-y-6"
+                className="space-y-4"
               >
-                {/* Resumo Geral no Topo (Com CMV Explícito) */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-                  <div className="p-4 rounded-2xl bg-[#071A1E] border border-white/10">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
-                      Faturamento Mensal
+                {/* Header Interno do Dashboard: "Vendas por Canal" + Controles de Período */}
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-white/10">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-extrabold text-white tracking-tight">
+                      Vendas por Canal
+                    </h3>
+                    <p className="text-xs text-slate-300">
+                      Faturamento, pedidos e ticket médio de cada canal, com investimento em mídia e ROI
+                    </p>
+                    <span className="text-[10px] text-slate-400 block mt-0.5">
+                      Atualizado hoje às 17:50
                     </span>
-                    <span className="text-base sm:text-lg font-extrabold font-mono text-white block">
-                      R$ 1.200.000
-                    </span>
-                    <span className="text-[11px] text-slate-400">100% · Soma dos 3 canais</span>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-[#071A1E] border border-rose-500/25">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-rose-300 block mb-1">
-                      (-) CMV (Mercadoria)
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="px-3 py-1.5 rounded-xl bg-[#071A1E] border border-white/15 text-[11px] font-semibold text-slate-200 inline-flex items-center gap-1.5">
+                      <RefreshCw className="w-3.5 h-3.5 text-[#F5B85D]" />
+                      Atualizar
                     </span>
-                    <span className="text-base sm:text-lg font-extrabold font-mono text-rose-400 block">
-                      - R$ 448.000
-                    </span>
-                    <span className="text-[11px] text-slate-400">37,3% · Custo da Mercadoria</span>
-                  </div>
 
-                  <div className="p-4 rounded-2xl bg-[#071A1E] border border-white/10">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
-                      (-) Impostos, Taxas e Ads
-                    </span>
-                    <span className="text-base sm:text-lg font-extrabold font-mono text-amber-400 block">
-                      - R$ 484.000
-                    </span>
-                    <span className="text-[11px] text-slate-400">40,3% · Variáveis de venda</span>
-                  </div>
+                    <div className="px-3 py-1.5 rounded-xl bg-[#071A1E] border border-white/15 text-[11px] text-slate-300 inline-flex items-center gap-3">
+                      <Calendar className="w-3.5 h-3.5 text-[#E8A33D] shrink-0" />
+                      <div>
+                        <span className="text-[9px] uppercase tracking-wider text-slate-400 block leading-none">
+                          Mês passado
+                        </span>
+                        <strong className="text-white font-mono text-[11px]">01 – 30 set 2026</strong>
+                      </div>
+                      <span className="h-5 w-px bg-white/10"></span>
+                      <div>
+                        <span className="text-[9px] uppercase tracking-wider text-slate-400 block leading-none">
+                          Comparado com
+                        </span>
+                        <strong className="text-slate-200 font-mono text-[11px]">01 – 31 ago 2026</strong>
+                      </div>
+                    </div>
 
-                  <div className="p-4 rounded-2xl bg-[#071A1E] border border-[#E8A33D]/30">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#F5B85D] block mb-1">
-                      (=) Margem Contribuição
-                    </span>
-                    <span className="text-base sm:text-lg font-extrabold font-mono text-[#F5B85D] block">
-                      R$ 268.000
-                    </span>
-                    <span className="text-[11px] text-[#F5B85D]/90">22,3% após variáveis</span>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 col-span-2 sm:col-span-1">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 block mb-1">
-                      (=) Lucro Líquido
-                    </span>
-                    <span className="text-base sm:text-lg font-extrabold font-mono text-emerald-400 block">
-                      R$ 142.000
-                    </span>
-                    <span className="text-[11px] text-emerald-300/90 flex items-center gap-1">
-                      <TrendingUp className="w-3 h-3" /> 11,8% livre no bolso
+                    <span className="px-3 py-1.5 rounded-xl bg-[#071A1E] border border-white/15 text-[11px] font-semibold text-slate-200 inline-flex items-center gap-1.5">
+                      <SlidersHorizontal className="w-3.5 h-3.5 text-[#F5B85D]" />
+                      Filtros
                     </span>
                   </div>
                 </div>
 
-                {/* Comparativo Lado a Lado dos 3 Canais */}
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-slate-200">
-                      Comparativo de Rentabilidade Real por Canal (Com CMV separado)
-                    </h4>
-                    <span className="text-[11px] text-slate-400 hidden sm:inline">
-                      Faturar mais nem sempre significa lucrar mais
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {/* Canal 1: Site Próprio */}
-                    <div className="p-5 rounded-2xl bg-[#071A1E] border-2 border-emerald-500/40 relative">
-                      <div className="flex items-center justify-between mb-3">
-                        <div>
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 block">
-                            Maior Lucro Real
-                          </span>
-                          <h5 className="text-base font-extrabold text-white">Loja Própria (D2C)</h5>
-                        </div>
-                        <span className="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 font-mono text-xs font-extrabold">
-                          16,5% lucro
+                {/* LINHA 1: 3 MACRO CARDS (VENDAS | INVESTIMENTO | ROAS) */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-3.5">
+                  
+                  {/* Card 1: VENDAS */}
+                  <div className="p-4 sm:p-5 rounded-2xl bg-[#071A1E] border border-white/12 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                          <DollarSign className="w-3.5 h-3.5 text-[#E8A33D]" />
+                          VENDAS
+                        </span>
+                        <span className="px-2 py-0.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 text-[10px] font-bold">
+                          52% da meta
                         </span>
                       </div>
-
-                      <div className="space-y-2 text-xs font-mono border-t border-white/10 pt-3">
-                        <div className="flex justify-between text-slate-300">
-                          <span>Vendas no canal:</span>
-                          <strong className="text-white">R$ 420.000</strong>
-                        </div>
-                        <div className="flex justify-between text-rose-300">
-                          <span>(-) CMV (Mercadoria):</span>
-                          <span>- R$ 147.000 (35%)</span>
-                        </div>
-                        <div className="flex justify-between text-slate-400">
-                          <span>(-) Impostos, Taxa e Frete:</span>
-                          <span>- R$ 88.200</span>
-                        </div>
-                        <div className="flex justify-between text-amber-300">
-                          <span>(-) Tráfego Pago (Ads):</span>
-                          <span>- R$ 48.200</span>
-                        </div>
-                        <div className="flex justify-between pt-2 border-t border-white/10 text-emerald-400 font-bold text-sm">
-                          <span>(=) Lucro do Canal:</span>
-                          <span>+ R$ 69.300</span>
-                        </div>
+                      <div className="text-2xl sm:text-3xl font-extrabold font-mono text-white tracking-tight">
+                        R$ 826.617,83
                       </div>
+                      <p className="text-[11px] text-slate-400 mt-1">
+                        Meta R$ 1.600 mil · <strong className="text-slate-200">faltam R$ 773,4 mil</strong>
+                      </p>
                     </div>
 
-                    {/* Canal 2: Mercado Livre */}
-                    <div className="p-5 rounded-2xl bg-[#071A1E] border border-white/10">
-                      <div className="flex items-center justify-between mb-3">
-                        <div>
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-[#F5B85D] block">
-                            Maior Volume Bruto
-                          </span>
-                          <h5 className="text-base font-extrabold text-white">Mercado Livre</h5>
-                        </div>
-                        <span className="px-2.5 py-1 rounded-lg bg-[#E8A33D]/15 text-[#F5B85D] font-mono text-xs font-extrabold">
-                          11,2% lucro
-                        </span>
+                    <div className="grid grid-cols-3 gap-2 pt-3.5 mt-3.5 border-t border-white/10 text-[11px]">
+                      <div>
+                        <span className="text-slate-400 block text-[10px]">Pedidos</span>
+                        <strong className="text-white font-mono">6.191</strong>
                       </div>
-
-                      <div className="space-y-2 text-xs font-mono border-t border-white/10 pt-3">
-                        <div className="flex justify-between text-slate-300">
-                          <span>Vendas no canal:</span>
-                          <strong className="text-white">R$ 510.000</strong>
-                        </div>
-                        <div className="flex justify-between text-rose-300">
-                          <span>(-) CMV (Mercadoria):</span>
-                          <span>- R$ 193.800 (38%)</span>
-                        </div>
-                        <div className="flex justify-between text-rose-400">
-                          <span>(-) Imposto, Comissão e Full:</span>
-                          <span>- R$ 193.800</span>
-                        </div>
-                        <div className="flex justify-between text-slate-400">
-                          <span>(-) Mídia Interna:</span>
-                          <span>- R$ 35.700</span>
-                        </div>
-                        <div className="flex justify-between pt-2 border-t border-white/10 text-[#F5B85D] font-bold text-sm">
-                          <span>(=) Lucro do Canal:</span>
-                          <span>+ R$ 57.100</span>
-                        </div>
+                      <div>
+                        <span className="text-slate-400 block text-[10px]">Ticket médio</span>
+                        <strong className="text-white font-mono">R$ 133,52</strong>
                       </div>
-                    </div>
-
-                    {/* Canal 3: Shopee & Outros */}
-                    <div className="p-5 rounded-2xl bg-[#071A1E] border border-rose-500/30">
-                      <div className="flex items-center justify-between mb-3">
-                        <div>
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-rose-400 block">
-                            Alerta de Margem Baixa
-                          </span>
-                          <h5 className="text-base font-extrabold text-white">Shopee & Outros</h5>
-                        </div>
-                        <span className="px-2.5 py-1 rounded-lg bg-rose-500/15 text-rose-300 font-mono text-xs font-extrabold">
-                          5,8% lucro
-                        </span>
-                      </div>
-
-                      <div className="space-y-2 text-xs font-mono border-t border-white/10 pt-3">
-                        <div className="flex justify-between text-slate-300">
-                          <span>Vendas no canal:</span>
-                          <strong className="text-white">R$ 270.000</strong>
-                        </div>
-                        <div className="flex justify-between text-rose-300">
-                          <span>(-) CMV (Mercadoria):</span>
-                          <span>- R$ 107.200 (40%)</span>
-                        </div>
-                        <div className="flex justify-between text-rose-400">
-                          <span>(-) Imposto, Taxa e Cupom:</span>
-                          <span>- R$ 96.500</span>
-                        </div>
-                        <div className="flex justify-between text-slate-400">
-                          <span>(-) Mídia / Destaque:</span>
-                          <span>- R$ 21.600</span>
-                        </div>
-                        <div className="flex justify-between pt-2 border-t border-white/10 text-rose-300 font-bold text-sm">
-                          <span>(=) Lucro do Canal:</span>
-                          <span>+ R$ 15.600</span>
-                        </div>
+                      <div>
+                        <span className="text-slate-400 block text-[10px]">vs mês passado</span>
+                        <strong className="text-rose-400 font-mono">▼ 14%</strong>
                       </div>
                     </div>
                   </div>
+
+                  {/* Card 2: INVESTIMENTO */}
+                  <div className="p-4 sm:p-5 rounded-2xl bg-[#071A1E] border border-white/12 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                          <Megaphone className="w-3.5 h-3.5 text-[#E8A33D]" />
+                          INVESTIMENTO
+                        </span>
+                        <span className="px-2 py-0.5 rounded-full bg-white/10 border border-white/15 text-slate-300 text-[10px] font-bold">
+                          66% da verba
+                        </span>
+                      </div>
+                      <div className="text-2xl sm:text-3xl font-extrabold font-mono text-white tracking-tight">
+                        R$ 125.295,02
+                      </div>
+                      <p className="text-[11px] text-slate-400 mt-1">
+                        Verba R$ 188,5 mil · <strong className="text-slate-200">sobram R$ 63,2 mil</strong>
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2 pt-3.5 mt-3.5 border-t border-white/10 text-[11px]">
+                      <div>
+                        <span className="text-slate-400 block text-[10px]">Facebook</span>
+                        <strong className="text-white font-mono">R$ 78,8 mil</strong>{" "}
+                        <span className="text-[10px] text-slate-400">· 63%</span>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block text-[10px]">Google</span>
+                        <strong className="text-white font-mono">R$ 46,5 mil</strong>{" "}
+                        <span className="text-[10px] text-slate-400">· 37%</span>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block text-[10px]">TikTok</span>
+                        <strong className="text-white font-mono">R$ 0</strong>{" "}
+                        <span className="text-[10px] text-slate-400">· 0%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card 3: ROAS */}
+                  <div className="p-4 sm:p-5 rounded-2xl bg-[#071A1E] border border-[#E8A33D]/35 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#F5B85D] flex items-center gap-1.5">
+                          <TrendingUp className="w-3.5 h-3.5 text-[#E8A33D]" />
+                          ROAS
+                        </span>
+                        <span className="px-2 py-0.5 rounded-full bg-[#E8A33D]/15 border border-[#E8A33D]/30 text-[#F5B85D] text-[10px] font-bold">
+                          Retorno Mídia
+                        </span>
+                      </div>
+                      <div className="text-2xl sm:text-3xl font-extrabold font-mono text-[#F5B85D] tracking-tight">
+                        6,60x
+                      </div>
+                      <p className="text-[11px] text-slate-400 mt-1">
+                        Cada R$ 1 em anúncio virou <strong className="text-white">R$ 6,60</strong>
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2 pt-3.5 mt-3.5 border-t border-white/10 text-[11px]">
+                      <div>
+                        <span className="text-slate-400 block text-[10px]">Meta de ROAS</span>
+                        <strong className="text-white font-mono">8,5x</strong>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block text-[10px]">Venda em mídia</span>
+                        <strong className="text-white font-mono">15,2%</strong>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block text-[10px]">ROAS mês passado</span>
+                        <strong className="text-slate-200 font-mono">6,9x</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* LINHA 2: 4 CARDS DE CANAIS (SITE | LOJA FÍSICA | SHOPEE | MERCADO LIVRE) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                  
+                  {/* Canal 1: SITE */}
+                  <div className="p-4 rounded-2xl bg-[#071A1E] border border-white/12 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-1.5">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-white flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-teal-400"></span>
+                          SITE
+                        </span>
+                        <span className="px-2 py-0.5 rounded-md bg-rose-500/15 text-rose-300 text-[10px] font-mono font-bold">
+                          47%
+                        </span>
+                      </div>
+                      <div className="text-xl font-extrabold font-mono text-white">
+                        R$ 613.511,46
+                      </div>
+                      <p className="text-[10px] text-slate-400 mt-0.5">
+                        Meta R$ 1.300 mil · <strong className="text-slate-200">faltam R$ 686,5 mil</strong>
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-1.5 pt-3 mt-3 border-t border-white/10 text-[10px]">
+                      <div>
+                        <span className="text-slate-400 block">Pedidos</span>
+                        <strong className="text-white font-mono">3.768</strong>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block">Ticket médio</span>
+                        <strong className="text-white font-mono">R$ 163</strong>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block">vs mês ant.</span>
+                        <strong className="text-rose-400 font-mono">▼ 12%</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Canal 2: LOJA FÍSICA */}
+                  <div className="p-4 rounded-2xl bg-[#071A1E] border border-white/12 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-1.5">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-white flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                          LOJA FÍSICA
+                        </span>
+                        <span className="px-2 py-0.5 rounded-md bg-rose-500/15 text-rose-300 text-[10px] font-mono font-bold">
+                          58%
+                        </span>
+                      </div>
+                      <div className="text-xl font-extrabold font-mono text-white">
+                        R$ 28.821,33
+                      </div>
+                      <p className="text-[10px] text-slate-400 mt-0.5">
+                        Meta R$ 50 mil · <strong className="text-slate-200">faltam R$ 21,2 mil</strong>
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-1.5 pt-3 mt-3 border-t border-white/10 text-[10px]">
+                      <div>
+                        <span className="text-slate-400 block">Pedidos</span>
+                        <strong className="text-white font-mono">159</strong>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block">Ticket médio</span>
+                        <strong className="text-white font-mono">R$ 181</strong>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block">vs mês ant.</span>
+                        <strong className="text-rose-400 font-mono">▼ 37%</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Canal 3: SHOPEE */}
+                  <div className="p-4 rounded-2xl bg-[#071A1E] border border-white/12 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-1.5">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-white flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
+                          SHOPEE
+                        </span>
+                        <span className="px-2 py-0.5 rounded-md bg-rose-500/15 text-rose-300 text-[10px] font-mono font-bold">
+                          58%
+                        </span>
+                      </div>
+                      <div className="text-xl font-extrabold font-mono text-white">
+                        R$ 105.239,81
+                      </div>
+                      <p className="text-[10px] text-slate-400 mt-0.5">
+                        Meta R$ 180 mil · <strong className="text-slate-200">faltam R$ 74,8 mil</strong>
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-1.5 pt-3 mt-3 border-t border-white/10 text-[10px]">
+                      <div>
+                        <span className="text-slate-400 block">Pedidos</span>
+                        <strong className="text-white font-mono">1.480</strong>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block">Ticket médio</span>
+                        <strong className="text-white font-mono">R$ 71</strong>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block">vs mês ant.</span>
+                        <strong className="text-rose-400 font-mono">▼ 23%</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Canal 4: MERCADO LIVRE */}
+                  <div className="p-4 rounded-2xl bg-[#071A1E] border border-[#E8A33D]/35 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-1.5">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-white flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#E8A33D]"></span>
+                          MERCADO LIVRE
+                        </span>
+                        <span className="px-2 py-0.5 rounded-md bg-[#E8A33D]/20 text-[#F5B85D] text-[10px] font-mono font-bold">
+                          85%
+                        </span>
+                      </div>
+                      <div className="text-xl font-extrabold font-mono text-white">
+                        R$ 59.711,28
+                      </div>
+                      <p className="text-[10px] text-slate-400 mt-0.5">
+                        Meta R$ 70 mil · <strong className="text-slate-200">faltam R$ 10,3 mil</strong>
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-1.5 pt-3 mt-3 border-t border-white/10 text-[10px]">
+                      <div>
+                        <span className="text-slate-400 block">Pedidos</span>
+                        <strong className="text-white font-mono">615</strong>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block">Ticket médio</span>
+                        <strong className="text-white font-mono">R$ 97</strong>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block">vs mês ant.</span>
+                        <strong className="text-amber-300 font-mono">▼ 2%</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* LINHA 3: GRÁFICO "VENDAS POR DIA X META" (ESQUERDA) + TABELA "ATINGIMENTO" (DIREITA) */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-3.5">
+                  
+                  {/* Esquerda: Vendas por dia x meta */}
+                  <div className="lg:col-span-7 p-4 sm:p-5 rounded-2xl bg-[#071A1E] border border-white/12 flex flex-col justify-between">
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div className="flex items-center gap-1.5">
+                        <h4 className="text-xs sm:text-sm font-extrabold text-white">
+                          Vendas por dia x meta
+                        </h4>
+                        <Info className="w-3.5 h-3.5 text-slate-500" />
+                      </div>
+
+                      <div className="inline-flex rounded-lg bg-[#0A272D] p-0.5 border border-white/10 text-[10px] font-bold">
+                        {(["Dia", "Semana", "Mês"] as const).map((p) => (
+                          <button
+                            key={p}
+                            type="button"
+                            onClick={() => setChartPeriod(p)}
+                            className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
+                              chartPeriod === p
+                                ? "bg-[#0E4A55] text-white shadow-xs"
+                                : "text-slate-400 hover:text-white"
+                            }`}
+                          >
+                            {p}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Área do Gráfico com Eixo Y, Linha Tracejada de Meta (53,3k) e 30 Barras Empilhadas */}
+                    <div className="relative pl-8 pr-1 pt-2 pb-1">
+                      {/* Labels do Eixo Y */}
+                      <div className="absolute left-0 top-2 bottom-6 flex flex-col justify-between text-[9px] font-mono text-slate-500">
+                        <span>60k</span>
+                        <span>45k</span>
+                        <span>30k</span>
+                        <span>15k</span>
+                        <span>0</span>
+                      </div>
+
+                      {/* Linhas de grade horizontais + Linha de Meta 53,3k */}
+                      <div className="relative h-44 border-b border-white/10 flex items-end justify-between gap-[3px] sm:gap-1 pt-4">
+                        {/* Linhas de grade */}
+                        <div className="absolute inset-x-0 top-0 border-t border-white/5 pointer-events-none"></div>
+                        <div className="absolute inset-x-0 top-1/4 border-t border-white/5 pointer-events-none"></div>
+                        <div className="absolute inset-x-0 top-2/4 border-t border-white/5 pointer-events-none"></div>
+                        <div className="absolute inset-x-0 top-3/4 border-t border-white/5 pointer-events-none"></div>
+
+                        {/* Linha Tracejada da Meta Diária (53,3k de 60k = 88.8% de altura, ou 11.2% do topo) */}
+                        <div
+                          className="absolute inset-x-0 border-t-2 border-dashed border-slate-400/70 z-10 pointer-events-none flex items-center justify-center"
+                          style={{ top: "11.5%" }}
+                        >
+                          <span className="px-2 py-0.5 -mt-5 rounded bg-[#071A1E] text-[9px] font-mono font-bold text-slate-200 border border-white/10">
+                            Meta 53,3k
+                          </span>
+                        </div>
+
+                        {/* 30 Barras Empilhadas */}
+                        {dailySalesBars.map((d, idx) => {
+                          // Escala em relação a 60k máximo
+                          const siteH = (d.site / 60) * 100;
+                          const shopeeH = (d.shopee / 60) * 100;
+                          const mlH = (d.ml / 60) * 100;
+                          const lojaH = (d.loja / 60) * 100;
+                          return (
+                            <div
+                              key={idx}
+                              className="flex-1 h-full flex flex-col justify-end items-center group relative"
+                              title={`${d.label}: R$ ${(d.site + d.shopee + d.ml + d.loja).toFixed(1)}k`}
+                            >
+                              <div className="w-full flex flex-col-reverse rounded-t-xs overflow-hidden">
+                                <div style={{ height: `${siteH * 1.5}px` }} className="w-full bg-teal-400"></div>
+                                <div style={{ height: `${shopeeH * 1.5}px` }} className="w-full bg-orange-500"></div>
+                                <div style={{ height: `${mlH * 1.5}px` }} className="w-full bg-[#E8A33D]"></div>
+                                <div style={{ height: `${lojaH * 1.5}px` }} className="w-full bg-rose-500"></div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      {/* Eixo X Datas */}
+                      <div className="flex justify-between text-[8px] sm:text-[9px] font-mono text-slate-500 pt-1.5">
+                        <span>ter 01/09</span>
+                        <span className="hidden sm:inline">sex 04/09</span>
+                        <span>ter 08/09</span>
+                        <span className="hidden sm:inline">sex 11/09</span>
+                        <span>ter 15/09</span>
+                        <span className="hidden sm:inline">sex 18/09</span>
+                        <span>ter 22/09</span>
+                        <span className="hidden sm:inline">sex 25/09</span>
+                        <span>qua 30/09</span>
+                      </div>
+                    </div>
+
+                    {/* Legenda Inferior */}
+                    <div className="flex flex-wrap items-center gap-3 pt-3 mt-2 border-t border-white/10 text-[10px] text-slate-300">
+                      <span className="inline-flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-teal-400"></span> Site
+                      </span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-rose-500"></span> Loja física
+                      </span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-orange-500"></span> Shopee
+                      </span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-[#E8A33D]"></span> Mercado Livre
+                      </span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <span className="w-3 border-t-2 border-dashed border-slate-400"></span> Meta
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Direita: Tabela de Atingimento */}
+                  <div className="lg:col-span-5 p-4 sm:p-5 rounded-2xl bg-[#071A1E] border border-white/12 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <div className="flex items-center gap-1.5">
+                          <h4 className="text-xs sm:text-sm font-extrabold text-white">
+                            Atingimento
+                          </h4>
+                          <Info className="w-3.5 h-3.5 text-slate-500" />
+                        </div>
+
+                        <div className="inline-flex rounded-lg bg-[#0A272D] p-0.5 border border-white/10 text-[10px] font-bold">
+                          {(["Dia", "Canal"] as const).map((v) => (
+                            <button
+                              key={v}
+                              type="button"
+                              onClick={() => setAttainmentView(v)}
+                              className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
+                                attainmentView === v
+                                  ? "bg-[#0E4A55] text-white shadow-xs"
+                                  : "text-slate-400 hover:text-white"
+                              }`}
+                            >
+                              {v}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-left border-collapse font-mono text-[11px]">
+                          <thead>
+                            <tr className="border-b border-white/10 text-[9px] uppercase tracking-wider text-slate-400">
+                              <th className="py-2 pr-2">{attainmentView === "Dia" ? "DIA" : "CANAL"}</th>
+                              <th className="py-2 px-2 text-right">VENDIDO</th>
+                              <th className="py-2 px-2 text-right">META</th>
+                              <th className="py-2 pl-2 text-right">%</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-white/5">
+                            {activeAttainmentRows.map((r, i) => (
+                              <tr key={i} className="hover:bg-white/[0.02]">
+                                <td className="py-2 pr-2 text-slate-300 whitespace-nowrap font-sans font-medium">
+                                  {r.dia}
+                                </td>
+                                <td className="py-2 px-2 text-right font-bold text-white whitespace-nowrap">
+                                  {r.vendido}
+                                </td>
+                                <td className="py-2 px-2 text-right text-slate-400 whitespace-nowrap">
+                                  {r.meta}
+                                </td>
+                                <td
+                                  className={`py-2 pl-2 text-right font-bold whitespace-nowrap ${
+                                    r.pct.startsWith("8") ? "text-[#F5B85D]" : "text-rose-400"
+                                  }`}
+                                >
+                                  {r.pct}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                          <tfoot>
+                            <tr className="border-t-2 border-white/15 font-extrabold text-white">
+                              <td className="pt-2.5 pr-2 font-sans">Total</td>
+                              <td className="pt-2.5 px-2 text-right">R$ 826.617,83</td>
+                              <td className="pt-2.5 px-2 text-right text-slate-300">R$ 1.599.999,90</td>
+                              <td className="pt-2.5 pl-2 text-right text-rose-400">51,7%</td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
 
                 {/* Box Didático: Decisão do CFO */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#0E4A55]/60 to-[#071A1E] border border-[#E8A33D]/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-[#E8A33D] text-[#071A1E] flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                      <Sparkles className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#F5B85D] block mb-0.5">
-                        Decisão prática no rito mensal com o CFO
-                      </span>
-                      <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                        A <strong>Loja Própria</strong> vende menos que o Mercado Livre, mas entrega <strong>R$ 12.200 a mais de lucro puro</strong>. Já na <strong>Shopee</strong>, cupons estão corroendo a margem — ajustamos a tabela de preço em +5% para recuperar lucro imediato.
-                      </p>
-                    </div>
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#0E4A55]/60 to-[#071A1E] border border-[#E8A33D]/40 flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-[#E8A33D] text-[#071A1E] flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#F5B85D] block mb-0.5">
+                      Leitura e Plano de Ação do CFO sobre este painel
+                    </span>
+                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                      O <strong>Mercado Livre já atingiu 85% da meta</strong> com queda mínima (-2%), enquanto o <strong>Site Próprio está em 47% da meta</strong> porque apenas 66% da verba de mídia foi executada com ROAS de 6,60x. Ação imediata: realocar o saldo de verba para recuperar o ritmo diário de R$ 53,3 mil nas campanhas de maior retorno.
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -500,7 +879,7 @@ export function FinancialCockpit() {
                         <strong className="text-white font-bold block mt-1">
                           Kit Linha Premium (SKU #104)
                         </strong>
-                        <span className="text-[11px] text-slate-400">Giro de estoque: 22 dias</span>
+                        <span className="text-[11px] text-slate-400">Giro de estoque: 22 dias · CMV: 33%</span>
                       </div>
                       <div className="md:col-span-4 font-mono grid grid-cols-2 gap-2 bg-white/5 p-2.5 rounded-xl">
                         <div>
@@ -527,7 +906,7 @@ export function FinancialCockpit() {
                         <strong className="text-white font-bold block mt-1">
                           Item Promocional Marketplace (SKU #289)
                         </strong>
-                        <span className="text-[11px] text-slate-400">Alto volume, mas frete + devolução comem tudo</span>
+                        <span className="text-[11px] text-slate-400">CMV: 48% + Frete e devolução comem a margem</span>
                       </div>
                       <div className="md:col-span-4 font-mono grid grid-cols-2 gap-2 bg-white/5 p-2.5 rounded-xl border border-rose-500/30">
                         <div>
@@ -558,7 +937,7 @@ export function FinancialCockpit() {
                       </div>
                       <div className="md:col-span-4 font-mono grid grid-cols-2 gap-2 bg-white/5 p-2.5 rounded-xl">
                         <div>
-                          <span className="text-[10px] text-slate-400 block">Capital Travado</span>
+                          <span className="text-[10px] text-slate-400 block">CMV Imobilizado</span>
                           <strong className="text-[#F5B85D]">R$ 310.000</strong>
                         </div>
                         <div>
@@ -592,7 +971,7 @@ export function FinancialCockpit() {
             )}
 
             {/* ===================================================================
-                TELA 3: DECOMPOSIÇÃO DE R$ 100 VENDIDOS
+                TELA 3: DECOMPOSIÇÃO DE R$ 100 VENDIDOS (COM CMV EM DESTAQUE)
             =================================================================== */}
             {activeTab === "r100" && (
               <motion.div
@@ -610,7 +989,7 @@ export function FinancialCockpit() {
                       Simulador: Para onde vão cada R$ 100,00 vendidos?
                     </span>
                     <span className="text-xs text-slate-400">
-                      Clique nos canais ao lado para comparar a mordida de cada custo:
+                      Clique nos canais ao lado para comparar o peso do CMV, taxas e mídia em cada canal:
                     </span>
                   </div>
 
@@ -648,9 +1027,9 @@ export function FinancialCockpit() {
                     <div
                       style={{ width: `${currentSim.cmv}%` }}
                       className="bg-rose-500 h-full rounded-l-lg flex items-center justify-center text-[10px] font-mono font-bold text-white transition-all duration-500"
-                      title="Custo do Produto (CMV)"
+                      title="Custo da Mercadoria Vendida (CMV)"
                     >
-                      R${currentSim.cmv}
+                      CMV R${currentSim.cmv}
                     </div>
                     <div
                       style={{ width: `${currentSim.impostos}%` }}
@@ -704,7 +1083,7 @@ export function FinancialCockpit() {
                       <strong className="text-sm font-mono font-extrabold text-white block mt-1">
                         - R$ {currentSim.cmv},00
                       </strong>
-                      <span className="text-[10px] text-slate-400">Mercadoria vendida</span>
+                      <span className="text-[10px] text-slate-400">Custo Mercadoria</span>
                     </div>
 
                     <div className="p-3 rounded-xl bg-[#0A272D] border border-white/10">
