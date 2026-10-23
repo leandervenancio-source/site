@@ -165,14 +165,14 @@ export function Home() {
             <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-[1.12] drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
               Seu e-commerce fatura. <br />
               <span className="block mt-1.5 gradiente font-extrabold">
-                Quanto disso vira lucro e caixa?
+                Quanto disso vira lucro de verdade?
               </span>
             </h1>
           </div>
 
           {/* Frase Central Nova */}
           <p className="text-sm sm:text-base lg:text-lg text-slate-200/95 font-normal leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
-            A Mont Finance é o CFO Terceirizado que integra finanças, estratégia e capital para aumentar lucro, gerar caixa e reduzir riscos na sua operação.
+            A Mont Finance é o CFO Terceirizado que integra finanças, estratégia e capital para aumentar o lucro e dar segurança para a sua operação crescer.
           </p>
 
           {/* CTAs de Alto Impacto Estilo Growth Machine */}
@@ -358,10 +358,10 @@ export function Home() {
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
               DAPE: do dado bruto à <br className="hidden sm:inline" />
-              <span className="text-[#0E4A55]">execução que gera caixa</span>
+              <span className="text-[#0E4A55]">execução que multiplica o lucro</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-              Um ciclo de melhoria contínua em quatro pilares. Cada volta transforma números soltos em decisões, e decisões em lucro e caixa. Clique em cada etapa para explorar.
+              Um ciclo de melhoria contínua em quatro pilares. Cada volta transforma números soltos em decisões, e decisões em lucro no bolso. Clique em cada etapa para explorar.
             </p>
           </div>
 
@@ -451,7 +451,7 @@ export function Home() {
 
               <div className="pt-6 border-t border-slate-100">
                 <span className="text-xs text-slate-500 block mb-5 leading-relaxed">
-                  <strong className="text-slate-800">Para quem precisa:</strong> ter os números organizados, clareza sobre lucro e caixa e decidir todo mês com um CFO ao seu lado.
+                  <strong className="text-slate-800">Para quem precisa:</strong> ter os números organizados, clareza sobre o lucro real da operação e decidir todo mês com um CFO ao seu lado.
                 </span>
                 <a 
                   href="#diagnostico" 
@@ -685,7 +685,7 @@ export function Home() {
             </div>
             <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4 leading-tight">
               Por que a contabilidade comum ou uma consultoria teórica <br className="hidden sm:inline" />
-              <span className="text-[#0E4A55]">não resolvem o seu caixa?</span>
+              <span className="text-[#0E4A55]">não aumentam o seu lucro?</span>
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
               Enquanto a contabilidade tradicional apenas cumpre obrigações fiscais e consultores entregam relatórios teóricos e vão embora, a Mont Finance assume a cadeira executiva de finanças do seu e-commerce com você.
@@ -873,12 +873,12 @@ export function Home() {
               </div>
 
               <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-5 leading-[1.12]">
-                Dê o primeiro passo para escalar seu{" "}
-                <span className="text-[#0E4A55]">lucro e caixa</span> com um diagnóstico gratuito
+                Dê o primeiro passo para escalar o seu{" "}
+                <span className="text-[#0E4A55]">lucro</span> com um diagnóstico gratuito
               </h2>
 
               <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed mb-8">
-                Identifique onde a margem e o caixa da sua operação estão ficando pelo caminho e saia da reunião com um{" "}
+                Identifique onde o lucro da sua operação está ficando pelo caminho e saia da reunião com um{" "}
                 <strong className="text-slate-900 font-bold">plano de ação financeiro estruturado</strong> para a realidade da sua empresa.
               </p>
 

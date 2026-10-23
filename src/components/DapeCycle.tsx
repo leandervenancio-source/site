@@ -67,7 +67,7 @@ const pillars = [
       "Análise de variância: previsto x realizado",
       "Acompanhamento do plano de ação"
     ],
-    gain: "Decisões que viram resultado em lucro e caixa."
+    gain: "Decisões que viram resultado direto no lucro da empresa."
   }
 ];
 
@@ -364,7 +364,7 @@ export function DapeCycle() {
             </div>
             <p className="text-base sm:text-lg font-bold leading-snug">
               Cada execução gera novos dados, que alimentam a próxima análise.
-              <span className="text-slate-300 font-medium"> É assim que lucro e caixa melhoram mês após mês, e não só uma vez.</span>
+              <span className="text-slate-300 font-medium"> É assim que o lucro da operação cresce mês após mês, e não só uma vez.</span>
             </p>
           </div>
 
