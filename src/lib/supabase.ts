@@ -1,13 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl =
+  import.meta.env.VITE_SUPABASE_URL || 'https://kyhbbwbblxgncfhkqttq.supabase.co';
+const supabaseAnonKey =
+  import.meta.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_JFxa7YneZ2VHbI3rInryYg_RsmYv-nf';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('Variáveis de ambiente do Supabase estão ausentes. O banco não funcionará em produção.');
-}
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-export const supabase = createClient(
-  supabaseUrl || 'https://placeholder.supabase.co',
-  supabaseAnonKey || 'placeholder'
-);
