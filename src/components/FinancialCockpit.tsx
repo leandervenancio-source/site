@@ -23,57 +23,56 @@ import { trackCtaClick } from "../lib/analytics";
 type CockpitTab = "canais" | "skus" | "r100" | "caixa";
 type ChannelSimKey = "consolidado" | "site_proprio" | "mercado_livre" | "shopee";
 
-// 30 dias de barras empilhadas para o gráfico "Vendas por dia x meta" (em milhares R$)
+// 30 dias de barras empilhadas para o gráfico "Vendas por dia x meta" (em milhares R$, escala máx 80k)
 const dailySalesBars = [
-  { label: "ter 01/09", site: 17, loja: 1.2, shopee: 5.2, ml: 2.3 },
-  { label: "qua 02/09", site: 22, loja: 1.5, shopee: 5.0, ml: 2.7 },
-  { label: "qui 03/09", site: 20.5, loja: 1.4, shopee: 5.6, ml: 2.5 },
-  { label: "sex 04/09", site: 21.8, loja: 1.6, shopee: 5.1, ml: 2.7 },
-  { label: "sáb 05/09", site: 16.5, loja: 0.9, shopee: 4.1, ml: 1.9 },
-  { label: "dom 06/09", site: 16.0, loja: 0.6, shopee: 4.2, ml: 1.9 },
-  { label: "seg 07/09", site: 17.8, loja: 1.0, shopee: 3.6, ml: 1.9 },
-  { label: "ter 08/09", site: 15.2, loja: 1.1, shopee: 4.1, ml: 2.1 },
-  { label: "qua 09/09", site: 21.0, loja: 2.1, shopee: 8.2, ml: 3.6 },
-  { label: "qui 10/09", site: 19.5, loja: 1.4, shopee: 5.1, ml: 2.4 },
-  { label: "sex 11/09", site: 15.0, loja: 1.2, shopee: 4.6, ml: 2.0 },
-  { label: "sáb 12/09", site: 15.8, loja: 1.1, shopee: 4.3, ml: 1.8 },
-  { label: "dom 13/09", site: 12.6, loja: 0.7, shopee: 3.8, ml: 1.5 },
-  { label: "seg 14/09", site: 17.5, loja: 1.5, shopee: 4.9, ml: 2.6 },
-  { label: "ter 15/09", site: 22.0, loja: 1.3, shopee: 3.4, ml: 1.9 },
-  { label: "qua 16/09", site: 28.5, loja: 1.8, shopee: 3.5, ml: 2.0 },
-  { label: "qui 17/09", site: 19.2, loja: 1.1, shopee: 4.1, ml: 2.1 },
-  { label: "sex 18/09", site: 23.8, loja: 1.4, shopee: 2.8, ml: 1.6 },
-  { label: "sáb 19/09", site: 20.0, loja: 0.9, shopee: 2.9, ml: 1.4 },
-  { label: "dom 20/09", site: 33.8, loja: 0.8, shopee: 1.9, ml: 1.2 },
-  { label: "seg 21/09", site: 19.5, loja: 1.4, shopee: 5.2, ml: 2.8 },
-  { label: "ter 22/09", site: 19.0, loja: 1.1, shopee: 3.2, ml: 1.8 },
-  { label: "qua 23/09", site: 22.0, loja: 1.2, shopee: 3.1, ml: 1.7 },
-  { label: "qui 24/09", site: 22.4, loja: 1.5, shopee: 3.9, ml: 2.3 },
-  { label: "sex 25/09", site: 21.8, loja: 1.1, shopee: 2.9, ml: 1.6 },
-  { label: "sáb 26/09", site: 16.0, loja: 0.9, shopee: 2.6, ml: 1.4 },
-  { label: "dom 27/09", site: 19.2, loja: 0.7, shopee: 2.1, ml: 1.1 },
-  { label: "seg 28/09", site: 27.5, loja: 1.6, shopee: 3.2, ml: 1.8 },
-  { label: "ter 29/09", site: 21.6, loja: 1.1, shopee: 2.6, ml: 1.7 },
-  { label: "qua 30/09", site: 29.8, loja: 1.4, shopee: 3.0, ml: 1.8 }
+  { label: "seg 01/06", site: 31.2, loja: 3.4, shopee: 6.5, ml: 12.4 },
+  { label: "ter 02/06", site: 34.8, loja: 3.8, shopee: 7.1, ml: 13.5 },
+  { label: "qua 03/06", site: 32.5, loja: 3.2, shopee: 6.8, ml: 12.9 },
+  { label: "qui 04/06", site: 36.1, loja: 4.0, shopee: 7.4, ml: 14.2 },
+  { label: "sex 05/06", site: 39.4, loja: 4.5, shopee: 8.1, ml: 15.6 },
+  { label: "sáb 06/06", site: 28.0, loja: 2.9, shopee: 5.8, ml: 11.0 },
+  { label: "dom 07/06", site: 25.4, loja: 1.8, shopee: 5.2, ml: 9.8 },
+  { label: "seg 08/06", site: 33.6, loja: 3.6, shopee: 6.9, ml: 13.1 },
+  { label: "ter 09/06", site: 37.2, loja: 4.1, shopee: 7.8, ml: 14.6 },
+  { label: "qua 10/06", site: 41.5, loja: 4.4, shopee: 8.6, ml: 16.2 },
+  { label: "qui 11/06", site: 38.0, loja: 3.9, shopee: 7.5, ml: 14.8 },
+  { label: "sex 12/06", site: 44.2, loja: 4.8, shopee: 9.2, ml: 17.4 },
+  { label: "sáb 13/06", site: 29.5, loja: 3.1, shopee: 6.0, ml: 11.4 },
+  { label: "dom 14/06", site: 26.8, loja: 2.0, shopee: 5.4, ml: 10.2 },
+  { label: "seg 15/06", site: 35.1, loja: 3.7, shopee: 7.2, ml: 13.8 },
+  { label: "ter 16/06", site: 36.9, loja: 3.9, shopee: 7.6, ml: 14.1 },
+  { label: "qua 17/06", site: 31.8, loja: 3.3, shopee: 6.4, ml: 12.3 },
+  { label: "qui 18/06", site: 34.2, loja: 3.6, shopee: 7.0, ml: 13.4 },
+  { label: "sex 19/06", site: 37.6, loja: 4.2, shopee: 7.7, ml: 14.9 },
+  { label: "sáb 20/06", site: 27.4, loja: 2.8, shopee: 5.6, ml: 10.8 },
+  { label: "dom 21/06", site: 24.9, loja: 1.9, shopee: 5.1, ml: 9.6 },
+  { label: "seg 22/06", site: 33.0, loja: 3.5, shopee: 6.7, ml: 12.8 },
+  { label: "ter 23/06", site: 35.8, loja: 3.8, shopee: 7.3, ml: 13.9 },
+  { label: "qua 24/06", site: 34.0, loja: 3.5, shopee: 6.9, ml: 13.2 },
+  { label: "qui 25/06", site: 38.4, loja: 4.1, shopee: 7.9, ml: 15.0 },
+  { label: "sex 26/06", site: 40.6, loja: 4.3, shopee: 8.3, ml: 15.8 },
+  { label: "sáb 27/06", site: 28.9, loja: 3.0, shopee: 5.9, ml: 11.2 },
+  { label: "dom 28/06", site: 26.1, loja: 2.1, shopee: 5.3, ml: 10.1 },
+  { label: "seg 29/06", site: 36.5, loja: 3.9, shopee: 7.5, ml: 14.3 },
+  { label: "ter 30/06", site: 39.1, loja: 4.2, shopee: 8.0, ml: 15.2 }
 ];
 
 const attainmentRowsDia = [
-  { dia: "ter 01/09", vendido: "R$ 25.689,83", meta: "R$ 53.333,33", pct: "48,2%" },
-  { dia: "qua 02/09", vendido: "R$ 31.228,93", meta: "R$ 53.333,33", pct: "58,6%" },
-  { dia: "qui 03/09", vendido: "R$ 30.039,18", meta: "R$ 53.333,33", pct: "56,3%" },
-  { dia: "sex 04/09", vendido: "R$ 31.228,13", meta: "R$ 53.333,33", pct: "58,6%" },
-  { dia: "sáb 05/09", vendido: "R$ 23.462,75", meta: "R$ 53.333,33", pct: "44,0%" },
-  { dia: "dom 06/09", vendido: "R$ 22.704,16", meta: "R$ 53.333,33", pct: "42,6%" },
-  { dia: "seg 07/09", vendido: "R$ 24.319,22", meta: "R$ 53.333,33", pct: "45,6%" },
-  { dia: "ter 08/09", vendido: "R$ 22.544,81", meta: "R$ 53.333,33", pct: "42,3%" }
+  { dia: "seg 01/06", vendido: "R$ 53.500,00", meta: "R$ 70.000,00", pct: "76,4%" },
+  { dia: "ter 02/06", vendido: "R$ 59.200,00", meta: "R$ 70.000,00", pct: "84,6%" },
+  { dia: "qua 03/06", vendido: "R$ 55.400,00", meta: "R$ 70.000,00", pct: "79,1%" },
+  { dia: "qui 04/06", vendido: "R$ 61.700,00", meta: "R$ 70.000,00", pct: "88,1%" },
+  { dia: "sex 05/06", vendido: "R$ 67.600,00", meta: "R$ 70.000,00", pct: "96,6%" },
+  { dia: "sáb 06/06", vendido: "R$ 47.700,00", meta: "R$ 70.000,00", pct: "68,1%" },
+  { dia: "dom 07/06", vendido: "R$ 42.200,00", meta: "R$ 70.000,00", pct: "60,3%" },
+  { dia: "seg 08/06", vendido: "R$ 57.200,00", meta: "R$ 70.000,00", pct: "81,7%" }
 ];
 
 const attainmentRowsCanal = [
-  { dia: "Site Próprio", vendido: "R$ 613.511,46", meta: "R$ 1.300.000,00", pct: "47,2%" },
-  { dia: "Shopee", vendido: "R$ 105.239,81", meta: "R$ 180.000,00", pct: "58,5%" },
-  { dia: "Mercado Livre", vendido: "R$ 59.711,28", meta: "R$ 70.000,00", pct: "85,3%" },
-  { dia: "Loja Física", vendido: "R$ 28.821,33", meta: "R$ 50.000,00", pct: "57,6%" },
-  { dia: "Troca / Reenvio", vendido: "R$ 19.333,95", meta: "—", pct: "—" }
+  { dia: "Site Próprio", vendido: "R$ 964.320,00", meta: "R$ 1.200.000,00", pct: "80,4%" },
+  { dia: "Mercado Livre", vendido: "R$ 382.650,00", meta: "R$ 450.000,00", pct: "85,0%" },
+  { dia: "Shopee", vendido: "R$ 196.840,00", meta: "R$ 300.000,00", pct: "65,6%" },
+  { dia: "Loja Física", vendido: "R$ 104.610,00", meta: "R$ 150.000,00", pct: "69,7%" }
 ];
 
 export function FinancialCockpit() {
@@ -302,7 +301,7 @@ export function FinancialCockpit() {
                       Faturamento, pedidos e ticket médio de cada canal, com investimento em mídia e ROI
                     </p>
                     <span className="text-[10px] text-slate-400 block mt-0.5">
-                      Atualizado hoje às 17:50
+                      Atualizado hoje às 14:20
                     </span>
                   </div>
 
@@ -316,16 +315,16 @@ export function FinancialCockpit() {
                       <Calendar className="w-3.5 h-3.5 text-[#E8A33D] shrink-0" />
                       <div>
                         <span className="text-[9px] uppercase tracking-wider text-slate-400 block leading-none">
-                          Mês passado
+                          Período analisado
                         </span>
-                        <strong className="text-white font-mono text-[11px]">01 – 30 set 2026</strong>
+                        <strong className="text-white font-mono text-[11px]">01 – 30 jun 2026</strong>
                       </div>
                       <span className="h-5 w-px bg-white/10"></span>
                       <div>
                         <span className="text-[9px] uppercase tracking-wider text-slate-400 block leading-none">
                           Comparado com
                         </span>
-                        <strong className="text-slate-200 font-mono text-[11px]">01 – 31 ago 2026</strong>
+                        <strong className="text-slate-200 font-mono text-[11px]">01 – 31 mai 2026</strong>
                       </div>
                     </div>
 
@@ -347,30 +346,30 @@ export function FinancialCockpit() {
                           <DollarSign className="w-3.5 h-3.5 text-[#E8A33D]" />
                           VENDAS
                         </span>
-                        <span className="px-2 py-0.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 text-[10px] font-bold">
-                          52% da meta
+                        <span className="px-2 py-0.5 rounded-full bg-[#E8A33D]/15 border border-[#E8A33D]/30 text-[#F5B85D] text-[10px] font-bold">
+                          78% da meta
                         </span>
                       </div>
                       <div className="text-2xl sm:text-3xl font-extrabold font-mono text-white tracking-tight">
-                        R$ 826.617,83
+                        R$ 1.648.420,00
                       </div>
                       <p className="text-[11px] text-slate-400 mt-1">
-                        Meta R$ 1.600 mil · <strong className="text-slate-200">faltam R$ 773,4 mil</strong>
+                        Meta R$ 2.100 mil · <strong className="text-slate-200">faltam R$ 451,6 mil</strong>
                       </p>
                     </div>
 
                     <div className="grid grid-cols-3 gap-2 pt-3.5 mt-3.5 border-t border-white/10 text-[11px]">
                       <div>
                         <span className="text-slate-400 block text-[10px]">Pedidos</span>
-                        <strong className="text-white font-mono">6.191</strong>
+                        <strong className="text-white font-mono">8.497</strong>
                       </div>
                       <div>
                         <span className="text-slate-400 block text-[10px]">Ticket médio</span>
-                        <strong className="text-white font-mono">R$ 133,52</strong>
+                        <strong className="text-white font-mono">R$ 194,00</strong>
                       </div>
                       <div>
                         <span className="text-slate-400 block text-[10px]">vs mês passado</span>
-                        <strong className="text-rose-400 font-mono">▼ 14%</strong>
+                        <strong className="text-emerald-400 font-mono">▲ 18%</strong>
                       </div>
                     </div>
                   </div>
@@ -384,32 +383,32 @@ export function FinancialCockpit() {
                           INVESTIMENTO
                         </span>
                         <span className="px-2 py-0.5 rounded-full bg-white/10 border border-white/15 text-slate-300 text-[10px] font-bold">
-                          66% da verba
+                          78% da verba
                         </span>
                       </div>
                       <div className="text-2xl sm:text-3xl font-extrabold font-mono text-white tracking-tight">
-                        R$ 125.295,02
+                        R$ 186.200,00
                       </div>
                       <p className="text-[11px] text-slate-400 mt-1">
-                        Verba R$ 188,5 mil · <strong className="text-slate-200">sobram R$ 63,2 mil</strong>
+                        Verba R$ 240,0 mil · <strong className="text-slate-200">sobram R$ 53,8 mil</strong>
                       </p>
                     </div>
 
                     <div className="grid grid-cols-3 gap-2 pt-3.5 mt-3.5 border-t border-white/10 text-[11px]">
                       <div>
                         <span className="text-slate-400 block text-[10px]">Facebook</span>
-                        <strong className="text-white font-mono">R$ 78,8 mil</strong>{" "}
-                        <span className="text-[10px] text-slate-400">· 63%</span>
+                        <strong className="text-white font-mono">R$ 108,0 mil</strong>{" "}
+                        <span className="text-[10px] text-slate-400">· 58%</span>
                       </div>
                       <div>
                         <span className="text-slate-400 block text-[10px]">Google</span>
-                        <strong className="text-white font-mono">R$ 46,5 mil</strong>{" "}
-                        <span className="text-[10px] text-slate-400">· 37%</span>
+                        <strong className="text-white font-mono">R$ 59,6 mil</strong>{" "}
+                        <span className="text-[10px] text-slate-400">· 32%</span>
                       </div>
                       <div>
                         <span className="text-slate-400 block text-[10px]">TikTok</span>
-                        <strong className="text-white font-mono">R$ 0</strong>{" "}
-                        <span className="text-[10px] text-slate-400">· 0%</span>
+                        <strong className="text-white font-mono">R$ 18,6 mil</strong>{" "}
+                        <span className="text-[10px] text-slate-400">· 10%</span>
                       </div>
                     </div>
                   </div>
@@ -427,25 +426,25 @@ export function FinancialCockpit() {
                         </span>
                       </div>
                       <div className="text-2xl sm:text-3xl font-extrabold font-mono text-[#F5B85D] tracking-tight">
-                        6,60x
+                        8,85x
                       </div>
                       <p className="text-[11px] text-slate-400 mt-1">
-                        Cada R$ 1 em anúncio virou <strong className="text-white">R$ 6,60</strong>
+                        Cada R$ 1 em anúncio virou <strong className="text-white">R$ 8,85</strong>
                       </p>
                     </div>
 
                     <div className="grid grid-cols-3 gap-2 pt-3.5 mt-3.5 border-t border-white/10 text-[11px]">
                       <div>
                         <span className="text-slate-400 block text-[10px]">Meta de ROAS</span>
-                        <strong className="text-white font-mono">8,5x</strong>
+                        <strong className="text-white font-mono">8,0x</strong>
                       </div>
                       <div>
                         <span className="text-slate-400 block text-[10px]">Venda em mídia</span>
-                        <strong className="text-white font-mono">15,2%</strong>
+                        <strong className="text-white font-mono">11,3%</strong>
                       </div>
                       <div>
                         <span className="text-slate-400 block text-[10px]">ROAS mês passado</span>
-                        <strong className="text-slate-200 font-mono">6,9x</strong>
+                        <strong className="text-slate-200 font-mono">7,4x</strong>
                       </div>
                     </div>
                   </div>
@@ -463,30 +462,30 @@ export function FinancialCockpit() {
                           <span className="w-2.5 h-2.5 rounded-full bg-teal-400"></span>
                           SITE
                         </span>
-                        <span className="px-2 py-0.5 rounded-md bg-rose-500/15 text-rose-300 text-[10px] font-mono font-bold">
-                          47%
+                        <span className="px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-300 text-[10px] font-mono font-bold">
+                          80%
                         </span>
                       </div>
                       <div className="text-xl font-extrabold font-mono text-white">
-                        R$ 613.511,46
+                        R$ 964.320,00
                       </div>
                       <p className="text-[10px] text-slate-400 mt-0.5">
-                        Meta R$ 1.300 mil · <strong className="text-slate-200">faltam R$ 686,5 mil</strong>
+                        Meta R$ 1.200 mil · <strong className="text-slate-200">faltam R$ 235,7 mil</strong>
                       </p>
                     </div>
 
                     <div className="grid grid-cols-3 gap-1.5 pt-3 mt-3 border-t border-white/10 text-[10px]">
                       <div>
                         <span className="text-slate-400 block">Pedidos</span>
-                        <strong className="text-white font-mono">3.768</strong>
+                        <strong className="text-white font-mono">4.423</strong>
                       </div>
                       <div>
                         <span className="text-slate-400 block">Ticket médio</span>
-                        <strong className="text-white font-mono">R$ 163</strong>
+                        <strong className="text-white font-mono">R$ 218</strong>
                       </div>
                       <div>
                         <span className="text-slate-400 block">vs mês ant.</span>
-                        <strong className="text-rose-400 font-mono">▼ 12%</strong>
+                        <strong className="text-emerald-400 font-mono">▲ 22%</strong>
                       </div>
                     </div>
                   </div>
@@ -499,30 +498,30 @@ export function FinancialCockpit() {
                           <span className="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
                           LOJA FÍSICA
                         </span>
-                        <span className="px-2 py-0.5 rounded-md bg-rose-500/15 text-rose-300 text-[10px] font-mono font-bold">
-                          58%
+                        <span className="px-2 py-0.5 rounded-md bg-amber-500/15 text-amber-300 text-[10px] font-mono font-bold">
+                          70%
                         </span>
                       </div>
                       <div className="text-xl font-extrabold font-mono text-white">
-                        R$ 28.821,33
+                        R$ 104.610,00
                       </div>
                       <p className="text-[10px] text-slate-400 mt-0.5">
-                        Meta R$ 50 mil · <strong className="text-slate-200">faltam R$ 21,2 mil</strong>
+                        Meta R$ 150 mil · <strong className="text-slate-200">faltam R$ 45,4 mil</strong>
                       </p>
                     </div>
 
                     <div className="grid grid-cols-3 gap-1.5 pt-3 mt-3 border-t border-white/10 text-[10px]">
                       <div>
                         <span className="text-slate-400 block">Pedidos</span>
-                        <strong className="text-white font-mono">159</strong>
+                        <strong className="text-white font-mono">397</strong>
                       </div>
                       <div>
                         <span className="text-slate-400 block">Ticket médio</span>
-                        <strong className="text-white font-mono">R$ 181</strong>
+                        <strong className="text-white font-mono">R$ 263</strong>
                       </div>
                       <div>
                         <span className="text-slate-400 block">vs mês ant.</span>
-                        <strong className="text-rose-400 font-mono">▼ 37%</strong>
+                        <strong className="text-emerald-400 font-mono">▲ 11%</strong>
                       </div>
                     </div>
                   </div>
@@ -536,29 +535,29 @@ export function FinancialCockpit() {
                           SHOPEE
                         </span>
                         <span className="px-2 py-0.5 rounded-md bg-rose-500/15 text-rose-300 text-[10px] font-mono font-bold">
-                          58%
+                          66%
                         </span>
                       </div>
                       <div className="text-xl font-extrabold font-mono text-white">
-                        R$ 105.239,81
+                        R$ 196.840,00
                       </div>
                       <p className="text-[10px] text-slate-400 mt-0.5">
-                        Meta R$ 180 mil · <strong className="text-slate-200">faltam R$ 74,8 mil</strong>
+                        Meta R$ 300 mil · <strong className="text-slate-200">faltam R$ 103,2 mil</strong>
                       </p>
                     </div>
 
                     <div className="grid grid-cols-3 gap-1.5 pt-3 mt-3 border-t border-white/10 text-[10px]">
                       <div>
                         <span className="text-slate-400 block">Pedidos</span>
-                        <strong className="text-white font-mono">1.480</strong>
+                        <strong className="text-white font-mono">1.491</strong>
                       </div>
                       <div>
                         <span className="text-slate-400 block">Ticket médio</span>
-                        <strong className="text-white font-mono">R$ 71</strong>
+                        <strong className="text-white font-mono">R$ 132</strong>
                       </div>
                       <div>
                         <span className="text-slate-400 block">vs mês ant.</span>
-                        <strong className="text-rose-400 font-mono">▼ 23%</strong>
+                        <strong className="text-emerald-400 font-mono">▲ 8%</strong>
                       </div>
                     </div>
                   </div>
@@ -576,25 +575,25 @@ export function FinancialCockpit() {
                         </span>
                       </div>
                       <div className="text-xl font-extrabold font-mono text-white">
-                        R$ 59.711,28
+                        R$ 382.650,00
                       </div>
                       <p className="text-[10px] text-slate-400 mt-0.5">
-                        Meta R$ 70 mil · <strong className="text-slate-200">faltam R$ 10,3 mil</strong>
+                        Meta R$ 450 mil · <strong className="text-slate-200">faltam R$ 67,4 mil</strong>
                       </p>
                     </div>
 
                     <div className="grid grid-cols-3 gap-1.5 pt-3 mt-3 border-t border-white/10 text-[10px]">
                       <div>
                         <span className="text-slate-400 block">Pedidos</span>
-                        <strong className="text-white font-mono">615</strong>
+                        <strong className="text-white font-mono">2.186</strong>
                       </div>
                       <div>
                         <span className="text-slate-400 block">Ticket médio</span>
-                        <strong className="text-white font-mono">R$ 97</strong>
+                        <strong className="text-white font-mono">R$ 175</strong>
                       </div>
                       <div>
                         <span className="text-slate-400 block">vs mês ant.</span>
-                        <strong className="text-amber-300 font-mono">▼ 2%</strong>
+                        <strong className="text-emerald-400 font-mono">▲ 19%</strong>
                       </div>
                     </div>
                   </div>
@@ -632,18 +631,18 @@ export function FinancialCockpit() {
                       </div>
                     </div>
 
-                    {/* Área do Gráfico com Eixo Y, Linha Tracejada de Meta (53,3k) e 30 Barras Empilhadas */}
+                    {/* Área do Gráfico com Eixo Y, Linha Tracejada de Meta (70,0k) e 30 Barras Empilhadas */}
                     <div className="relative pl-8 pr-1 pt-2 pb-1">
                       {/* Labels do Eixo Y */}
                       <div className="absolute left-0 top-2 bottom-6 flex flex-col justify-between text-[9px] font-mono text-slate-500">
+                        <span>80k</span>
                         <span>60k</span>
-                        <span>45k</span>
-                        <span>30k</span>
-                        <span>15k</span>
+                        <span>40k</span>
+                        <span>20k</span>
                         <span>0</span>
                       </div>
 
-                      {/* Linhas de grade horizontais + Linha de Meta 53,3k */}
+                      {/* Linhas de grade horizontais + Linha de Meta 70,0k */}
                       <div className="relative h-44 border-b border-white/10 flex items-end justify-between gap-[3px] sm:gap-1 pt-4">
                         {/* Linhas de grade */}
                         <div className="absolute inset-x-0 top-0 border-t border-white/5 pointer-events-none"></div>
@@ -651,23 +650,23 @@ export function FinancialCockpit() {
                         <div className="absolute inset-x-0 top-2/4 border-t border-white/5 pointer-events-none"></div>
                         <div className="absolute inset-x-0 top-3/4 border-t border-white/5 pointer-events-none"></div>
 
-                        {/* Linha Tracejada da Meta Diária (53,3k de 60k = 88.8% de altura, ou 11.2% do topo) */}
+                        {/* Linha Tracejada da Meta Diária (70,0k de 80k = 87.5% de altura, ou 12.5% do topo) */}
                         <div
                           className="absolute inset-x-0 border-t-2 border-dashed border-slate-400/70 z-10 pointer-events-none flex items-center justify-center"
-                          style={{ top: "11.5%" }}
+                          style={{ top: "12.5%" }}
                         >
                           <span className="px-2 py-0.5 -mt-5 rounded bg-[#071A1E] text-[9px] font-mono font-bold text-slate-200 border border-white/10">
-                            Meta 53,3k
+                            Meta 70,0k
                           </span>
                         </div>
 
                         {/* 30 Barras Empilhadas */}
                         {dailySalesBars.map((d, idx) => {
-                          // Escala em relação a 60k máximo
-                          const siteH = (d.site / 60) * 100;
-                          const shopeeH = (d.shopee / 60) * 100;
-                          const mlH = (d.ml / 60) * 100;
-                          const lojaH = (d.loja / 60) * 100;
+                          // Escala em relação a 80k máximo
+                          const siteH = (d.site / 80) * 100;
+                          const shopeeH = (d.shopee / 80) * 100;
+                          const mlH = (d.ml / 80) * 100;
+                          const lojaH = (d.loja / 80) * 100;
                           return (
                             <div
                               key={idx}
@@ -687,15 +686,15 @@ export function FinancialCockpit() {
 
                       {/* Eixo X Datas */}
                       <div className="flex justify-between text-[8px] sm:text-[9px] font-mono text-slate-500 pt-1.5">
-                        <span>ter 01/09</span>
-                        <span className="hidden sm:inline">sex 04/09</span>
-                        <span>ter 08/09</span>
-                        <span className="hidden sm:inline">sex 11/09</span>
-                        <span>ter 15/09</span>
-                        <span className="hidden sm:inline">sex 18/09</span>
-                        <span>ter 22/09</span>
-                        <span className="hidden sm:inline">sex 25/09</span>
-                        <span>qua 30/09</span>
+                        <span>seg 01/06</span>
+                        <span className="hidden sm:inline">qui 04/06</span>
+                        <span>seg 08/06</span>
+                        <span className="hidden sm:inline">qui 11/06</span>
+                        <span>seg 15/06</span>
+                        <span className="hidden sm:inline">qui 18/06</span>
+                        <span>seg 22/06</span>
+                        <span className="hidden sm:inline">qui 25/06</span>
+                        <span>ter 30/06</span>
                       </div>
                     </div>
 
@@ -772,7 +771,9 @@ export function FinancialCockpit() {
                                 </td>
                                 <td
                                   className={`py-2 pl-2 text-right font-bold whitespace-nowrap ${
-                                    r.pct.startsWith("8") ? "text-[#F5B85D]" : "text-rose-400"
+                                    r.pct.startsWith("8") || r.pct.startsWith("9")
+                                      ? "text-[#F5B85D]"
+                                      : "text-rose-400"
                                   }`}
                                 >
                                   {r.pct}
@@ -783,9 +784,9 @@ export function FinancialCockpit() {
                           <tfoot>
                             <tr className="border-t-2 border-white/15 font-extrabold text-white">
                               <td className="pt-2.5 pr-2 font-sans">Total</td>
-                              <td className="pt-2.5 px-2 text-right">R$ 826.617,83</td>
-                              <td className="pt-2.5 px-2 text-right text-slate-300">R$ 1.599.999,90</td>
-                              <td className="pt-2.5 pl-2 text-right text-rose-400">51,7%</td>
+                              <td className="pt-2.5 px-2 text-right">R$ 1.648.420,00</td>
+                              <td className="pt-2.5 px-2 text-right text-slate-300">R$ 2.100.000,00</td>
+                              <td className="pt-2.5 pl-2 text-right text-[#F5B85D]">78,5%</td>
                             </tr>
                           </tfoot>
                         </table>
@@ -805,7 +806,7 @@ export function FinancialCockpit() {
                       Leitura e Plano de Ação do CFO sobre este painel
                     </span>
                     <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                      O <strong>Mercado Livre já atingiu 85% da meta</strong> com queda mínima (-2%), enquanto o <strong>Site Próprio está em 47% da meta</strong> porque apenas 66% da verba de mídia foi executada com ROAS de 6,60x. Ação imediata: realocar o saldo de verba para recuperar o ritmo diário de R$ 53,3 mil nas campanhas de maior retorno.
+                      O <strong>Site Próprio (80% da meta) e o Mercado Livre (85% da meta)</strong> puxam o crescimento com ROAS consolidado de <strong>8,85x</strong> (acima da meta de 8,0x), enquanto a <strong>Shopee está em 66% da meta</strong> com ticket médio de R$ 132. Ação imediata: direcionar os R$ 53,8 mil restantes de verba de mídia para kits de maior ticket no Site Próprio para bater os R$ 2,10M com máxima margem líquida.
                     </p>
                   </div>
                 </div>
