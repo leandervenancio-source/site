@@ -16,7 +16,7 @@ export function Footer() {
               />
             </a>
             <p className="text-xs text-slate-400 max-w-sm font-normal leading-relaxed mb-6">
-              CFO Terceirizado para empresas de e-commerce: finanças, estratégia e capital integrados para aumentar lucro, gerar caixa e reduzir riscos.
+              CFO Terceirizado para empresas de e-commerce: finanças, estratégia e capital integrados para aumentar o lucro e dar segurança para a sua operação crescer.
             </p>
             <div className="flex space-x-2.5">
               <a 
@@ -40,12 +40,12 @@ export function Footer() {
             </div>
           </div>
           
-          <div className="md:col-span-3">
+          <div className="md:col-span-2">
             <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4">Três Frentes</h3>
             <ul className="space-y-2.5 text-xs text-slate-400">
-              <li><a href="#frentes" className="hover:text-[#F5B85D] transition-colors">Finanças</a></li>
-              <li><a href="#frentes" className="hover:text-[#F5B85D] transition-colors">Estratégia</a></li>
-              <li><a href="#frentes" className="hover:text-[#F5B85D] transition-colors">Capital</a></li>
+              <li><a href="#topo" className="hover:text-[#F5B85D] transition-colors">Finanças</a></li>
+              <li><a href="#topo" className="hover:text-[#F5B85D] transition-colors">Estratégia</a></li>
+              <li><a href="#topo" className="hover:text-[#F5B85D] transition-colors">Capital</a></li>
             </ul>
           </div>
 
@@ -53,19 +53,19 @@ export function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4">Navegação</h3>
             <ul className="space-y-2.5 text-xs text-slate-400">
               <li><a href="#topo" className="hover:text-[#F5B85D] transition-colors">Início</a></li>
-              <li><a href="#niveis" className="hover:text-[#F5B85D] transition-colors">Pacotes de serviço</a></li>
               <li><a href="#metodo-dape" className="hover:text-[#F5B85D] transition-colors">Método DAPE</a></li>
+              <li><a href="#niveis" className="hover:text-[#F5B85D] transition-colors">Pacotes de serviço</a></li>
               <li><a href="#quem-conduz" className="hover:text-[#F5B85D] transition-colors">Quem conduz</a></li>
               <li><a href="#diagnostico" className="hover:text-[#F5B85D] transition-colors">Diagnóstico</a></li>
               <li><a href="#faq" className="hover:text-[#F5B85D] transition-colors">Perguntas frequentes</a></li>
             </ul>
           </div>
           
-          <div className="md:col-span-2">
+          <div className="md:col-span-3">
             <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4">Contato</h3>
             <ul className="space-y-2.5 text-xs text-slate-400">
               <li>
-                <a href="mailto:contato@montgestao.com.br" className="hover:text-[#F5B85D] transition-colors break-all">
+                <a href="mailto:contato@montgestao.com.br" className="hover:text-[#F5B85D] transition-colors whitespace-nowrap">
                   contato@montgestao.com.br
                 </a>
               </li>
@@ -75,7 +75,7 @@ export function Footer() {
                   target="_blank" 
                   rel="noopener noreferrer" 
                   onClick={() => trackWhatsAppClick("footer")}
-                  className="hover:text-[#F5B85D] transition-colors"
+                  className="hover:text-[#F5B85D] transition-colors whitespace-nowrap"
                 >
                   (62) 99920-0405
                 </a>
