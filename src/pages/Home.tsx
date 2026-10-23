@@ -383,24 +383,24 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          7. DOIS NÍVEIS DE SERVIÇO & CONTRATÁVEL À PARTE — [SESSÃO ESCURA: #071A1E]
+          7. DOIS NÍVEIS DE SERVIÇO & CONTRATÁVEL À PARTE — [SESSÃO CLARA: #F4F6F7 — CFO Full em destaque escuro]
       ========================================================================= */}
-      <section id="niveis" className="py-20 sm:py-28 bg-[#071A1E] text-white border-b border-white/10 relative overflow-hidden">
+      <section id="niveis" className="py-20 sm:py-28 bg-[#F4F6F7] text-slate-900 border-b border-slate-200 relative overflow-hidden">
         {/* Glow de fundo */}
-        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#E8A33D]/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#E8A33D]/10 rounded-full blur-[160px] pointer-events-none"></div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[11px] font-bold uppercase tracking-wider text-[#F5B85D] mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
               Pacotes de Serviço
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-5">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
               Dois pacotes de CFO Terceirizado, <br className="hidden sm:inline" />
-              <span className="text-[#F5B85D]">conforme o momento da sua empresa</span>
+              <span className="text-[#0E4A55]">conforme o momento da sua empresa</span>
             </h2>
-            <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
               O CFO Terceirizado da Mont Finance é estruturado em dois pacotes. Ambos entregam a visão executiva de finanças, a controladoria organizada e o rito mensal de decisão. A diferença está na camada de execução.
             </p>
           </div>
@@ -408,55 +408,55 @@ export function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
             
             {/* Pacote 1 — CFO Pro */}
-            <div id="cfo-pro" className="p-8 sm:p-10 rounded-3xl bg-[#0A272D]/90 border border-white/10 hover:border-white/20 flex flex-col justify-between transition-all duration-300 shadow-xl group">
+            <div id="cfo-pro" className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 hover:border-[#0E4A55]/40 flex flex-col justify-between transition-all duration-300 shadow-lg hover:shadow-xl group">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 text-slate-300">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#0E4A55]/10 text-[#0E4A55]">
                     Pacote 1
                   </span>
-                  <span className="text-xs font-semibold text-[#F5B85D]">
+                  <span className="text-xs font-semibold text-[#B27318]">
                     CFO + Controladoria
                   </span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
                   CFO Pro
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6">
                   O CFO Terceirizado da Mont com a controladoria da empresa organizada. Você passa a saber qual canal e qual produto dão lucro de verdade, quanto caixa está parado e para onde o dinheiro vai, e decide todo mês com um plano de ação acompanhado.
                 </p>
 
-                <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-slate-200">
+                <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-slate-700">
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
                     <span>Controladoria organizada com apuração de margem real por canal e por produto</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
                     <span>Visão clara de quanto caixa está parado e para onde o dinheiro vai</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
                     <span>DRE gerencial e fluxo de caixa com projeção futura</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
                     <span>FP&A integrado: orçamento, forecast e análise de variância</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
                     <span>Rito mensal de decisão com plano de ação acompanhado pelo CFO</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="pt-6 border-t border-white/10">
-                <span className="text-xs text-slate-400 block mb-5 leading-relaxed">
-                  <strong className="text-slate-200">Para quem precisa:</strong> ter os números organizados, clareza sobre lucro e caixa e decidir todo mês com um CFO ao seu lado.
+              <div className="pt-6 border-t border-slate-100">
+                <span className="text-xs text-slate-500 block mb-5 leading-relaxed">
+                  <strong className="text-slate-800">Para quem precisa:</strong> ter os números organizados, clareza sobre lucro e caixa e decidir todo mês com um CFO ao seu lado.
                 </span>
                 <a 
                   href="#diagnostico" 
                   onClick={() => trackCtaClick("cfo_pro", "Agendar para CFO Pro")}
-                  className="w-full py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-extrabold uppercase tracking-wider text-center flex items-center justify-center gap-2 transition-all"
+                  className="w-full py-4 rounded-xl bg-[#0E4A55] hover:bg-[#071A1E] border border-[#0E4A55] text-white text-xs font-extrabold uppercase tracking-wider text-center flex items-center justify-center gap-2 transition-all"
                 >
                   <span>Agendar diagnóstico para CFO Pro</span>
                   <ArrowRight className="w-4 h-4" />
@@ -465,7 +465,7 @@ export function Home() {
             </div>
 
             {/* Pacote 2 — CFO Full */}
-            <div id="cfo-full" className="p-8 sm:p-10 rounded-3xl bg-[#0A272D] border-2 border-[#E8A33D] transition-all flex flex-col justify-between shadow-[0_0_50px_rgba(232,163,61,0.2)] relative">
+            <div id="cfo-full" className="p-8 sm:p-10 rounded-3xl bg-[#0A272D] border-2 border-[#E8A33D] transition-all flex flex-col justify-between shadow-[0_30px_70px_-20px_rgba(7,26,30,0.55),0_0_40px_rgba(232,163,61,0.18)] relative md:-translate-y-3">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#E8A33D]/20 text-[#F5B85D]">
@@ -524,35 +524,35 @@ export function Home() {
           </div>
 
           {/* Bloco Curto: Contratável à parte e Projetos Pontuais */}
-          <div className="max-w-5xl mx-auto p-6 sm:p-10 rounded-3xl bg-[#071A1E] border border-white/10 shadow-2xl">
+          <div className="max-w-5xl mx-auto p-6 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-lg">
             <div className="mb-8 text-center sm:text-left">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#F5B85D] block mb-1">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0E4A55] block mb-1">
                 Contratável à parte e projetos pontuais
               </span>
-              <p className="text-xs sm:text-sm text-slate-300 font-normal">
+              <p className="text-xs sm:text-sm text-slate-600 font-normal">
                 Frentes especializadas que podem ser acionadas de acordo com as necessidades específicas da sua empresa.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Inteligência Tributária */}
-              <div className="p-6 sm:p-8 rounded-2xl bg-[#0A272D] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between">
+              <div className="p-6 sm:p-8 rounded-2xl bg-[#F8FAFB] border border-slate-200 hover:border-[#0E4A55]/40 hover:bg-white transition-all flex flex-col justify-between">
                 <div>
                   <div className="mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8A33D]/20 text-[#F5B85D] inline-block mb-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8A33D]/15 text-[#B27318] inline-block mb-2">
                       Contratável à parte
                     </span>
-                    <h4 className="text-xl font-extrabold text-white tracking-tight">
+                    <h4 className="text-xl font-extrabold text-slate-900 tracking-tight">
                       Inteligência Tributária
                     </h4>
-                    <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
+                    <span className="text-[11px] text-slate-500 font-medium block mt-0.5">
                       Entregue com parceiros
                     </span>
                   </div>
-                  <p className="text-xs text-slate-300 font-normal leading-relaxed mb-5">
+                  <p className="text-xs text-slate-600 font-normal leading-relaxed mb-5">
                     Entregue em parceria com especialistas tributários. Atua na análise da estrutura tributária e no reflexo fiscal sobre preço, margem e fluxo de caixa.
                   </p>
-                  <ul className="space-y-2 mb-5 text-xs text-slate-300">
+                  <ul className="space-y-2 mb-5 text-xs text-slate-700">
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
                       Revisão do enquadramento e da estrutura tributária
@@ -566,37 +566,37 @@ export function Home() {
                       Análise técnica de riscos e conformidade fiscal
                     </li>
                   </ul>
-                  <p className="text-[11px] text-slate-400 italic mb-4 leading-relaxed">
+                  <p className="text-[11px] text-slate-500 italic mb-4 leading-relaxed">
                     *Cada análise depende do caso concreto e de validação técnica. Sem promessa de resultado.
                   </p>
                 </div>
                 <a 
                   href="#diagnostico" 
                   onClick={() => trackCtaClick("contratavel_tributario", "Consultar Inteligência Tributária")}
-                  className="text-xs font-bold text-[#F5B85D] hover:text-white inline-flex items-center gap-1.5 transition-colors pt-4 border-t border-white/10"
+                  className="text-xs font-bold text-[#0E4A55] hover:text-[#E8A33D] inline-flex items-center gap-1.5 transition-colors pt-4 border-t border-slate-200"
                 >
                   Consultar no diagnóstico <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
 
               {/* Captação de Recursos */}
-              <div className="p-6 sm:p-8 rounded-2xl bg-[#0A272D] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between">
+              <div className="p-6 sm:p-8 rounded-2xl bg-[#F8FAFB] border border-slate-200 hover:border-[#0E4A55]/40 hover:bg-white transition-all flex flex-col justify-between">
                 <div>
                   <div className="mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8A33D]/20 text-[#F5B85D] inline-block mb-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8A33D]/15 text-[#B27318] inline-block mb-2">
                       Contratável à parte
                     </span>
-                    <h4 className="text-xl font-extrabold text-white tracking-tight">
+                    <h4 className="text-xl font-extrabold text-slate-900 tracking-tight">
                       Captação de Recursos
                     </h4>
-                    <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
+                    <span className="text-[11px] text-slate-500 font-medium block mt-0.5">
                       Assessoria de crédito e capital
                     </span>
                   </div>
-                  <p className="text-xs text-slate-300 font-normal leading-relaxed mb-5">
+                  <p className="text-xs text-slate-600 font-normal leading-relaxed mb-5">
                     Assessoria de crédito e capital com diagnóstico da necessidade de recursos, organização dos números e preparação para diálogo com instituições financeiras.
                   </p>
-                  <ul className="space-y-2 mb-5 text-xs text-slate-300">
+                  <ul className="space-y-2 mb-5 text-xs text-slate-700">
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
                       Diagnóstico do endividamento e necessidade de capital
@@ -610,37 +610,37 @@ export function Home() {
                       Assessoria no relacionamento com instituições financeiras
                     </li>
                   </ul>
-                  <p className="text-[11px] text-slate-400 italic mb-4 leading-relaxed">
+                  <p className="text-[11px] text-slate-500 italic mb-4 leading-relaxed">
                     *Aprovação, taxas e prazos dependem de cada instituição e do perfil da empresa.
                   </p>
                 </div>
                 <a 
                   href="#diagnostico" 
                   onClick={() => trackCtaClick("contratavel_capital", "Consultar Captação de Recursos")}
-                  className="text-xs font-bold text-[#F5B85D] hover:text-white inline-flex items-center gap-1.5 transition-colors pt-4 border-t border-white/10"
+                  className="text-xs font-bold text-[#0E4A55] hover:text-[#E8A33D] inline-flex items-center gap-1.5 transition-colors pt-4 border-t border-slate-200"
                 >
                   Consultar no diagnóstico <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
 
               {/* Advisory (Projetos Pontuais) */}
-              <div className="p-6 sm:p-8 rounded-2xl bg-[#0A272D] border border-white/10 hover:border-white/20 transition-all flex flex-col justify-between">
+              <div className="p-6 sm:p-8 rounded-2xl bg-[#F8FAFB] border border-slate-200 hover:border-[#0E4A55]/40 hover:bg-white transition-all flex flex-col justify-between">
                 <div>
                   <div className="mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white/10 text-slate-300 inline-block mb-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#0E4A55]/10 text-[#0E4A55] inline-block mb-2">
                       Projetos pontuais
                     </span>
-                    <h4 className="text-xl font-extrabold text-white tracking-tight">
+                    <h4 className="text-xl font-extrabold text-slate-900 tracking-tight">
                       Advisory
                     </h4>
-                    <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
+                    <span className="text-[11px] text-slate-500 font-medium block mt-0.5">
                       Planejamento Estratégico, Valuation, M&A
                     </span>
                   </div>
-                  <p className="text-xs text-slate-300 font-normal leading-relaxed mb-5">
+                  <p className="text-xs text-slate-600 font-normal leading-relaxed mb-5">
                     Projetos estratégicos pontuais para momentos decisivos da empresa: crescimento estruturado, precificação do negócio e operações societárias.
                   </p>
-                  <ul className="space-y-2 mb-5 text-xs text-slate-300">
+                  <ul className="space-y-2 mb-5 text-xs text-slate-700">
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
                       Planejamento Estratégico plurianual
@@ -654,14 +654,14 @@ export function Home() {
                       Assessoria executiva em processos de M&A
                     </li>
                   </ul>
-                  <p className="text-[11px] text-slate-400 italic mb-4 leading-relaxed">
+                  <p className="text-[11px] text-slate-500 italic mb-4 leading-relaxed">
                     *Escopo e cronograma estruturados sob medida para o projeto da empresa.
                   </p>
                 </div>
                 <a 
                   href="#diagnostico" 
                   onClick={() => trackCtaClick("projeto_advisory", "Consultar Advisory")}
-                  className="text-xs font-bold text-[#F5B85D] hover:text-white inline-flex items-center gap-1.5 transition-colors pt-4 border-t border-white/10"
+                  className="text-xs font-bold text-[#0E4A55] hover:text-[#E8A33D] inline-flex items-center gap-1.5 transition-colors pt-4 border-t border-slate-200"
                 >
                   Consultar no diagnóstico <ArrowRight className="w-4 h-4" />
                 </a>
@@ -673,9 +673,9 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          8. BLOCO COMPARATIVO (Estilo Growth Machine: "Nós vs O Mercado") — [SESSÃO CLARA: #F4F6F7]
+          8. BLOCO COMPARATIVO (Estilo Growth Machine: "Nós vs O Mercado") — [SESSÃO CLARA: #FFFFFF]
       ========================================================================= */}
-      <section id="comparativo" className="py-20 sm:py-28 bg-[#F4F6F7] text-slate-900 border-b border-slate-200 relative">
+      <section id="comparativo" className="py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200 relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-14">
