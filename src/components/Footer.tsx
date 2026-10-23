@@ -65,8 +65,8 @@ export function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4">Contato</h3>
             <ul className="space-y-2.5 text-xs text-slate-400">
               <li>
-                <a href="mailto:contato@montgestao.com.br" className="hover:text-[#F5B85D] transition-colors whitespace-nowrap">
-                  contato@montgestao.com.br
+                <a href="mailto:contato@montfinance.com.br" className="hover:text-[#F5B85D] transition-colors whitespace-nowrap">
+                  contato@montfinance.com.br
                 </a>
               </li>
               <li>

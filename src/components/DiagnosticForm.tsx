@@ -162,7 +162,7 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
 
     // 2. Enviar via FormSubmit
     try {
-      const res = await fetch("https://formsubmit.co/ajax/contato@montgestao.com.br", {
+      const res = await fetch("https://formsubmit.co/ajax/contato@montfinance.com.br", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -304,11 +304,11 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
           </a>
 
           <a
-            href="mailto:contato@montgestao.com.br"
+            href="mailto:contato@montfinance.com.br"
             className="w-full py-3.5 rounded-xl border bg-[#0A272D] hover:bg-[#0E363E] text-slate-200 border-white/15 text-xs font-semibold flex items-center justify-center gap-2 transition-colors"
           >
             <Mail className="w-4 h-4 text-[#F5B85D]" />
-            <span>Enviar e-mail para contato@montgestao.com.br</span>
+            <span>Enviar e-mail para contato@montfinance.com.br</span>
           </a>
         </div>
 
