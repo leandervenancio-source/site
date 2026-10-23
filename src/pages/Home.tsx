@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { DiagnosticForm } from "../components/DiagnosticForm";
 import { FinancialCockpit } from "../components/FinancialCockpit";
+import { DapeCycle } from "../components/DapeCycle";
 import { trackCtaClick } from "../lib/analytics";
 
 export function Home() {
@@ -346,8 +347,9 @@ export function Home() {
       {/* =========================================================================
           5. MÉTODO DAPE (Dados, Análise, Planejamento, Execução) — [SESSÃO CLARA: #FFFFFF]
       ========================================================================= */}
-      <section id="metodo-dape" className="py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="metodo-dape" className="py-20 sm:py-28 bg-gradient-to-b from-white via-[#F4F8F9] to-white text-slate-900 border-b border-slate-200 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0E4A5508_1px,transparent_1px),linear-gradient(to_bottom,#0E4A5508_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,#000_60%,transparent_100%)] pointer-events-none"></div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
@@ -359,83 +361,11 @@ export function Home() {
               <span className="text-[#0E4A55]">execução que gera caixa</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-              Um método próprio para sair do número solto e chegar à decisão que muda o resultado.
+              Um ciclo de melhoria contínua em quatro pilares. Cada volta transforma números soltos em decisões, e decisões em lucro e caixa. Clique em cada etapa para explorar.
             </p>
           </div>
 
-          {/* 4 Cards de Etapas do Método DAPE */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
-            {[
-              {
-                step: "01",
-                letter: "D",
-                title: "Dados",
-                subtitle: "Organização",
-                desc: "Reunimos e organizamos as informações financeiras, comerciais e tributárias da operação."
-              },
-              {
-                step: "02",
-                letter: "A",
-                title: "Análise",
-                subtitle: "Diagnóstico",
-                desc: "Identificamos onde estão a margem, o caixa e os riscos, e qual é a causa de cada um."
-              },
-              {
-                step: "03",
-                letter: "P",
-                title: "Planejamento",
-                subtitle: "Prioridades",
-                desc: "Transformamos a análise em metas, orçamento e prioridades claras de ação."
-              },
-              {
-                step: "04",
-                letter: "E",
-                title: "Execução",
-                subtitle: "Resultados",
-                desc: "Acompanhamos a implementação e ajustamos o rumo com base contínua nos números."
-              }
-            ].map((item, idx) => (
-              <div 
-                key={idx}
-                className="p-7 rounded-3xl bg-[#F8FAFB] border border-slate-200/90 hover:border-[#0E4A55] hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <span className="w-10 h-10 rounded-2xl bg-[#0E4A55] text-white flex items-center justify-center text-lg font-black font-mono shadow-sm">
-                      {item.letter}
-                    </span>
-                    <span className="text-xs font-black font-mono text-slate-400">
-                      ETAPA {item.step}
-                    </span>
-                  </div>
-
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] block mb-1">
-                    {item.subtitle}
-                  </span>
-                  <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Cards de Cultura e Princípios */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { title: "Cultura Data-Driven", desc: "Decisões e equipes guiadas por dados reais e indicadores confiáveis, sem achismos." },
-              { title: "Processos Ágeis", desc: "Fluxos dinâmicos que eliminam gargalos operacionais e aceleram a tomada de decisão com base em números." },
-              { title: "Melhoria Contínua", desc: "Ações e indicadores são constantemente ajustados em busca da rentabilidade do caixa." }
-            ].map((item, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-[#F8FAFB] border border-slate-200/80 hover:bg-white hover:border-[#0E4A55] transition-all">
-                <div className="text-[#0E4A55] font-extrabold text-base tracking-tight mb-1.5">{item.title}</div>
-                <p className="text-slate-600 text-xs font-medium leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+          <DapeCycle />
 
         </div>
       </section>
