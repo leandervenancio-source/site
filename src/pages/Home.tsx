@@ -863,27 +863,29 @@ export function Home() {
       <section id="diagnostico" className="py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200 relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch mb-24">
             
-            {/* Coluna Esquerda: Identidade Executiva Mont Finance */}
-            <div className="lg:col-span-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
-                Diagnóstico Financeiro Executivo
+            {/* Coluna Esquerda: Identidade Executiva Mont Finance (Alinhada Topo e Base com o Card) */}
+            <div className="lg:col-span-6 flex flex-col justify-between">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
+                  Diagnóstico Financeiro Executivo
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight mb-4 leading-[1.14]">
+                  Dê o primeiro passo para escalar o seu{" "}
+                  <span className="text-[#0E4A55]">lucro</span> com um diagnóstico gratuito
+                </h2>
+
+                <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed mb-6">
+                  Identifique onde o lucro da sua operação está ficando pelo caminho e saia da reunião com um{" "}
+                  <strong className="text-slate-900 font-bold">plano de ação financeiro estruturado</strong> para a realidade da sua empresa.
+                </p>
               </div>
 
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-5 leading-[1.12]">
-                Dê o primeiro passo para escalar o seu{" "}
-                <span className="text-[#0E4A55]">lucro</span> com um diagnóstico gratuito
-              </h2>
-
-              <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed mb-8">
-                Identifique onde o lucro da sua operação está ficando pelo caminho e saia da reunião com um{" "}
-                <strong className="text-slate-900 font-bold">plano de ação financeiro estruturado</strong> para a realidade da sua empresa.
-              </p>
-
-              {/* 3 Benefícios em Cards Executivos Sutis */}
-              <div className="space-y-3 mb-4">
+              {/* 3 Benefícios em Cards Executivos Sutis — Ancorados na base para alinhar com o formulário */}
+              <div className="space-y-3 mt-auto">
                 <div className="p-3.5 sm:p-4 rounded-2xl bg-[#F4F6F7] border border-slate-200/80 flex items-center gap-3.5">
                   <div className="w-7 h-7 rounded-lg bg-[#071A1E] text-[#F5B85D] flex items-center justify-center shrink-0 shadow-sm">
                     <Check className="w-4 h-4 stroke-[3]" />
@@ -914,7 +916,7 @@ export function Home() {
             </div>
 
             {/* Coluna Direita: Card Executivo Escuro com Formulário Multi-Step */}
-            <div className="lg:col-span-6">
+            <div className="lg:col-span-6 flex flex-col">
               <DiagnosticForm theme="dark" />
             </div>
 

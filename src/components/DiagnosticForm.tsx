@@ -220,7 +220,7 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
   const waUrl = `https://wa.me/5562999200405?text=${waMessage}`;
 
   const containerClass =
-    "rounded-3xl bg-[#071A1E] border-2 border-[#E8A33D]/50 p-7 sm:p-10 shadow-[0_25px_60px_rgba(7,26,30,0.22)] text-white relative overflow-hidden";
+    "h-full flex flex-col justify-between rounded-3xl bg-[#071A1E] border-2 border-[#E8A33D]/50 p-7 sm:p-9 shadow-[0_25px_60px_rgba(7,26,30,0.22)] text-white relative overflow-hidden";
   const inputClass =
     "w-full px-4 py-4 bg-[#0A272D] border border-white/15 text-white placeholder:text-slate-400 focus:border-[#E8A33D] focus:bg-[#0D3138] focus:outline-none transition-all rounded-xl font-medium text-sm";
   const labelClass = "text-xs font-bold uppercase tracking-wider text-slate-300 block mb-2";
@@ -347,7 +347,7 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
       />
 
       {/* Cabeçalho Executivo do Card + Barra de Progresso */}
-      <div className="relative z-10 mb-7 pb-6 border-b border-white/10">
+      <div className="relative z-10 pb-5 border-b border-white/10">
         <div className="flex items-center justify-between gap-2 mb-3">
           <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-[#F5B85D]">
             <ShieldCheck className="w-4 h-4 text-[#E8A33D]" />
@@ -380,7 +380,7 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
 
       {/* ETAPA 1: E-MAIL CORPORATIVO */}
       {step === 1 && (
-        <div className="space-y-5 relative z-10">
+        <div className="space-y-5 relative z-10 my-6">
           <div>
             <label className={labelClass}>
               E-mail Corporativo*
@@ -417,7 +417,7 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
 
       {/* ETAPA 2: NOME E WHATSAPP */}
       {step === 2 && (
-        <div className="space-y-5 relative z-10">
+        <div className="space-y-5 relative z-10 my-6">
           <div>
             <label className={labelClass}>
               Nome Completo*
@@ -483,7 +483,7 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
 
       {/* ETAPA 3: FATURAMENTO E CONFIRMAÇÃO */}
       {step === 3 && (
-        <div className="space-y-5 relative z-10">
+        <div className="space-y-5 relative z-10 my-6">
           <div>
             <label className={labelClass}>
               Faturamento Anual Aproximado*
@@ -565,7 +565,7 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
       )}
 
       {/* Rodapé de Confidencialidade */}
-      <div className="relative z-10 mt-6 pt-5 border-t border-white/10 flex items-center justify-center gap-2 text-[11px] text-slate-400">
+      <div className="relative z-10 pt-5 border-t border-white/10 flex items-center justify-center gap-2 text-[11px] text-slate-400">
         <Lock className="w-3.5 h-3.5 text-[#E8A33D] shrink-0" />
         <span>Dados 100% confidenciais. Reunião executiva sem compromisso.</span>
       </div>
