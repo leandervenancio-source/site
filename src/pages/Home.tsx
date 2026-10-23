@@ -62,24 +62,6 @@ export function Home() {
     { name: "M", src: "/clientes/logo-m-white.png", className: "h-9 sm:h-11" }
   ];
 
-  const threeFronts = [
-    {
-      frontNumber: "01",
-      title: "Finanças",
-      desc: "DRE gerencial, margem por canal e por produto, fluxo de caixa, inteligência tributária, estoque e giro, e indicadores que sustentam a operação."
-    },
-    {
-      frontNumber: "02",
-      title: "Estratégia",
-      desc: "Planejamento financeiro, cenários de crescimento, forecast, orçamento e alinhamento executivo para transformar metas em lucro e caixa."
-    },
-    {
-      frontNumber: "03",
-      title: "Capital",
-      desc: "Quanto de capital a operação precisa, estrutura do ciclo financeiro, de que forma captar e como chegar preparado aos bancos."
-    }
-  ];
-
   const comparisonRows = [
     {
       criteria: "Papel na sua empresa",
@@ -362,7 +344,104 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          5. GRÁFICO ILUSTRATIVO & COCKPIT DE ANÁLISE — [SESSÃO ESCURA: #071A1E]
+          5. MÉTODO DAPE (Dados, Análise, Planejamento, Execução) — [SESSÃO CLARA: #FFFFFF]
+      ========================================================================= */}
+      <section id="metodo-dape" className="py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
+              Metodologia Exclusiva
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
+              DAPE: do dado bruto à <br className="hidden sm:inline" />
+              <span className="text-[#0E4A55]">execução que gera caixa</span>
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
+              Um método próprio para sair do número solto e chegar à decisão que muda o resultado.
+            </p>
+          </div>
+
+          {/* 4 Cards de Etapas do Método DAPE */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+            {[
+              {
+                step: "01",
+                letter: "D",
+                title: "Dados",
+                subtitle: "Organização",
+                desc: "Reunimos e organizamos as informações financeiras, comerciais e tributárias da operação."
+              },
+              {
+                step: "02",
+                letter: "A",
+                title: "Análise",
+                subtitle: "Diagnóstico",
+                desc: "Identificamos onde estão a margem, o caixa e os riscos, e qual é a causa de cada um."
+              },
+              {
+                step: "03",
+                letter: "P",
+                title: "Planejamento",
+                subtitle: "Prioridades",
+                desc: "Transformamos a análise em metas, orçamento e prioridades claras de ação."
+              },
+              {
+                step: "04",
+                letter: "E",
+                title: "Execução",
+                subtitle: "Resultados",
+                desc: "Acompanhamos a implementação e ajustamos o rumo com base contínua nos números."
+              }
+            ].map((item, idx) => (
+              <div 
+                key={idx}
+                className="p-7 rounded-3xl bg-[#F8FAFB] border border-slate-200/90 hover:border-[#0E4A55] hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <span className="w-10 h-10 rounded-2xl bg-[#0E4A55] text-white flex items-center justify-center text-lg font-black font-mono shadow-sm">
+                      {item.letter}
+                    </span>
+                    <span className="text-xs font-black font-mono text-slate-400">
+                      ETAPA {item.step}
+                    </span>
+                  </div>
+
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] block mb-1">
+                    {item.subtitle}
+                  </span>
+                  <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Cards de Cultura e Princípios */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { title: "Cultura Data-Driven", desc: "Decisões e equipes guiadas por dados reais e indicadores confiáveis, sem achismos." },
+              { title: "Processos Ágeis", desc: "Fluxos dinâmicos que eliminam gargalos operacionais e aceleram a tomada de decisão com base em números." },
+              { title: "Melhoria Contínua", desc: "Ações e indicadores são constantemente ajustados em busca da rentabilidade do caixa." }
+            ].map((item, i) => (
+              <div key={i} className="p-6 rounded-2xl bg-[#F8FAFB] border border-slate-200/80 hover:bg-white hover:border-[#0E4A55] transition-all">
+                <div className="text-[#0E4A55] font-extrabold text-base tracking-tight mb-1.5">{item.title}</div>
+                <p className="text-slate-600 text-xs font-medium leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          6. GRÁFICO ILUSTRATIVO & COCKPIT DE ANÁLISE — [SESSÃO ESCURA: #071A1E]
       ========================================================================= */}
       <section id="grafico-100" className="py-16 sm:py-24 bg-[#071A1E] text-white border-b border-white/10 relative overflow-hidden">
         {/* Glow de fundo */}
@@ -370,179 +449,6 @@ export function Home() {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FinancialCockpit />
-        </div>
-      </section>
-
-      {/* =========================================================================
-          6. TRÊS FRENTES INTEGRADAS & TABELA COMPARATIVA — [SESSÃO CLARA: #F4F6F7]
-      ========================================================================= */}
-      <section id="frentes" className="py-20 sm:py-28 bg-[#F4F6F7] text-slate-900 border-b border-slate-200 relative">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
-              Três Frentes Integradas
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
-              Três frentes que decidem o seu resultado, <br className="hidden sm:inline" />
-              <span className="text-[#0E4A55]">tratadas juntas</span>
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-              Na maioria das empresas, finanças, estratégia e capital são tocadas por pessoas diferentes, que nem sempre conversam. Um CFO Terceirizado coloca tudo na mesma mesa.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {threeFronts.map((f, i) => (
-              <div 
-                key={i} 
-                className="p-8 rounded-3xl bg-white border border-slate-200/90 hover:border-[#0E4A55] hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5 relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-br from-[#0E4A55]/05 to-transparent rounded-bl-full pointer-events-none"></div>
-
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="text-2xl font-black text-[#0E4A55]/40 tracking-tight font-mono">
-                      0{f.frontNumber}
-                    </span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#E8A33D] ring-4 ring-[#E8A33D]/20"></span>
-                  </div>
-
-                  <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight mb-3">
-                    {f.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-6">
-                    {f.desc}
-                  </p>
-                </div>
-
-                <a 
-                  href="#diagnostico" 
-                  onClick={() => trackCtaClick(`frente_${f.title.toLowerCase()}`, `Diagnosticar ${f.title}`)}
-                  className="pt-4 border-t border-slate-100 text-xs font-bold text-[#0E4A55] hover:text-[#E8A33D] flex items-center justify-between transition-colors group-hover:translate-x-1 duration-200"
-                >
-                  <span>Avaliar {f.title.toLowerCase()} no diagnóstico</span>
-                  <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-                </a>
-              </div>
-            ))}
-          </div>
-
-          {/* Fechamento da Seção Três Frentes (Banner Callout Moderno) */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border-l-4 border-l-[#0E4A55] border border-slate-200/90 shadow-sm max-w-4xl mx-auto mb-24">
-            <p className="text-sm sm:text-base text-slate-800 font-semibold italic leading-relaxed text-center">
-              "A estratégia orienta as decisões e o rumo do negócio. As finanças e a inteligência tributária definem a margem real e a sustentabilidade. O capital viabiliza o ritmo de expansão. A diferença está em enxergar essas três frentes ao mesmo tempo."
-            </p>
-          </div>
-
-          {/* =========================================================================
-              BLOCO COMPARATIVO (Estilo Growth Machine: "Nós vs O Mercado")
-          ========================================================================= */}
-          <div id="comparativo" className="pt-6">
-            <div className="text-center max-w-3xl mx-auto mb-14">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
-                Posicionamento
-              </div>
-              <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4 leading-tight">
-                Por que a contabilidade comum ou uma consultoria teórica <br className="hidden sm:inline" />
-                <span className="text-[#0E4A55]">não resolvem o seu caixa?</span>
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
-                Enquanto a contabilidade tradicional apenas cumpre obrigações fiscais e consultores entregam relatórios teóricos e vão embora, a Mont Finance assume a cadeira executiva de finanças do seu e-commerce com você.
-              </p>
-            </div>
-
-            {/* Tabela Desktop */}
-            <div className="hidden md:block overflow-hidden rounded-3xl bg-white border border-slate-200 shadow-xl max-w-5xl mx-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="border-b border-slate-200 bg-slate-50/70">
-                    <th className="p-5 text-xs font-bold uppercase tracking-wider text-slate-500 w-1/4">
-                      O que sua operação precisa
-                    </th>
-                    <th className="p-5 text-xs font-extrabold uppercase tracking-wider text-white bg-[#0E4A55] border-x border-[#0E4A55] w-1/3 shadow-sm">
-                      <div className="flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-[#E8A33D]" />
-                        <span>Mont Finance (CFO Terceirizado)</span>
-                      </div>
-                    </th>
-                    <th className="p-5 text-xs font-bold uppercase tracking-wider text-slate-500 w-1/5">
-                      Contabilidade Tradicional
-                    </th>
-                    <th className="p-5 text-xs font-bold uppercase tracking-wider text-slate-500 w-1/5">
-                      Consultoria Tradicional
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 text-xs">
-                  {comparisonRows.map((row, idx) => (
-                    <tr key={idx} className="hover:bg-slate-50/60 transition-colors">
-                      <td className="p-5 font-bold text-slate-800 align-top">
-                        {row.criteria}
-                      </td>
-                      <td className="p-5 bg-[#0E4A55]/05 border-x border-[#0E4A55]/15 text-slate-900 font-semibold align-top leading-relaxed">
-                        <div className="flex items-start gap-2.5">
-                          <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                            <Check className="w-3 h-3 stroke-[3]" />
-                          </div>
-                          <span>{row.mont}</span>
-                        </div>
-                      </td>
-                      <td className="p-5 text-slate-500 font-normal align-top leading-relaxed">
-                        <div className="flex items-start gap-2.5">
-                          <div className="w-4 h-4 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 mt-0.5">
-                            <X className="w-3 h-3 stroke-[2.5]" />
-                          </div>
-                          <span>{row.tradicional}</span>
-                        </div>
-                      </td>
-                      <td className="p-5 text-slate-500 font-normal align-top leading-relaxed">
-                        <div className="flex items-start gap-2.5">
-                          <div className="w-4 h-4 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 mt-0.5">
-                            <X className="w-3 h-3 stroke-[2.5]" />
-                          </div>
-                          <span>{row.consultoria}</span>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Versão Mobile (Cards de Comparação) */}
-            <div className="md:hidden space-y-4">
-              {comparisonRows.map((row, idx) => (
-                <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-100 pb-2">
-                    {row.criteria}
-                  </div>
-                  
-                  <div className="p-3.5 rounded-xl bg-[#0E4A55]/08 border border-[#0E4A55]/30 space-y-1">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] flex items-center gap-1.5">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" /> Mont Finance
-                    </span>
-                    <p className="text-xs text-slate-900 font-semibold leading-relaxed">{row.mont}</p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-500 pt-1">
-                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                      <span className="font-bold block text-slate-700 mb-0.5">Contabilidade Tradicional:</span>
-                      {row.tradicional}
-                    </div>
-                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                      <span className="font-bold block text-slate-700 mb-0.5">Consultoria:</span>
-                      {row.consultoria}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-          </div>
-
         </div>
       </section>
 
@@ -837,95 +743,108 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          8. MÉTODO DAPE (Dados, Análise, Planejamento, Execução) — [SESSÃO CLARA: #F4F6F7]
+          8. BLOCO COMPARATIVO (Estilo Growth Machine: "Nós vs O Mercado") — [SESSÃO CLARA: #F4F6F7]
       ========================================================================= */}
-      <section id="metodo-dape" className="py-20 sm:py-28 bg-[#F4F6F7] text-slate-900 border-b border-slate-200 relative overflow-hidden">
+      <section id="comparativo" className="py-20 sm:py-28 bg-[#F4F6F7] text-slate-900 border-b border-slate-200 relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
-              Metodologia Exclusiva
+              Posicionamento
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
-              DAPE: do dado bruto à <br className="hidden sm:inline" />
-              <span className="text-[#0E4A55]">execução que gera caixa</span>
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-              Um método próprio para sair do número solto e chegar à decisão que muda o resultado.
+            <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4 leading-tight">
+              Por que a contabilidade comum ou uma consultoria teórica <br className="hidden sm:inline" />
+              <span className="text-[#0E4A55]">não resolvem o seu caixa?</span>
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
+              Enquanto a contabilidade tradicional apenas cumpre obrigações fiscais e consultores entregam relatórios teóricos e vão embora, a Mont Finance assume a cadeira executiva de finanças do seu e-commerce com você.
             </p>
           </div>
 
-          {/* 4 Cards de Etapas do Método DAPE (Grid Moderno Estilo Growth Machine) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
-            {[
-              {
-                step: "01",
-                letter: "D",
-                title: "Dados",
-                subtitle: "Organização",
-                desc: "Reunimos e organizamos as informações financeiras, comerciais e tributárias da operação."
-              },
-              {
-                step: "02",
-                letter: "A",
-                title: "Análise",
-                subtitle: "Diagnóstico",
-                desc: "Identificamos onde estão a margem, o caixa e os riscos, e qual é a causa de cada um."
-              },
-              {
-                step: "03",
-                letter: "P",
-                title: "Planejamento",
-                subtitle: "Prioridades",
-                desc: "Transformamos a análise em metas, orçamento e prioridades claras de ação."
-              },
-              {
-                step: "04",
-                letter: "E",
-                title: "Execução",
-                subtitle: "Resultados",
-                desc: "Acompanhamos a implementação e ajustamos o rumo com base contínua nos números."
-              }
-            ].map((item, idx) => (
-              <div 
-                key={idx}
-                className="p-7 rounded-3xl bg-white border border-slate-200/90 hover:border-[#0E4A55] hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <span className="w-10 h-10 rounded-2xl bg-[#0E4A55] text-white flex items-center justify-center text-lg font-black font-mono shadow-sm">
-                      {item.letter}
-                    </span>
-                    <span className="text-xs font-black font-mono text-slate-300">
-                      ETAPA {item.step}
-                    </span>
-                  </div>
-
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] block mb-1">
-                    {item.subtitle}
-                  </span>
-                  <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
+          {/* Tabela Desktop */}
+          <div className="hidden md:block overflow-hidden rounded-3xl bg-white border border-slate-200 shadow-xl max-w-5xl mx-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50/70">
+                  <th className="p-5 text-xs font-bold uppercase tracking-wider text-slate-500 w-1/4">
+                    O que sua operação precisa
+                  </th>
+                  <th className="p-5 text-xs font-extrabold uppercase tracking-wider text-white bg-[#0E4A55] border-x border-[#0E4A55] w-1/3 shadow-sm">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-[#E8A33D]" />
+                      <span>Mont Finance (CFO Terceirizado)</span>
+                    </div>
+                  </th>
+                  <th className="p-5 text-xs font-bold uppercase tracking-wider text-slate-500 w-1/5">
+                    Contabilidade Tradicional
+                  </th>
+                  <th className="p-5 text-xs font-bold uppercase tracking-wider text-slate-500 w-1/5">
+                    Consultoria Tradicional
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-xs">
+                {comparisonRows.map((row, idx) => (
+                  <tr key={idx} className="hover:bg-slate-50/60 transition-colors">
+                    <td className="p-5 font-bold text-slate-800 align-top">
+                      {row.criteria}
+                    </td>
+                    <td className="p-5 bg-[#0E4A55]/05 border-x border-[#0E4A55]/15 text-slate-900 font-semibold align-top leading-relaxed">
+                      <div className="flex items-start gap-2.5">
+                        <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                          <Check className="w-3 h-3 stroke-[3]" />
+                        </div>
+                        <span>{row.mont}</span>
+                      </div>
+                    </td>
+                    <td className="p-5 text-slate-500 font-normal align-top leading-relaxed">
+                      <div className="flex items-start gap-2.5">
+                        <div className="w-4 h-4 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 mt-0.5">
+                          <X className="w-3 h-3 stroke-[2.5]" />
+                        </div>
+                        <span>{row.tradicional}</span>
+                      </div>
+                    </td>
+                    <td className="p-5 text-slate-500 font-normal align-top leading-relaxed">
+                      <div className="flex items-start gap-2.5">
+                        <div className="w-4 h-4 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 mt-0.5">
+                          <X className="w-3 h-3 stroke-[2.5]" />
+                        </div>
+                        <span>{row.consultoria}</span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
 
-          {/* Cards de Cultura e Princípios */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { title: "Cultura Data-Driven", desc: "Decisões e equipes guiadas por dados reais e indicadores confiáveis, sem achismos." },
-              { title: "Processos Ágeis", desc: "Fluxos dinâmicos que eliminam gargalos operacionais e aceleram a tomada de decisão com base em números." },
-              { title: "Melhoria Contínua", desc: "Ações e indicadores são constantemente ajustados em busca da rentabilidade do caixa." }
-            ].map((item, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-white/70 border border-slate-200/80 hover:bg-white hover:border-[#0E4A55] transition-all">
-                <div className="text-[#0E4A55] font-extrabold text-base tracking-tight mb-1.5">{item.title}</div>
-                <p className="text-slate-600 text-xs font-medium leading-relaxed">{item.desc}</p>
+          {/* Versão Mobile (Cards de Comparação) */}
+          <div className="md:hidden space-y-4">
+            {comparisonRows.map((row, idx) => (
+              <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-100 pb-2">
+                  {row.criteria}
+                </div>
+                
+                <div className="p-3.5 rounded-xl bg-[#0E4A55]/08 border border-[#0E4A55]/30 space-y-1">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] flex items-center gap-1.5">
+                    <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" /> Mont Finance
+                  </span>
+                  <p className="text-xs text-slate-900 font-semibold leading-relaxed">{row.mont}</p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-500 pt-1">
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="font-bold block text-slate-700 mb-0.5">Contabilidade Tradicional:</span>
+                    {row.tradicional}
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="font-bold block text-slate-700 mb-0.5">Consultoria:</span>
+                    {row.consultoria}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
