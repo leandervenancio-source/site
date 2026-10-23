@@ -373,7 +373,7 @@ export function Home() {
       {/* =========================================================================
           6. GRÁFICO ILUSTRATIVO & COCKPIT DE ANÁLISE — [SESSÃO ESCURA: #071A1E]
       ========================================================================= */}
-      <section id="grafico-100" className="py-16 sm:py-24 bg-[#071A1E] text-white border-b border-white/10 relative overflow-hidden">
+      <section id="grafico-100" className="py-10 sm:py-14 bg-[#071A1E] text-white border-b border-white/10 relative overflow-hidden">
         {/* Glow de fundo */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#0E4A55]/30 rounded-full blur-[140px] pointer-events-none"></div>
 
