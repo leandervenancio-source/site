@@ -858,62 +858,64 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          10 & 11. DIAGNÓSTICO & FAQ — [ESTILO GROWTH MACHINE: FUNDO BRANCO E CARD LARANJA]
+          10 & 11. DIAGNÓSTICO & FAQ — [IDENTIDADE EXECUTIVA MONT FINANCE]
       ========================================================================= */}
-      <section id="diagnostico" className="py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="diagnostico" className="py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-24">
             
-            {/* Coluna Esquerda: Estilo Growth Machine com Dot, Headline, Subheadline Âmbar e Bullets */}
+            {/* Coluna Esquerda: Identidade Executiva Mont Finance */}
             <div className="lg:col-span-6">
-              <div className="flex items-center gap-2.5 text-xs font-bold tracking-[0.2em] uppercase text-slate-800 mb-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-slate-900"></span>
-                <span>DIAGNÓSTICO</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
+                Diagnóstico Financeiro Executivo
               </div>
 
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-5 leading-[1.15]">
-                Dê o primeiro passo para escalar seu lucro e caixa com um diagnóstico gratuito
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-5 leading-[1.12]">
+                Dê o primeiro passo para escalar seu{" "}
+                <span className="text-[#0E4A55]">lucro e caixa</span> com um diagnóstico gratuito
               </h2>
 
-              <p className="text-base sm:text-lg text-[#E8A33D] font-bold leading-snug mb-8">
-                Identifique as principais oportunidades de crescimento da sua empresa e receba um plano de ação personalizado.
+              <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed mb-8">
+                Identifique onde a margem e o caixa da sua operação estão ficando pelo caminho e saia da reunião com um{" "}
+                <strong className="text-slate-900 font-bold">plano de ação financeiro estruturado</strong> para a realidade da sua empresa.
               </p>
 
-              {/* 3 Bullets com Círculo Laranja e Check Branco */}
-              <div className="space-y-4 mb-4">
-                <div className="flex items-center gap-3.5">
-                  <div className="w-5 h-5 rounded-full bg-[#E8A33D] text-white flex items-center justify-center shrink-0 shadow-sm">
-                    <Check className="w-3.5 h-3.5 stroke-[3]" />
+              {/* 3 Benefícios em Cards Executivos Sutis */}
+              <div className="space-y-3 mb-4">
+                <div className="p-3.5 sm:p-4 rounded-2xl bg-[#F4F6F7] border border-slate-200/80 flex items-center gap-3.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#071A1E] text-[#F5B85D] flex items-center justify-center shrink-0 shadow-sm">
+                    <Check className="w-4 h-4 stroke-[3]" />
                   </div>
-                  <span className="text-sm sm:text-base font-semibold text-slate-800">
-                    Diagnóstico personalizado gratuito
+                  <span className="text-xs sm:text-sm font-bold text-slate-800">
+                    Diagnóstico personalizado conduzido por especialista sênior
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3.5">
-                  <div className="w-5 h-5 rounded-full bg-[#E8A33D] text-white flex items-center justify-center shrink-0 shadow-sm">
-                    <Check className="w-3.5 h-3.5 stroke-[3]" />
+                <div className="p-3.5 sm:p-4 rounded-2xl bg-[#F4F6F7] border border-slate-200/80 flex items-center gap-3.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#071A1E] text-[#F5B85D] flex items-center justify-center shrink-0 shadow-sm">
+                    <Check className="w-4 h-4 stroke-[3]" />
                   </div>
-                  <span className="text-sm sm:text-base font-semibold text-slate-800">
-                    Descubra o mapa que pode aumentar sua margem e lucro
+                  <span className="text-xs sm:text-sm font-bold text-slate-800">
+                    Mapeamento claro de margem, geração de caixa e estrutura de capital
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3.5">
-                  <div className="w-5 h-5 rounded-full bg-[#E8A33D] text-white flex items-center justify-center shrink-0 shadow-sm">
-                    <Check className="w-3.5 h-3.5 stroke-[3]" />
+                <div className="p-3.5 sm:p-4 rounded-2xl bg-[#F4F6F7] border border-slate-200/80 flex items-center gap-3.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#071A1E] text-[#F5B85D] flex items-center justify-center shrink-0 shadow-sm">
+                    <Check className="w-4 h-4 stroke-[3]" />
                   </div>
-                  <span className="text-sm sm:text-base font-semibold text-slate-800">
-                    100% gratuito e sem compromisso
+                  <span className="text-xs sm:text-sm font-bold text-slate-800">
+                    Reunião executiva 100% gratuita e sem compromisso
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* Coluna Direita: Card com Borda Laranja e Formulário Multi-Step */}
+            {/* Coluna Direita: Card Executivo Escuro com Formulário Multi-Step */}
             <div className="lg:col-span-6">
-              <DiagnosticForm theme="light" />
+              <DiagnosticForm theme="dark" />
             </div>
 
           </div>
