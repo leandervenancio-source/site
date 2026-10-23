@@ -10,15 +10,7 @@ import {
   Linkedin,
   ShieldCheck,
   Target,
-  Sparkles,
-  Boxes,
-  CreditCard,
-  BarChart3,
-  Compass,
-  ShieldAlert,
-  Lightbulb,
-  TrendingUp,
-  Layers
+  Sparkles
 } from "lucide-react";
 import { DiagnosticForm } from "../components/DiagnosticForm";
 import { FinancialCockpit } from "../components/FinancialCockpit";
@@ -31,108 +23,31 @@ export function Home() {
     setOpenFaq(openFaq === idx ? null : idx);
   };
 
-  const [activeScenarioFilter, setActiveScenarioFilter] = useState<string>("all");
-
   const economicCauses = [
     {
-      id: "caixa-estoque",
-      category: "Caixa & Capital de Giro",
-      shortLabel: "Caixa & Estoque",
-      icon: Boxes,
-      scenarioNumber: "01",
-      symptom: {
-        headline: "Fatura alto no mês, mas o caixa vive no sufoco.",
-        detail: "O volume de vendas bate recordes no dashboard, mas na hora de pagar fornecedores e salários não sobra liquidez para reinvestir ou retirar lucros."
-      },
-      cause: {
-        headline: "Estoque parado e descasamento de prazos operacionais.",
-        detail: "Capital de giro absorvido por mercadoria que não gira no ritmo esperado, somado ao pagamento de fornecedores muito antes do recebimento real das vendas."
-      },
-      gain: {
-        headline: "Sobra de caixa real e capital desmobilizado do estoque.",
-        detail: "Dimensionamento exato da Necessidade de Capital de Giro (NCG), giro de estoque inteligente e sincronização de prazos para o dinheiro finalmente sobrar no banco."
-      },
-      impactPill: "Impacto: Margem retida e liquidez operacional liberada"
+      symptom: "Fatura bem, mas o caixa não acompanha.",
+      cause: "Estoque parado e descasamento entre compras e recebimentos.",
+      gain: "Sobra de caixa real com NCG equilibrada e estoque no giro certo."
     },
     {
-      id: "antecipacao",
-      category: "Ciclo Financeiro & Juros",
-      shortLabel: "Antecipação de Recebíveis",
-      icon: CreditCard,
-      scenarioNumber: "02",
-      symptom: {
-        headline: "Antecipar cartão e duplicatas virou rotina obrigatória.",
-        detail: "A antecipação de recebíveis deixou de ser um recurso para emergências pontuais e virou o único modo de cobrir a folha de pagamento e fechar o mês."
-      },
-      cause: {
-        headline: "Ciclo de conversão invertido e sangria contínua de taxas.",
-        detail: "O descasamento no fluxo operacional obriga a antecipar vendas a taxas de 1,5% a 3,5% ao mês, entregando uma fatia pesada do lucro líquido às adquirentes e bancos."
-      },
-      gain: {
-        headline: "Fim da dependência de antecipação e preservação do lucro.",
-        detail: "Reestruturação do ciclo financeiro, reprogramação de contas a pagar com fornecedores e eliminação da sangria de juros que corroía a sua margem."
-      },
-      impactPill: "Impacto: Redução drástica de despesas financeiras"
+      symptom: "Antecipar recebível virou rotina para pagar contas.",
+      cause: "Ciclo financeiro invertido e juros drenando a margem da empresa.",
+      gain: "Fim da dependência de antecipação e retenção do lucro líquido."
     },
     {
-      id: "marketplaces",
-      category: "Marketplaces & Margem Real",
-      shortLabel: "Marketplaces & Margem",
-      icon: BarChart3,
-      scenarioNumber: "03",
-      symptom: {
-        headline: "Volume expressivo em marketplaces, mas sobra quase nada.",
-        detail: "Mercado Livre, Shopee ou Amazon faturam forte todo dia, mas no fechamento consolidado a operação mal empata os custos ou dá lucro irrisório."
-      },
-      cause: {
-        headline: "Comissões, frete, devoluções e mídia corroendo a margem por SKU.",
-        detail: "Sem uma DRE unitária por canal e por produto, custos ocultos (logística reversa, taxa fixa, mídia paga e tributação) transformam produtos 'campeões' em ralos de dinheiro."
-      },
-      gain: {
-        headline: "DRE cirúrgica por canal e por produto para lucrar de verdade.",
-        detail: "Visão exata de qual canal e produto dão lucro real, corte imediato de anúncios ou linhas deficitárias e reposicionamento de preços com margem protegida."
-      },
-      impactPill: "Impacto: Clareza de lucratividade por canal e SKU"
+      symptom: "Volume alto em marketplaces e sobra quase nada.",
+      cause: "Comissões, frete, devoluções e mídia corroendo a margem por SKU.",
+      gain: "DRE por canal e SKU para cortar o que sangra e lucrar de verdade."
     },
     {
-      id: "decisao",
-      category: "Previsibilidade & Rotina",
-      shortLabel: "Previsibilidade & Rotina",
-      icon: Compass,
-      scenarioNumber: "04",
-      symptom: {
-        headline: "Decisões de compra e investimentos tomadas por intuição.",
-        detail: "Decidir quanto comprar de estoque, quando contratar ou quanto investir em tráfego depende do saldo do app do banco no dia ou do 'feeling' dos sócios."
-      },
-      cause: {
-        headline: "Ausência de DRE gerencial, orçamento anual e forecast de caixa.",
-        detail: "A contabilidade tradicional só entrega relatórios fiscais com semanas de atraso. Sem números gerenciais confiáveis, a gestão navega sem bússola para os próximos 90 dias."
-      },
-      gain: {
-        headline: "Rito mensal de decisão executiva com plano de ação guiado.",
-        detail: "Reunião mensal executiva com o CFO, leitura de variância orçamentária, forecast e plano de ação estruturado para decidir com segurança matemática e foco no lucro."
-      },
-      impactPill: "Impacto: Decisões embasadas e governança contínua"
+      symptom: "Decisões tomadas na intuição ou pelo saldo do banco.",
+      cause: "Falta de DRE gerencial, orçamento anual e previsão de caixa.",
+      gain: "Rito mensal com o CFO, leitura de variância e decisões embasadas."
     },
     {
-      id: "credito",
-      category: "Crédito Bancário & Risco",
-      shortLabel: "Crédito Bancário & Risco",
-      icon: ShieldAlert,
-      scenarioNumber: "05",
-      symptom: {
-        headline: "Crédito bancário é caro, limite insuficiente ou recusa.",
-        detail: "Quando a empresa precisa de capital para alavancar datas sazonais (como Black Friday) ou expansão, os bancos cobram spreads altíssimos ou negam a operação."
-      },
-      cause: {
-        headline: "Demonstrações financeiras desorganizadas e risco mal calibrado.",
-        detail: "Bancos e credores avaliam solvência e liquidez. Balanços fiscais crus não traduzem a força da operação nem geram a confiança necessária para liberar crédito barato."
-      },
-      gain: {
-        headline: "Dossiê financeiro organizado para negociar nas melhores condições.",
-        detail: "Organização executiva dos números, apresentação técnica da capacidade de pagamento e segurança para sentar à mesa com bancos em posição de força."
-      },
-      impactPill: "Impacto: Acesso qualificado a capital com menor spread"
+      symptom: "Crédito bancário caro, limite baixo ou recusa.",
+      cause: "Demonstrações desorganizadas que não refletem a força do negócio.",
+      gain: "Dossiê financeiro executivo para negociar taxas menores com bancos."
     }
   ];
 
@@ -333,241 +248,113 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          4. CAUSA ECONÔMICA (Sintoma x Causa x O que Você Ganha) — [SESSÃO DIDÁTICA & PROFISSIONAL]
+          4. CAUSA ECONÔMICA (Sintoma x Causa x O que Você Ganha) — [DIRETO & EXECUTIVO]
       ========================================================================= */}
-      <section id="causa-economica" className="py-20 sm:py-28 bg-[#F4F6F7] text-slate-900 border-b border-slate-200 relative">
+      <section id="causa-economica" className="py-16 sm:py-24 bg-[#F4F6F7] text-slate-900 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Cabeçalho da Seção */}
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55] animate-pulse"></span>
-              Diagnóstico & Causa Econômica
+          {/* Cabeçalho Enxuto */}
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
+              Causa Econômica
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
-              O que parece problema de vendas ou falta de caixa <br className="hidden sm:inline" />
-              <span className="text-[#0E4A55]">costuma ter outra causa oculta</span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+              O que parece falta de caixa ou de vendas <br className="hidden sm:inline" />
+              <span className="text-[#0E4A55]">costuma ter outra origem</span>
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-              Se você já tentou vender mais para "resolver o caixa" e a pressão financeira só aumentou, você não está sozinho. No e-commerce, faturar sem controle de margem real e de prazos consome liquidez. Veja os 5 cenários mais comuns e o que muda na sua empresa com o CFO Terceirizado:
+            <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+              No e-commerce, faturar não é o mesmo que lucrar. Veja o que está por trás de cada sintoma e o que você ganha com o CFO Terceirizado:
             </p>
           </div>
 
-          {/* Mini-infográfico Didático: A Regra de Ouro do E-commerce */}
-          <div className="mb-14 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-[#0E4A55]/05 to-transparent rounded-bl-full pointer-events-none"></div>
-
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-              <div className="lg:w-5/12 text-left">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8A33D]/10 border border-[#E8A33D]/30 text-[10px] font-bold uppercase tracking-wider text-[#B27318] mb-3">
-                  <Lightbulb className="w-3.5 h-3.5 text-[#E8A33D]" />
-                  <span>Princípio Econômico do E-commerce</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
-                  Por que vender mais não resolve sozinho a falta de caixa?
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed">
-                  No e-commerce, cada venda a mais exige antecipar compra de estoque e arcar com prazos de repasse. Se a margem unitária e o ciclo financeiro estiverem desajustados, <strong>quanto mais a sua empresa vende, mais rápido o caixa queima</strong>. É a causa econômica que precisa ser corrigida, não apenas o volume.
-                </p>
-              </div>
-
-              {/* Comparativo Visual Didático */}
-              <div className="lg:w-7/12 w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* O Ciclo Comum */}
-                <div className="p-5 rounded-2xl bg-rose-50/70 border border-rose-200 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 text-rose-700 font-bold text-xs uppercase tracking-wider mb-2">
-                      <AlertTriangle className="w-4 h-4 shrink-0 text-rose-500" />
-                      <span>A Tentativa Comum (Sem CFO)</span>
-                    </div>
-                    <p className="text-xs text-slate-700 leading-relaxed font-medium">
-                      Tenta vender mais no desespero ➔ Aumenta necessidade de estoque ➔ Caixa descompassa ➔ Antecipa recebíveis a juros caros ➔ <strong>O lucro evapora no final do mês</strong>.
-                    </p>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-rose-200/60 text-[11px] font-bold text-rose-700">
-                    Resultado: Mais esforço, menos sobra real.
-                  </div>
-                </div>
-
-                {/* Com o CFO Terceirizado */}
-                <div className="p-5 rounded-2xl bg-[#0E4A55]/05 border border-[#0E4A55]/25 flex flex-col justify-between shadow-sm">
-                  <div>
-                    <div className="flex items-center gap-2 text-[#0E4A55] font-bold text-xs uppercase tracking-wider mb-2">
-                      <Sparkles className="w-4 h-4 shrink-0 text-[#E8A33D]" />
-                      <span>Com o CFO Terceirizado da Mont</span>
-                    </div>
-                    <p className="text-xs text-slate-800 leading-relaxed font-medium">
-                      Ajusta a margem real por canal ➔ Sincroniza prazos com fornecedores ➔ Desmobiliza estoque parado ➔ Elimina antecipações forçadas ➔ <strong>O lucro vira caixa no banco</strong>.
-                    </p>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-[#0E4A55]/15 text-[11px] font-bold text-[#0E4A55]">
-                    Resultado: Operação lucrativa, previsível e saudável.
-                  </div>
-                </div>
-              </div>
+          {/* Cabeçalho da Matriz (Desktop) */}
+          <div className="hidden lg:grid grid-cols-12 gap-4 px-6 mb-3 text-[11px] font-extrabold uppercase tracking-wider text-slate-400">
+            <div className="col-span-4 flex items-center gap-1.5 text-rose-600">
+              <AlertTriangle className="w-3.5 h-3.5" />
+              <span>Você sente no dia a dia</span>
+            </div>
+            <div className="col-span-4 flex items-center gap-1.5 text-amber-700">
+              <Target className="w-3.5 h-3.5" />
+              <span>A causa econômica oculta</span>
+            </div>
+            <div className="col-span-4 flex items-center gap-1.5 text-[#0E4A55]">
+              <Sparkles className="w-3.5 h-3.5 text-[#E8A33D]" />
+              <span>O que você ganha com o CFO</span>
             </div>
           </div>
 
-          {/* Filtros Didáticos por Cenário */}
-          <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
-            <button
-              onClick={() => setActiveScenarioFilter("all")}
-              className={`px-4 py-2 rounded-full text-xs font-bold tracking-tight transition-all shrink-0 cursor-pointer ${
-                activeScenarioFilter === "all"
-                  ? "bg-[#0E4A55] text-white shadow-md"
-                  : "bg-white text-slate-600 border border-slate-200 hover:border-[#0E4A55]/40 hover:text-slate-900"
-              }`}
-            >
-              Todos os 5 Cenários ({economicCauses.length})
-            </button>
-            {economicCauses.map((item) => {
-              const IconComp = item.icon;
-              const isActive = activeScenarioFilter === item.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => setActiveScenarioFilter(item.id)}
-                  className={`px-3.5 py-2 rounded-full text-xs font-semibold tracking-tight transition-all shrink-0 flex items-center gap-1.5 cursor-pointer ${
-                    isActive
-                      ? "bg-[#0E4A55] text-white shadow-md"
-                      : "bg-white text-slate-600 border border-slate-200 hover:border-[#0E4A55]/40 hover:text-slate-900"
-                  }`}
-                >
-                  <IconComp className={`w-3.5 h-3.5 ${isActive ? "text-[#E8A33D]" : "text-slate-400"}`} />
-                  <span>{item.shortLabel}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Lista de Cartões Didáticos de Transformação */}
-          <div className="space-y-6">
-            {economicCauses
-              .filter(item => activeScenarioFilter === "all" || activeScenarioFilter === item.id)
-              .map((item) => {
-                const IconComp = item.icon;
-                return (
-                  <div
-                    key={item.id}
-                    className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/90 hover:border-[#0E4A55] hover:shadow-xl transition-all duration-300 group relative overflow-hidden"
-                  >
-                    {/* Top Bar do Card */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-slate-100">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-xl bg-[#0E4A55]/10 text-[#0E4A55] flex items-center justify-center shrink-0">
-                          <IconComp className="w-4 h-4" />
-                        </div>
-                        <span className="text-xs font-extrabold uppercase tracking-wider text-[#0E4A55]">
-                          {item.category}
-                        </span>
-                      </div>
-                      <span className="text-xs font-bold font-mono text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full">
-                        Cenário {item.scenarioNumber}
-                      </span>
+          {/* Linhas da Matriz (Compactas & Diretas) */}
+          <div className="space-y-3">
+            {economicCauses.map((item, idx) => (
+              <div 
+                key={idx} 
+                className="p-5 sm:p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#0E4A55] hover:shadow-md transition-all duration-200 group"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-4 items-center">
+                  
+                  {/* Coluna 1: Sintoma */}
+                  <div className="lg:col-span-4 flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-lg bg-rose-50 text-rose-500 border border-rose-200/80 flex items-center justify-center shrink-0 mt-0.5">
+                      <AlertTriangle className="w-3.5 h-3.5" />
                     </div>
-
-                    {/* Grid em 3 Etapas Conectadas (Sintoma ➔ Causa ➔ Ganho) */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
-                      
-                      {/* 1. Sintoma (O que você sente) */}
-                      <div className="lg:col-span-4 p-5 rounded-2xl bg-rose-50/40 border border-rose-100 flex flex-col justify-between">
-                        <div>
-                          <div className="flex items-center gap-2 text-rose-700 font-bold text-[11px] uppercase tracking-wider mb-2.5">
-                            <span className="w-5 h-5 rounded-md bg-rose-100 text-rose-600 flex items-center justify-center">
-                              <AlertTriangle className="w-3.5 h-3.5" />
-                            </span>
-                            <span>1. O que você sente no dia a dia:</span>
-                          </div>
-                          <h4 className="text-sm sm:text-base font-extrabold text-slate-900 leading-snug mb-2">
-                            "{item.symptom.headline}"
-                          </h4>
-                          <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                            {item.symptom.detail}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* 2. Causa Oculta (O Diagnóstico Real) */}
-                      <div className="lg:col-span-4 p-5 rounded-2xl bg-amber-50/40 border border-amber-100 flex flex-col justify-between">
-                        <div>
-                          <div className="flex items-center gap-2 text-amber-800 font-bold text-[11px] uppercase tracking-wider mb-2.5">
-                            <span className="w-5 h-5 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center">
-                              <Target className="w-3.5 h-3.5" />
-                            </span>
-                            <span>2. A causa econômica oculta:</span>
-                          </div>
-                          <h4 className="text-sm sm:text-base font-extrabold text-slate-900 leading-snug mb-2">
-                            {item.cause.headline}
-                          </h4>
-                          <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                            {item.cause.detail}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* 3. O Ganho com o CFO Terceirizado (Destaque de Valor) */}
-                      <div className="lg:col-span-4 p-5 rounded-2xl bg-gradient-to-br from-[#0E4A55]/08 via-[#0E4A55]/04 to-white border-2 border-[#0E4A55]/30 flex flex-col justify-between shadow-sm">
-                        <div>
-                          <div className="flex items-center gap-2 text-[#0E4A55] font-extrabold text-[11px] uppercase tracking-wider mb-2.5">
-                            <span className="w-5 h-5 rounded-md bg-[#0E4A55] text-white flex items-center justify-center shadow-xs">
-                              <Sparkles className="w-3 h-3 text-[#E8A33D]" />
-                            </span>
-                            <span>3. O que você ganha com o CFO:</span>
-                          </div>
-                          <h4 className="text-sm sm:text-base font-extrabold text-[#0E4A55] leading-snug mb-2">
-                            {item.gain.headline}
-                          </h4>
-                          <p className="text-xs text-slate-700 leading-relaxed font-medium">
-                            {item.gain.detail}
-                          </p>
-                        </div>
-
-                        <div className="mt-4 pt-3 border-t border-[#0E4A55]/15">
-                          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#0E4A55] bg-white/80 px-2.5 py-1 rounded-md border border-[#0E4A55]/20 shadow-xs">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                            <span>{item.impactPill}</span>
-                          </span>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    {/* Rodapé do Card com Micro-CTA */}
-                    <div className="mt-5 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
-                      <span className="text-slate-500 font-medium">
-                        Identificou esse padrão na sua operação? Mapeamos essa frente no diagnóstico inicial.
+                    <div>
+                      <span className="lg:hidden text-[10px] font-bold uppercase tracking-wider text-rose-600 block mb-0.5">
+                        Você sente:
                       </span>
-                      <a
-                        href="#diagnostico"
-                        onClick={() => trackCtaClick(`causa_${item.id}`, `Avaliar ${item.shortLabel}`)}
-                        className="font-bold text-[#0E4A55] hover:text-[#E8A33D] flex items-center gap-1.5 transition-colors shrink-0 group-hover:translate-x-1 duration-200"
-                      >
-                        <span>Avaliar minha empresa nesse ponto</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </a>
+                      <strong className="text-xs sm:text-sm font-bold text-slate-900 block leading-snug">
+                        {item.symptom}
+                      </strong>
                     </div>
                   </div>
-                );
-              })}
+
+                  {/* Coluna 2: Causa */}
+                  <div className="lg:col-span-4 flex items-start gap-3 pl-0 lg:pl-3 border-t lg:border-t-0 lg:border-l border-slate-100 pt-2.5 lg:pt-0">
+                    <div className="w-6 h-6 rounded-lg bg-amber-50 text-amber-700 border border-amber-200/80 flex items-center justify-center shrink-0 mt-0.5">
+                      <Target className="w-3.5 h-3.5" />
+                    </div>
+                    <div>
+                      <span className="lg:hidden text-[10px] font-bold uppercase tracking-wider text-amber-700 block mb-0.5">
+                        Causa oculta:
+                      </span>
+                      <p className="text-xs sm:text-sm text-slate-600 font-medium leading-snug">
+                        {item.cause}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Coluna 3: Ganho */}
+                  <div className="lg:col-span-4 flex items-start gap-3 p-3 rounded-xl bg-[#0E4A55]/[0.05] border border-[#0E4A55]/15 mt-2 lg:mt-0">
+                    <div className="w-6 h-6 rounded-lg bg-[#0E4A55] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                    </div>
+                    <div>
+                      <span className="lg:hidden text-[10px] font-extrabold uppercase tracking-wider text-[#0E4A55] block mb-0.5">
+                        O seu ganho:
+                      </span>
+                      <strong className="text-xs sm:text-sm font-extrabold text-[#0E4A55] block leading-snug">
+                        {item.gain}
+                      </strong>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* Banner de Fechamento da Seção */}
-          <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#0E4A55]/10 via-white to-[#0E4A55]/10 border border-[#0E4A55]/20 shadow-sm max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div className="text-left">
-              <h4 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">
-                Reconhece um ou mais desses sinais no seu dia a dia?
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl">
-                Você não precisa continuar com o caixa no aperto ou tomando decisões no escuro. No diagnóstico financeiro gratuito, mapeamos onde o seu dinheiro está ficando e mostramos como estancar esses vazamentos.
-              </p>
-            </div>
+          {/* Micro-CTA Enxuto */}
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs max-w-4xl mx-auto">
+            <p className="text-xs sm:text-sm text-slate-700 font-medium text-center sm:text-left">
+              Identificou esse padrão no seu caixa? No diagnóstico gratuito, mapeamos onde o seu dinheiro está ficando.
+            </p>
             <a
               href="#diagnostico"
-              onClick={() => trackCtaClick("causa_economica_banner_cta", "Quero Mapear Minha Causa Econômica")}
-              className="shrink-0 px-6 py-3.5 rounded-xl bg-[#0E4A55] hover:bg-[#071A1E] text-white text-xs sm:text-sm font-bold tracking-tight shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+              onClick={() => trackCtaClick("causa_economica_cta", "Mapear Minha Empresa Grátis")}
+              className="shrink-0 px-5 py-2.5 rounded-xl bg-[#0E4A55] hover:bg-[#071A1E] text-white text-xs font-bold tracking-tight shadow-sm hover:shadow-md transition-all flex items-center gap-2 cursor-pointer"
             >
               <span>Mapear Minha Empresa Grátis</span>
-              <ArrowRight className="w-4 h-4 text-[#E8A33D]" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#E8A33D]" />
             </a>
           </div>
 
