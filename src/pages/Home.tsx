@@ -15,6 +15,7 @@ import { DiagnosticForm } from "../components/DiagnosticForm";
 import { FinancialCockpit } from "../components/FinancialCockpit";
 import { DapeCycle } from "../components/DapeCycle";
 import { HeroDataOrbit } from "../components/HeroDataOrbit";
+import { TestimonialsSection } from "../components/TestimonialsSection";
 import { trackCtaClick } from "../lib/analytics";
 
 export function Home() {
@@ -838,6 +839,11 @@ export function Home() {
 
         </div>
       </section>
+
+      {/* =========================================================================
+          8.5 DEPOIMENTOS REAIS (WHATSAPP VERIFICADO) — [SESSÃO CLARA: #FFFFFF]
+      ========================================================================= */}
+      <TestimonialsSection />
 
       {/* =========================================================================
           9. QUEM CONDUZ (Leander Venâncio) — [SESSÃO ESCURA: #071A1E]
