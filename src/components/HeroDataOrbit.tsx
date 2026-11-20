@@ -2,11 +2,7 @@ import {
   ShoppingBag,
   Database,
   Landmark,
-  Store,
-  Users,
   Megaphone,
-  Search,
-  FileSpreadsheet,
   TrendingUp,
   Wallet,
   Target
@@ -16,6 +12,7 @@ const inputSources = [
   {
     id: "ecommerce",
     label: "E-commerce",
+    sub: "Site · Mktp",
     icon: ShoppingBag,
     iconColor: "text-teal-300",
     dotColor: "#2dd4bf"
@@ -23,49 +20,24 @@ const inputSources = [
   {
     id: "erp",
     label: "ERP",
+    sub: "Bling · Tiny",
     icon: Database,
     iconColor: "text-[#F5B85D]",
     dotColor: "#F5B85D"
   },
   {
-    id: "marketplaces",
-    label: "Marketplaces",
-    icon: Store,
+    id: "midia",
+    label: "Mídia",
+    sub: "Meta · Google",
+    icon: Megaphone,
     iconColor: "text-orange-300",
     dotColor: "#fb923c"
   },
   {
     id: "bancos",
     label: "Bancos",
+    sub: "OFX · Gateways",
     icon: Landmark,
-    iconColor: "text-emerald-300",
-    dotColor: "#34d399"
-  },
-  {
-    id: "meta",
-    label: "Meta Ads",
-    icon: Megaphone,
-    iconColor: "text-blue-300",
-    dotColor: "#60a5fa"
-  },
-  {
-    id: "google",
-    label: "Google Ads",
-    icon: Search,
-    iconColor: "text-amber-300",
-    dotColor: "#fbbf24"
-  },
-  {
-    id: "crm",
-    label: "CRM",
-    icon: Users,
-    iconColor: "text-sky-300",
-    dotColor: "#38bdf8"
-  },
-  {
-    id: "planilhas",
-    label: "Planilhas",
-    icon: FileSpreadsheet,
     iconColor: "text-emerald-300",
     dotColor: "#34d399"
   }
@@ -131,20 +103,25 @@ export function HeroDataOrbit() {
             <span className="h-px w-8 bg-white/15"></span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
             {inputSources.map((src) => {
               const Icon = src.icon;
               return (
                 <div
                   key={src.id}
-                  className="px-2.5 py-2 rounded-xl bg-[#10343C]/95 border border-white/20 hover:border-[#F5B85D]/70 shadow-[0_8px_20px_rgba(0,0,0,0.35)] flex items-center gap-2 transition-colors"
+                  className="px-3 py-2.5 rounded-xl bg-[#10343C]/95 border border-white/25 hover:border-[#F5B85D]/70 shadow-[0_10px_24px_rgba(0,0,0,0.4)] flex flex-col items-center text-center gap-1.5 transition-all hover:-translate-y-0.5"
                 >
-                  <div className="w-6 h-6 rounded-lg bg-[#06181C] border border-white/10 flex items-center justify-center shrink-0">
-                    <Icon className={`w-3.5 h-3.5 ${src.iconColor}`} />
+                  <div className="w-8 h-8 rounded-lg bg-[#06181C] border border-white/15 flex items-center justify-center shrink-0">
+                    <Icon className={`w-4 h-4 ${src.iconColor}`} />
                   </div>
-                  <span className="text-[11px] font-extrabold text-white truncate">
-                    {src.label}
-                  </span>
+                  <div className="leading-tight">
+                    <span className="text-[11px] font-extrabold text-white block whitespace-nowrap">
+                      {src.label}
+                    </span>
+                    <span className="text-[9px] font-mono text-slate-300/85 block whitespace-nowrap mt-0.5">
+                      {src.sub}
+                    </span>
+                  </div>
                 </div>
               );
             })}
