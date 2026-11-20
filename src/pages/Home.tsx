@@ -1,5 +1,4 @@
-import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -10,48 +9,16 @@ import {
   Linkedin,
   Target,
   Sparkles,
-  User,
   Zap
 } from "lucide-react";
 import { DiagnosticForm } from "../components/DiagnosticForm";
 import { FinancialCockpit } from "../components/FinancialCockpit";
 import { DapeCycle } from "../components/DapeCycle";
+import { HeroDataOrbit } from "../components/HeroDataOrbit";
 import { trackCtaClick } from "../lib/analytics";
 
 export function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [heroSlide, setHeroSlide] = useState<number>(0);
-
-  const heroDialogues = [
-    {
-      founderQuote: "“A gente fatura bem nos marketplaces, mas no fim do mês não sobra dinheiro.”",
-      founderRole: "Fundador · E-commerce de Moda",
-      montReply: "Abrimos sua DRE por canal e SKU (CMV, frete, taxas e ads) para cortar onde vaza margem e escalar o que realmente lucra.",
-      metricLabel: "Margem Real Apurada",
-      metricValue: "+19% Site vs. 4% Shopee"
-    },
-    {
-      founderQuote: "“Todo mês acabo antecipando recebível para conseguir pagar fornecedor.”",
-      founderRole: "Diretor · E-commerce Casa & Decor",
-      montReply: "Projetamos seu fluxo de caixa em 90 dias e ajustamos seu ciclo financeiro para estancar o ralo de juros bancários.",
-      metricLabel: "Economia Direta no Caixa",
-      metricValue: "+R$ 22,4 mil/mês"
-    },
-    {
-      founderQuote: "“Meu ROAS parece alto no gerenciador, mas o caixa da empresa só aperta.”",
-      founderRole: "CEO · Marca D2C",
-      montReply: "Cruzamos investimento em mídia com CMV, impostos e logística em tempo real — você escala só o que deixa lucro líquido no bolso.",
-      metricLabel: "ROAS × Lucro Líquido",
-      metricValue: "8,85x com 14% de sobra"
-    },
-    {
-      founderQuote: "“Temos muito capital parado no estoque e sempre falta nos produtos campeões.”",
-      founderRole: "Sócio · Operação Omnichannel",
-      montReply: "Mapeamos sua Curva ABC de margem e giro para transformar estoque Curva C em caixa livre e blindar os itens estrela.",
-      metricLabel: "Capital Destravado",
-      metricValue: "R$ 310 mil em giro"
-    }
-  ];
 
   const ecommerceIntegrations = [
     "Bling",
@@ -73,13 +40,6 @@ export function Home() {
     "CONECTADO AO SEU ERP E MARKETPLACES",
     "INTELIGÊNCIA FINANCEIRA PARA E-COMMERCES"
   ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setHeroSlide((prev) => (prev + 1) % heroDialogues.length);
-    }, 4800);
-    return () => clearInterval(timer);
-  }, [heroDialogues.length]);
 
   const toggleFaq = (idx: number) => {
     setOpenFaq(openFaq === idx ? null : idx);
@@ -255,84 +215,9 @@ export function Home() {
               </div>
             </div>
 
-            {/* COLUNA DIREITA: CARDS VIVOS E ANIMADOS (DOR DO FUNDADOR × RESPOSTA MONT FINANCE) */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative flex flex-col gap-3.5">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={heroSlide}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -12 }}
-                    transition={{ duration: 0.35 }}
-                    className="space-y-3.5"
-                  >
-                    {/* Card 1: Dor do Fundador (Branco Alto Contraste) */}
-                    <div className="p-5 sm:p-6 rounded-2xl bg-white text-slate-900 shadow-[0_24px_50px_rgba(0,0,0,0.45)] border border-white/80 mr-0 sm:mr-6">
-                      <p className="text-sm sm:text-base font-extrabold leading-snug text-slate-900 mb-4">
-                        {heroDialogues[heroSlide].founderQuote}
-                      </p>
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-7 h-7 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-500">
-                          <User className="w-3.5 h-3.5" />
-                        </div>
-                        <span className="text-[11px] font-semibold text-slate-500">
-                          {heroDialogues[heroSlide].founderRole}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Card 2: Resposta de Inteligência da Mont Finance (Escuro Petróleo + Borda Dourada) */}
-                    <div className="p-5 sm:p-6 rounded-2xl bg-[#0A272D]/95 backdrop-blur-md text-white shadow-[0_24px_60px_rgba(0,0,0,0.55)] border border-[#E8A33D]/45 ml-0 sm:ml-6">
-                      <div className="flex items-center justify-between gap-2 mb-3">
-                        <div className="flex items-center gap-2">
-                          <div className="w-6 h-6 rounded-md bg-[#E8A33D]/15 border border-[#E8A33D]/40 flex items-center justify-center">
-                            <img src="/favicon.png" alt="Mont Finance" className="w-3.5 h-3.5 object-contain" />
-                          </div>
-                          <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#F5B85D]">
-                            Mont Intelligence
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                          <span className="text-[9px] font-mono uppercase tracking-wider text-emerald-300">
-                            Dado Vivo
-                          </span>
-                        </div>
-                      </div>
-
-                      <p className="text-xs sm:text-sm text-slate-200 leading-relaxed mb-4">
-                        {heroDialogues[heroSlide].montReply}
-                      </p>
-
-                      {/* Mini KPI Chip de Resultado */}
-                      <div className="px-3.5 py-2.5 rounded-xl bg-[#061518] border border-white/10 flex items-center justify-between gap-2">
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">
-                          {heroDialogues[heroSlide].metricLabel}
-                        </span>
-                        <strong className="text-xs font-mono font-extrabold text-[#F5B85D]">
-                          {heroDialogues[heroSlide].metricValue}
-                        </strong>
-                      </div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-
-                {/* Indicadores Clicáveis dos 4 Cenários */}
-                <div className="flex items-center justify-end gap-2 pt-1 pr-1">
-                  {heroDialogues.map((_, idx) => (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => setHeroSlide(idx)}
-                      aria-label={`Ver cenário ${idx + 1}`}
-                      className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                        heroSlide === idx ? "w-7 bg-[#E8A33D]" : "w-2 bg-white/20 hover:bg-white/40"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
+            {/* COLUNA DIREITA: ÓRBITA DE FONTES DE DADOS CONECTADAS NA INTELIGÊNCIA MONT */}
+            <div className="lg:col-span-5 relative flex items-center justify-center">
+              <HeroDataOrbit />
             </div>
 
           </div>
