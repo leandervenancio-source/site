@@ -1,5 +1,5 @@
-import { motion } from "motion/react";
-import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect } from "react";
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -8,9 +8,10 @@ import {
   Check, 
   X,
   Linkedin,
-  ShieldCheck,
   Target,
-  Sparkles
+  Sparkles,
+  User,
+  Zap
 } from "lucide-react";
 import { DiagnosticForm } from "../components/DiagnosticForm";
 import { FinancialCockpit } from "../components/FinancialCockpit";
@@ -19,6 +20,66 @@ import { trackCtaClick } from "../lib/analytics";
 
 export function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [heroSlide, setHeroSlide] = useState<number>(0);
+
+  const heroDialogues = [
+    {
+      founderQuote: "“A gente fatura bem nos marketplaces, mas no fim do mês não sobra dinheiro.”",
+      founderRole: "Fundador · E-commerce de Moda",
+      montReply: "Abrimos sua DRE por canal e SKU (CMV, frete, taxas e ads) para cortar onde vaza margem e escalar o que realmente lucra.",
+      metricLabel: "Margem Real Apurada",
+      metricValue: "+19% Site vs. 4% Shopee"
+    },
+    {
+      founderQuote: "“Todo mês acabo antecipando recebível para conseguir pagar fornecedor.”",
+      founderRole: "Diretor · E-commerce Casa & Decor",
+      montReply: "Projetamos seu fluxo de caixa em 90 dias e ajustamos seu ciclo financeiro para estancar o ralo de juros bancários.",
+      metricLabel: "Economia Direta no Caixa",
+      metricValue: "+R$ 22,4 mil/mês"
+    },
+    {
+      founderQuote: "“Meu ROAS parece alto no gerenciador, mas o caixa da empresa só aperta.”",
+      founderRole: "CEO · Marca D2C",
+      montReply: "Cruzamos investimento em mídia com CMV, impostos e logística em tempo real — você escala só o que deixa lucro líquido no bolso.",
+      metricLabel: "ROAS × Lucro Líquido",
+      metricValue: "8,85x com 14% de sobra"
+    },
+    {
+      founderQuote: "“Temos muito capital parado no estoque e sempre falta nos produtos campeões.”",
+      founderRole: "Sócio · Operação Omnichannel",
+      montReply: "Mapeamos sua Curva ABC de margem e giro para transformar estoque Curva C em caixa livre e blindar os itens estrela.",
+      metricLabel: "Capital Destravado",
+      metricValue: "R$ 310 mil em giro"
+    }
+  ];
+
+  const ecommerceIntegrations = [
+    "Bling",
+    "Tiny ERP",
+    "Shopify",
+    "Nuvemshop",
+    "Mercado Livre",
+    "Shopee",
+    "Meta Ads",
+    "Google Ads",
+    "Bancos / OFX"
+  ];
+
+  const tickerItems = [
+    "DRE POR CANAL E SKU",
+    "CMV REAL APURADO",
+    "PREVISÃO DE CAIXA 90 DIAS",
+    "ROAS × MARGEM LÍQUIDA",
+    "CONECTADO AO SEU ERP E MARKETPLACES",
+    "INTELIGÊNCIA FINANCEIRA PARA E-COMMERCES"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroSlide((prev) => (prev + 1) % heroDialogues.length);
+    }, 4800);
+    return () => clearInterval(timer);
+  }, [heroDialogues.length]);
 
   const toggleFaq = (idx: number) => {
     setOpenFaq(openFaq === idx ? null : idx);
@@ -127,95 +188,183 @@ export function Home() {
     <div className="font-sans selection:bg-[#E8A33D] selection:text-[#071A1E] min-h-screen bg-[#071A1E]">
       
       {/* =========================================================================
-          1 & 2. HERO — [PROPORÇÃO NOTEBOOK: Full Viewport, Centered Layout, Balanced Elements]
+          1 & 2. HERO — [ESTILO STARTUP / FINTECH: 2 COLUNAS ASSIMÉTRICAS NA PALETA MONT]
       ========================================================================= */}
-      <section id="topo" className="relative min-h-[100dvh] flex flex-col justify-center pt-24 pb-10 sm:pt-28 sm:pb-12 lg:pt-20 lg:pb-10 overflow-hidden bg-gradient-to-b from-[#051214] via-[#071A1E] to-[#0A272D] text-white border-b border-white/10">
+      <section id="topo" className="relative min-h-[92dvh] flex flex-col justify-center pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-28 lg:pb-16 overflow-hidden bg-[#061518] text-white border-b border-white/10">
         
-        {/* Vídeo de Fundo Realista: Consultor Estratégico com Cliente Analisando Dashboard */}
+        {/* Fundo Tecnológico Limpo: Gradiente Petróleo + Glow Esmeralda/Dourado + Malha Fina */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="/videos/hero-consultant-poster.jpg"
-            className="w-full h-full object-cover object-center opacity-60 sm:opacity-70 filter contrast-110 brightness-95"
-          >
-            <source src="/videos/hero-consultant-dashboard.mp4" type="video/mp4" />
-          </video>
-          {/* Overlay em Gradiente com Blend Sofisticado para Contraste e Legibilidade Perfeitos */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#051214]/80 via-[#071A1E]/55 to-[#071A1E]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(7,26,30,0.5)_0%,_transparent_75%)]"></div>
-          {/* Malha Tecnológica Sutil */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+          <div className="absolute -top-32 right-0 w-[680px] h-[680px] bg-[#0E4A55]/45 rounded-full blur-[150px]"></div>
+          <div className="absolute bottom-0 left-1/4 w-[520px] h-[420px] bg-[#E8A33D]/10 rounded-full blur-[160px]"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_75%_65%_at_50%_40%,#000_55%,transparent_100%)]"></div>
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center my-auto">
-          
-          {/* Badge Estilo Growth Machine com Ponto Pulsante */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E8A33D]/10 border border-[#E8A33D]/30 backdrop-blur-md mb-4 sm:mb-6 shadow-[0_0_20px_rgba(232,163,61,0.15)]">
-            <span className="w-2 h-2 rounded-full bg-[#E8A33D] animate-pulse"></span>
-            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-[#E8A33D]">
-              Inteligência Financeira para E-commerces
-            </span>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            
+            {/* COLUNA ESQUERDA: HEADLINE FORTE + PROVA EM MONO + CTAs */}
+            <div className="lg:col-span-7 text-left">
+              {/* Badge Superior */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8A33D]/10 border border-[#E8A33D]/30 backdrop-blur-md mb-5">
+                <span className="w-2 h-2 rounded-full bg-[#E8A33D] animate-pulse"></span>
+                <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-[0.16em] text-[#F5B85D]">
+                  Inteligência Financeira para E-commerces
+                </span>
+              </div>
+
+              {/* Headline Forte Estilo Startup */}
+              <h1 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[58px] font-black text-white tracking-tight leading-[1.06] mb-5">
+                SEU E-COMMERCE FATURA. <br />
+                <span className="block mt-1.5 gradiente font-black">
+                  QUANTO VIRA LUCRO REAL?
+                </span>
+              </h1>
+
+              {/* Subheadline Direta */}
+              <p className="text-sm sm:text-base lg:text-lg text-slate-300 font-normal leading-relaxed mb-6 max-w-xl">
+                Integramos finanças, estratégia e capital com dados vivos do seu ERP e marketplaces para aumentar o lucro líquido e dar previsibilidade ao seu caixa.
+              </p>
+
+              {/* Faixa de Prova em Monospace com Ponto Vivo */}
+              <div className="flex flex-wrap items-center gap-2 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-slate-300 mb-7">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399]"></span>
+                <span>OPERAÇÕES ACIMA DE R$ 3M/ANO</span>
+                <span className="text-slate-600">·</span>
+                <span className="text-[#F5B85D]">DRE POR CANAL &amp; SKU</span>
+                <span className="text-slate-600 hidden sm:inline">·</span>
+                <span className="hidden sm:inline">CAIXA 90D</span>
+              </div>
+
+              {/* CTAs Estilo Startup */}
+              <div className="flex flex-wrap items-center gap-5">
+                <a 
+                  href="#diagnostico" 
+                  onClick={() => trackCtaClick("hero_primary", "Agendar diagnóstico")}
+                  className="px-7 py-3.5 rounded-full bg-gradient-to-r from-[#E8A33D] to-[#F5B85D] hover:from-[#D4932D] hover:to-[#E8A33D] text-[#071A1E] text-xs font-extrabold uppercase tracking-wider transition-all shadow-[0_8px_24px_rgba(232,163,61,0.35)] hover:shadow-[0_12px_32px_rgba(232,163,61,0.5)] hover:-translate-y-0.5 flex items-center gap-2"
+                >
+                  <span>Agendar meu diagnóstico</span>
+                  <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                </a>
+                <a 
+                  href="#grafico-100" 
+                  onClick={() => trackCtaClick("hero_secondary", "Ver indicadores ao vivo")}
+                  className="text-xs sm:text-sm font-bold text-white border-b-2 border-[#E8A33D] pb-0.5 hover:text-[#F5B85D] transition-colors"
+                >
+                  Ver indicadores ao vivo
+                </a>
+              </div>
+            </div>
+
+            {/* COLUNA DIREITA: CARDS VIVOS E ANIMADOS (DOR DO FUNDADOR × RESPOSTA MONT FINANCE) */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative flex flex-col gap-3.5">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={heroSlide}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.35 }}
+                    className="space-y-3.5"
+                  >
+                    {/* Card 1: Dor do Fundador (Branco Alto Contraste) */}
+                    <div className="p-5 sm:p-6 rounded-2xl bg-white text-slate-900 shadow-[0_24px_50px_rgba(0,0,0,0.45)] border border-white/80 mr-0 sm:mr-6">
+                      <p className="text-sm sm:text-base font-extrabold leading-snug text-slate-900 mb-4">
+                        {heroDialogues[heroSlide].founderQuote}
+                      </p>
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-7 h-7 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-500">
+                          <User className="w-3.5 h-3.5" />
+                        </div>
+                        <span className="text-[11px] font-semibold text-slate-500">
+                          {heroDialogues[heroSlide].founderRole}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Card 2: Resposta de Inteligência da Mont Finance (Escuro Petróleo + Borda Dourada) */}
+                    <div className="p-5 sm:p-6 rounded-2xl bg-[#0A272D]/95 backdrop-blur-md text-white shadow-[0_24px_60px_rgba(0,0,0,0.55)] border border-[#E8A33D]/45 ml-0 sm:ml-6">
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 rounded-md bg-[#E8A33D]/15 border border-[#E8A33D]/40 flex items-center justify-center">
+                            <img src="/favicon.png" alt="Mont Finance" className="w-3.5 h-3.5 object-contain" />
+                          </div>
+                          <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#F5B85D]">
+                            Mont Intelligence
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                          <span className="text-[9px] font-mono uppercase tracking-wider text-emerald-300">
+                            Dado Vivo
+                          </span>
+                        </div>
+                      </div>
+
+                      <p className="text-xs sm:text-sm text-slate-200 leading-relaxed mb-4">
+                        {heroDialogues[heroSlide].montReply}
+                      </p>
+
+                      {/* Mini KPI Chip de Resultado */}
+                      <div className="px-3.5 py-2.5 rounded-xl bg-[#061518] border border-white/10 flex items-center justify-between gap-2">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">
+                          {heroDialogues[heroSlide].metricLabel}
+                        </span>
+                        <strong className="text-xs font-mono font-extrabold text-[#F5B85D]">
+                          {heroDialogues[heroSlide].metricValue}
+                        </strong>
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Indicadores Clicáveis dos 4 Cenários */}
+                <div className="flex items-center justify-end gap-2 pt-1 pr-1">
+                  {heroDialogues.map((_, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setHeroSlide(idx)}
+                      aria-label={`Ver cenário ${idx + 1}`}
+                      className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                        heroSlide === idx ? "w-7 bg-[#E8A33D]" : "w-2 bg-white/20 hover:bg-white/40"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
-
-          {/* Headline Principal em Manrope ExtraBold com Gradiente */}
-          <div className="max-w-4xl mx-auto mb-4 sm:mb-5">
-            <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-[1.12] drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
-              Seu e-commerce fatura. <br />
-              <span className="block mt-1.5 gradiente font-extrabold">
-                Quanto disso vira lucro de verdade?
-              </span>
-            </h1>
-          </div>
-
-          {/* Frase Central Nova */}
-          <p className="text-sm sm:text-base lg:text-lg text-slate-200/95 font-normal leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
-            A Mont Finance entrega inteligência financeira para e-commerces — integrando finanças, estratégia e capital para aumentar o lucro e dar segurança para a sua operação crescer.
-          </p>
-
-          {/* CTAs de Alto Impacto Estilo Growth Machine */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-5 sm:mb-6 w-full sm:w-auto">
-            <a 
-              href="#diagnostico" 
-              onClick={() => trackCtaClick("hero_primary", "Agendar diagnóstico")}
-              className="w-full sm:w-auto px-7 py-3.5 sm:px-8 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#E8A33D] to-[#F5B85D] hover:from-[#D4932D] hover:to-[#E8A33D] text-[#071A1E] text-xs font-extrabold uppercase tracking-wider transition-all shadow-[0_8px_24px_rgba(232,163,61,0.35)] hover:shadow-[0_12px_32px_rgba(232,163,61,0.5)] hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2"
-            >
-              <span>Agendar diagnóstico gratuito</span>
-              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-            </a>
-            <a 
-              href="#niveis" 
-              onClick={() => trackCtaClick("hero_secondary", "Conhecer soluções Mont Finance")}
-              className="w-full sm:w-auto px-6 py-3.5 sm:px-7 sm:py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/20 hover:border-white/40 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
-            >
-              <span>Conhecer nossas soluções</span>
-            </a>
-          </div>
-
-          {/* Qualificação de Público */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs text-slate-300 max-w-2xl mx-auto">
-            <Sparkles className="w-3.5 h-3.5 text-[#E8A33D] shrink-0" />
-            <span>Para empresas de e-commerce com faturamento acima de R$ 3 milhões por ano.</span>
-          </div>
-
         </div>
       </section>
 
+      {/* =========================================================================
+          2.1 FAIXA TICKER DOURADA — [ESTILO FINTECH / STARTUP]
+      ========================================================================= */}
+      <div className="bg-gradient-to-r from-[#E8A33D] via-[#F5B85D] to-[#E8A33D] text-[#071A1E] py-3 border-b border-[#071A1E]/15 overflow-hidden select-none">
+        <div className="flex w-max animate-marquee items-center gap-8">
+          {[...tickerItems, ...tickerItems, ...tickerItems].map((item, idx) => (
+            <div key={idx} className="flex items-center gap-8 shrink-0">
+              <span className="text-[11px] sm:text-xs font-mono font-black uppercase tracking-[0.14em]">
+                {item}
+              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#071A1E]/50"></span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* =========================================================================
-          3.1 LOGOS DE CLIENTES & OPERAÇÕES — [CARROSSEL CONTÍNUO GIRANDO NA PÁGINA]
+          3.1 LOGOS DE CLIENTES & OPERAÇÕES — [CARROSSEL CONTÍNUO]
       ========================================================================= */}
-      <section className="py-8 sm:py-10 bg-[#071A1E] border-b border-white/10 overflow-hidden relative">
-
-        {/* Carrossel Infinito com Máscara de Gradiente Suave nas Bordas */}
-        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] py-4">
+      <section className="py-6 sm:py-8 bg-[#071A1E] border-b border-white/10 overflow-hidden relative">
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] py-2">
           <div className="flex w-max animate-marquee gap-10 sm:gap-16 items-center">
             {[...clientLogos, ...clientLogos].map((logo, idx) => (
               <div 
                 key={idx} 
-                className="shrink-0 flex items-center justify-center px-4 py-2 opacity-70 hover:opacity-100 hover:scale-105 transition-all duration-300 group cursor-default"
+                className="shrink-0 flex items-center justify-center px-4 py-1.5 opacity-75 hover:opacity-100 hover:scale-105 transition-all duration-300 group cursor-default"
                 title={logo.name}
               >
                 <img 
@@ -227,6 +376,41 @@ export function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          3.2 STACK DE INTEGRAÇÕES + COCKPIT DE INTELIGÊNCIA — [PRODUCT-FIRST NA 2ª DOBRA]
+      ========================================================================= */}
+      <section id="grafico-100" className="py-10 sm:py-14 bg-[#071A1E] text-white border-b border-white/10 relative overflow-hidden">
+        {/* Glow de fundo */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#0E4A55]/30 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Barra Compacta de Integrações do Ecossistema E-commerce */}
+          <div className="mb-7 p-3 sm:p-3.5 rounded-2xl bg-[#061518] border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-3">
+            <div className="flex items-center gap-2 shrink-0">
+              <div className="w-6 h-6 rounded-lg bg-[#E8A33D]/15 border border-[#E8A33D]/35 flex items-center justify-center text-[#F5B85D]">
+                <Zap className="w-3.5 h-3.5" />
+              </div>
+              <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-slate-200">
+                Conectado ao stack do seu e-commerce:
+              </span>
+            </div>
+            <div className="flex flex-wrap items-center justify-center lg:justify-end gap-1.5">
+              {ecommerceIntegrations.map((tool) => (
+                <span
+                  key={tool}
+                  className="px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-[10px] font-mono font-semibold text-slate-300 hover:border-[#E8A33D]/40 hover:text-white transition-colors"
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <FinancialCockpit />
         </div>
       </section>
 
@@ -367,18 +551,6 @@ export function Home() {
 
           <DapeCycle />
 
-        </div>
-      </section>
-
-      {/* =========================================================================
-          6. GRÁFICO ILUSTRATIVO & COCKPIT DE ANÁLISE — [SESSÃO ESCURA: #071A1E]
-      ========================================================================= */}
-      <section id="grafico-100" className="py-10 sm:py-14 bg-[#071A1E] text-white border-b border-white/10 relative overflow-hidden">
-        {/* Glow de fundo */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#0E4A55]/30 rounded-full blur-[140px] pointer-events-none"></div>
-
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <FinancialCockpit />
         </div>
       </section>
 
@@ -527,7 +699,7 @@ export function Home() {
           <div className="max-w-5xl mx-auto p-6 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-lg">
             <div className="mb-8 text-center sm:text-left">
               <span className="text-xs font-bold uppercase tracking-wider text-[#0E4A55] block mb-1">
-                Contratável à parte e projetos pontuais
+                Módulos adicionais (Add-ons) e projetos sob demanda
               </span>
               <p className="text-xs sm:text-sm text-slate-600 font-normal">
                 Frentes especializadas que podem ser acionadas de acordo com as necessidades específicas da sua empresa.
@@ -794,10 +966,10 @@ export function Home() {
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[11px] font-bold uppercase tracking-wider text-[#F5B85D] mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
-              Liderança & Advisory
+              Fundador &amp; Liderança
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-              Quem conduz o advisory
+              Quem está por trás da Mont Finance
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed">
               Experiência executiva direta ao lado de fundadores e líderes de empresas em crescimento.
@@ -932,7 +1104,7 @@ export function Home() {
                 Dúvidas Comuns
               </div>
               <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-                O que empresários de e-commerce perguntam antes de começar
+                O que todo dono de e-commerce pergunta
               </h3>
             </div>
 

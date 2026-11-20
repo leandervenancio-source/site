@@ -34,14 +34,45 @@ export function Navbar() {
             />
           </a>
 
-          {/* Único Botão do Topo: Agendar Diagnóstico */}
+          {/* Menu Central Estilo Startup / Fintech (Pílula Translúcida) */}
+          <nav
+            aria-label="Navegação principal"
+            className="hidden md:flex items-center gap-1 px-2 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md"
+          >
+            <a
+              href="#grafico-100"
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/[0.07] transition-all"
+            >
+              Indicadores
+            </a>
+            <a
+              href="#metodo-dape"
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/[0.07] transition-all"
+            >
+              Método DAPE
+            </a>
+            <a
+              href="#niveis"
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/[0.07] transition-all"
+            >
+              Soluções
+            </a>
+            <a
+              href="#faq"
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/[0.07] transition-all"
+            >
+              FAQ
+            </a>
+          </nav>
+
+          {/* CTA Principal: Agendar Diagnóstico */}
           <div className="flex items-center">
             <a
               href="#diagnostico"
               onClick={() => trackCtaClick("navbar", "Agendar diagnóstico")}
-              className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#E8A33D] to-[#F5B85D] hover:from-[#D4932D] hover:to-[#E8A33D] text-[#071A1E] text-xs font-bold uppercase tracking-wider transition-all shadow-[0_4px_16px_rgba(232,163,61,0.3)] hover:shadow-[0_6px_22px_rgba(232,163,61,0.5)] hover:-translate-y-0.5 flex items-center gap-2"
+              className="px-5 sm:px-6 py-2.5 rounded-full bg-gradient-to-r from-[#E8A33D] to-[#F5B85D] hover:from-[#D4932D] hover:to-[#E8A33D] text-[#071A1E] text-xs font-extrabold uppercase tracking-wider transition-all shadow-[0_4px_16px_rgba(232,163,61,0.3)] hover:shadow-[0_6px_22px_rgba(232,163,61,0.5)] hover:-translate-y-0.5 flex items-center gap-2"
             >
-              <span>Solicitar Diagnóstico</span>
+              <span>Agendar diagnóstico</span>
               <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
             </a>
           </div>
