@@ -192,7 +192,7 @@ export function LegalModal() {
                   1. Objeto e Caráter Informativo
                 </h3>
                 <p>
-                  Este site é mantido por <strong>Monte Negro Capital LTDA</strong> (<strong>Mont Finance</strong>), inscrita no CNPJ sob o nº <strong>25.301.996/0001-04</strong>, com sede em Goiânia/GO, e tem por objetivo apresentar seus serviços de <strong>Assessoria e Inteligência Financeira para E-commerces</strong> (produtos <strong>CFO Pro</strong> e <strong>CFO Full</strong>), projetos de <strong>Advisory</strong> e frentes contratáveis à parte (<strong>Inteligência Tributária</strong> e <strong>Captação de Recursos</strong>). Todo o conteúdo disponibilizado possui caráter exclusivamente informativo e institucional, não configurando parecer jurídico, contábil, auditoria formal ou recomendação de investimento.
+                  Este site é mantido por <strong>Monte Negro Capital LTDA</strong> (<strong>Mont Finance</strong>), inscrita no CNPJ sob o nº <strong>25.301.996/0001-04</strong>, com sede em Goiânia/GO, e tem por objetivo apresentar seus serviços de <strong>Inteligência Financeira para E-commerces</strong> (produtos <strong>CFO Pro</strong> e <strong>CFO Full</strong>), projetos de <strong>Advisory</strong> e frentes contratáveis à parte (<strong>Inteligência Tributária</strong> e <strong>Captação de Recursos</strong>). Todo o conteúdo disponibilizado possui caráter exclusivamente informativo e institucional, não configurando parecer jurídico, contábil, auditoria formal ou recomendação de investimento.
                 </p>
               </div>
 

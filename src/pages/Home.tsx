@@ -98,8 +98,8 @@ export function Home() {
 
   const faqs = [
     {
-      q: "O que é a Assessoria de Inteligência Financeira da Mont Finance?",
-      a: "É uma assessoria financeira especializada em e-commerces que transforma dados operacionais e financeiros em clareza real de margem, caixa, estoque e capital — apoiando suas decisões estratégicas no dia a dia, sem inflar a folha fixa da empresa."
+      q: "O que é a Inteligência Financeira para E-commerces da Mont Finance?",
+      a: "É a nossa assessoria financeira especializada em e-commerces que transforma dados operacionais e financeiros em clareza real de margem, caixa, estoque e capital — apoiando suas decisões estratégicas no dia a dia, sem inflar a folha fixa da empresa."
     },
     {
       q: "A Mont Finance substitui a minha contabilidade?",
@@ -156,7 +156,7 @@ export function Home() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E8A33D]/10 border border-[#E8A33D]/30 backdrop-blur-md mb-4 sm:mb-6 shadow-[0_0_20px_rgba(232,163,61,0.15)]">
             <span className="w-2 h-2 rounded-full bg-[#E8A33D] animate-pulse"></span>
             <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-[#E8A33D]">
-              Assessoria & Inteligência Financeira para E-commerces
+              Inteligência Financeira para E-commerces
             </span>
           </div>
 
@@ -172,7 +172,7 @@ export function Home() {
 
           {/* Frase Central Nova */}
           <p className="text-sm sm:text-base lg:text-lg text-slate-200/95 font-normal leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
-            A Mont Finance é a assessoria financeira que entrega inteligência financeira para e-commerces — integrando finanças, estratégia e capital para aumentar o lucro e dar segurança para a sua operação crescer.
+            A Mont Finance entrega inteligência financeira para e-commerces — integrando finanças, estratégia e capital para aumentar o lucro e dar segurança para a sua operação crescer.
           </p>
 
           {/* CTAs de Alto Impacto Estilo Growth Machine */}

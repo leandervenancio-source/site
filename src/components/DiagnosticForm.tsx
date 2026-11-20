@@ -248,7 +248,7 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
 
         {isUnder3M && (
           <div className="mb-6 p-4 rounded-xl bg-[#E8A33D]/10 border border-[#E8A33D]/30 text-amber-200 text-xs text-left leading-relaxed font-medium">
-            <strong>Observação sobre o faturamento:</strong> Nosso modelo de assessoria e inteligência financeira é prioritariamente desenhado para operações acima de R$ 3 milhões/ano. Ainda assim, nossa equipe analisará o seu caso com atenção.
+            <strong>Observação sobre o faturamento:</strong> Nosso modelo de Inteligência Financeira para E-commerces é prioritariamente desenhado para operações acima de R$ 3 milhões/ano. Ainda assim, nossa equipe analisará o seu caso com atenção.
           </div>
         )}
 

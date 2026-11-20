@@ -18,7 +18,7 @@ export function Footer() {
               />
             </a>
             <p className="text-xs text-slate-400 max-w-sm font-normal leading-relaxed mb-6">
-              Assessoria financeira especializada em inteligência financeira para e-commerces: finanças, estratégia e capital integrados para aumentar o lucro e dar segurança para a sua operação crescer.
+              Inteligência Financeira para E-commerces: finanças, estratégia e capital integrados para aumentar o lucro e dar segurança para a sua operação crescer.
             </p>
             <div className="flex space-x-2.5">
               <a 
