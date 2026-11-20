@@ -170,7 +170,7 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
           Accept: "application/json",
         },
         body: JSON.stringify({
-          _subject: `[Novo Lead CFO] ${formData.name.trim()} (${formData.revenue})`,
+          _subject: `[Novo Lead Mont Finance] ${formData.name.trim()} (${formData.revenue})`,
           Nome: formData.name.trim(),
           Email: formData.email.trim().toLowerCase(),
           WhatsApp: formData.whatsapp.trim(),
@@ -248,7 +248,7 @@ export function DiagnosticForm({ theme: _theme = "dark" }: DiagnosticFormProps) 
 
         {isUnder3M && (
           <div className="mb-6 p-4 rounded-xl bg-[#E8A33D]/10 border border-[#E8A33D]/30 text-amber-200 text-xs text-left leading-relaxed font-medium">
-            <strong>Observação sobre o faturamento:</strong> Nosso modelo de CFO Terceirizado é prioritariamente desenhado para operações acima de R$ 3 milhões/ano. Ainda assim, nossa equipe analisará o seu caso com atenção.
+            <strong>Observação sobre o faturamento:</strong> Nosso modelo de assessoria e inteligência financeira é prioritariamente desenhado para operações acima de R$ 3 milhões/ano. Ainda assim, nossa equipe analisará o seu caso com atenção.
           </div>
         )}
 

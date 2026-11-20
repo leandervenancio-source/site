@@ -244,7 +244,7 @@ export function FinancialCockpit() {
           <span className="text-[#F5B85D]">o lucro real do seu e-commerce</span>
         </h2>
         <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto">
-          Exemplos ilustrativos das 4 leituras essenciais que o CFO Terceirizado coloca na sua mesa todo mês para decidir com segurança:
+          Exemplos ilustrativos das 4 leituras essenciais de inteligência financeira que colocamos na sua mesa todo mês para decidir com segurança:
         </p>
       </div>
 
@@ -836,7 +836,7 @@ export function FinancialCockpit() {
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <p className="text-[11px] sm:text-xs text-slate-200 leading-snug">
-                    <strong className="text-[#F5B85D] uppercase tracking-wider mr-1.5">Leitura do CFO:</strong>
+                    <strong className="text-[#F5B85D] uppercase tracking-wider mr-1.5">Leitura Estratégica:</strong>
                     O <strong>Site Próprio (80%) e o Mercado Livre (85%)</strong> puxam o crescimento com ROAS de <strong>8,85x</strong>, enquanto a <strong>Shopee está em 66%</strong> com ticket de R$ 132. Ação: direcionar os R$ 53,8 mil restantes de verba para kits de maior ticket no Site Próprio.
                   </p>
                 </div>
@@ -990,7 +990,7 @@ export function FinancialCockpit() {
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <p className="text-[11px] sm:text-xs text-slate-200 leading-snug">
-                    <strong className="text-[#F5B85D] uppercase tracking-wider mr-1.5">Leitura do CFO:</strong>
+                    <strong className="text-[#F5B85D] uppercase tracking-wider mr-1.5">Leitura Estratégica:</strong>
                     Muitas lojas quebram comprando mais estoque de produtos que vendem muito mas dão prejuízo (como o SKU #289), enquanto deixam R$ 310 mil parados em itens Curva C. Corrigir isso aumenta o lucro imediatamente.
                   </p>
                 </div>
@@ -1210,7 +1210,7 @@ export function FinancialCockpit() {
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <p className="text-[11px] sm:text-xs text-slate-200 leading-snug">
-                    <strong className="text-[#F5B85D] uppercase tracking-wider mr-1.5">Leitura do CFO ({currentSim.name}):</strong>
+                    <strong className="text-[#F5B85D] uppercase tracking-wider mr-1.5">Leitura Estratégica ({currentSim.name}):</strong>
                     {currentSim.insight}
                   </p>
                 </div>
@@ -1342,7 +1342,7 @@ export function FinancialCockpit() {
                         Por que o caixa aperta quando a venda cresce?
                       </h5>
                       <p className="text-[11px] text-slate-400 mb-2.5 leading-snug">
-                        Você paga o fornecedor antes de receber do marketplace. O CFO reduz esse descasamento:
+                        Você paga o fornecedor antes de receber do marketplace. Nossa assessoria reduz esse descasamento:
                       </p>
 
                       <div className="space-y-1.5 text-[11px] font-mono">

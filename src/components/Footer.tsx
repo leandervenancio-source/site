@@ -18,7 +18,7 @@ export function Footer() {
               />
             </a>
             <p className="text-xs text-slate-400 max-w-sm font-normal leading-relaxed mb-6">
-              CFO Terceirizado para empresas de e-commerce: finanças, estratégia e capital integrados para aumentar o lucro e dar segurança para a sua operação crescer.
+              Assessoria financeira especializada em inteligência financeira para e-commerces: finanças, estratégia e capital integrados para aumentar o lucro e dar segurança para a sua operação crescer.
             </p>
             <div className="flex space-x-2.5">
               <a 
@@ -56,7 +56,7 @@ export function Footer() {
             <ul className="space-y-2.5 text-xs text-slate-400">
               <li><a href="#topo" className="hover:text-[#F5B85D] transition-colors">Início</a></li>
               <li><a href="#metodo-dape" className="hover:text-[#F5B85D] transition-colors">Método DAPE</a></li>
-              <li><a href="#niveis" className="hover:text-[#F5B85D] transition-colors">Pacotes de serviço</a></li>
+              <li><a href="#niveis" className="hover:text-[#F5B85D] transition-colors">Nossas soluções</a></li>
               <li><a href="#quem-conduz" className="hover:text-[#F5B85D] transition-colors">Quem conduz</a></li>
               <li><a href="#diagnostico" className="hover:text-[#F5B85D] transition-colors">Diagnóstico</a></li>
               <li><a href="#faq" className="hover:text-[#F5B85D] transition-colors">Perguntas frequentes</a></li>

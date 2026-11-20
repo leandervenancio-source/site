@@ -48,7 +48,7 @@ export function Diagnostic() {
                 <div className="w-5 h-5 rounded-full bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="w-3.5 h-3.5" />
                 </div>
-                <span>Indicamos por onde começar e se faz sentido o CFO Pro, o CFO Full ou outra frente.</span>
+                <span>Indicamos por onde começar com o CFO Pro e se faz sentido adicionar o CFO Full ou outra frente.</span>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-5 h-5 rounded-full bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center shrink-0 mt-0.5">
@@ -65,7 +65,7 @@ export function Diagnostic() {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#d4af37]" />
-                <span>contato@montgestao.com.br</span>
+                <span>contato@montfinance.com.br</span>
               </div>
               <p className="text-[11px] text-zinc-500 pt-1">
                 *Para operações de e-commerce com faturamento anual acima de R$ 3 milhões. Nenhum resultado é garantido.

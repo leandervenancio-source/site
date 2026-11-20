@@ -43,7 +43,7 @@ export function Home() {
     {
       symptom: "Decisões tomadas na intuição ou pelo saldo do banco.",
       cause: "Falta de DRE gerencial, orçamento anual e previsão de caixa.",
-      gain: "Rito mensal com o CFO, leitura de variância e decisões embasadas."
+      gain: "Rito mensal de decisão, leitura de variância e decisões embasadas em dados."
     },
     {
       symptom: "Crédito bancário caro, limite baixo ou recusa.",
@@ -66,7 +66,7 @@ export function Home() {
   const comparisonRows = [
     {
       criteria: "Papel na sua empresa",
-      mont: "Senta na mesa de decisão como CFO: orienta precificação, corte de desperdícios e alocação de caixa.",
+      mont: "Senta na mesa de decisão com inteligência financeira prática: orienta precificação, corte de desperdícios e alocação de caixa.",
       tradicional: "Operacional burocrático: cumpre guias fiscais e conciliação bancária sem analisar o negócio.",
       consultoria: "Teórico e distante: entrega uma planilha pesada ou slides e você executa sozinho."
     },
@@ -98,8 +98,8 @@ export function Home() {
 
   const faqs = [
     {
-      q: "O que é um CFO Terceirizado?",
-      a: "É um profissional de finanças em nível de diretoria que atua na sua empresa sem fazer parte do quadro fixo. Ele cuida da visão financeira estratégica, como margem, caixa, planejamento, risco e capital, e leva esse conhecimento para as decisões do dia a dia."
+      q: "O que é a Assessoria de Inteligência Financeira da Mont Finance?",
+      a: "É uma assessoria financeira especializada em e-commerces que transforma dados operacionais e financeiros em clareza real de margem, caixa, estoque e capital — apoiando suas decisões estratégicas no dia a dia, sem inflar a folha fixa da empresa."
     },
     {
       q: "A Mont Finance substitui a minha contabilidade?",
@@ -107,7 +107,7 @@ export function Home() {
     },
     {
       q: "Qual a diferença entre o CFO Pro e o CFO Full?",
-      a: "O CFO Pro contempla o CFO Terceirizado com a controladoria da empresa organizada, identificando qual canal e produto dão lucro de verdade, quanto caixa está parado e para onde o dinheiro vai, com FP&A (orçamento, forecast, variância) e um rito mensal de decisão acompanhado. O CFO Full inclui tudo do CFO Pro, mais a execução financeira dirigida pelo CFO, na qual a rotina financeira do dia a dia é conduzida sob a direção do CFO, liberando seu tempo para focar no negócio."
+      a: "O CFO Pro é o nosso produto principal de inteligência financeira: entrega controladoria organizada, clareza de margem real por canal e produto, FP&A (orçamento, forecast, variância) e rito mensal de decisão para operações que já têm quem toque a rotina financeira. Já o CFO Full é uma extensão opcional (upsell) para e-commerces que não possuem equipe interna para executar o financeiro do dia a dia — nele, além de tudo do CFO Pro, nossa equipe assume também a execução operacional da rotina financeira."
     },
     {
       q: "Preciso ter uma estrutura financeira pronta para começar?",
@@ -156,7 +156,7 @@ export function Home() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E8A33D]/10 border border-[#E8A33D]/30 backdrop-blur-md mb-4 sm:mb-6 shadow-[0_0_20px_rgba(232,163,61,0.15)]">
             <span className="w-2 h-2 rounded-full bg-[#E8A33D] animate-pulse"></span>
             <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-[#E8A33D]">
-              CFO Terceirizado para e-commerce
+              Assessoria & Inteligência Financeira para E-commerces
             </span>
           </div>
 
@@ -172,7 +172,7 @@ export function Home() {
 
           {/* Frase Central Nova */}
           <p className="text-sm sm:text-base lg:text-lg text-slate-200/95 font-normal leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
-            A Mont Finance é o CFO Terceirizado que integra finanças, estratégia e capital para aumentar o lucro e dar segurança para a sua operação crescer.
+            A Mont Finance é a assessoria financeira que entrega inteligência financeira para e-commerces — integrando finanças, estratégia e capital para aumentar o lucro e dar segurança para a sua operação crescer.
           </p>
 
           {/* CTAs de Alto Impacto Estilo Growth Machine */}
@@ -187,10 +187,10 @@ export function Home() {
             </a>
             <a 
               href="#niveis" 
-              onClick={() => trackCtaClick("hero_secondary", "Conhecer pacotes de CFO")}
+              onClick={() => trackCtaClick("hero_secondary", "Conhecer soluções Mont Finance")}
               className="w-full sm:w-auto px-6 py-3.5 sm:px-7 sm:py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/20 hover:border-white/40 text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
             >
-              <span>Conhecer os pacotes de CFO</span>
+              <span>Conhecer nossas soluções</span>
             </a>
           </div>
 
@@ -247,7 +247,7 @@ export function Home() {
               <span className="text-[#0E4A55]">costuma ter outra origem</span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
-              No e-commerce, faturar não é o mesmo que lucrar. Veja o que está por trás de cada sintoma e o que você ganha com o CFO Terceirizado:
+              No e-commerce, faturar não é o mesmo que lucrar. Veja o que está por trás de cada sintoma e o que você ganha com a inteligência financeira da Mont Finance:
             </p>
           </div>
 
@@ -263,7 +263,7 @@ export function Home() {
             </div>
             <div className="col-span-4 flex items-center gap-1.5 text-[#0E4A55]">
               <Sparkles className="w-3.5 h-3.5 text-[#E8A33D]" />
-              <span>O que você ganha com o CFO</span>
+              <span>O que você ganha com a Mont Finance</span>
             </div>
           </div>
 
@@ -383,7 +383,7 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          7. DOIS NÍVEIS DE SERVIÇO & CONTRATÁVEL À PARTE — [SESSÃO CLARA: #F4F6F7 — CFO Full em destaque escuro]
+          7. SOLUÇÕES MONT FINANCE (CFO Pro Principal + CFO Full Upsell) & CONTRATÁVEL À PARTE
       ========================================================================= */}
       <section id="niveis" className="py-20 sm:py-28 bg-[#F4F6F7] text-slate-900 border-b border-slate-200 relative overflow-hidden">
         {/* Glow de fundo */}
@@ -394,129 +394,129 @@ export function Home() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
-              Pacotes de Serviço
+              Nossas Soluções
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
-              Dois pacotes de CFO Terceirizado, <br className="hidden sm:inline" />
-              <span className="text-[#0E4A55]">conforme o momento da sua empresa</span>
+              Inteligência financeira sob medida, <br className="hidden sm:inline" />
+              <span className="text-[#0E4A55]">conforme a estrutura da sua empresa</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-              O CFO Terceirizado da Mont Finance é estruturado em dois pacotes. Ambos entregam a visão executiva de finanças, a controladoria organizada e o rito mensal de decisão. A diferença está na camada de execução.
+              Nosso produto principal é o <strong className="text-slate-800">CFO Pro</strong> — desenhado para levar inteligência financeira, controladoria e decisão estratégica ao seu e-commerce. Caso sua empresa não possua equipe interna para executar a rotina financeira do dia a dia, oferecemos o <strong className="text-slate-800">CFO Full</strong> como expansão opcional.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
             
-            {/* Pacote 1 — CFO Pro */}
-            <div id="cfo-pro" className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 hover:border-[#0E4A55]/40 flex flex-col justify-between transition-all duration-300 shadow-lg hover:shadow-xl group">
+            {/* Produto Principal — CFO Pro (EM DESTAQUE ESCURO + BORDA DOURADA) */}
+            <div id="cfo-pro" className="p-8 sm:p-10 rounded-3xl bg-[#0A272D] border-2 border-[#E8A33D] transition-all flex flex-col justify-between shadow-[0_30px_70px_-20px_rgba(7,26,30,0.55),0_0_40px_rgba(232,163,61,0.18)] relative md:-translate-y-3">
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#0E4A55]/10 text-[#0E4A55]">
-                    Pacote 1
-                  </span>
-                  <span className="text-xs font-semibold text-[#B27318]">
-                    CFO + Controladoria
-                  </span>
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
-                  CFO Pro
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6">
-                  O CFO Terceirizado da Mont com a controladoria da empresa organizada. Você passa a saber qual canal e qual produto dão lucro de verdade, quanto caixa está parado e para onde o dinheiro vai, e decide todo mês com um plano de ação acompanhado.
-                </p>
-
-                <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-slate-700">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
-                    <span>Controladoria organizada com apuração de margem real por canal e por produto</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
-                    <span>Visão clara de quanto caixa está parado e para onde o dinheiro vai</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
-                    <span>DRE gerencial e fluxo de caixa com projeção futura</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
-                    <span>FP&A integrado: orçamento, forecast e análise de variância</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
-                    <span>Rito mensal de decisão com plano de ação acompanhado pelo CFO</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-6 border-t border-slate-100">
-                <span className="text-xs text-slate-500 block mb-5 leading-relaxed">
-                  <strong className="text-slate-800">Para quem precisa:</strong> ter os números organizados, clareza sobre o lucro real da operação e decidir todo mês com um CFO ao seu lado.
-                </span>
-                <a 
-                  href="#diagnostico" 
-                  onClick={() => trackCtaClick("cfo_pro", "Agendar para CFO Pro")}
-                  className="w-full py-4 rounded-xl bg-[#0E4A55] hover:bg-[#071A1E] border border-[#0E4A55] text-white text-xs font-extrabold uppercase tracking-wider text-center flex items-center justify-center gap-2 transition-all"
-                >
-                  <span>Agendar diagnóstico para CFO Pro</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            {/* Pacote 2 — CFO Full */}
-            <div id="cfo-full" className="p-8 sm:p-10 rounded-3xl bg-[#0A272D] border-2 border-[#E8A33D] transition-all flex flex-col justify-between shadow-[0_30px_70px_-20px_rgba(7,26,30,0.55),0_0_40px_rgba(232,163,61,0.18)] relative md:-translate-y-3">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#E8A33D]/20 text-[#F5B85D]">
-                    Pacote 2
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#E8A33D] text-[#071A1E]">
+                    Produto Principal
                   </span>
                   <span className="text-xs font-semibold text-[#F5B85D]">
-                    CFO + Controladoria + Execução
+                    Inteligência Financeira + Controladoria
                   </span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
-                  CFO Full
+                  CFO Pro
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed mb-6">
-                  Tudo do CFO Pro, mais a <strong className="text-white">execução financeira dirigida pelo CFO</strong>. A rotina financeira do dia a dia é conduzida sob a direção do CFO, e você ganha tempo para focar no negócio.
+                  Nossa solução principal de <strong className="text-white">inteligência financeira para e-commerces</strong> com a controladoria da empresa organizada. Você passa a saber qual canal e qual produto dão lucro de verdade, quanto caixa está parado e decide todo mês com um plano de ação acompanhado.
                 </p>
 
                 <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-slate-200">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span className="font-semibold text-white">Tudo o que está incluído no CFO Pro</span>
+                    <span>Controladoria organizada com apuração de margem real por canal e por produto</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>Execução financeira dirigida pelo CFO no dia a dia</span>
+                    <span>Visão clara de quanto caixa está parado e para onde o dinheiro vai</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>Rotina financeira conduzida sob a direção executiva do CFO</span>
+                    <span>DRE gerencial e fluxo de caixa com projeção futura</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>Liberação de tempo da liderança para focar na expansão do negócio</span>
+                    <span>FP&A integrado: orçamento, forecast e análise de variância</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>FP&A, orçamento, forecast e rito mensal de decisão com plano de ação acompanhado</span>
+                    <span>Rito mensal de decisão executiva com plano de ação acompanhado</span>
                   </li>
                 </ul>
               </div>
 
               <div className="pt-6 border-t border-white/10">
                 <span className="text-xs text-slate-400 block mb-5 leading-relaxed">
-                  <strong className="text-slate-200">Para quem precisa:</strong> visão de CFO, controladoria organizada e a rotina financeira do dia a dia executada sob a liderança do CFO.
+                  <strong className="text-slate-200">Ideal para:</strong> e-commerces que já têm quem rode o operacional do dia a dia, mas precisam de inteligência financeira, clareza de lucro real e direção estratégica mensal.
                 </span>
                 <a 
                   href="#diagnostico" 
-                  onClick={() => trackCtaClick("cfo_full", "Agendar para CFO Full")}
+                  onClick={() => trackCtaClick("cfo_pro", "Agendar para CFO Pro")}
                   className="w-full py-4 rounded-xl bg-gradient-to-r from-[#E8A33D] to-[#F5B85D] hover:from-[#F5B85D] hover:to-[#E8A33D] text-[#071A1E] text-xs font-black uppercase tracking-wider text-center flex items-center justify-center gap-2 transition-all shadow-[0_4px_20px_rgba(232,163,61,0.35)] hover:scale-[1.02]"
                 >
-                  <span>Agendar diagnóstico para CFO Full</span>
+                  <span>Agendar diagnóstico para CFO Pro</span>
                   <ArrowRight className="w-4 h-4 stroke-[3]" />
+                </a>
+              </div>
+            </div>
+
+            {/* Extensão Opcional / Upsell — CFO Full */}
+            <div id="cfo-full" className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 hover:border-[#0E4A55]/40 flex flex-col justify-between transition-all duration-300 shadow-lg hover:shadow-xl group">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#0E4A55]/10 text-[#0E4A55]">
+                    Extensão Opcional
+                  </span>
+                  <span className="text-xs font-semibold text-[#B27318]">
+                    CFO Pro + Execução Financeira
+                  </span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+                  CFO Full
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6">
+                  Não tem equipe interna para rodar o financeiro do dia a dia? O CFO Full adiciona ao CFO Pro toda a camada de <strong className="text-slate-900">execução da rotina financeira operacional</strong>, conduzida sob a direção da nossa assessoria para você focar no crescimento do negócio.
+                </p>
+
+                <ul className="space-y-3.5 mb-8 text-xs sm:text-sm text-slate-700">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
+                    <span className="font-semibold text-slate-900">Tudo o que está incluído no produto principal CFO Pro</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
+                    <span>Execução completa da rotina financeira operacional no dia a dia</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
+                    <span>Estrutura desenhada para operações sem equipe financeira interna</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
+                    <span>Contas a pagar, receber, conciliação e fechamento sob nossa direção</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
+                    <span>Liberação de tempo da liderança para focar na expansão comercial</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-6 border-t border-slate-100">
+                <span className="text-xs text-slate-500 block mb-5 leading-relaxed">
+                  <strong className="text-slate-800">Ideal como evolução quando:</strong> além da inteligência financeira do CFO Pro, sua empresa precisa delegar a execução da rotina financeira operacional para nossa equipe.
+                </span>
+                <a 
+                  href="#diagnostico" 
+                  onClick={() => trackCtaClick("cfo_full", "Consultar extensão CFO Full")}
+                  className="w-full py-4 rounded-xl bg-[#0E4A55] hover:bg-[#071A1E] border border-[#0E4A55] text-white text-xs font-extrabold uppercase tracking-wider text-center flex items-center justify-center gap-2 transition-all"
+                >
+                  <span>Consultar extensão CFO Full</span>
+                  <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
@@ -703,7 +703,7 @@ export function Home() {
                   <th className="p-5 text-xs font-extrabold uppercase tracking-wider text-white bg-[#0E4A55] border-x border-[#0E4A55] w-1/3 shadow-sm">
                     <div className="flex items-center gap-2">
                       <Sparkles className="w-4 h-4 text-[#E8A33D]" />
-                      <span>Mont Finance (CFO Terceirizado)</span>
+                      <span>Mont Finance (Inteligência Financeira)</span>
                     </div>
                   </th>
                   <th className="p-5 text-xs font-bold uppercase tracking-wider text-slate-500 w-1/5">

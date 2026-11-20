@@ -63,7 +63,7 @@ const pillars = [
     icon: Rocket,
     desc: "Acompanhamos a implementação no rito mensal de decisão e ajustamos o rumo com base nos números.",
     actions: [
-      "Rito mensal de decisão com o CFO",
+      "Rito mensal de decisão executiva",
       "Análise de variância: previsto x realizado",
       "Acompanhamento do plano de ação"
     ],
