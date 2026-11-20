@@ -12,7 +12,6 @@ const inputSources = [
   {
     id: "ecommerce",
     label: "E-commerce",
-    sub: "Site · Mktp",
     icon: ShoppingBag,
     iconColor: "text-teal-300",
     dotColor: "#2dd4bf"
@@ -20,7 +19,6 @@ const inputSources = [
   {
     id: "erp",
     label: "ERP",
-    sub: "Bling · Tiny",
     icon: Database,
     iconColor: "text-[#F5B85D]",
     dotColor: "#F5B85D"
@@ -28,7 +26,6 @@ const inputSources = [
   {
     id: "midia",
     label: "Mídia",
-    sub: "Meta · Google",
     icon: Megaphone,
     iconColor: "text-orange-300",
     dotColor: "#fb923c"
@@ -36,7 +33,6 @@ const inputSources = [
   {
     id: "bancos",
     label: "Bancos",
-    sub: "OFX · Gateways",
     icon: Landmark,
     iconColor: "text-emerald-300",
     dotColor: "#34d399"
@@ -109,19 +105,14 @@ export function HeroDataOrbit() {
               return (
                 <div
                   key={src.id}
-                  className="px-3 py-2.5 rounded-xl bg-[#10343C]/95 border border-white/25 hover:border-[#F5B85D]/70 shadow-[0_10px_24px_rgba(0,0,0,0.4)] flex flex-col items-center text-center gap-1.5 transition-all hover:-translate-y-0.5"
+                  className="px-3 py-3 rounded-xl bg-[#10343C]/95 border border-white/25 hover:border-[#F5B85D]/70 shadow-[0_10px_24px_rgba(0,0,0,0.4)] flex flex-col items-center justify-center text-center gap-2 transition-all hover:-translate-y-0.5"
                 >
                   <div className="w-8 h-8 rounded-lg bg-[#06181C] border border-white/15 flex items-center justify-center shrink-0">
                     <Icon className={`w-4 h-4 ${src.iconColor}`} />
                   </div>
-                  <div className="leading-tight">
-                    <span className="text-[11px] font-extrabold text-white block whitespace-nowrap">
-                      {src.label}
-                    </span>
-                    <span className="text-[9px] font-mono text-slate-300/85 block whitespace-nowrap mt-0.5">
-                      {src.sub}
-                    </span>
-                  </div>
+                  <span className="text-xs font-extrabold text-white block whitespace-nowrap">
+                    {src.label}
+                  </span>
                 </div>
               );
             })}
