@@ -146,14 +146,14 @@ export function WhatsAppAiShowcase() {
           </div>
         </div>
 
-        {/* COLUNA DIREITA: VISUAL REALISTA DE WHATSAPP (DARK MODE OFICIAL) */}
+        {/* COLUNA DIREITA: VISUAL OFICIAL CLÁSSICO DO WHATSAPP */}
         <div className="lg:col-span-7">
-          <div className="rounded-[26px] bg-[#0B141A] border border-white/15 shadow-[0_28px_70px_rgba(0,0,0,0.65)] overflow-hidden max-w-[560px] mx-auto">
+          <div className="rounded-[26px] bg-[#EFEAE2] border-4 border-white/15 shadow-[0_28px_70px_rgba(0,0,0,0.65)] overflow-hidden max-w-[560px] mx-auto">
             
-            {/* Top Bar Oficial do WhatsApp */}
-            <div className="px-4 py-3 bg-[#202C33] border-b border-white/5 flex items-center justify-between gap-3">
+            {/* Top Bar Verde Oficial do WhatsApp (#075E54) */}
+            <div className="px-4 py-3 bg-[#075E54] flex items-center justify-between gap-3">
               <div className="flex items-center gap-3 min-w-0">
-                <div className="relative w-10 h-10 rounded-full bg-[#071A1E] border border-[#E8A33D]/70 flex items-center justify-center shrink-0">
+                <div className="relative w-10 h-10 rounded-full bg-[#071A1E] border-2 border-[#E8A33D] flex items-center justify-center shrink-0 shadow-xs">
                   <img
                     src="/brand/mont-finance-icone-ambar.png"
                     alt="Mont Finance IA"
@@ -161,36 +161,36 @@ export function WhatsAppAiShowcase() {
                   />
                 </div>
                 <div className="min-w-0">
-                  <strong className="text-sm font-semibold text-[#E9EDEF] block truncate leading-tight">
+                  <strong className="text-sm font-bold text-white block truncate leading-tight">
                     Mont Finance · IA
                   </strong>
-                  <span className="text-[11px] text-[#8696A0] block truncate">
+                  <span className="text-[11px] text-[#D9FDD3] block truncate">
                     online
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 text-[#AEBAC1] shrink-0">
-                <Video className="w-4 h-4 opacity-80" />
-                <Phone className="w-4 h-4 opacity-80" />
-                <MoreVertical className="w-4 h-4 opacity-80" />
+              <div className="flex items-center gap-4 text-white/90 shrink-0">
+                <Video className="w-4 h-4" />
+                <Phone className="w-4 h-4" />
+                <MoreVertical className="w-4 h-4" />
               </div>
             </div>
 
-            {/* Área de Mensagens com Fundo Característico do WhatsApp Dark */}
+            {/* Área de Mensagens com Papel de Parede Clássico Bege do WhatsApp (#EFEAE2) */}
             <div
               className="p-4 sm:p-5 min-h-[325px] flex flex-col justify-between relative"
               style={{
-                backgroundColor: "#0B141A",
+                backgroundColor: "#EFEAE2",
                 backgroundImage:
-                  "radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px)",
-                backgroundSize: "24px 24px",
-                backgroundPosition: "0 0, 12px 12px"
+                  "radial-gradient(rgba(11,20,26,0.06) 1px, transparent 1px), radial-gradient(rgba(11,20,26,0.04) 1px, transparent 1px)",
+                backgroundSize: "22px 22px",
+                backgroundPosition: "0 0, 11px 11px"
               }}
             >
               {/* Pill de Data "HOJE" estilo WhatsApp */}
               <div className="flex justify-center mb-3">
-                <span className="px-3 py-1 rounded-lg bg-[#182229] text-[#8696A0] text-[10px] font-medium uppercase tracking-wide shadow-xs">
+                <span className="px-3 py-1 rounded-lg bg-white/90 text-[#54656F] text-[10px] font-semibold uppercase tracking-wide shadow-xs">
                   Hoje
                 </span>
               </div>
@@ -204,47 +204,47 @@ export function WhatsAppAiShowcase() {
                   transition={{ duration: 0.2 }}
                   className="space-y-3 flex-1 flex flex-col justify-center"
                 >
-                  {/* Bolha Enviada pelo Gestor (Verde WhatsApp #005C4B) */}
+                  {/* Bolha Enviada pelo Gestor (Verde Claro Oficial #D9FDD3) */}
                   <div className="flex justify-end">
-                    <div className="relative max-w-[84%] px-3.5 py-2 rounded-lg rounded-tr-none bg-[#005C4B] text-[#E9EDEF] shadow-sm">
-                      <p className="text-[13px] leading-snug pr-12">
+                    <div className="relative max-w-[84%] px-3.5 py-2 rounded-lg rounded-tr-none bg-[#D9FDD3] text-[#111B21] shadow-[0_1px_2px_rgba(0,0,0,0.13)]">
+                      <p className="text-[13px] font-medium leading-snug pr-12">
                         {current.question}
                       </p>
-                      <span className="absolute bottom-1.5 right-2.5 inline-flex items-center gap-1 text-[10px] text-[#99BEB7]">
+                      <span className="absolute bottom-1.5 right-2.5 inline-flex items-center gap-1 text-[10px] text-[#667781]">
                         {current.timeUser}
                         <CheckCheck className="w-3.5 h-3.5 text-[#53BDEB]" />
                       </span>
                     </div>
                   </div>
 
-                  {/* Bolha Recebida da Mont Finance IA (Cinza Escuro WhatsApp #202C33) */}
+                  {/* Bolha Recebida da Mont Finance IA (Branca Oficial #FFFFFF) */}
                   <div className="flex justify-start">
-                    <div className="relative max-w-[92%] sm:max-w-[88%] px-3.5 py-2.5 rounded-lg rounded-tl-none bg-[#202C33] text-[#E9EDEF] shadow-sm space-y-2 text-[13px] leading-relaxed">
-                      <p className="font-semibold text-white">
+                    <div className="relative max-w-[92%] sm:max-w-[88%] px-3.5 py-2.5 rounded-lg rounded-tl-none bg-white text-[#111B21] shadow-[0_1px_2px_rgba(0,0,0,0.13)] space-y-2 text-[13px] leading-relaxed">
+                      <p className="font-bold text-[#111B21]">
                         {current.replyHeader}
                       </p>
 
                       <div className="space-y-1 pl-0.5">
                         {current.replyLines.map((line, idx) => (
                           <div key={idx} className="text-[12.5px]">
-                            <span className="text-[#D1D7DB]">{line.label} </span>
-                            <strong className="text-white font-bold">
+                            <span className="text-[#3B4A54]">{line.label} </span>
+                            <strong className="text-[#111B21] font-extrabold">
                               {line.value}
                             </strong>
                           </div>
                         ))}
                       </div>
 
-                      <p className="text-[12.5px] text-[#D1D7DB] pt-1 border-t border-white/10">
-                        <strong className="text-[#F5B85D]">💡 Recomendação:</strong>{" "}
+                      <p className="text-[12.5px] text-[#3B4A54] pt-1.5 border-t border-slate-200/80">
+                        <strong className="text-[#075E54]">💡 Recomendação:</strong>{" "}
                         {current.replyTip}
                       </p>
 
                       <div className="flex items-end justify-between gap-3 pt-0.5">
-                        <span className="text-[10.5px] italic text-[#8696A0]">
+                        <span className="text-[10.5px] italic text-[#667781]">
                           {current.source}
                         </span>
-                        <span className="text-[10px] text-[#8696A0] shrink-0">
+                        <span className="text-[10px] text-[#667781] shrink-0">
                           {current.timeBot}
                         </span>
                       </div>
@@ -254,19 +254,19 @@ export function WhatsAppAiShowcase() {
               </AnimatePresence>
             </div>
 
-            {/* Barra Inferior Oficial do WhatsApp */}
-            <div className="px-3 py-2.5 bg-[#202C33] flex items-center gap-2.5">
-              <div className="flex items-center gap-3 text-[#8696A0] pl-1">
+            {/* Barra Inferior Oficial do WhatsApp (#F0F2F5) */}
+            <div className="px-3 py-2.5 bg-[#F0F2F5] border-t border-slate-200/70 flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 text-[#54656F] pl-1">
                 <Smile className="w-5 h-5" />
                 <Paperclip className="w-5 h-5" />
               </div>
 
-              <div className="flex-1 px-4 py-2 rounded-full bg-[#2A3942] text-xs text-[#8696A0] flex items-center justify-between gap-2">
+              <div className="flex-1 px-4 py-2 rounded-full bg-white text-xs text-[#667781] flex items-center justify-between gap-2 shadow-2xs">
                 <span className="truncate">Mensagem</span>
-                <Camera className="w-4 h-4 shrink-0" />
+                <Camera className="w-4 h-4 shrink-0 text-[#54656F]" />
               </div>
 
-              <div className="w-9 h-9 rounded-full bg-[#00A884] text-[#0B141A] flex items-center justify-center shrink-0 shadow-sm">
+              <div className="w-9 h-9 rounded-full bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-sm">
                 <Mic className="w-4 h-4" />
               </div>
             </div>
