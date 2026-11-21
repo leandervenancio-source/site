@@ -219,17 +219,17 @@ export function Home() {
 
               {/* Subheadline Direta */}
               <p className="text-sm sm:text-base lg:text-lg text-slate-300 font-normal leading-relaxed mb-6 max-w-xl">
-                Integramos finanças, estratégia e capital com dados vivos do seu ERP e marketplaces para aumentar o lucro líquido e dar previsibilidade ao seu caixa.
+                Somos uma <strong className="text-white font-semibold">assessoria financeira especializada em e-commerces</strong>. Conectamos os dados da sua operação e sentamos com você todo mês para aumentar o lucro líquido e dar previsibilidade ao seu caixa.
               </p>
 
               {/* Faixa de Prova em Monospace com Ponto Vivo */}
               <div className="flex flex-wrap items-center gap-2 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-slate-300 mb-7">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399]"></span>
-                <span>OPERAÇÕES ACIMA DE R$ 3M/ANO</span>
+                <span className="text-[#F5B85D]">ASSESSORIA DEDICADA</span>
                 <span className="text-slate-600">·</span>
-                <span className="text-[#F5B85D]">DRE POR CANAL &amp; SKU</span>
+                <span>OPERAÇÕES ACIMA DE R$ 3M/ANO</span>
                 <span className="text-slate-600 hidden sm:inline">·</span>
-                <span className="hidden sm:inline">CAIXA 90D</span>
+                <span className="hidden sm:inline">BI + REUNIÕES MENSAIS</span>
               </div>
 
               {/* CTAs Estilo Startup */}

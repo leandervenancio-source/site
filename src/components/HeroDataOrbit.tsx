@@ -178,11 +178,11 @@ export function HeroDataOrbit() {
                 Mont Finance
               </span>
               <span className="px-1.5 py-0.5 rounded bg-[#E8A33D] text-[#071A1E] text-[8px] font-mono font-black uppercase tracking-wider">
-                Inteligência
+                Assessoria
               </span>
             </div>
             <span className="text-[10px] sm:text-[11px] font-mono text-slate-200 block mt-0.5">
-              Análise · Decisão · Execução
+              Time Sênior · Dados Vivos · Decisão
             </span>
           </div>
         </div>
