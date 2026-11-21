@@ -8,8 +8,7 @@ import {
   X,
   Linkedin,
   Target,
-  Sparkles,
-  Zap
+  Sparkles
 } from "lucide-react";
 import { DiagnosticForm } from "../components/DiagnosticForm";
 import { FinancialCockpit } from "../components/FinancialCockpit";
@@ -20,18 +19,6 @@ import { trackCtaClick } from "../lib/analytics";
 
 export function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const ecommerceIntegrations = [
-    "Bling",
-    "Tiny ERP",
-    "Shopify",
-    "Nuvemshop",
-    "Mercado Livre",
-    "Shopee",
-    "Meta Ads",
-    "Google Ads",
-    "Bancos / OFX"
-  ];
 
   const tickerItems = [
     "DRE POR CANAL E SKU",
@@ -266,36 +253,13 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          3.2 STACK DE INTEGRAÇÕES + COCKPIT DE INTELIGÊNCIA — [PRODUCT-FIRST NA 2ª DOBRA]
+          3.2 COCKPIT DE INTELIGÊNCIA — [PRODUCT-FIRST NA 2ª DOBRA]
       ========================================================================= */}
       <section id="grafico-100" className="py-10 sm:py-14 bg-[#071A1E] text-white border-b border-white/10 relative overflow-hidden">
         {/* Glow de fundo */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#0E4A55]/30 rounded-full blur-[140px] pointer-events-none"></div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          {/* Barra Compacta de Integrações do Ecossistema E-commerce */}
-          <div className="mb-7 p-3 sm:p-3.5 rounded-2xl bg-[#061518] border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-3">
-            <div className="flex items-center gap-2 shrink-0">
-              <div className="w-6 h-6 rounded-lg bg-[#E8A33D]/15 border border-[#E8A33D]/35 flex items-center justify-center text-[#F5B85D]">
-                <Zap className="w-3.5 h-3.5" />
-              </div>
-              <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-slate-200">
-                Conectado ao stack do seu e-commerce:
-              </span>
-            </div>
-            <div className="flex flex-wrap items-center justify-center lg:justify-end gap-1.5">
-              {ecommerceIntegrations.map((tool) => (
-                <span
-                  key={tool}
-                  className="px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-[10px] font-mono font-semibold text-slate-300 hover:border-[#E8A33D]/40 hover:text-white transition-colors"
-                >
-                  {tool}
-                </span>
-              ))}
-            </div>
-          </div>
-
           <FinancialCockpit />
         </div>
       </section>
