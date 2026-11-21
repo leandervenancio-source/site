@@ -70,6 +70,7 @@ export function Home() {
     { name: "Evolução Informática", src: "/clientes/logo-evolucao-white.png", className: "h-7 sm:h-9" },
     { name: "Inove Gôndolas", src: "/clientes/logo-inove-white.png", className: "h-9 sm:h-11" },
     { name: "Vantagro", src: "/clientes/logo-vantagro-white.png", className: "h-11 sm:h-14" },
+    { name: "Favorita Calçados", src: "/clientes/logo-favorita-white.png", className: "h-8 sm:h-10" },
     { name: "M", src: "/clientes/logo-m-white.png", className: "h-9 sm:h-11" }
   ];
 
