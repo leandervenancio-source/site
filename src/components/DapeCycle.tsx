@@ -8,11 +8,9 @@ import {
   RefreshCw,
   Check,
   Sparkles,
-  ArrowRight,
   Pause,
   Play
 } from "lucide-react";
-import { trackCtaClick } from "../lib/analytics";
 
 const STEP_DURATION = 5000;
 
@@ -348,57 +346,6 @@ export function DapeCycle() {
               </motion.div>
             </AnimatePresence>
           </div>
-        </div>
-      </div>
-
-      {/* ================= FECHAMENTO: O CICLO RECOMEÇA ================= */}
-      <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-[#071A1E] text-white relative overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#E8A33D]/15 rounded-full blur-[90px] pointer-events-none"></div>
-        <div className="relative flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div className="text-center lg:text-left max-w-xl">
-            <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
-              <RefreshCw className="w-4 h-4 text-[#F5B85D]" />
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#F5B85D]">
-                E o ciclo recomeça
-              </span>
-            </div>
-            <p className="text-base sm:text-lg font-bold leading-snug">
-              Cada execução gera novos dados, que alimentam a próxima análise.
-              <span className="text-slate-300 font-medium"> É assim que o lucro da operação cresce mês após mês, e não só uma vez.</span>
-            </p>
-          </div>
-
-          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-            {pillars.map((p, idx) => (
-              <div key={p.letter} className="flex items-center gap-1.5 sm:gap-2">
-                <span
-                  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center font-black font-mono text-sm transition-all duration-300 ${
-                    idx === active
-                      ? "bg-[#E8A33D] text-[#071A1E] scale-110"
-                      : "bg-white/10 text-white border border-white/15"
-                  }`}
-                >
-                  {p.letter}
-                </span>
-                {idx < pillars.length - 1 && <ArrowRight className="w-3.5 h-3.5 text-white/40" />}
-              </div>
-            ))}
-            <RefreshCw className="w-4 h-4 text-[#F5B85D] ml-1" />
-          </div>
-        </div>
-
-        <div className="relative mt-6 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-xs sm:text-sm text-slate-300 text-center sm:text-left">
-            No diagnóstico gratuito, mostramos como o DAPE se aplica à sua operação.
-          </span>
-          <a
-            href="#diagnostico"
-            onClick={() => trackCtaClick("dape_cta", "Aplicar o DAPE na minha empresa")}
-            className="shrink-0 px-5 py-3 rounded-xl bg-gradient-to-r from-[#E8A33D] to-[#F5B85D] text-[#071A1E] text-xs font-extrabold uppercase tracking-wider flex items-center gap-2 hover:-translate-y-0.5 transition-all shadow-[0_8px_24px_rgba(232,163,61,0.35)]"
-          >
-            <span>Aplicar o DAPE na minha empresa</span>
-            <ArrowRight className="w-4 h-4" />
-          </a>
         </div>
       </div>
     </div>
