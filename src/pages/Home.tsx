@@ -74,34 +74,46 @@ export function Home() {
 
   const comparisonRows = [
     {
-      criteria: "Papel na sua empresa",
-      mont: "Senta na mesa de decisão com inteligência financeira prática: orienta precificação, corte de desperdícios e alocação de caixa.",
-      tradicional: "Operacional burocrático: cumpre guias fiscais e conciliação bancária sem analisar o negócio.",
-      consultoria: "Teórico e distante: entrega uma planilha pesada ou slides e você executa sozinho."
+      criteria: "Foco em E-commerce",
+      mont: "100% e-commerce: CMV, marketplaces, frete, ads e NCG",
+      contabilidade: "Genérica (foco fiscal)",
+      bpo: "Operacional genérico",
+      consultoria: "Modelos corporativos teóricos"
     },
     {
-      criteria: "Especialização em E-commerce",
-      mont: "100% focado na dinâmica digital: taxas de marketplace, frete, devoluções, estoque e NCG.",
-      tradicional: "Atendimento genérico: trata sua loja online igual a uma padaria ou escritório.",
-      consultoria: "Modelos tradicionais corporativos que ignoram o descasamento de caixa do e-commerce."
+      criteria: "BI & Dados Integrados",
+      mont: "Painel vivo conectado a ERP, canais, mídia e bancos",
+      contabilidade: "Balancete atrasado",
+      bpo: "Lança no ERP, sem BI",
+      consultoria: "Planilhas estáticas"
     },
     {
-      criteria: "Três Frentes Integradas",
-      mont: "Finanças, Estratégia e Capital analisados juntos para maximizar margem, clareza e caixa.",
-      tradicional: "Olha apenas a guia de imposto a pagar, sem visão estratégica ou análise de margem por canal.",
-      consultoria: "Analisa custos isolados sem conexão com estratégia prática e crédito bancário."
+      criteria: "Lucro Real por Canal e SKU",
+      mont: "DRE gerencial detalhada por canal e produto",
+      contabilidade: "Visão fiscal agregada",
+      bpo: "Apenas fluxo de caixa",
+      consultoria: "Análise pontual e isolada"
     },
     {
-      criteria: "Rotina e Acompanhamento",
-      mont: "Presença contínua: reuniões executivas mensais, leitura de variância e forecast dos próximos meses.",
-      tradicional: "Visão pelo retrovisor: fecha o balancete fiscal semanas após o mês terminar.",
-      consultoria: "Projeto pontual com início e fim, sem acompanhamento da implementação prática."
+      criteria: "Previsão de Caixa (90d)",
+      mont: "Projeção ativa para zerar antecipação de recebíveis",
+      contabilidade: "Olha só o passado",
+      bpo: "Registra o que já venceu",
+      consultoria: "Sem acompanhamento contínuo"
     },
     {
-      criteria: "Foco no Resultado Final",
-      mont: "Lucro líquido real no bolso, previsibilidade no fluxo de caixa e redução estrutural de riscos.",
-      tradicional: "Apenas conformidade legal para evitar multas de órgãos fiscais.",
-      consultoria: "Foco na entrega do relatório contratado, independentemente do caixa melhorar."
+      criteria: "Direção Estratégica Mensal",
+      mont: "Reunião de decisão com plano de ação acompanhado",
+      contabilidade: "Sem análise de negócio",
+      bpo: "Só executa pagamentos",
+      consultoria: "Entrega slides e vai embora"
+    },
+    {
+      criteria: "Rotina Diária (Opcional)",
+      mont: "Inclusa no CFO Full quando não há equipe interna",
+      contabilidade: "Não opera o financeiro",
+      bpo: "Faz rotina, sem estratégia",
+      consultoria: "Não executa rotina"
     }
   ];
 
@@ -553,7 +565,7 @@ export function Home() {
       </section>
 
       {/* =========================================================================
-          8. BLOCO COMPARATIVO (Estilo Growth Machine: "Nós vs O Mercado") — [SESSÃO CLARA: #FFFFFF]
+          8. BLOCO COMPARATIVO — MONT FINANCE VS. MERCADO (DESIGN MODERNO FINTECH)
       ========================================================================= */}
       <section id="comparativo" className="py-12 sm:py-16 bg-white text-slate-900 border-b border-slate-200 relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -561,65 +573,89 @@ export function Home() {
           <div className="text-center max-w-4xl mx-auto mb-9">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
-              Posicionamento
+              Comparativo Direto
             </div>
             <h3 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2.5 leading-tight text-balance">
-              Por que a contabilidade comum ou uma consultoria teórica{" "}
+              Por que contabilidade, BPO comum ou consultoria teórica{" "}
               <span className="text-[#0E4A55]">não aumentam o seu lucro?</span>
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
-              Enquanto a contabilidade tradicional apenas cumpre obrigações fiscais e consultores entregam relatórios teóricos e vão embora, a Mont Finance assume a inteligência financeira do seu e-commerce com você.
+              Veja na prática o que separa a inteligência financeira especializada em e-commerce da Mont Finance dos modelos tradicionais do mercado.
             </p>
           </div>
 
-          {/* Tabela Desktop */}
-          <div className="hidden md:block overflow-hidden rounded-3xl bg-white border border-slate-200 shadow-xl max-w-5xl mx-auto">
+          {/* Tabela Desktop — Coluna Mont Finance em Destaque Escuro + Borda Dourada */}
+          <div className="hidden lg:block overflow-hidden rounded-3xl bg-white border border-slate-200/90 shadow-[0_20px_60px_-20px_rgba(7,26,30,0.12)] max-w-6xl mx-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50/70">
-                  <th className="p-5 text-xs font-bold uppercase tracking-wider text-slate-500 w-1/4">
-                    O que sua operação precisa
+                <tr className="border-b border-slate-200">
+                  <th className="py-4 px-5 text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500 bg-slate-50/80 w-[19%]">
+                    O que seu e-commerce precisa
                   </th>
-                  <th className="p-5 text-xs font-extrabold uppercase tracking-wider text-white bg-[#0E4A55] border-x border-[#0E4A55] w-1/3 shadow-sm">
-                    <div className="flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-[#E8A33D]" />
-                      <span>Mont Finance (Inteligência Financeira)</span>
+                  <th className="py-4 px-5 bg-[#071A1E] border-t-4 border-t-[#E8A33D] border-x border-[#0E4A55] w-[27%]">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-7 h-7 rounded-lg bg-[#E8A33D]/15 border border-[#E8A33D]/40 flex items-center justify-center shrink-0">
+                        <img
+                          src="/brand/mont-finance-icone-ambar.png"
+                          alt="Mont Finance"
+                          className="w-4 h-4 object-contain"
+                        />
+                      </div>
+                      <div>
+                        <span className="text-xs font-black uppercase tracking-wider text-white block leading-none">
+                          Mont Finance
+                        </span>
+                        <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-[#F5B85D]">
+                          Inteligência Financeira
+                        </span>
+                      </div>
                     </div>
                   </th>
-                  <th className="p-5 text-xs font-bold uppercase tracking-wider text-slate-500 w-1/5">
-                    Contabilidade Tradicional
+                  <th className="py-4 px-4 text-[11px] font-extrabold uppercase tracking-wider text-slate-500 bg-slate-50/80 w-[18%]">
+                    Contabilidade
                   </th>
-                  <th className="p-5 text-xs font-bold uppercase tracking-wider text-slate-500 w-1/5">
+                  <th className="py-4 px-4 text-[11px] font-extrabold uppercase tracking-wider text-slate-500 bg-slate-50/80 w-[18%]">
+                    BPO Financeiro
+                  </th>
+                  <th className="py-4 px-4 text-[11px] font-extrabold uppercase tracking-wider text-slate-500 bg-slate-50/80 w-[18%]">
                     Consultoria Tradicional
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 text-xs">
                 {comparisonRows.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-slate-50/60 transition-colors">
-                    <td className="p-5 font-bold text-slate-800 align-top">
+                  <tr key={idx} className="group hover:bg-slate-50/70 transition-colors">
+                    <td className="py-3.5 px-5 font-extrabold text-slate-800 align-middle">
                       {row.criteria}
                     </td>
-                    <td className="p-5 bg-[#0E4A55]/05 border-x border-[#0E4A55]/15 text-slate-900 font-semibold align-top leading-relaxed">
+                    <td className="py-3.5 px-5 bg-[#0A272D] border-x border-[#0E4A55] border-b border-b-white/10 text-white font-semibold align-middle leading-snug">
                       <div className="flex items-start gap-2.5">
-                        <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                          <Check className="w-3 h-3 stroke-[3]" />
+                        <div className="w-4 h-4 rounded-full bg-emerald-400/20 border border-emerald-400/50 text-emerald-300 flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-2.5 h-2.5 stroke-[3]" />
                         </div>
                         <span>{row.mont}</span>
                       </div>
                     </td>
-                    <td className="p-5 text-slate-500 font-normal align-top leading-relaxed">
-                      <div className="flex items-start gap-2.5">
-                        <div className="w-4 h-4 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 mt-0.5">
-                          <X className="w-3 h-3 stroke-[2.5]" />
+                    <td className="py-3.5 px-4 text-slate-500 font-medium align-middle leading-snug">
+                      <div className="flex items-start gap-2">
+                        <div className="w-4 h-4 rounded-full bg-rose-50 text-rose-400 flex items-center justify-center shrink-0 mt-0.5">
+                          <X className="w-2.5 h-2.5 stroke-[2.5]" />
                         </div>
-                        <span>{row.tradicional}</span>
+                        <span>{row.contabilidade}</span>
                       </div>
                     </td>
-                    <td className="p-5 text-slate-500 font-normal align-top leading-relaxed">
-                      <div className="flex items-start gap-2.5">
-                        <div className="w-4 h-4 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center shrink-0 mt-0.5">
-                          <X className="w-3 h-3 stroke-[2.5]" />
+                    <td className="py-3.5 px-4 text-slate-500 font-medium align-middle leading-snug">
+                      <div className="flex items-start gap-2">
+                        <div className="w-4 h-4 rounded-full bg-amber-50 text-amber-500 flex items-center justify-center shrink-0 mt-0.5">
+                          <X className="w-2.5 h-2.5 stroke-[2.5]" />
+                        </div>
+                        <span>{row.bpo}</span>
+                      </div>
+                    </td>
+                    <td className="py-3.5 px-4 text-slate-500 font-medium align-middle leading-snug">
+                      <div className="flex items-start gap-2">
+                        <div className="w-4 h-4 rounded-full bg-rose-50 text-rose-400 flex items-center justify-center shrink-0 mt-0.5">
+                          <X className="w-2.5 h-2.5 stroke-[2.5]" />
                         </div>
                         <span>{row.consultoria}</span>
                       </div>
@@ -630,25 +666,29 @@ export function Home() {
             </table>
           </div>
 
-          {/* Versão Mobile (Cards de Comparação) */}
-          <div className="md:hidden space-y-4">
+          {/* Versão Mobile / Tablet (Cards Limpos de Comparação) */}
+          <div className="lg:hidden space-y-3.5">
             {comparisonRows.map((row, idx) => (
-              <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-slate-100 pb-2">
+              <div key={idx} className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2.5">
+                <div className="text-xs font-extrabold uppercase tracking-wider text-slate-900 border-b border-slate-100 pb-2">
                   {row.criteria}
                 </div>
                 
-                <div className="p-3.5 rounded-xl bg-[#0E4A55]/08 border border-[#0E4A55]/30 space-y-1">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] flex items-center gap-1.5">
-                    <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" /> Mont Finance
+                <div className="p-3 rounded-xl bg-[#0A272D] border border-[#E8A33D]/50 space-y-1">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#F5B85D] flex items-center gap-1.5">
+                    <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[3]" /> Mont Finance
                   </span>
-                  <p className="text-xs text-slate-900 font-semibold leading-relaxed">{row.mont}</p>
+                  <p className="text-xs text-white font-semibold leading-snug">{row.mont}</p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-500 pt-1">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] text-slate-500">
                   <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                    <span className="font-bold block text-slate-700 mb-0.5">Contabilidade Tradicional:</span>
-                    {row.tradicional}
+                    <span className="font-bold block text-slate-700 mb-0.5">Contabilidade:</span>
+                    {row.contabilidade}
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="font-bold block text-slate-700 mb-0.5">BPO Financeiro:</span>
+                    {row.bpo}
                   </div>
                   <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
                     <span className="font-bold block text-slate-700 mb-0.5">Consultoria:</span>
