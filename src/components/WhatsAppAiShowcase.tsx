@@ -32,15 +32,18 @@ const scenarios: AiScenario[] = [
     question: "Quanto sobrou de lucro líquido no mês até hoje?",
     timeUser: "14:18",
     timeBot: "14:18",
-    replyHeader: "Resumo consolidado do mês até agora:",
+    replyHeader: "📊 Fechamento parcial do mês (até hoje às 14h):",
     replyLines: [
-      { label: "💰 Faturamento:", value: "R$ 1.648.420" },
-      { label: "📦 CMV (38%):", value: "- R$ 626.400" },
-      { label: "📈 Lucro líquido real:", value: "R$ 225.904 (13,7%)" }
+      { label: "💰 Receita Bruta:", value: "R$ 1.648.420 (+18% vs. mês ant.)" },
+      { label: "📦 CMV (Mercadoria):", value: "- R$ 626.400 (38,0%)" },
+      { label: "🧾 Impostos + Taxas + Frete:", value: "- R$ 478.042 (29,0%)" },
+      { label: "📣 Mídia (Meta + Google):", value: "- R$ 186.200 (ROAS 8,85x)" },
+      { label: "🏢 Despesas Fixas:", value: "- R$ 131.874 (8,0%)" },
+      { label: "✅ Lucro Líquido Real:", value: "R$ 225.904 (13,7% · +2,4 p.p.)" }
     ],
     replyTip:
-      "O Site Próprio gerou 81% de todo o lucro do mês (margem líquida de 19%).",
-    source: "Fonte: DRE Gerencial + ERP"
+      "O Site Próprio sozinho gerou 81% do seu lucro (margem de 19%). Realocando R$ 25 mil da verba restante para kits de maior ticket no Site, você fecha o mês acima de R$ 265 mil de lucro líquido.",
+    source: "Fonte: DRE Gerencial + ERP · Atualizado agora"
   },
   {
     id: "canal",
@@ -48,15 +51,15 @@ const scenarios: AiScenario[] = [
     question: "Qual canal está deixando mais margem líquida hoje?",
     timeUser: "15:04",
     timeBot: "15:04",
-    replyHeader: "Ranking de margem líquida (após CMV, taxas, frete e ads):",
+    replyHeader: "🏆 Ranking de rentabilidade líquida (após CMV, impostos, taxas, frete e ads):",
     replyLines: [
-      { label: "🟢 Site Próprio:", value: "19% (R$ 183,2 mil)" },
-      { label: "🟡 Mercado Livre:", value: "8% (R$ 30,6 mil)" },
-      { label: "🔴 Shopee:", value: "4% (R$ 12,1 mil)" }
+      { label: "1️⃣ Site Próprio:", value: "19,0% · R$ 183.221 (Ticket R$ 218)" },
+      { label: "2️⃣ Mercado Livre:", value: "8,0% · R$ 30.611 (Taxa+Frete 27%)" },
+      { label: "3️⃣ Shopee:", value: "4,0% · R$ 12.072 (Taxa+Cupom 20%)" }
     ],
     replyTip:
-      "Cupons e comissão na Shopee estão consumindo 20% da venda. Vale travar o desconto mínimo.",
-    source: "Fonte: BI Canais + Marketplaces"
+      "Na Shopee, 14 SKUs promocionais estão com margem negativa (-4,2%) por causa de cupom + frete. Pausar Ads nesses 14 itens e reajustar o preço em +9% recupera R$ 18.400/mês direto no seu lucro.",
+    source: "Fonte: BI Canais + Marketplaces · Atualizado agora"
   },
   {
     id: "caixa",
@@ -64,15 +67,17 @@ const scenarios: AiScenario[] = [
     question: "Como está a previsão do meu caixa para os próximos 30 dias?",
     timeUser: "09:32",
     timeBot: "09:32",
-    replyHeader: "Projeção de caixa para os próximos 30 dias:",
+    replyHeader: "💸 Projeção de Fluxo de Caixa (próximos 30 dias):",
     replyLines: [
-      { label: "🏦 Saldo hoje em conta:", value: "R$ 380.000" },
-      { label: "⚠️ Pico de saídas (dia 15):", value: "- R$ 148.500" },
-      { label: "✅ Saldo projetado (30d):", value: "R$ 512.000" }
+      { label: "🏦 Saldo disponível hoje:", value: "R$ 380.000" },
+      { label: "📥 Entradas previstas:", value: "+ R$ 1.190.500 (Site + ML + Shopee)" },
+      { label: "📤 Saídas previstas:", value: "- R$ 1.058.500 (Fornec. + Imp. + Ads)" },
+      { label: "⚠️ Alerta no Dia 15:", value: "Pico de R$ 148.500 (Fornecedor A + ICMS)" },
+      { label: "✅ Saldo projetado em 30d:", value: "R$ 512.000 (+R$ 132k livre)" }
     ],
     replyTip:
-      "O repasse do Mercado Livre cai no dia 16. Segure R$ 45 mil em conta para pagar fornecedores sem antecipar recebível.",
-    source: "Fonte: Fluxo de Caixa 90d + Bancos"
+      "O repasse de R$ 94 mil do Mercado Livre cai só no dia 16. Mantendo R$ 50 mil de reserva na conta até o dia 15, você paga tudo em dia e economiza R$ 22.400/mês sem antecipar recebíveis.",
+    source: "Fonte: Fluxo de Caixa 90d + Bancos · Atualizado agora"
   },
   {
     id: "estoque",
@@ -80,15 +85,16 @@ const scenarios: AiScenario[] = [
     question: "Quanto tenho parado em estoque de baixo giro (Curva C)?",
     timeUser: "11:47",
     timeBot: "11:47",
-    replyHeader: "Raio-X de estoque parado (+90 dias sem giro):",
+    replyHeader: "📦 Diagnóstico de Estoque Parado (Curva C · +90 dias sem giro):",
     replyLines: [
-      { label: "📦 CMV imobilizado:", value: "R$ 310.000" },
-      { label: "🏷️ Quantidade Curva C:", value: "42 SKUs" },
-      { label: "📉 Custo financeiro:", value: "- R$ 6.200/mês" }
+      { label: "🔒 Capital travado (CMV):", value: "R$ 310.000 em 42 SKUs" },
+      { label: "⏳ Tempo médio no galpão:", value: "115 dias sem venda" },
+      { label: "🔥 Custo financeiro mensal:", value: "- R$ 6.200/mês drenando caixa" },
+      { label: "🎯 Maiores gargalos:", value: "Coleção Anterior (R$ 142k) e Linha Basic (R$ 98k)" }
     ],
     replyTip:
-      "Um combo de liquidação com 20% OFF no Site Próprio libera ~R$ 190 mil em caixa vivo em 30 dias.",
-    source: "Fonte: ERP Estoque + Curva ABC"
+      "Montando um combo 'Leve 3' com 20% OFF no Site Próprio para sua base de CRM, você transforma ~R$ 190 mil desse estoque em caixa vivo em 30 dias — sem canibalizar os produtos Curva A.",
+    source: "Fonte: ERP Estoque + Curva ABC · Atualizado agora"
   }
 ];
 
