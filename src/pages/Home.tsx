@@ -521,6 +521,14 @@ export function Home() {
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
+                    <span><strong className="text-white">Revisão tributária estratégica:</strong> análise do regime e do impacto fiscal na margem e na formação de preço por canal.</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
+                    <span><strong className="text-white">Apoio na captação de recursos:</strong> preparação dos números e suporte na negociação de crédito com bancos em melhores condições.</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
                     <span><strong className="text-white">Reunião executiva mensal:</strong> plano de ação objetivo acompanhado lado a lado com especialista sênior.</span>
                   </li>
                 </ul>
@@ -562,7 +570,7 @@ export function Home() {
                 <ul className="space-y-2.5 mb-5 text-xs sm:text-[13px] text-slate-700 leading-snug">
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
-                    <span><strong className="text-slate-900">Tudo o que está no CFO Pro:</strong> BI em tempo real, DRE por canal/SKU, caixa 90d e estratégia mensal.</span>
+                    <span><strong className="text-slate-900">Tudo o que está no CFO Pro:</strong> BI + IA no WhatsApp, DRE por canal/SKU, caixa 90d, revisão tributária e apoio em captação de recursos.</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
