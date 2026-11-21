@@ -6,6 +6,7 @@ import {
   AlertTriangle, 
   Check, 
   X,
+  Minus,
   Linkedin,
   Target,
   Sparkles
@@ -72,50 +73,89 @@ export function Home() {
     { name: "M", src: "/clientes/logo-m-white.png", className: "h-9 sm:h-11" }
   ];
 
-  const comparisonRows = [
+  type CompStatus = "yes" | "partial" | "no";
+
+  const comparisonRows: {
+    criteria: string;
+    mont: string;
+    contabilidade: { text: string; status: CompStatus };
+    bpo: { text: string; status: CompStatus };
+    consultoria: { text: string; status: CompStatus };
+  }[] = [
     {
       criteria: "Foco em E-commerce",
       mont: "100% e-commerce: CMV, marketplaces, frete, ads e NCG",
-      contabilidade: "Genérica (foco fiscal)",
-      bpo: "Operacional genérico",
-      consultoria: "Modelos corporativos teóricos"
+      contabilidade: { text: "Genérica (foco fiscal)", status: "no" },
+      bpo: { text: "Operacional genérico", status: "partial" },
+      consultoria: { text: "Modelos corporativos teóricos", status: "no" }
     },
     {
       criteria: "BI & Dados Integrados",
       mont: "Painel vivo conectado a ERP, canais, mídia e bancos",
-      contabilidade: "Balancete atrasado",
-      bpo: "Lança no ERP, sem BI",
-      consultoria: "Planilhas estáticas"
+      contabilidade: { text: "Balancete mensal atrasado", status: "no" },
+      bpo: { text: "Lança no ERP, sem BI", status: "partial" },
+      consultoria: { text: "Planilhas estáticas", status: "partial" }
     },
     {
       criteria: "Lucro Real por Canal e SKU",
       mont: "DRE gerencial detalhada por canal e produto",
-      contabilidade: "Visão fiscal agregada",
-      bpo: "Apenas fluxo de caixa",
-      consultoria: "Análise pontual e isolada"
+      contabilidade: { text: "DRE fiscal agregada", status: "partial" },
+      bpo: { text: "Apenas fluxo de caixa", status: "no" },
+      consultoria: { text: "Análise pontual e isolada", status: "partial" }
     },
     {
       criteria: "Previsão de Caixa (90d)",
       mont: "Projeção ativa para zerar antecipação de recebíveis",
-      contabilidade: "Olha só o passado",
-      bpo: "Registra o que já venceu",
-      consultoria: "Sem acompanhamento contínuo"
+      contabilidade: { text: "Olha só o passado", status: "no" },
+      bpo: { text: "Fluxo de curto prazo", status: "partial" },
+      consultoria: { text: "Projeção pontual no projeto", status: "partial" }
     },
     {
       criteria: "Direção Estratégica Mensal",
       mont: "Reunião de decisão com plano de ação acompanhado",
-      contabilidade: "Sem análise de negócio",
-      bpo: "Só executa pagamentos",
-      consultoria: "Entrega slides e vai embora"
+      contabilidade: { text: "Sem análise de negócio", status: "no" },
+      bpo: { text: "Foco operacional", status: "no" },
+      consultoria: { text: "Diagnóstico sem rotina contínua", status: "partial" }
     },
     {
       criteria: "Rotina Diária (Opcional)",
       mont: "Inclusa no CFO Full quando não há equipe interna",
-      contabilidade: "Não opera o financeiro",
-      bpo: "Faz rotina, sem estratégia",
-      consultoria: "Não executa rotina"
+      contabilidade: { text: "Não opera o financeiro", status: "no" },
+      bpo: { text: "Executa rotina diária", status: "yes" },
+      consultoria: { text: "Não executa rotina", status: "no" }
     }
   ];
+
+  const renderStatusIcon = (status: CompStatus) => {
+    if (status === "yes") {
+      return (
+        <div
+          title="Entrega"
+          className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5"
+        >
+          <Check className="w-2.5 h-2.5 stroke-[3]" />
+        </div>
+      );
+    }
+    if (status === "partial") {
+      return (
+        <div
+          title="Entrega parcial"
+          className="w-4 h-4 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5"
+        >
+          <Minus className="w-2.5 h-2.5 stroke-[3]" />
+        </div>
+      );
+    }
+    return (
+      <div
+        title="Não entrega"
+        className="w-4 h-4 rounded-full bg-rose-50 text-rose-400 flex items-center justify-center shrink-0 mt-0.5"
+      >
+        <X className="w-2.5 h-2.5 stroke-[2.5]" />
+      </div>
+    );
+  };
 
   const faqs = [
     {
@@ -636,34 +676,56 @@ export function Home() {
                         <span>{row.mont}</span>
                       </div>
                     </td>
-                    <td className="py-3.5 px-4 text-slate-500 font-medium align-middle leading-snug">
+                    <td className="py-3.5 px-4 text-slate-600 font-medium align-middle leading-snug">
                       <div className="flex items-start gap-2">
-                        <div className="w-4 h-4 rounded-full bg-rose-50 text-rose-400 flex items-center justify-center shrink-0 mt-0.5">
-                          <X className="w-2.5 h-2.5 stroke-[2.5]" />
-                        </div>
-                        <span>{row.contabilidade}</span>
+                        {renderStatusIcon(row.contabilidade.status)}
+                        <span className={row.contabilidade.status === "yes" ? "text-slate-800 font-semibold" : ""}>
+                          {row.contabilidade.text}
+                        </span>
                       </div>
                     </td>
-                    <td className="py-3.5 px-4 text-slate-500 font-medium align-middle leading-snug">
+                    <td className="py-3.5 px-4 text-slate-600 font-medium align-middle leading-snug">
                       <div className="flex items-start gap-2">
-                        <div className="w-4 h-4 rounded-full bg-amber-50 text-amber-500 flex items-center justify-center shrink-0 mt-0.5">
-                          <X className="w-2.5 h-2.5 stroke-[2.5]" />
-                        </div>
-                        <span>{row.bpo}</span>
+                        {renderStatusIcon(row.bpo.status)}
+                        <span className={row.bpo.status === "yes" ? "text-slate-800 font-semibold" : ""}>
+                          {row.bpo.text}
+                        </span>
                       </div>
                     </td>
-                    <td className="py-3.5 px-4 text-slate-500 font-medium align-middle leading-snug">
+                    <td className="py-3.5 px-4 text-slate-600 font-medium align-middle leading-snug">
                       <div className="flex items-start gap-2">
-                        <div className="w-4 h-4 rounded-full bg-rose-50 text-rose-400 flex items-center justify-center shrink-0 mt-0.5">
-                          <X className="w-2.5 h-2.5 stroke-[2.5]" />
-                        </div>
-                        <span>{row.consultoria}</span>
+                        {renderStatusIcon(row.consultoria.status)}
+                        <span className={row.consultoria.status === "yes" ? "text-slate-800 font-semibold" : ""}>
+                          {row.consultoria.text}
+                        </span>
                       </div>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Legenda Discreta da Matriz (Desktop) */}
+          <div className="hidden lg:flex items-center justify-end gap-5 max-w-6xl mx-auto mt-3 px-2 text-[11px] font-mono text-slate-500">
+            <span className="inline-flex items-center gap-1.5">
+              <span className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 inline-flex items-center justify-center">
+                <Check className="w-2.5 h-2.5 stroke-[3]" />
+              </span>
+              Entrega completa
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <span className="w-4 h-4 rounded-full bg-amber-100 text-amber-700 inline-flex items-center justify-center">
+                <Minus className="w-2.5 h-2.5 stroke-[3]" />
+              </span>
+              Parcial / pontual
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <span className="w-4 h-4 rounded-full bg-rose-50 text-rose-400 inline-flex items-center justify-center">
+                <X className="w-2.5 h-2.5 stroke-[2.5]" />
+              </span>
+              Não entrega
+            </span>
           </div>
 
           {/* Versão Mobile / Tablet (Cards Limpos de Comparação) */}
@@ -682,17 +744,26 @@ export function Home() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] text-slate-500">
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                    <span className="font-bold block text-slate-700 mb-0.5">Contabilidade:</span>
-                    {row.contabilidade}
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-2">
+                    {renderStatusIcon(row.contabilidade.status)}
+                    <div>
+                      <span className="font-bold block text-slate-700 mb-0.5">Contabilidade:</span>
+                      {row.contabilidade.text}
+                    </div>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                    <span className="font-bold block text-slate-700 mb-0.5">BPO Financeiro:</span>
-                    {row.bpo}
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-2">
+                    {renderStatusIcon(row.bpo.status)}
+                    <div>
+                      <span className="font-bold block text-slate-700 mb-0.5">BPO Financeiro:</span>
+                      {row.bpo.text}
+                    </div>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                    <span className="font-bold block text-slate-700 mb-0.5">Consultoria:</span>
-                    {row.consultoria}
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-2">
+                    {renderStatusIcon(row.consultoria.status)}
+                    <div>
+                      <span className="font-bold block text-slate-700 mb-0.5">Consultoria:</span>
+                      {row.consultoria.text}
+                    </div>
                   </div>
                 </div>
               </div>
