@@ -428,49 +428,50 @@ export function Home() {
             {/* Opção 01 — CFO Pro */}
             <div id="cfo-pro" className="p-6 sm:p-8 rounded-3xl bg-[#0A272D] border-2 border-[#E8A33D] transition-all flex flex-col justify-between shadow-[0_24px_60px_-20px_rgba(7,26,30,0.55),0_0_35px_rgba(232,163,61,0.18)] relative">
               <div>
-                <div className="flex items-center justify-between gap-2 mb-4">
+                <div className="flex items-center justify-between gap-2 mb-3">
                   <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#E8A33D] text-[#071A1E]">
                     Opção 01
                   </span>
                   <span className="text-xs font-semibold text-[#F5B85D]">
-                    Inteligência Financeira + Controladoria
+                    Inteligência + Estratégia
                   </span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-2">
                   CFO Pro
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed mb-6">
-                  <strong className="text-white">Inteligência financeira para e-commerces</strong> com a controladoria da empresa organizada. Você passa a saber qual canal e qual produto dão lucro de verdade, quanto caixa está parado e decide todo mês com um plano de ação acompanhado.
+                <p className="text-xs sm:text-sm text-slate-300 font-medium leading-snug mb-5">
+                  Para quem já tem financeiro interno e precisa de clareza para aumentar lucro e caixa.
                 </p>
 
-                <ul className="space-y-3 mb-7 text-xs sm:text-sm text-slate-200">
-                  <li className="flex items-start gap-3">
+                <ul className="space-y-2.5 mb-6 text-xs sm:text-sm text-slate-200">
+                  <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>Controladoria organizada com apuração de margem real por canal e por produto</span>
+                    <span><strong className="text-white">DRE e lucro real</strong> por canal (Site, ML, Shopee) e SKU</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>Visão clara de quanto caixa está parado e para onde o dinheiro vai</span>
+                    <span><strong className="text-white">Painel vivo (BI)</strong> com vendas, CMV, ROAS e margem</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>DRE gerencial e fluxo de caixa com projeção futura</span>
+                    <span><strong className="text-white">Previsão de caixa 90d</strong> para zerar antecipação de recebíveis</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>FP&A integrado: orçamento, forecast e análise de variância</span>
+                    <span><strong className="text-white">Curva ABC e estoque</strong> para destravar dinheiro parado</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span>Rito mensal de decisão executiva com plano de ação acompanhado</span>
+                    <span><strong className="text-white">Orçamento e precificação</strong> com metas claras por canal</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
+                    <span><strong className="text-white">Reunião mensal</strong> de decisão com plano de ação</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="pt-5 border-t border-white/10">
-                <span className="text-xs text-slate-400 block mb-5 leading-relaxed">
-                  <strong className="text-slate-200">Ideal para:</strong> e-commerces que já têm quem rode o operacional do dia a dia, mas precisam de inteligência financeira, clareza de lucro real e direção estratégica mensal.
-                </span>
+              <div className="pt-4 border-t border-white/10">
                 <a 
                   href="#diagnostico" 
                   onClick={() => trackCtaClick("cfo_pro", "Agendar para CFO Pro")}
@@ -485,49 +486,50 @@ export function Home() {
             {/* Opção 02 — CFO Full */}
             <div id="cfo-full" className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#0E4A55]/40 flex flex-col justify-between transition-all duration-300 shadow-lg hover:shadow-xl group">
               <div>
-                <div className="flex items-center justify-between gap-2 mb-4">
+                <div className="flex items-center justify-between gap-2 mb-3">
                   <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#0E4A55]/10 text-[#0E4A55]">
                     Opção 02
                   </span>
                   <span className="text-xs font-semibold text-[#B27318]">
-                    CFO Pro + Execução Financeira
+                    Inteligência + Rotina Diária
                   </span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
                   CFO Full
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6">
-                  Para operações sem equipe interna para rodar o financeiro do dia a dia. Inclui tudo do CFO Pro somado à <strong className="text-slate-900">execução completa da rotina financeira operacional</strong>, conduzida sob a direção da nossa equipe.
+                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-snug mb-5">
+                  Para quem não tem equipe financeira interna e quer delegar o dia a dia e a estratégia.
                 </p>
 
-                <ul className="space-y-3 mb-7 text-xs sm:text-sm text-slate-700">
-                  <li className="flex items-start gap-3">
+                <ul className="space-y-2.5 mb-6 text-xs sm:text-sm text-slate-700">
+                  <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
-                    <span className="font-semibold text-slate-900">Tudo o que está incluído no CFO Pro</span>
+                    <span><strong className="text-slate-900">Tudo do CFO Pro</strong> (BI, DRE, caixa 90d e estratégia)</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
-                    <span>Execução completa da rotina financeira operacional no dia a dia</span>
+                    <span><strong className="text-slate-900">Contas a pagar e receber</strong> operadas no dia a dia</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
-                    <span>Estrutura desenhada para operações sem equipe financeira interna</span>
+                    <span><strong className="text-slate-900">Conciliação diária</strong> de bancos, Pix, cartões e gateways</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
-                    <span>Contas a pagar, receber, conciliação e fechamento sob nossa direção</span>
+                    <span><strong className="text-slate-900">Conferência de repasses</strong> de marketplaces e taxas</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
-                    <span>Liberação de tempo da liderança para focar na expansão comercial</span>
+                    <span><strong className="text-slate-900">Fechamento mensal</strong> organizado junto à contabilidade</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#0E4A55] shrink-0 mt-0.5" />
+                    <span><strong className="text-slate-900">Zero carga operacional</strong> para você focar em vender</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="pt-5 border-t border-slate-100">
-                <span className="text-xs text-slate-500 block mb-5 leading-relaxed">
-                  <strong className="text-slate-800">Ideal para:</strong> e-commerces que, além da inteligência financeira do CFO Pro, precisam delegar a execução da rotina financeira operacional para nossa equipe.
-                </span>
+              <div className="pt-4 border-t border-slate-100">
                 <a 
                   href="#diagnostico" 
                   onClick={() => trackCtaClick("cfo_full", "Agendar para CFO Full")}
