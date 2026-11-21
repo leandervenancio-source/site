@@ -5,7 +5,7 @@ import { resetCookieConsent } from "./CookieBanner";
 
 export function Footer() {
   return (
-    <footer className="bg-[#071A1E] text-slate-400 py-16 border-t border-white/10">
+    <footer className="bg-[#071A1E] text-slate-400 py-10 sm:py-12 border-t border-white/10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           

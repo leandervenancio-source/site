@@ -138,7 +138,7 @@ export function Home() {
       {/* =========================================================================
           1 & 2. HERO — [ESTILO STARTUP / FINTECH: 2 COLUNAS ASSIMÉTRICAS NA PALETA MONT]
       ========================================================================= */}
-      <section id="topo" className="relative min-h-[92dvh] flex flex-col justify-center pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-28 lg:pb-16 overflow-hidden bg-[#061518] text-white border-b border-white/10">
+      <section id="topo" className="relative min-h-[86dvh] flex flex-col justify-center pt-24 pb-10 sm:pt-28 sm:pb-12 overflow-hidden bg-[#061518] text-white border-b border-white/10">
         
         {/* Fundo Tecnológico Limpo: Gradiente Petróleo + Glow Esmeralda/Dourado + Malha Fina */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
@@ -161,7 +161,7 @@ export function Home() {
               </div>
 
               {/* Headline Forte Estilo Startup */}
-              <h1 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[58px] font-black text-white tracking-tight leading-[1.06] mb-5">
+              <h1 className="text-3xl sm:text-5xl lg:text-[46px] xl:text-[52px] font-black text-white tracking-tight leading-[1.08] mb-4 text-balance">
                 SEU E-COMMERCE FATURA. <br />
                 <span className="block mt-1.5 gradiente font-black">
                   QUANTO VIRA LUCRO REAL?
@@ -231,7 +231,7 @@ export function Home() {
       {/* =========================================================================
           3.1 LOGOS DE CLIENTES & OPERAÇÕES — [CARROSSEL CONTÍNUO]
       ========================================================================= */}
-      <section className="py-6 sm:py-8 bg-[#071A1E] border-b border-white/10 overflow-hidden relative">
+      <section className="py-4 sm:py-5 bg-[#071A1E] border-b border-white/10 overflow-hidden relative">
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] py-2">
           <div className="flex w-max animate-marquee gap-10 sm:gap-16 items-center">
             {[...clientLogos, ...clientLogos].map((logo, idx) => (
@@ -267,17 +267,17 @@ export function Home() {
       {/* =========================================================================
           4. CAUSA ECONÔMICA (Sintoma x Causa x O que Você Ganha) — [DIRETO & EXECUTIVO]
       ========================================================================= */}
-      <section id="causa-economica" className="py-16 sm:py-24 bg-[#F4F6F7] text-slate-900 border-b border-slate-200">
+      <section id="causa-economica" className="py-12 sm:py-16 bg-[#F4F6F7] text-slate-900 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Cabeçalho Enxuto */}
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-3">
+          <div className="text-center max-w-4xl mx-auto mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] mb-2.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
               Causa Econômica
             </div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
-              O que parece falta de caixa ou de vendas <br className="hidden sm:inline" />
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-2.5 text-balance">
+              O que parece falta de caixa ou de vendas{" "}
               <span className="text-[#0E4A55]">costuma ter outra origem</span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
@@ -302,11 +302,11 @@ export function Home() {
           </div>
 
           {/* Linhas da Matriz (Compactas & Diretas) */}
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             {economicCauses.map((item, idx) => (
               <div 
                 key={idx} 
-                className="p-5 sm:p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#0E4A55] hover:shadow-md transition-all duration-200 group"
+                className="p-4 rounded-2xl bg-white border border-slate-200/90 hover:border-[#0E4A55] hover:shadow-md transition-all duration-200 group"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-4 items-center">
                   
@@ -361,7 +361,7 @@ export function Home() {
           </div>
 
           {/* Micro-CTA Enxuto */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs max-w-4xl mx-auto">
+          <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs max-w-4xl mx-auto">
             <p className="text-xs sm:text-sm text-slate-700 font-medium text-center sm:text-left">
               Identificou esse padrão no seu caixa? No diagnóstico gratuito, mapeamos onde o seu dinheiro está ficando.
             </p>
@@ -381,20 +381,20 @@ export function Home() {
       {/* =========================================================================
           5. MÉTODO DAPE (Dados, Análise, Planejamento, Execução) — [SESSÃO CLARA: #FFFFFF]
       ========================================================================= */}
-      <section id="metodo-dape" className="py-20 sm:py-28 bg-gradient-to-b from-white via-[#F4F8F9] to-white text-slate-900 border-b border-slate-200 relative overflow-hidden">
+      <section id="metodo-dape" className="py-12 sm:py-16 bg-gradient-to-b from-white via-[#F4F8F9] to-white text-slate-900 border-b border-slate-200 relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0E4A5508_1px,transparent_1px),linear-gradient(to_bottom,#0E4A5508_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,#000_60%,transparent_100%)] pointer-events-none"></div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
+          <div className="text-center max-w-4xl mx-auto mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
               Metodologia Exclusiva
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
-              DAPE: do dado bruto à <br className="hidden sm:inline" />
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3 text-balance">
+              DAPE: do dado bruto à{" "}
               <span className="text-[#0E4A55]">execução que multiplica o lucro</span>
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto">
               Um ciclo de melhoria contínua em quatro pilares. Cada volta transforma números soltos em decisões, e decisões em lucro no bolso. Clique em cada etapa para explorar.
             </p>
           </div>
@@ -407,30 +407,30 @@ export function Home() {
       {/* =========================================================================
           7. SOLUÇÕES MONT FINANCE (CFO Pro Principal + CFO Full Upsell) & CONTRATÁVEL À PARTE
       ========================================================================= */}
-      <section id="niveis" className="py-20 sm:py-28 bg-[#F4F6F7] text-slate-900 border-b border-slate-200 relative overflow-hidden">
+      <section id="niveis" className="py-12 sm:py-16 bg-[#F4F6F7] text-slate-900 border-b border-slate-200 relative overflow-hidden">
         {/* Glow de fundo */}
         <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#E8A33D]/10 rounded-full blur-[160px] pointer-events-none"></div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
+          <div className="text-center max-w-4xl mx-auto mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
               Nossas Soluções
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5">
-              Inteligência financeira sob medida, <br className="hidden sm:inline" />
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3 text-balance">
+              Inteligência financeira sob medida,{" "}
               <span className="text-[#0E4A55]">conforme a estrutura da sua empresa</span>
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto">
               Nosso produto principal é o <strong className="text-slate-800">CFO Pro</strong> — desenhado para levar inteligência financeira, controladoria e decisão estratégica ao seu e-commerce. Caso sua empresa não possua equipe interna para executar a rotina financeira do dia a dia, oferecemos o <strong className="text-slate-800">CFO Full</strong> como expansão opcional.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-10">
             
             {/* Produto Principal — CFO Pro (EM DESTAQUE ESCURO + BORDA DOURADA) */}
-            <div id="cfo-pro" className="p-8 sm:p-10 rounded-3xl bg-[#0A272D] border-2 border-[#E8A33D] transition-all flex flex-col justify-between shadow-[0_30px_70px_-20px_rgba(7,26,30,0.55),0_0_40px_rgba(232,163,61,0.18)] relative md:-translate-y-3">
+            <div id="cfo-pro" className="p-6 sm:p-8 rounded-3xl bg-[#0A272D] border-2 border-[#E8A33D] transition-all flex flex-col justify-between shadow-[0_24px_60px_-20px_rgba(7,26,30,0.55),0_0_35px_rgba(232,163,61,0.18)] relative">
               <div>
                 <div className="flex items-center justify-between gap-2 mb-4">
                   <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#E8A33D] text-[#071A1E]">
@@ -487,7 +487,7 @@ export function Home() {
             </div>
 
             {/* Extensão Opcional / Upsell — CFO Full */}
-            <div id="cfo-full" className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 hover:border-[#0E4A55]/40 flex flex-col justify-between transition-all duration-300 shadow-lg hover:shadow-xl group">
+            <div id="cfo-full" className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#0E4A55]/40 flex flex-col justify-between transition-all duration-300 shadow-lg hover:shadow-xl group">
               <div>
                 <div className="flex items-center justify-between gap-2 mb-4">
                   <span className="text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-[#0E4A55]/10 text-[#0E4A55]">
@@ -546,8 +546,8 @@ export function Home() {
           </div>
 
           {/* Bloco Curto: Contratável à parte e Projetos Pontuais */}
-          <div className="max-w-5xl mx-auto p-6 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-lg">
-            <div className="mb-8 text-center sm:text-left">
+          <div className="max-w-5xl mx-auto p-5 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-lg">
+            <div className="mb-5 text-center sm:text-left">
               <span className="text-xs font-bold uppercase tracking-wider text-[#0E4A55] block mb-1">
                 Módulos adicionais (Add-ons) e projetos sob demanda
               </span>
@@ -556,9 +556,9 @@ export function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {/* Inteligência Tributária */}
-              <div className="p-6 sm:p-8 rounded-2xl bg-[#F8FAFB] border border-slate-200 hover:border-[#0E4A55]/40 hover:bg-white transition-all flex flex-col justify-between">
+              <div className="p-5 rounded-2xl bg-[#F8FAFB] border border-slate-200 hover:border-[#0E4A55]/40 hover:bg-white transition-all flex flex-col justify-between">
                 <div>
                   <div className="mb-2">
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8A33D]/15 text-[#B27318] inline-block mb-2">
@@ -602,7 +602,7 @@ export function Home() {
               </div>
 
               {/* Captação de Recursos */}
-              <div className="p-6 sm:p-8 rounded-2xl bg-[#F8FAFB] border border-slate-200 hover:border-[#0E4A55]/40 hover:bg-white transition-all flex flex-col justify-between">
+              <div className="p-5 rounded-2xl bg-[#F8FAFB] border border-slate-200 hover:border-[#0E4A55]/40 hover:bg-white transition-all flex flex-col justify-between">
                 <div>
                   <div className="mb-2">
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E8A33D]/15 text-[#B27318] inline-block mb-2">
@@ -646,7 +646,7 @@ export function Home() {
               </div>
 
               {/* Advisory (Projetos Pontuais) */}
-              <div className="p-6 sm:p-8 rounded-2xl bg-[#F8FAFB] border border-slate-200 hover:border-[#0E4A55]/40 hover:bg-white transition-all flex flex-col justify-between">
+              <div className="p-5 rounded-2xl bg-[#F8FAFB] border border-slate-200 hover:border-[#0E4A55]/40 hover:bg-white transition-all flex flex-col justify-between">
                 <div>
                   <div className="mb-2">
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#0E4A55]/10 text-[#0E4A55] inline-block mb-2">
@@ -697,20 +697,20 @@ export function Home() {
       {/* =========================================================================
           8. BLOCO COMPARATIVO (Estilo Growth Machine: "Nós vs O Mercado") — [SESSÃO CLARA: #FFFFFF]
       ========================================================================= */}
-      <section id="comparativo" className="py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200 relative">
+      <section id="comparativo" className="py-12 sm:py-16 bg-white text-slate-900 border-b border-slate-200 relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
+          <div className="text-center max-w-4xl mx-auto mb-9">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
               Posicionamento
             </div>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4 leading-tight">
-              Por que a contabilidade comum ou uma consultoria teórica <br className="hidden sm:inline" />
+            <h3 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2.5 leading-tight text-balance">
+              Por que a contabilidade comum ou uma consultoria teórica{" "}
               <span className="text-[#0E4A55]">não aumentam o seu lucro?</span>
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
-              Enquanto a contabilidade tradicional apenas cumpre obrigações fiscais e consultores entregam relatórios teóricos e vão embora, a Mont Finance assume a cadeira executiva de finanças do seu e-commerce com você.
+              Enquanto a contabilidade tradicional apenas cumpre obrigações fiscais e consultores entregam relatórios teóricos e vão embora, a Mont Finance assume a inteligência financeira do seu e-commerce com você.
             </p>
           </div>
 
@@ -812,18 +812,18 @@ export function Home() {
       {/* =========================================================================
           9. QUEM CONDUZ (Leander Venâncio) — [SESSÃO ESCURA: #071A1E]
       ========================================================================= */}
-      <section id="quem-conduz" className="py-20 sm:py-28 bg-[#071A1E] text-white border-b border-white/10 relative overflow-hidden">
+      <section id="quem-conduz" className="py-12 sm:py-16 bg-[#071A1E] text-white border-b border-white/10 relative overflow-hidden">
         {/* Glow de fundo */}
         <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#0E4A55]/25 rounded-full blur-[140px] pointer-events-none"></div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[11px] font-bold uppercase tracking-wider text-[#F5B85D] mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-wider text-[#F5B85D] mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E8A33D]"></span>
               Fundador &amp; Liderança
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-2 text-balance">
               Quem está por trás da Mont Finance
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed">
@@ -831,7 +831,7 @@ export function Home() {
             </p>
           </div>
 
-          <div className="p-8 sm:p-12 rounded-3xl bg-[#0A272D] border border-white/10 flex flex-col md:flex-row items-center gap-8 md:gap-12 shadow-2xl">
+          <div className="p-6 sm:p-9 rounded-3xl bg-[#0A272D] border border-white/10 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-2xl">
             
             <div className="shrink-0 relative">
               <div className="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden border-2 border-[#E8A33D]/60 bg-[#071A1E] shadow-2xl relative">
@@ -887,20 +887,20 @@ export function Home() {
       {/* =========================================================================
           10 & 11. DIAGNÓSTICO & FAQ — [IDENTIDADE EXECUTIVA MONT FINANCE]
       ========================================================================= */}
-      <section id="diagnostico" className="py-20 sm:py-28 bg-white text-slate-900 border-b border-slate-200 relative overflow-hidden">
+      <section id="diagnostico" className="py-12 sm:py-16 bg-white text-slate-900 border-b border-slate-200 relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch mb-14">
             
             {/* Coluna Esquerda: Identidade Executiva Mont Finance (Alinhada Topo e Base com o Card) */}
             <div className="lg:col-span-6 flex flex-col justify-between">
               <div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] mb-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
                   Diagnóstico Financeiro Executivo
                 </div>
 
-                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight mb-4 leading-[1.14]">
+                <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3 leading-[1.15] text-balance">
                   Dê o primeiro passo para escalar o seu{" "}
                   <span className="text-[#0E4A55]">lucro</span> com um diagnóstico gratuito
                 </h2>
@@ -953,22 +953,22 @@ export function Home() {
               FAQ CURTO (Em fundo Claro Moderno)
           ========================================================================= */}
           <div id="faq" className="max-w-4xl mx-auto pt-8 border-t border-slate-200">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
                 Dúvidas Comuns
               </div>
-              <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight text-balance">
                 O que todo dono de e-commerce pergunta
               </h3>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               {faqs.map((faq, idx) => (
                 <div key={idx} className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-sm">
                   <button
                     onClick={() => toggleFaq(idx)}
-                    className="w-full text-left flex items-center justify-between gap-4 p-5 sm:p-6 hover:text-[#0E4A55] transition-colors"
+                    className="w-full text-left flex items-center justify-between gap-4 p-4 sm:p-5 hover:text-[#0E4A55] transition-colors"
                   >
                     <span className="text-sm sm:text-base font-bold text-slate-800">{faq.q}</span>
                     <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shrink-0">

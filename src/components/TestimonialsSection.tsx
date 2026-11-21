@@ -60,16 +60,16 @@ export function TestimonialsSection() {
   return (
     <section
       id="depoimentos"
-      className="py-16 sm:py-24 bg-white text-slate-900 border-b border-slate-200 relative overflow-hidden"
+      className="py-12 sm:py-16 bg-white text-slate-900 border-b border-slate-200 relative overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[11px] font-bold uppercase tracking-wider text-[#0E4A55] mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E4A55]/10 border border-[#0E4A55]/30 text-[10px] font-bold uppercase tracking-wider text-[#0E4A55] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#0E4A55]"></span>
             Prova Social Real
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-2.5 text-balance">
             Quem já viveu a{" "}
             <span className="text-[#0E4A55]">Mont Finance</span>
           </h2>
@@ -79,11 +79,11 @@ export function TestimonialsSection() {
         </div>
 
         {/* Grid de 4 Cards Executivos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {testimonials.map((item) => (
             <div
               key={item.id}
-              className="p-6 rounded-2xl bg-[#F8FAFB] border border-slate-200/90 hover:border-[#0E4A55]/50 hover:bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              className="p-5 rounded-2xl bg-[#F8FAFB] border border-slate-200/90 hover:border-[#0E4A55]/50 hover:bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 {/* Estrelas + Selo WhatsApp */}
