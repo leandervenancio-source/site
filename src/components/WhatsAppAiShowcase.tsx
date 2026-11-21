@@ -5,8 +5,12 @@ import {
   CheckCheck,
   Sparkles,
   Mic,
-  Send,
-  Database
+  Phone,
+  Video,
+  MoreVertical,
+  Smile,
+  Paperclip,
+  Camera
 } from "lucide-react";
 
 interface AiScenario {
@@ -15,8 +19,8 @@ interface AiScenario {
   question: string;
   timeUser: string;
   timeBot: string;
-  replyIntro: string;
-  kpis: { label: string; value: string; accent?: string }[];
+  replyHeader: string;
+  replyLines: { label: string; value: string }[];
   replyTip: string;
   source: string;
 }
@@ -28,16 +32,15 @@ const scenarios: AiScenario[] = [
     question: "Quanto sobrou de lucro líquido no mês até hoje?",
     timeUser: "14:18",
     timeBot: "14:18",
-    replyIntro:
-      "No consolidado do mês até agora, sua operação faturou R$ 1.648.420 com sobra líquida real de R$ 225.904 (13,7%):",
-    kpis: [
-      { label: "Faturamento", value: "R$ 1,64M", accent: "text-white" },
-      { label: "CMV (38%)", value: "- R$ 626,4k", accent: "text-rose-300" },
-      { label: "Lucro Líquido", value: "+ R$ 225,9k", accent: "text-emerald-400" }
+    replyHeader: "Resumo consolidado do mês até agora:",
+    replyLines: [
+      { label: "💰 Faturamento:", value: "R$ 1.648.420" },
+      { label: "📦 CMV (38%):", value: "- R$ 626.400" },
+      { label: "📈 Lucro líquido real:", value: "R$ 225.904 (13,7%)" }
     ],
     replyTip:
-      "Destaque: o Site Próprio gerou 81% de todo o lucro (margem de 19%).",
-    source: "DRE Gerencial + ERP · Atualizado agora"
+      "O Site Próprio gerou 81% de todo o lucro do mês (margem líquida de 19%).",
+    source: "Fonte: DRE Gerencial + ERP"
   },
   {
     id: "canal",
@@ -45,16 +48,15 @@ const scenarios: AiScenario[] = [
     question: "Qual canal está deixando mais margem líquida hoje?",
     timeUser: "15:04",
     timeBot: "15:04",
-    replyIntro:
-      "Comparando margem líquida após CMV, impostos, taxas, frete e mídia, o ranking de rentabilidade está assim:",
-    kpis: [
-      { label: "Site Próprio", value: "19% lucro", accent: "text-emerald-400" },
-      { label: "Mercado Livre", value: "8% lucro", accent: "text-[#F5B85D]" },
-      { label: "Shopee", value: "4% lucro", accent: "text-rose-300" }
+    replyHeader: "Ranking de margem líquida (após CMV, taxas, frete e ads):",
+    replyLines: [
+      { label: "🟢 Site Próprio:", value: "19% (R$ 183,2 mil)" },
+      { label: "🟡 Mercado Livre:", value: "8% (R$ 30,6 mil)" },
+      { label: "🔴 Shopee:", value: "4% (R$ 12,1 mil)" }
     ],
     replyTip:
-      "Atenção: cupons e comissão na Shopee estão consumindo 20% da venda. Vale revisar o desconto mínimo.",
-    source: "BI Canais + Marketplaces · Atualizado agora"
+      "Cupons e comissão na Shopee estão consumindo 20% da venda. Vale travar o desconto mínimo.",
+    source: "Fonte: BI Canais + Marketplaces"
   },
   {
     id: "caixa",
@@ -62,16 +64,15 @@ const scenarios: AiScenario[] = [
     question: "Como está a previsão do meu caixa para os próximos 30 dias?",
     timeUser: "09:32",
     timeBot: "09:32",
-    replyIntro:
-      "Seu caixa projetado fecha positivo em R$ 512.000 sem precisar antecipar recebíveis, mas há um ponto de atenção no dia 15:",
-    kpis: [
-      { label: "Saldo Hoje", value: "R$ 380,0k", accent: "text-white" },
-      { label: "Pico Dia 15", value: "- R$ 148,5k", accent: "text-[#F5B85D]" },
-      { label: "Saldo 30d", value: "R$ 512,0k", accent: "text-emerald-400" }
+    replyHeader: "Projeção de caixa para os próximos 30 dias:",
+    replyLines: [
+      { label: "🏦 Saldo hoje em conta:", value: "R$ 380.000" },
+      { label: "⚠️ Pico de saídas (dia 15):", value: "- R$ 148.500" },
+      { label: "✅ Saldo projetado (30d):", value: "R$ 512.000" }
     ],
     replyTip:
-      "O repasse do Mercado Livre entra dia 16. Recomendo segurar R$ 45k em conta para cobrir fornecedores no dia 15.",
-    source: "Fluxo de Caixa 90d + Bancos · Atualizado agora"
+      "O repasse do Mercado Livre cai no dia 16. Segure R$ 45 mil em conta para pagar fornecedores sem antecipar recebível.",
+    source: "Fonte: Fluxo de Caixa 90d + Bancos"
   },
   {
     id: "estoque",
@@ -79,16 +80,15 @@ const scenarios: AiScenario[] = [
     question: "Quanto tenho parado em estoque de baixo giro (Curva C)?",
     timeUser: "11:47",
     timeBot: "11:47",
-    replyIntro:
-      "Você tem R$ 310.000 em CMV imobilizado em 42 SKUs da Curva C parados há mais de 90 dias no galpão:",
-    kpis: [
-      { label: "CMV Parado", value: "R$ 310,0k", accent: "text-[#F5B85D]" },
-      { label: "SKUs Curva C", value: "42 itens", accent: "text-white" },
-      { label: "Custo Mensal", value: "- R$ 6,2k/mês", accent: "text-rose-300" }
+    replyHeader: "Raio-X de estoque parado (+90 dias sem giro):",
+    replyLines: [
+      { label: "📦 CMV imobilizado:", value: "R$ 310.000" },
+      { label: "🏷️ Quantidade Curva C:", value: "42 SKUs" },
+      { label: "📉 Custo financeiro:", value: "- R$ 6.200/mês" }
     ],
     replyTip:
-      "Se fizermos um combo de liquidação com 20% OFF no Site Próprio, você libera ~R$ 190k em caixa vivo em 30 dias.",
-    source: "ERP Estoque + Curva ABC · Atualizado agora"
+      "Um combo de liquidação com 20% OFF no Site Próprio libera ~R$ 190 mil em caixa vivo em 30 dias.",
+    source: "Fonte: ERP Estoque + Curva ABC"
   }
 ];
 
@@ -146,102 +146,107 @@ export function WhatsAppAiShowcase() {
           </div>
         </div>
 
-        {/* COLUNA DIREITA: SIMULADOR INTERATIVO DE WHATSAPP */}
+        {/* COLUNA DIREITA: VISUAL REALISTA DE WHATSAPP (DARK MODE OFICIAL) */}
         <div className="lg:col-span-7">
-          <div className="rounded-3xl bg-[#061518] border border-white/15 shadow-[0_24px_60px_rgba(0,0,0,0.55)] overflow-hidden">
+          <div className="rounded-[26px] bg-[#0B141A] border border-white/15 shadow-[0_28px_70px_rgba(0,0,0,0.65)] overflow-hidden max-w-[560px] mx-auto">
             
-            {/* Header Estilo WhatsApp */}
-            <div className="px-4 sm:px-5 py-3 bg-[#0A272D] border-b border-white/10 flex items-center justify-between gap-3">
-              <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full bg-[#061518] border border-[#E8A33D]/60 flex items-center justify-center shrink-0">
+            {/* Top Bar Oficial do WhatsApp */}
+            <div className="px-4 py-3 bg-[#202C33] border-b border-white/5 flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="relative w-10 h-10 rounded-full bg-[#071A1E] border border-[#E8A33D]/70 flex items-center justify-center shrink-0">
                   <img
                     src="/brand/mont-finance-icone-ambar.png"
-                    alt="Mont AI"
+                    alt="Mont Finance IA"
                     className="w-6 h-6 object-contain"
                   />
-                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-[#25D366] ring-2 ring-[#0A272D]"></span>
                 </div>
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <strong className="text-xs sm:text-sm font-extrabold text-white">
-                      Mont AI · WhatsApp
-                    </strong>
-                    <span className="px-1.5 py-0.5 rounded bg-[#E8A33D]/20 text-[#F5B85D] text-[8px] font-mono font-black uppercase">
-                      24/7
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-mono text-[#4ade80] block">
-                    online · conectado ao ERP, DRE e Bancos
+                <div className="min-w-0">
+                  <strong className="text-sm font-semibold text-[#E9EDEF] block truncate leading-tight">
+                    Mont Finance · IA
+                  </strong>
+                  <span className="text-[11px] text-[#8696A0] block truncate">
+                    online
                   </span>
                 </div>
               </div>
 
-              <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[9px] font-mono text-slate-300">
-                <Database className="w-3 h-3 text-[#F5B85D]" />
-                Dado Vivo
-              </span>
+              <div className="flex items-center gap-4 text-[#AEBAC1] shrink-0">
+                <Video className="w-4 h-4 opacity-80" />
+                <Phone className="w-4 h-4 opacity-80" />
+                <MoreVertical className="w-4 h-4 opacity-80" />
+              </div>
             </div>
 
-            {/* Corpo do Chat */}
-            <div className="p-4 sm:p-5 space-y-3.5 min-h-[295px] flex flex-col justify-between bg-[radial-gradient(ellipse_at_top_right,_rgba(14,74,85,0.22)_0%,_transparent_70%)]">
+            {/* Área de Mensagens com Fundo Característico do WhatsApp Dark */}
+            <div
+              className="p-4 sm:p-5 min-h-[325px] flex flex-col justify-between relative"
+              style={{
+                backgroundColor: "#0B141A",
+                backgroundImage:
+                  "radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px)",
+                backgroundSize: "24px 24px",
+                backgroundPosition: "0 0, 12px 12px"
+              }}
+            >
+              {/* Pill de Data "HOJE" estilo WhatsApp */}
+              <div className="flex justify-center mb-3">
+                <span className="px-3 py-1 rounded-lg bg-[#182229] text-[#8696A0] text-[10px] font-medium uppercase tracking-wide shadow-xs">
+                  Hoje
+                </span>
+              </div>
+
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current.id}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.22 }}
-                  className="space-y-3.5"
+                  transition={{ duration: 0.2 }}
+                  className="space-y-3 flex-1 flex flex-col justify-center"
                 >
-                  {/* Mensagem do Gestor (Direita) */}
+                  {/* Bolha Enviada pelo Gestor (Verde WhatsApp #005C4B) */}
                   <div className="flex justify-end">
-                    <div className="max-w-[85%] px-4 py-2.5 rounded-2xl rounded-tr-sm bg-[#0E4A55] border border-teal-400/25 text-white shadow-md">
-                      <p className="text-xs sm:text-sm font-medium leading-snug">
+                    <div className="relative max-w-[84%] px-3.5 py-2 rounded-lg rounded-tr-none bg-[#005C4B] text-[#E9EDEF] shadow-sm">
+                      <p className="text-[13px] leading-snug pr-12">
                         {current.question}
                       </p>
-                      <div className="flex items-center justify-end gap-1 mt-1 text-[9px] font-mono text-teal-200/80">
-                        <span>{current.timeUser}</span>
-                        <CheckCheck className="w-3 h-3 text-sky-300" />
-                      </div>
+                      <span className="absolute bottom-1.5 right-2.5 inline-flex items-center gap-1 text-[10px] text-[#99BEB7]">
+                        {current.timeUser}
+                        <CheckCheck className="w-3.5 h-3.5 text-[#53BDEB]" />
+                      </span>
                     </div>
                   </div>
 
-                  {/* Resposta da Mont AI (Esquerda) */}
+                  {/* Bolha Recebida da Mont Finance IA (Cinza Escuro WhatsApp #202C33) */}
                   <div className="flex justify-start">
-                    <div className="w-full sm:max-w-[92%] p-4 rounded-2xl rounded-tl-sm bg-[#0A272D] border border-[#E8A33D]/35 text-slate-200 shadow-lg space-y-3">
-                      <p className="text-xs sm:text-[13px] leading-relaxed text-slate-100">
-                        {current.replyIntro}
+                    <div className="relative max-w-[92%] sm:max-w-[88%] px-3.5 py-2.5 rounded-lg rounded-tl-none bg-[#202C33] text-[#E9EDEF] shadow-sm space-y-2 text-[13px] leading-relaxed">
+                      <p className="font-semibold text-white">
+                        {current.replyHeader}
                       </p>
 
-                      {/* Mini KPI Cards dentro da resposta do WhatsApp */}
-                      <div className="grid grid-cols-3 gap-2">
-                        {current.kpis.map((kpi, idx) => (
-                          <div
-                            key={idx}
-                            className="p-2.5 rounded-xl bg-[#061518] border border-white/10"
-                          >
-                            <span className="text-[9px] font-mono uppercase tracking-wider text-slate-400 block truncate">
-                              {kpi.label}
-                            </span>
-                            <strong
-                              className={`text-xs sm:text-sm font-mono font-extrabold block mt-0.5 ${
-                                kpi.accent || "text-white"
-                              }`}
-                            >
-                              {kpi.value}
+                      <div className="space-y-1 pl-0.5">
+                        {current.replyLines.map((line, idx) => (
+                          <div key={idx} className="text-[12.5px]">
+                            <span className="text-[#D1D7DB]">{line.label} </span>
+                            <strong className="text-white font-bold">
+                              {line.value}
                             </strong>
                           </div>
                         ))}
                       </div>
 
-                      <p className="text-[11px] sm:text-xs text-slate-300 leading-snug pt-1 border-t border-white/10">
-                        <strong className="text-[#F5B85D]">✦ Insight:</strong>{" "}
+                      <p className="text-[12.5px] text-[#D1D7DB] pt-1 border-t border-white/10">
+                        <strong className="text-[#F5B85D]">💡 Recomendação:</strong>{" "}
                         {current.replyTip}
                       </p>
 
-                      <div className="flex items-center justify-between gap-2 text-[9px] font-mono text-slate-400 pt-0.5">
-                        <span className="truncate">{current.source}</span>
-                        <span className="shrink-0">{current.timeBot}</span>
+                      <div className="flex items-end justify-between gap-3 pt-0.5">
+                        <span className="text-[10.5px] italic text-[#8696A0]">
+                          {current.source}
+                        </span>
+                        <span className="text-[10px] text-[#8696A0] shrink-0">
+                          {current.timeBot}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -249,16 +254,20 @@ export function WhatsAppAiShowcase() {
               </AnimatePresence>
             </div>
 
-            {/* Barra de Input Estilo WhatsApp */}
-            <div className="px-4 py-2.5 bg-[#0A272D] border-t border-white/10 flex items-center gap-2.5">
-              <div className="flex-1 px-3.5 py-2 rounded-full bg-[#061518] border border-white/10 text-[11px] text-slate-400 truncate">
-                Pergunte por texto ou áudio no seu WhatsApp...
+            {/* Barra Inferior Oficial do WhatsApp */}
+            <div className="px-3 py-2.5 bg-[#202C33] flex items-center gap-2.5">
+              <div className="flex items-center gap-3 text-[#8696A0] pl-1">
+                <Smile className="w-5 h-5" />
+                <Paperclip className="w-5 h-5" />
               </div>
-              <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 text-slate-300 flex items-center justify-center shrink-0">
-                <Mic className="w-3.5 h-3.5" />
+
+              <div className="flex-1 px-4 py-2 rounded-full bg-[#2A3942] text-xs text-[#8696A0] flex items-center justify-between gap-2">
+                <span className="truncate">Mensagem</span>
+                <Camera className="w-4 h-4 shrink-0" />
               </div>
-              <div className="w-8 h-8 rounded-full bg-[#25D366] text-[#061518] flex items-center justify-center shrink-0">
-                <Send className="w-3.5 h-3.5" />
+
+              <div className="w-9 h-9 rounded-full bg-[#00A884] text-[#0B141A] flex items-center justify-center shrink-0 shadow-sm">
+                <Mic className="w-4 h-4" />
               </div>
             </div>
 
