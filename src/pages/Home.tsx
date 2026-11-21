@@ -16,6 +16,7 @@ import { FinancialCockpit } from "../components/FinancialCockpit";
 import { DapeCycle } from "../components/DapeCycle";
 import { HeroDataOrbit } from "../components/HeroDataOrbit";
 import { TestimonialsSection } from "../components/TestimonialsSection";
+import { WhatsAppAiShowcase } from "../components/WhatsAppAiShowcase";
 import { trackCtaClick } from "../lib/analytics";
 
 export function Home() {
@@ -310,6 +311,7 @@ export function Home() {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FinancialCockpit />
+          <WhatsAppAiShowcase />
         </div>
       </section>
 
@@ -503,7 +505,7 @@ export function Home() {
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
-                    <span><strong className="text-white">Painel vivo de BI:</strong> vendas, metas, CMV, ROAS e margem atualizados sem planilhas manuais.</span>
+                    <span><strong className="text-white">Painel vivo de BI + IA no WhatsApp:</strong> consulte vendas, CMV, ROAS e caixa em tempo real por painel ou mensagem.</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#F5B85D] shrink-0 mt-0.5" />
